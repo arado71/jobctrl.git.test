@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eb1ef406-72aa-48c9-905d-b2a4b7f88de7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.pipe://localhost/OutlookMeetingCaptureService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="15279eef-2f92-4c04-b8ff-9b2f42cbd5da" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d3efa54c-3b3c-465d-bcdb-00b67b398710" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="25f1243c-fb8a-440c-9587-82ce963fb469" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1408fd6b-86c6-4f0a-89e9-4ad79e298fef" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="cad3f5e0-0d69-404e-b4e2-57df0e90467a" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="c1a5a482-ccd1-4684-a7ec-bd267316e17f" SourceId="1" SourceUrl="net.pipe://localhost/OutlookMeetingCaptureService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

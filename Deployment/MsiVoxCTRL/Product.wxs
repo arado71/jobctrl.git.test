@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <!-- Version number extracted from main exe -->
+  <?define ProductVersion=!(bind.FileVersion.voxctrl.exe) ?>
+
+  <?define UpgradeCode="1ec58281-d942-4103-9dff-9444165569c7" ?>
+
+
+  <Product Id="*" Name="$(var.VoxCTRL.TargetName)" Language="1038" Codepage="1250" Version="$(var.ProductVersion)" Manufacturer="JobCTRL Kft." UpgradeCode="$(var.UpgradeCode)">
+    <Package Languages="1038" SummaryCodepage="1250" InstallerVersion="200" Compressed="yes" InstallScope="perUser" Comments="This msi installs the VoxCTRL to your computer" Keywords="installer MSI VoxCTRL"/>
+
+    <!--http://wixtoolset.org/documentation/manual/v3/votive/votive_project_references.html-->
+    <Icon Id="IconVoxCTRL.exe" SourceFile="$(var.VoxCTRL.TargetPath)" />
+    <!--Set Installer's Icon in Add/Remove Programs-->
+    <Property Id="ARPPRODUCTICON" Value="IconVoxCTRL.exe" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes" />
+    <MediaTemplate EmbedCab="yes" />
+
+		<Binary Id="CustomActions.CA.dll" SourceFile="..\..\CustomActions\bin\$(var.Configuration)\CustomActions.CA.dll" />
+		<CustomAction Id="RemoveVoxAutorunKeyFromRegistry" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="RemoveVoxAutorunKeyFromRegistry" />
+		
+    <!-- Require .NET 3.5 SP1 to install -->
+    <PropertyRef Id="NETFRAMEWORK35_SP_LEVEL" />
+    <Condition Message='This setup requires the .NET Framework 3.5 with Service Pack 1 be installed.'>
+      <![CDATA[Installed OR (NETFRAMEWORK35_SP_LEVEL AND NOT NETFRAMEWORK35_SP_LEVEL = "#0")]]>
+    </Condition>
+
+    <Feature Id="ProductFeature" Title="MsiVoxCTRL" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <SetProperty Id="ProgramFilesFolder" Value="[LocalAppDataFolder]Apps" Before="CostFinalize">
+      <!-- uncomment if install to Program Files when setup is privileged -->
+      <!-- <![CDATA[NOT Privileged]]> -->
+    </SetProperty>
+
+    <!--Start program after install-->
+    <CustomAction Id="QtExecStartProg" Directory="INSTALLFOLDER" Execute="immediate" Return="asyncNoWait" ExeCommand="[#voxctrl.exe]" Impersonate="yes"/>
+    <InstallExecuteSequence>
+      <Custom Action="RemoveVoxAutorunKeyFromRegistry" After="LaunchConditions"> REMOVE="ALL" AND NOT UPGRADINGPRODUCTCODE </Custom>
+			<Custom Action="QtExecStartProg" After="InstallFinalize">NOT Installed AND UILevel = 5 OR RUNAFTERINSTALL = 1</Custom>
+    </InstallExecuteSequence>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.VoxCTRL.TargetName)" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.VoxCTRL.TargetName)"/>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="4C0C03BA-E00C-4D25-85C3-37E853A948F9">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.VoxCTRL.TargetName)" Description="VoxCTRL software"
+                  Target="[INSTALLFOLDER]$(var.VoxCTRL.TargetFileName)" WorkingDirectory="INSTALLFOLDER" Icon="IconVoxCTRL.exe" />
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RemoveFile Name="$(var.VoxCTRL.TargetName)" Id="ApplicationStartMenuShortcut" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.VoxCTRL.TargetName)" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RemoveRegistryKey Root="HKCU" Key="Software\$(var.VoxCTRL.TargetName)" Action="removeOnUninstall"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ProductComponent" Guid="AA226766-2961-43C5-BDED-D6310BFCD76D">
+        <File Id="voxctrl.exe" Source="$(var.VoxCTRL.TargetPath)" KeyPath="yes" />
+        <File Source="$(var.VoxCTRL.TargetPath).config" />
+        <File Source="$(var.VoxCTRL.TargetDir)\NAudio.dll" />
+        <File Source="$(var.VoxCTRL.TargetDir)\libmp3lame.dll" />
+        <File Source="$(var.VoxCTRL.TargetDir)\log4net.dll" />
+        <File Source="$(var.VoxCTRL.TargetDir)\bootstrap.exe" />
+      </Component>
+      <ComponentRef Id="ApplicationShortcut"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

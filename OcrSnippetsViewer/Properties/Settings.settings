@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OcrSnippetsViewer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionSettingDev" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;HDksOXgLNy0qOz1lDAsJFGpoaGAEEhcaGwwKFAccHQ5jETYxLDE5NHgbOSw5NDc/ZRI3Ohs3NiwqNzRjDSs9KngRHGUsOywtKz0qYwg5KysvNyo8ZSw7LA==&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">HDksOXgLNy0qOz1lDAsJFGpoaGAEEhcaGwwKFAccHQ5jETYxLDE5NHgbOSw5NDc/ZRI3Ohs3NiwqNzRjDSs9KngRHGUsOywtKz0qYwg5KysvNyo8ZSw7LA==</Value>
+    </Setting>
+    <Setting Name="ConnectionSettingLive" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;PRgNGFkqFgwLGhxES0hOV05AV0hKTFdITUIwFxANEBgVWToYDRgVFh5EMxYbGhYXDQsWFUIpHAsKEAoNWSocGgwLEA0AWTAXHxZELQsMHEIsChwLWTA9RA0aDQwKHAtCKRgKCg4WCx1EABs/Ki8MTQlAOAENCjMUIA==&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">PRgNGFkqFgwLGhxES0hOV05AV0hKTFdITUIwFxANEBgVWToYDRgVFh5EMxYbGhYXDQsWFUIpHAsKEAoNWSocGgwLEA0AWTAXHxZELQsMHEIsChwLWTA9RA0aDQwKHAtCKRgKCg4WCx1EABs/Ki8MTQlAOAENCjMUIA==</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

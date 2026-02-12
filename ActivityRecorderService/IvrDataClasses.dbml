@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="IvrDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CalendarExceptions" Member="CalendarExceptions">
+    <Type Name="CalendarException">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CalendarId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TargetWorkTimeInMinutes" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEnd" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Association Name="Calendar_CalendarException" Member="Calendar" ThisKey="CalendarId" OtherKey="Id" Type="Calendar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Calendars" Member="Calendars">
+    <Type Name="Calendar">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsMondayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsTuesdayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsWednesdayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsThursdayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsFridayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSaturdayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSundayWorkDay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InheritedFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesMonday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesTuesday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesWednesday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesThursday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesFriday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesSaturday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="TargetWorkTimeInMinutesSunday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndMonday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndTuesday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndWednesday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndThursday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndFriday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndSaturday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="CoreTimeEndSunday" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Association Name="Calendar_CalendarException" Member="CalendarExceptions" ThisKey="Id" OtherKey="CalendarId" Type="CalendarException" />
+      <Association Name="Calendar_Calendar" Member="Calendars" ThisKey="Id" OtherKey="InheritedFrom" Type="Calendar" />
+      <Association Name="Calendar_Calendar" Member="InheritedCalendar" Storage="_Calendar1" ThisKey="InheritedFrom" OtherKey="Id" Type="Calendar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.IsWorkDay" Method="IsWorkDay" IsComposable="true">
+    <Parameter Name="calendarId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Boolean" />
+  </Function>
+</Database>

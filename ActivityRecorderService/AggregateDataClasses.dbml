@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="AggregateDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AggregateLastWorkItem" Member="AggregateLastWorkItems">
+    <Type Name="AggregateLastWorkItem">
+      <Column Name="LastAggregatedId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmailStats" Member="EmailStats">
+    <Type Name="EmailStat">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastSendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggregateWorkItemIntervals" Member="AggregateWorkItemIntervals">
+    <Type Name="AggregateWorkItemInterval">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhaseId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsRemoteDesktop" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" />
+      <Column Name="IsVirtualMachine" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsageStats" Member="UsageStats">
+    <Type Name="UsageStat">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocalDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerWorkTime" Member="ComputerWorkTimeInMs" AccessModifier="Private" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsAcked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IvrWorkTime" Member="IvrWorkTimeInMs" AccessModifier="Private" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobileWorkTime" Member="MobileWorkTimeInMs" AccessModifier="Private" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ManuallyAddedWorkTime" Member="ManuallyAddedWorkTimeInMs" AccessModifier="Private" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsedBeaconClient" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UsedVoxCtrl" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UsedMobile" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeadLetterItems" Member="DeadLetterItems">
+    <Type Name="DeadLetterItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ErrorText" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggregateDailyWorkTimes" Member="AggregateDailyWorkTimes">
+    <Type Name="AggregateDailyWorkTime">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TotalWorkTime" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="NetWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IvrWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobileWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ManualWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HolidayTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SickLeaveTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsValid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggregateDailyWorkTimesByWorkId" Member="AggregateDailyWorkTimesByWorkIds">
+    <Type Name="AggregateDailyWorkTimesByWorkId">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TotalWorkTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.UpdateHourlyAggregateWorkItems" Method="UpdateHourlyAggregateWorkItems">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Client_CommitUsageStatsToEcomm" Method="Client_CommitUsageStatsToEcomm">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTotalWorkTimeByWorkIdForUser" Method="GetTotalWorkTimeByWorkIdForUser">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetTotalWorkTimeByWorkIdForUserResult">
+      <Column Name="WorkId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalWorkTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerWorkTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerCorrectionTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IvrWorkTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IvrCorrectionTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MobileWorkTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MobileCorrectionTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManualWorkTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="HolidayTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SickLeaveTime" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

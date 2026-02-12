@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="MobileJobCTRL" elementFormDefault="qualified" targetNamespace="MobileJobCTRL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" />
+  <xs:element name="GetOnlineUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfUserData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserData" nillable="true" type="tns:UserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserData" nillable="true" type="tns:ArrayOfUserData" />
+  <xs:complexType name="UserData">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="DeviceType" type="q1:DeviceType" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Imei" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="Battery" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastCameraShotPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserData" nillable="true" type="tns:UserData" />
+</xs:schema>

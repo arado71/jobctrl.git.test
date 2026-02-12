@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WorksByTime" xml:space="preserve">
+    <value>Task timeline chart</value>
+  </data>
+  <data name="KeyboardActivityInfo" xml:space="preserve">
+    <value>Keyboard activity: average keystroke per minute</value>
+  </data>
+  <data name="SubjectMonthly" xml:space="preserve">
+    <value>Monthly {1} {0}</value>
+  </data>
+  <data name="SubjectStatistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="SubjectWeekly" xml:space="preserve">
+    <value>{1}. weekly, {0}</value>
+  </data>
+  <data name="AllWorkShort" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="NoCreditText" xml:space="preserve">
+    <value>Due to exceedeing credit limit only limited information is available.
+Consult your administrator and after your balance is settled the complete statistics will be available again.</value>
+  </data>
+  <data name="MouseActivityInfo" xml:space="preserve">
+    <value>Mouse activity: average number of events generated by the mouse in a day (click, roll).</value>
+  </data>
+  <data name="FrequentTitles" xml:space="preserve">
+    <value>Frequent title bars</value>
+  </data>
+  <data name="TitleOthers" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="FrequentUsage" xml:space="preserve">
+    <value>Frequently used applications</value>
+  </data>
+  <data name="UsageOthers" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="FrequentBrowsing" xml:space="preserve">
+    <value>Frequent URLs</value>
+  </data>
+  <data name="BrowsingOthers" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="ExceedDeadLine" xml:space="preserve">
+    <value>Tasks exceeding deadline</value>
+  </data>
+  <data name="ExceedTargetTime" xml:space="preserve">
+    <value>Tasks exceeding estimation</value>
+  </data>
+  <data name="WarnedTasks" xml:space="preserve">
+    <value>Warned tasks</value>
+  </data>
+  <data name="WorkTimeAll" xml:space="preserve">
+    <value>Working time*</value>
+  </data>
+  <data name="WorkTimePhone" xml:space="preserve">
+    <value>Working time (phone)</value>
+  </data>
+  <data name="WorkTimeNetto" xml:space="preserve">
+    <value>net</value>
+  </data>
+  <data name="WorkTimeWOCorrection" xml:space="preserve">
+    <value>without correction</value>
+  </data>
+  <data name="WorkTimeSmartPhone" xml:space="preserve">
+    <value>Working time (mobile)</value>
+  </data>
+  <data name="WorkTimeComputer" xml:space="preserve">
+    <value>Working time (desktop)</value>
+  </data>
+  <data name="WorkTimeRemoteDesktop" xml:space="preserve">
+    <value>remote desktop</value>
+  </data>
+  <data name="WorkTimeVirtualMachine" xml:space="preserve">
+    <value>virtual machine</value>
+  </data>
+  <data name="WorkTimeManuallyAdded" xml:space="preserve">
+    <value>Amended working time</value>
+  </data>
+  <data name="HolidayTime" xml:space="preserve">
+    <value>Paid holiday</value>
+  </data>
+  <data name="SickLeaveTime" xml:space="preserve">
+    <value>Sick leave</value>
+  </data>
+  <data name="WorkStarted" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="WorkEnd" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="TimeStatByTime" xml:space="preserve">
+    <value>Working time analytics</value>
+  </data>
+  <data name="TimeStatHeaderDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TimeStatHeaderAll" xml:space="preserve">
+    <value>Working time*</value>
+  </data>
+  <data name="TimeStatHeaderPhone" xml:space="preserve">
+    <value>Time (phone)</value>
+  </data>
+  <data name="TimeStatHeaderSmartPhone" xml:space="preserve">
+    <value>Time (mobile)</value>
+  </data>
+  <data name="TimeStatHeaderComputerTime" xml:space="preserve">
+    <value>Time (desktop)</value>
+  </data>
+  <data name="TimeStatHeaderManuallyAdded" xml:space="preserve">
+    <value>Amended</value>
+  </data>
+  <data name="TimeStatHeaderHoliday" xml:space="preserve">
+    <value>Pay holiday</value>
+  </data>
+  <data name="TimeStatHeaderSickLeave" xml:space="preserve">
+    <value>Sick leave</value>
+  </data>
+  <data name="TimeStatTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TimeStatByWork" xml:space="preserve">
+    <value>Break down for tasks</value>
+  </data>
+  <data name="TimeStatHeaderWorkname" xml:space="preserve">
+    <value>Task name</value>
+  </data>
+  <data name="TimeStatHeaderTime" xml:space="preserve">
+    <value>Task time**</value>
+  </data>
+  <data name="TimeStatHeaderPriority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="TimeStatHeaderStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="TimeStatHeaderEnd" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="TimeStatHeaderElapsed" xml:space="preserve">
+    <value>Elapsed %</value>
+  </data>
+  <data name="TimeStatHeaderTarget" xml:space="preserve">
+    <value>Estimated</value>
+  </data>
+  <data name="TimeStatHeaderWorked" xml:space="preserve">
+    <value>Elapsed</value>
+  </data>
+  <data name="TimeStatHeaderWorkedPct" xml:space="preserve">
+    <value>Elapsed %</value>
+  </data>
+  <data name="TimeStatHeaderStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="WorkStateOpened" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="WorkStateContiguous" xml:space="preserve">
+    <value>Ongoing</value>
+  </data>
+  <data name="WorkStateClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="WorkStateClosedAgo" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="ManualWorkItemAddWork" xml:space="preserve">
+    <value>Editied working time</value>
+  </data>
+  <data name="ManualWorkItemDeleteInterval" xml:space="preserve">
+    <value>Deleted working time</value>
+  </data>
+  <data name="ManualWorkItemDeleteIvrInterval" xml:space="preserve">
+    <value>Deleted time (phone)</value>
+  </data>
+  <data name="ManualWorkItemDeleteComputerInterval" xml:space="preserve">
+    <value>Deleted time (desktop)</value>
+  </data>
+  <data name="ManualWorkItemDeleteMobileInverval" xml:space="preserve">
+    <value>Deleted time (mobile)</value>
+  </data>
+  <data name="ManualWorkItemAddHoliday" xml:space="preserve">
+    <value>Pay holidays</value>
+  </data>
+  <data name="ManualWorkItemAddSickLeave" xml:space="preserve">
+    <value>Sick leaves</value>
+  </data>
+  <data name="ManualWorkItemUnknown" xml:space="preserve">
+    <value>Unknown amendments</value>
+  </data>
+  <data name="IvrTimeStatByTime" xml:space="preserve">
+    <value>Working time analytics (phone)</value>
+  </data>
+  <data name="IvrTimeStatHeaderTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="IvrTimeStatHeaderWork" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="IvrTimeStatHeaderDuration" xml:space="preserve">
+    <value>Task time**</value>
+  </data>
+  <data name="IvrTimeStatHeaderPhone" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="ComputerActivityByHour" xml:space="preserve">
+    <value>Working time analytics (desktop)</value>
+  </data>
+  <data name="ComputerActivityHeaderTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="ComputerActivityHeaderWork" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="ComputerActivityHeaderDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="ComputerActivityHeaderKeyboardAct" xml:space="preserve">
+    <value>Keyb. act.</value>
+  </data>
+  <data name="ComputerActivityHeaderMouseAct" xml:space="preserve">
+    <value>Mouse act.</value>
+  </data>
+  <data name="ComputerActivityHeaderComputer" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="AggregatedStatisticsSubject" xml:space="preserve">
+    <value>Aggregated statistics</value>
+  </data>
+  <data name="AnybodysStatistic" xml:space="preserve">
+    <value>{0}'s statistics</value>
+  </data>
+  <data name="LinkBackToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
+  <data name="DefaultPlainTextBody" xml:space="preserve">
+    <value>This is a HTML mail.</value>
+  </data>
+  <data name="WorkTimeName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="WorkTimePhoneAndSmartPhone" xml:space="preserve">
+    <value>Time (phone) &amp; (mobile)</value>
+  </data>
+  <data name="ChartHourPerDay" xml:space="preserve">
+    <value>hrs/day</value>
+  </data>
+  <data name="ChartFinished" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="ChartTargetTime" xml:space="preserve">
+    <value>Estimated</value>
+  </data>
+  <data name="ChartRemainingTime" xml:space="preserve">
+    <value>Time left</value>
+  </data>
+  <data name="ChartEffortNeeded" xml:space="preserve">
+    <value>Resource demand for completion</value>
+  </data>
+  <data name="ChartHours" xml:space="preserve">
+    <value>hour(s)</value>
+  </data>
+  <data name="ChartDays" xml:space="preserve">
+    <value>day(s)</value>
+  </data>
+  <data name="CharKeyboardShort" xml:space="preserve">
+    <value>Keyb</value>
+  </data>
+  <data name="ChartMouse" xml:space="preserve">
+    <value>Mouse</value>
+  </data>
+  <data name="CharKeyboardActivityShort" xml:space="preserve">
+    <value>Keyb. act.</value>
+  </data>
+  <data name="ChartMouseActivityShort" xml:space="preserve">
+    <value>Mouse act.</value>
+  </data>
+  <data name="ChartAxisComputer" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="ChartAxisSmartphone" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="ChartAxisPhone" xml:space="preserve">
+    <value>Phn.</value>
+  </data>
+  <data name="ChartAxisManual" xml:space="preserve">
+    <value>Man.</value>
+  </data>
+  <data name="ChartAxisHoliday" xml:space="preserve">
+    <value>Hol.</value>
+  </data>
+  <data name="ChartAxisSickLeave" xml:space="preserve">
+    <value>Sick</value>
+  </data>
+  <data name="ChartOthers" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="UnknownWork" xml:space="preserve">
+    <value>Unknown task</value>
+  </data>
+  <data name="IVRLogOut" xml:space="preserve">
+    <value>logout</value>
+  </data>
+  <data name="IVRLoggedOutWork" xml:space="preserve">
+    <value>You have logged out by phone from the task:</value>
+  </data>
+  <data name="IVRLogOutAuto" xml:space="preserve">
+    <value>auto logout</value>
+  </data>
+  <data name="IVRLoggedOutAutoWork" xml:space="preserve">
+    <value>Your phone session has expired for the task</value>
+  </data>
+  <data name="IVRLogoutDueActivity" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="IVRLoggedOutDueInactivityWork" xml:space="preserve">
+    <value>Your desktop activity has {0} your phone session on task</value>
+  </data>
+  <data name="IVRModified" xml:space="preserve">
+    <value>modified</value>
+  </data>
+  <data name="IVRCancelled" xml:space="preserve">
+    <value>interrupted</value>
+  </data>
+  <data name="IVRPreviousLogout" xml:space="preserve">
+    <value>The time of previous logout</value>
+  </data>
+  <data name="IVRLogin" xml:space="preserve">
+    <value>login</value>
+  </data>
+  <data name="IVRLogOutIn" xml:space="preserve">
+    <value>logout/login</value>
+  </data>
+  <data name="IVRLoggedInWork" xml:space="preserve">
+    <value>You have logged in to the task</value>
+  </data>
+  <data name="IVRLogoutAutoTime" xml:space="preserve">
+    <value>Auto logout time</value>
+  </data>
+  <data name="IVRCancelledSession" xml:space="preserve">
+    <value>This login has interrupted your previous phone session to the task</value>
+  </data>
+  <data name="ProjectStatistics" xml:space="preserve">
+    <value>Project Statistics</value>
+  </data>
+  <data name="ProjectStatWorkerName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProjectStatWorkTime" xml:space="preserve">
+    <value>Task time**</value>
+  </data>
+  <data name="ProjectStatCost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="ProjectStatWorkers" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ProjectStatAnybodysWorks" xml:space="preserve">
+    <value>{0}'s tasks</value>
+  </data>
+  <data name="ProjectStatAllWorktime" xml:space="preserve">
+    <value>Task time**</value>
+  </data>
+  <data name="ProjectStatAllCost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="ProjectStatStartDate" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="ProjectStatEndDate" xml:space="preserve">
+    <value>Ended</value>
+  </data>
+  <data name="ProjectStatCreated" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="ProjectStatSummaryProjects" xml:space="preserve">
+    <value>Project analytics</value>
+  </data>
+  <data name="ProjectStatSummaryWorkers" xml:space="preserve">
+    <value>User analytics</value>
+  </data>
+  <data name="ProjectStatSummaryProjectName" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="IsInternal" xml:space="preserve">
+    <value>for internal use only</value>
+  </data>
+  <data name="NetWorkTimeDescription" xml:space="preserve">
+    <value>* Working time: a user's net active working time after deducting all simultaneities</value>
+  </data>
+  <data name="WorkTimeDescription" xml:space="preserve">
+    <value>** Task time: a user's total  active working time measured simultaneously by all JobCTRL applications</value>
+  </data>
+  <data name="AggregatedMobilLocationStatisticsSubject" xml:space="preserve">
+    <value>Mobil location statistics</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TitleFormat" xml:space="preserve">
+    <value>{0}  [{1} - {2}, Scenes: num of {3}, Events: num of {4}]</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Scene" xml:space="preserve">
+    <value>Scene: </value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_SceneCount" xml:space="preserve">
+    <value>{0} time(s) in total</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TotalTime" xml:space="preserve">
+    <value>Total Time</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TimeSpanFormatHourMinutes" xml:space="preserve">
+    <value>{0} hour(s) {1} minute(s)</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TasksUserWorkedOn" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Reasons" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_EventsInTimeOrder" xml:space="preserve">
+    <value>Events ordered by time</value>
+  </data>
+  <data name="WorkStartEndDifference" xml:space="preserve">
+    <value>Time elapsed between first and last activity</value>
+  </data>
+  <data name="ChartAxisMeeting" xml:space="preserve">
+    <value>Meet.</value>
+  </data>
+  <data name="LockedComputer" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="UnknownProcess" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="WorkTimeEndsSoon" xml:space="preserve">
+    <value>Your JobCTRL will be logged off at {0}.
+Thank you for your effort today.</value>
+  </data>
+  <data name="TODOs_NotificationMessage" xml:space="preserve">
+    <value>Todo list:
+Your employee ({0} {1}) created or modified his/her todo list for the date {2}.
+
+&lt;a href='/UserCenter/TodoLists/?TargetUserId={3}&amp;Date={4}'&gt;Review&lt;/a&gt;</value>
+  </data>
+  <data name="SpecificScheduleFirstNotificationMessage" xml:space="preserve">
+    <value>You're on extra time</value>
+  </data>
+  <data name="SpecificScheduleLastNotificationMessage" xml:space="preserve">
+    <value>Your device will be turned off within {0} minutes</value>
+  </data>
+  <data name="SpecificScheduleSecondNotificationMessage" xml:space="preserve">
+    <value>Your device will be turned off within {0} minutes</value>
+  </data>
+</root>

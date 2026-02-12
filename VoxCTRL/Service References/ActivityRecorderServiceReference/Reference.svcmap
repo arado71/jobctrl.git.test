@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="48dffe07-8f73-496f-866f-7321d27b3221" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/ActivityRecorderService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Tct.ActivityRecorderService.IVoiceRecorder.wsdl" MetadataType="Wsdl" ID="a021a603-1173-41de-8d6a-03e032f9f6a6" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="a3be3efa-448e-4fef-8d1f-6a4b6b1179a2" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Tct.ActivityRecorderService.IVoiceRecorder.xsd" MetadataType="Schema" ID="7910c281-9960-4a0c-a9f4-3fa1a67b980a" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d36ca58f-0095-4b20-83d6-3551724b70c3" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Tct.ActivityRecorderService.xsd" MetadataType="Schema" ID="ebb22688-af8b-41e3-9c37-c184b12bfd58" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Tct.ActivityRecorderService.Voice1.xsd" MetadataType="Schema" ID="418dc616-efca-4661-8382-b8cb91ea9ad1" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="90ad1f2d-5bc6-446f-95ff-8181f1cb910e" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Authentication2.xsd" MetadataType="Schema" ID="131053f4-5646-441e-826e-5d878f8225f1" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

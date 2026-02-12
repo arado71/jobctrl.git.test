@@ -1,0 +1,2497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ActivityRecorderService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IActivityRecorder_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:SslTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:BootstrapPolicy>
+                  <wsp:Policy>
+                    <sp:SignedParts>
+                      <sp:Body />
+                      <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                    </sp:SignedParts>
+                    <sp:EncryptedParts>
+                      <sp:Body />
+                    </sp:EncryptedParts>
+                    <sp:TransportBinding>
+                      <wsp:Policy>
+                        <sp:TransportToken>
+                          <wsp:Policy>
+                            <msf:SslTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy" />
+                          </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                          <wsp:Policy>
+                            <sp:Basic256 />
+                          </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                          <wsp:Policy>
+                            <sp:Strict />
+                          </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp />
+                      </wsp:Policy>
+                    </sp:TransportBinding>
+                    <sp:SignedSupportingTokens>
+                      <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                          <wsp:Policy>
+                            <sp:WssUsernameToken10 />
+                          </wsp:Policy>
+                        </sp:UsernameToken>
+                      </wsp:Policy>
+                    </sp:SignedSupportingTokens>
+                    <sp:Wss11>
+                      <wsp:Policy />
+                    </sp:Wss11>
+                    <sp:Trust10>
+                      <wsp:Policy>
+                        <sp:MustSupportIssuedTokens />
+                        <sp:RequireClientEntropy />
+                        <sp:RequireServerEntropy />
+                      </wsp:Policy>
+                    </sp:Trust10>
+                  </wsp:Policy>
+                </sp:BootstrapPolicy>
+              </wsp:Policy>
+            </sp:SecureConversationToken>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpBinding_IActivityRecorder_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpBinding_IActiveDirectoryLoginService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://jobctrl.com/Notifications" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+      <xsd:import namespace="http://jobctrl.com/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Kicks" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WorkManagement" />
+      <xsd:import namespace="http://jobctrl.com/WorkManagement" />
+      <xsd:import namespace="http://jobctrl.com/WorkTimeHistory" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Telemetry" />
+      <xsd:import namespace="http://jobctrl.com/clientApi" />
+      <xsd:import namespace="http://jobctrl.com" />
+      <xsd:import namespace="http://jobctrl.com/Authentication" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IActivityRecorder_GetPendingNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingNotification" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetPendingNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ConfirmNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmNotification" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ConfirmNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddWorkItemEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkItemEx" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddWorkItemEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkItemExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMenu" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientMenu" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSettings" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetAuthTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthTicket" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetAuthTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientCensorRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCensorRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientCensorRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCensorRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientCensorRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientCensorRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientCensorRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientCensorRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddManualWorkItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddManualWorkItem" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddManualWorkItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddManualWorkItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_StartWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartWork" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_StartWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_StopWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopWork" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_StopWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientWorkTimeStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWorkTimeStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientWorkTimeStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWorkTimeStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientVersion" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientComputerInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientComputerInfo" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientComputerInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientComputerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientError_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientError" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReportClientError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetPendingKick_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingKick" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetPendingKick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingKickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ConfirmKick_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmKick" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ConfirmKick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmKickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_MakeClientActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeClientActive" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_MakeClientActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeClientActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignWorkByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignWorkByKey" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignWorkByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignWorkByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetServerTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerTime" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetServerTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetLearningRuleGenerators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearningRuleGenerators" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetLearningRuleGenerators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearningRuleGeneratorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetCannedCloseReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCannedCloseReasons" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetCannedCloseReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCannedCloseReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CloseWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseWork" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CloseWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReason" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddReasonEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReasonEx" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddReasonEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReasonExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetReasonStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetReasonStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetSimpleWorkTimeStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSimpleWorkTimeStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetSimpleWorkTimeStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSimpleWorkTimeStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMeetingData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetingData" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMeetingData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMeetingDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetAllWorks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorks" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetAllWorks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTask" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ManageMeetings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManageMeetings" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ManageMeetings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManageMeetingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddManualMeeting_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddManualMeeting" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddManualMeeting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddManualMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTaskReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskReasons" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTaskReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignProjectByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignProjectByKey" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignProjectByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignProjectByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetExpiryDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpiryDay" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetExpiryDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpiryDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetApplicationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetApplicationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetUpdateChunk_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateChunk" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetUpdateChunk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateChunkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignProjectAndWorkByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignProjectAndWorkByKey" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AssignProjectAndWorkByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignProjectAndWorkByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddParallelWorkItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddParallelWorkItem" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddParallelWorkItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddParallelWorkItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetProjectManagementConstraints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagementConstraints" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetProjectManagementConstraints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagementConstraintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CreateWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWork" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CreateWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_UpdateWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWork" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_UpdateWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDailyWorkTimeStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyWorkTimeStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDailyWorkTimeStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyWorkTimeStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkTimeHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTimeHistory" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkTimeHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTimeHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetStartOfDayOffset_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartOfDayOffset" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetStartOfDayOffset_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartOfDayOffsetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ModifyWorkTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyWorkTime" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ModifyWorkTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyWorkTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkNames" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientCollectorRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCollectorRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetClientCollectorRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCollectorRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientCollectorRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientCollectorRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetClientCollectorRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetClientCollectorRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddCollectedItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollectedItem" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddCollectedItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollectedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddAggregateCollectedItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAggregateCollectedItems" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddAggregateCollectedItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAggregateCollectedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddIssue" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddTelemetry_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTelemetry" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddTelemetry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTelemetryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ModifyIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyIssue" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ModifyIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssue" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_FilterIssues_InputMessage">
+    <wsdl:part name="parameters" element="tns:FilterIssues" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_FilterIssues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FilterIssuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddSnippet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSnippet" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AddSnippet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSnippetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_MarkMessageAsRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkMessageAsRead" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_MarkMessageAsRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkMessageAsReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTodoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTodoList" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTodoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTodoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTodoListItemStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTodoListItemStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetTodoListItemStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTodoListItemStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CreateOrUpdateTodoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateTodoList" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_CreateOrUpdateTodoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateTodoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMostRecentTodoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostRecentTodoList" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetMostRecentTodoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMostRecentTodoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AcquireTodoListLock_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcquireTodoListLock" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_AcquireTodoListLock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcquireTodoListLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReleaseTodoListLock_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseTodoListLock" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ReleaseTodoListLock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseTodoListLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDisplayedReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReports" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDisplayedReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetFavoriteReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavoriteReports" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetFavoriteReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavoriteReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDppInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDppInformation" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDppInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDppInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetDppAcceptanceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDppAcceptanceDate" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SetDppAcceptanceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDppAcceptanceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ManageCloudTokens_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManageCloudTokens" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ManageCloudTokens_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManageCloudTokensResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ShouldSendLogs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShouldSendLogs" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_ShouldSendLogs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShouldSendLogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkTimeStatsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTimeStatsForUser" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetWorkTimeStatsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTimeStatsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SwitchAutomaticRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:SwitchAutomaticRules" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_SwitchAutomaticRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SwitchAutomaticRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetCustomTabs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomTabs" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetCustomTabs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomTabsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDisplayedReportForTabId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReportForTabId" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetDisplayedReportForTabId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReportForTabIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetUserWorkdays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWorkdays" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_GetUserWorkdays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWorkdaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
+  </wsdl:message>
+  <wsdl:message name="IActivityRecorder_Disconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActiveDirectoryLoginService_GetClientLoginTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientLoginTicket" />
+  </wsdl:message>
+  <wsdl:message name="IActiveDirectoryLoginService_GetClientLoginTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientLoginTicketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IActivityRecorder">
+    <wsdl:operation name="GetPendingNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetPendingNotification" message="tns:IActivityRecorder_GetPendingNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetPendingNotificationResponse" message="tns:IActivityRecorder_GetPendingNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ConfirmNotification" message="tns:IActivityRecorder_ConfirmNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ConfirmNotificationResponse" message="tns:IActivityRecorder_ConfirmNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItemEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddWorkItemEx" message="tns:IActivityRecorder_AddWorkItemEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddWorkItemExResponse" message="tns:IActivityRecorder_AddWorkItemEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientMenu" message="tns:IActivityRecorder_GetClientMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientMenuResponse" message="tns:IActivityRecorder_GetClientMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientMenu" message="tns:IActivityRecorder_SetClientMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientMenuResponse" message="tns:IActivityRecorder_SetClientMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientSettings" message="tns:IActivityRecorder_GetClientSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientSettingsResponse" message="tns:IActivityRecorder_GetClientSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/Authenticate" message="tns:IActivityRecorder_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AuthenticateResponse" message="tns:IActivityRecorder_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetAuthTicket" message="tns:IActivityRecorder_GetAuthTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetAuthTicketResponse" message="tns:IActivityRecorder_GetAuthTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientRules" message="tns:IActivityRecorder_GetClientRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientRulesResponse" message="tns:IActivityRecorder_GetClientRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientRules" message="tns:IActivityRecorder_SetClientRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientRulesResponse" message="tns:IActivityRecorder_SetClientRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCensorRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientCensorRules" message="tns:IActivityRecorder_GetClientCensorRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientCensorRulesResponse" message="tns:IActivityRecorder_GetClientCensorRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCensorRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientCensorRules" message="tns:IActivityRecorder_SetClientCensorRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientCensorRulesResponse" message="tns:IActivityRecorder_SetClientCensorRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddManualWorkItem" message="tns:IActivityRecorder_AddManualWorkItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddManualWorkItemResponse" message="tns:IActivityRecorder_AddManualWorkItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/StartWork" message="tns:IActivityRecorder_StartWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/StartWorkResponse" message="tns:IActivityRecorder_StartWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/StopWork" message="tns:IActivityRecorder_StopWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/StopWorkResponse" message="tns:IActivityRecorder_StopWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWorkTimeStats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientWorkTimeStats" message="tns:IActivityRecorder_GetClientWorkTimeStats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientWorkTimeStatsResponse" message="tns:IActivityRecorder_GetClientWorkTimeStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientVersion" message="tns:IActivityRecorder_ReportClientVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientVersionResponse" message="tns:IActivityRecorder_ReportClientVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientComputerInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientComputerInfo" message="tns:IActivityRecorder_ReportClientComputerInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientComputerInfoResponse" message="tns:IActivityRecorder_ReportClientComputerInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientError" message="tns:IActivityRecorder_ReportClientError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ReportClientErrorResponse" message="tns:IActivityRecorder_ReportClientError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingKick">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetPendingKick" message="tns:IActivityRecorder_GetPendingKick_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetPendingKickResponse" message="tns:IActivityRecorder_GetPendingKick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmKick">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ConfirmKick" message="tns:IActivityRecorder_ConfirmKick_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ConfirmKickResponse" message="tns:IActivityRecorder_ConfirmKick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeClientActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/MakeClientActive" message="tns:IActivityRecorder_MakeClientActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/MakeClientActiveResponse" message="tns:IActivityRecorder_MakeClientActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignWorkByKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AssignWorkByKey" message="tns:IActivityRecorder_AssignWorkByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AssignWorkByKeyResponse" message="tns:IActivityRecorder_AssignWorkByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetServerTime" message="tns:IActivityRecorder_GetServerTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetServerTimeResponse" message="tns:IActivityRecorder_GetServerTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLearningRuleGenerators">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetLearningRuleGenerators" message="tns:IActivityRecorder_GetLearningRuleGenerators_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetLearningRuleGeneratorsResponse" message="tns:IActivityRecorder_GetLearningRuleGenerators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedCloseReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetCannedCloseReasons" message="tns:IActivityRecorder_GetCannedCloseReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetCannedCloseReasonsResponse" message="tns:IActivityRecorder_GetCannedCloseReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/CloseWork" message="tns:IActivityRecorder_CloseWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/CloseWorkResponse" message="tns:IActivityRecorder_CloseWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddReason" message="tns:IActivityRecorder_AddReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddReasonResponse" message="tns:IActivityRecorder_AddReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReasonEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddReasonEx" message="tns:IActivityRecorder_AddReasonEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddReasonExResponse" message="tns:IActivityRecorder_AddReasonEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonStats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetReasonStats" message="tns:IActivityRecorder_GetReasonStats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetReasonStatsResponse" message="tns:IActivityRecorder_GetReasonStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSimpleWorkTimeStats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetSimpleWorkTimeStats" message="tns:IActivityRecorder_GetSimpleWorkTimeStats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetSimpleWorkTimeStatsResponse" message="tns:IActivityRecorder_GetSimpleWorkTimeStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetMeetingData" message="tns:IActivityRecorder_GetMeetingData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetMeetingDataResponse" message="tns:IActivityRecorder_GetMeetingData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetAllWorks" message="tns:IActivityRecorder_GetAllWorks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetAllWorksResponse" message="tns:IActivityRecorder_GetAllWorks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AssignTask" message="tns:IActivityRecorder_AssignTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AssignTaskResponse" message="tns:IActivityRecorder_AssignTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ManageMeetings" message="tns:IActivityRecorder_ManageMeetings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ManageMeetingsResponse" message="tns:IActivityRecorder_ManageMeetings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeeting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddManualMeeting" message="tns:IActivityRecorder_AddManualMeeting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddManualMeetingResponse" message="tns:IActivityRecorder_AddManualMeeting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetTaskReasons" message="tns:IActivityRecorder_GetTaskReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetTaskReasonsResponse" message="tns:IActivityRecorder_GetTaskReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectByKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AssignProjectByKey" message="tns:IActivityRecorder_AssignProjectByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AssignProjectByKeyResponse" message="tns:IActivityRecorder_AssignProjectByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiryDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetExpiryDay" message="tns:IActivityRecorder_GetExpiryDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetExpiryDayResponse" message="tns:IActivityRecorder_GetExpiryDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetApplicationUpdate" message="tns:IActivityRecorder_GetApplicationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetApplicationUpdateResponse" message="tns:IActivityRecorder_GetApplicationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateChunk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetUpdateChunk" message="tns:IActivityRecorder_GetUpdateChunk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetUpdateChunkResponse" message="tns:IActivityRecorder_GetUpdateChunk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectAndWorkByKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AssignProjectAndWorkByKey" message="tns:IActivityRecorder_AssignProjectAndWorkByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AssignProjectAndWorkByKeyResponse" message="tns:IActivityRecorder_AssignProjectAndWorkByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddParallelWorkItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddParallelWorkItem" message="tns:IActivityRecorder_AddParallelWorkItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddParallelWorkItemResponse" message="tns:IActivityRecorder_AddParallelWorkItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagementConstraints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetProjectManagementConstraints" message="tns:IActivityRecorder_GetProjectManagementConstraints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetProjectManagementConstraintsResponse" message="tns:IActivityRecorder_GetProjectManagementConstraints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/CreateWork" message="tns:IActivityRecorder_CreateWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/CreateWorkResponse" message="tns:IActivityRecorder_CreateWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/UpdateWork" message="tns:IActivityRecorder_UpdateWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/UpdateWorkResponse" message="tns:IActivityRecorder_UpdateWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyWorkTimeStats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetDailyWorkTimeStats" message="tns:IActivityRecorder_GetDailyWorkTimeStats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetDailyWorkTimeStatsResponse" message="tns:IActivityRecorder_GetDailyWorkTimeStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkTimeHistory" message="tns:IActivityRecorder_GetWorkTimeHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkTimeHistoryResponse" message="tns:IActivityRecorder_GetWorkTimeHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartOfDayOffset">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetStartOfDayOffset" message="tns:IActivityRecorder_GetStartOfDayOffset_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetStartOfDayOffsetResponse" message="tns:IActivityRecorder_GetStartOfDayOffset_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyWorkTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ModifyWorkTime" message="tns:IActivityRecorder_ModifyWorkTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ModifyWorkTimeResponse" message="tns:IActivityRecorder_ModifyWorkTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkNames" message="tns:IActivityRecorder_GetWorkNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkNamesResponse" message="tns:IActivityRecorder_GetWorkNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCollectorRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientCollectorRules" message="tns:IActivityRecorder_GetClientCollectorRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetClientCollectorRulesResponse" message="tns:IActivityRecorder_GetClientCollectorRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCollectorRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientCollectorRules" message="tns:IActivityRecorder_SetClientCollectorRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SetClientCollectorRulesResponse" message="tns:IActivityRecorder_SetClientCollectorRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCollectedItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddCollectedItem" message="tns:IActivityRecorder_AddCollectedItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddCollectedItemResponse" message="tns:IActivityRecorder_AddCollectedItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAggregateCollectedItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddAggregateCollectedItems" message="tns:IActivityRecorder_AddAggregateCollectedItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddAggregateCollectedItemsResponse" message="tns:IActivityRecorder_AddAggregateCollectedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddIssue" message="tns:IActivityRecorder_AddIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddIssueResponse" message="tns:IActivityRecorder_AddIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTelemetry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddTelemetry" message="tns:IActivityRecorder_AddTelemetry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddTelemetryResponse" message="tns:IActivityRecorder_AddTelemetry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ModifyIssue" message="tns:IActivityRecorder_ModifyIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ModifyIssueResponse" message="tns:IActivityRecorder_ModifyIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetIssue" message="tns:IActivityRecorder_GetIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetIssueResponse" message="tns:IActivityRecorder_GetIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterIssues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/FilterIssues" message="tns:IActivityRecorder_FilterIssues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/FilterIssuesResponse" message="tns:IActivityRecorder_FilterIssues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSnippet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AddSnippet" message="tns:IActivityRecorder_AddSnippet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AddSnippetResponse" message="tns:IActivityRecorder_AddSnippet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetMessages" message="tns:IActivityRecorder_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetMessagesResponse" message="tns:IActivityRecorder_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/MarkMessageAsRead" message="tns:IActivityRecorder_MarkMessageAsRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/MarkMessageAsReadResponse" message="tns:IActivityRecorder_MarkMessageAsRead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetTodoList" message="tns:IActivityRecorder_GetTodoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetTodoListResponse" message="tns:IActivityRecorder_GetTodoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoListItemStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetTodoListItemStatuses" message="tns:IActivityRecorder_GetTodoListItemStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetTodoListItemStatusesResponse" message="tns:IActivityRecorder_GetTodoListItemStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateTodoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/CreateOrUpdateTodoList" message="tns:IActivityRecorder_CreateOrUpdateTodoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/CreateOrUpdateTodoListResponse" message="tns:IActivityRecorder_CreateOrUpdateTodoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMostRecentTodoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetMostRecentTodoList" message="tns:IActivityRecorder_GetMostRecentTodoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetMostRecentTodoListResponse" message="tns:IActivityRecorder_GetMostRecentTodoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquireTodoListLock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/AcquireTodoListLock" message="tns:IActivityRecorder_AcquireTodoListLock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/AcquireTodoListLockResponse" message="tns:IActivityRecorder_AcquireTodoListLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTodoListLock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ReleaseTodoListLock" message="tns:IActivityRecorder_ReleaseTodoListLock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ReleaseTodoListLockResponse" message="tns:IActivityRecorder_ReleaseTodoListLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetDisplayedReports" message="tns:IActivityRecorder_GetDisplayedReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetDisplayedReportsResponse" message="tns:IActivityRecorder_GetDisplayedReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetFavoriteReports" message="tns:IActivityRecorder_GetFavoriteReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetFavoriteReportsResponse" message="tns:IActivityRecorder_GetFavoriteReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDppInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetDppInformation" message="tns:IActivityRecorder_GetDppInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetDppInformationResponse" message="tns:IActivityRecorder_GetDppInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDppAcceptanceDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SetDppAcceptanceDate" message="tns:IActivityRecorder_SetDppAcceptanceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SetDppAcceptanceDateResponse" message="tns:IActivityRecorder_SetDppAcceptanceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageCloudTokens">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ManageCloudTokens" message="tns:IActivityRecorder_ManageCloudTokens_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ManageCloudTokensResponse" message="tns:IActivityRecorder_ManageCloudTokens_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShouldSendLogs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/ShouldSendLogs" message="tns:IActivityRecorder_ShouldSendLogs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/ShouldSendLogsResponse" message="tns:IActivityRecorder_ShouldSendLogs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeStatsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkTimeStatsForUser" message="tns:IActivityRecorder_GetWorkTimeStatsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetWorkTimeStatsForUserResponse" message="tns:IActivityRecorder_GetWorkTimeStatsForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SwitchAutomaticRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/SwitchAutomaticRules" message="tns:IActivityRecorder_SwitchAutomaticRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/SwitchAutomaticRulesResponse" message="tns:IActivityRecorder_SwitchAutomaticRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetCustomTabs" message="tns:IActivityRecorder_GetCustomTabs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetCustomTabsResponse" message="tns:IActivityRecorder_GetCustomTabs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportForTabId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetDisplayedReportForTabId" message="tns:IActivityRecorder_GetDisplayedReportForTabId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetDisplayedReportForTabIdResponse" message="tns:IActivityRecorder_GetDisplayedReportForTabId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWorkdays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/GetUserWorkdays" message="tns:IActivityRecorder_GetUserWorkdays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/GetUserWorkdaysResponse" message="tns:IActivityRecorder_GetUserWorkdays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActivityRecorder/Disconnect" message="tns:IActivityRecorder_Disconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActivityRecorder/DisconnectResponse" message="tns:IActivityRecorder_Disconnect_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IActiveDirectoryLoginService">
+    <wsdl:operation name="GetClientLoginTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActiveDirectoryLoginService/GetClientLoginTicket" message="tns:IActiveDirectoryLoginService_GetClientLoginTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActiveDirectoryLoginService/GetClientLoginTicketResponse" message="tns:IActiveDirectoryLoginService_GetClientLoginTicket_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IActivityRecorder" type="tns:IActivityRecorder">
+    <wsp:PolicyReference URI="#NetTcpBinding_IActivityRecorder_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetPendingNotification">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetPendingNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmNotification">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ConfirmNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItemEx">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddWorkItemEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientMenu">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientMenu">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSettings">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthTicket">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetAuthTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCensorRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientCensorRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCensorRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientCensorRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartWork">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/StartWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopWork">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/StopWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWorkTimeStats">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientVersion">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientComputerInfo">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientComputerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientError">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingKick">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetPendingKick" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmKick">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ConfirmKick" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeClientActive">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/MakeClientActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignWorkByKey">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AssignWorkByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLearningRuleGenerators">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetLearningRuleGenerators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedCloseReasons">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetCannedCloseReasons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseWork">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/CloseWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReason">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddReason" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReasonEx">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddReasonEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonStats">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetReasonStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSimpleWorkTimeStats">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetSimpleWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingData">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetMeetingData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorks">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetAllWorks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTask">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AssignTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ManageMeetings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeeting">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddManualMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskReasons">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetTaskReasons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectByKey">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AssignProjectByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiryDay">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetExpiryDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetApplicationUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateChunk">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetUpdateChunk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectAndWorkByKey">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AssignProjectAndWorkByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddParallelWorkItem">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddParallelWorkItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagementConstraints">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetProjectManagementConstraints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWork">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/CreateWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/UpdateWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyWorkTimeStats">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetDailyWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeHistory">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkTimeHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartOfDayOffset">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetStartOfDayOffset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyWorkTime">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ModifyWorkTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkNames">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCollectorRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientCollectorRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCollectorRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientCollectorRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCollectedItem">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddCollectedItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAggregateCollectedItems">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddAggregateCollectedItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddIssue">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTelemetry">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddTelemetry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyIssue">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ModifyIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssue">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterIssues">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/FilterIssues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSnippet">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AddSnippet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/MarkMessageAsRead" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoList">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetTodoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoListItemStatuses">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetTodoListItemStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateTodoList">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/CreateOrUpdateTodoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostRecentTodoList">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetMostRecentTodoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireTodoListLock">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/AcquireTodoListLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTodoListLock">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ReleaseTodoListLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReports">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetDisplayedReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReports">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetFavoriteReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDppInformation">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetDppInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDppAcceptanceDate">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SetDppAcceptanceDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageCloudTokens">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ManageCloudTokens" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShouldSendLogs">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/ShouldSendLogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeStatsForUser">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkTimeStatsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchAutomaticRules">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/SwitchAutomaticRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabs">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetCustomTabs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportForTabId">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetDisplayedReportForTabId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWorkdays">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/GetUserWorkdays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IActivityRecorder/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IActivityRecorder" type="tns:IActivityRecorder">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IActivityRecorder_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPendingNotification">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetPendingNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmNotification">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ConfirmNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItemEx">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddWorkItemEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientMenu">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientMenu">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSettings">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthTicket">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetAuthTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCensorRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientCensorRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCensorRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientCensorRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartWork">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/StartWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopWork">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/StopWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWorkTimeStats">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientVersion">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientComputerInfo">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientComputerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientError">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ReportClientError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingKick">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetPendingKick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmKick">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ConfirmKick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeClientActive">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/MakeClientActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignWorkByKey">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AssignWorkByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLearningRuleGenerators">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetLearningRuleGenerators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedCloseReasons">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetCannedCloseReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseWork">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/CloseWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReason">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReasonEx">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddReasonEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonStats">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetReasonStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSimpleWorkTimeStats">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetSimpleWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingData">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetMeetingData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorks">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetAllWorks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTask">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AssignTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ManageMeetings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeeting">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddManualMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskReasons">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetTaskReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectByKey">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AssignProjectByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiryDay">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetExpiryDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationUpdate">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetApplicationUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateChunk">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetUpdateChunk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignProjectAndWorkByKey">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AssignProjectAndWorkByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddParallelWorkItem">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddParallelWorkItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagementConstraints">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetProjectManagementConstraints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWork">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/CreateWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/UpdateWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyWorkTimeStats">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetDailyWorkTimeStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeHistory">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkTimeHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartOfDayOffset">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetStartOfDayOffset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyWorkTime">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ModifyWorkTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkNames">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCollectorRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetClientCollectorRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetClientCollectorRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SetClientCollectorRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCollectedItem">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddCollectedItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAggregateCollectedItems">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddAggregateCollectedItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddIssue">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTelemetry">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddTelemetry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyIssue">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ModifyIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssue">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterIssues">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/FilterIssues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSnippet">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AddSnippet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/MarkMessageAsRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoList">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetTodoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodoListItemStatuses">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetTodoListItemStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateTodoList">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/CreateOrUpdateTodoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMostRecentTodoList">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetMostRecentTodoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireTodoListLock">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/AcquireTodoListLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTodoListLock">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ReleaseTodoListLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReports">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetDisplayedReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReports">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetFavoriteReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDppInformation">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetDppInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDppAcceptanceDate">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SetDppAcceptanceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageCloudTokens">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ManageCloudTokens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShouldSendLogs">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/ShouldSendLogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTimeStatsForUser">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetWorkTimeStatsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchAutomaticRules">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/SwitchAutomaticRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabs">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetCustomTabs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportForTabId">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetDisplayedReportForTabId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWorkdays">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/GetUserWorkdays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap:operation soapAction="http://tempuri.org/IActivityRecorder/Disconnect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IActiveDirectoryLoginService" type="tns:IActiveDirectoryLoginService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IActiveDirectoryLoginService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientLoginTicket">
+      <soap:operation soapAction="http://tempuri.org/IActiveDirectoryLoginService/GetClientLoginTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActivityRecorderService">
+    <wsdl:port name="NetTcpBinding_IActivityRecorder" binding="tns:NetTcpBinding_IActivityRecorder">
+      <soap12:address location="net.tcp://localhost:9000/ActivityRecorderService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9000/ActivityRecorderService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>tct.ActivityRecorder</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IActivityRecorder" binding="tns:BasicHttpBinding_IActivityRecorder">
+      <soap:address location="https://127.0.0.1:9002/JobCTRL/" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IActiveDirectoryLoginService" binding="tns:BasicHttpBinding_IActiveDirectoryLoginService">
+      <soap:address location="https://127.0.0.1:9002/ActiveDirectoryLoginService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

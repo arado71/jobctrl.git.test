@@ -1,0 +1,10 @@
+{
+  "name": "com.tct.jobctrl",
+  "description": "JobCTRL Native Messaging Host",
+  "path": "JC.Chrome.exe",
+  "type": "stdio",
+  "allowed_origins": [
+  	"chrome-extension://obmlbfkihnobgbokahopnbaehffncfoe/",
+    "chrome-extension://mpjhadgoffhidbcmjjcofofkfgbpnfbd/"
+  ]
+}

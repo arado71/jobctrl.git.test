@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+  <!-- Version number extracted from main exe -->
+  <?define ProductVersion=!(bind.FileVersion.jobctrl.exe) ?>
+
+  <!-- Individual product codes for different product testing levels -->
+  <!--<?define UpgradeCode="d657476f-cebc-4d8e-b408-72742cf6fa85" ?>-->
+  <?ifndef UpgradeCode ?>
+    <?error UpgradeCode must be defined ?>
+  <?endif?>
+
+  <Product Id="*" Name="$(var.ActivityRecorderClient.TargetName)" Language="0" Version="$(var.ProductVersion)" Manufacturer="JobCTRL Kft." UpgradeCode="$(var.UpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="$(var.MsiInstallScope)" Comments="v$(var.ProductVersion)$(var.ClassifierPostfix)" />
+
+    <Icon Id="JobCTRL" SourceFile="$(var.ActivityRecorderClient.TargetDir)\Resources\JobCtrl.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="JobCTRL" />
+    <!-- Either we ignore file locks or randomly restart if they happen. Both are bad, but the latter is worse... -->
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="DisableShutdown"/>
+    <!-- The installer checks only the first 3 parts of the version number to detect SameVersionUpgrade, 
+    so what is a same version upgrade according to the installer can be downgrades on file level, 
+    therefore we overwrite every component, just to be sure (we also have poor component policy) -->
+    
+    <!-- Removal is scheduled after InstallInitialize, so we run in transaction, therefore old version is rolled back if something goes wrong -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes" Schedule="afterInstallInitialize" />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Binary Id="CustomActions.CA.dll" SourceFile="..\..\CustomActions\bin\$(var.Configuration)\CustomActions.CA.dll" />
+    <CustomAction Id="CheckShortcutWrite" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="CheckShortcut" />
+    <CustomAction Id="StopApp" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="StopApp" />
+    <CustomAction Id="UnregisterAddons" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="UnregisterAddons" />
+    <CustomAction Id="DeleteBrowserExtensions" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="DeleteBrowserExtensions" />
+    <CustomAction Id="DeletePersonalData" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="DeletePersonalData" />
+    <CustomAction Id="RemoveJcAutorunKeyFromRegistry" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="RemoveJcAutorunKeyFromRegistry" />
+    <CustomAction Id="RemoveJcAutorunKeyFromMachineRegistry" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="RemoveJcAutorunKeyFromMachineRegistry" />
+    <CustomAction Id="CheckPendingRestart" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="CheckPendingRestart" />
+
+    <!-- Require .NET 4.5 to install -->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED"/>
+    <Condition Message='This setup requires the .NET Framework 4.5. Please install the .NET Framework and run this setup again.'>
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED]]>
+      </Condition>
+    
+    <Feature Id="ProductFeature" Title="JobCTRL" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+    <?if $(var.MsiInstallScope) = perUser ?>
+      <SetProperty Id="ProgramFilesFolder" Action="SetFolder1" Value="[LocalAppDataFolder]Apps\" Before="AppSearch">
+        <![CDATA[INSTALLDIR = ""]]>
+        <!-- uncomment if install to Program Files when setup is privileged -->
+        <!-- <![CDATA[NOT Privileged]]> --> 
+      </SetProperty>
+      <SetProperty Id="ProgramFilesFolder" Action="SetFolder2" Value="[INSTALLDIR]" Before="AppSearch">
+        <![CDATA[INSTALLDIR <> ""]]>
+      </SetProperty>
+    <?endif?>
+
+    <CustomAction Id="SetLoginData" Execute="immediate" BinaryKey="CustomActions.CA.dll" DllEntry="SetLoginData" />
+    <CustomAction Id="QtExecStartProg" Directory="INSTALLFOLDER" Execute="immediate" Return="asyncNoWait" ExeCommand="[#jobctrl.exe]" Impersonate="yes"/>
+
+    <SetProperty Id="CHECKDIR" Value="[ProgramMenuFolder]" Before="LaunchConditions" />
+
+    <SetProperty Id="AppRunPath" Value="[ProgramFilesFolder]$(var.ActivityRecorderClient.TargetName)\$(var.ActivityRecorderClient.TargetName).exe" Before="LaunchConditions" />
+
+    <InstallExecuteSequence>
+      <Custom Action="CheckShortcutWrite" Before="InstallFiles" />
+      <Custom Action="UnregisterAddons" Before="InstallValidate"> Installed </Custom>
+      <Custom Action="StopApp" Before="InstallValidate" />
+      <Custom Action="DeleteBrowserExtensions" After="LaunchConditions"> REMOVE="ALL" AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <Custom Action="DeletePersonalData" After="StopApp"> REMOVE="ALL" AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <Custom Action="RemoveJcAutorunKeyFromRegistry" After="LaunchConditions"> REMOVE="ALL" AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <?if $(var.MsiInstallScope) = perMachine ?>
+      <Custom Action="RemoveJcAutorunKeyFromMachineRegistry" After="InstallFinalize"> REMOVE="ALL" AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <?endif ?>
+      <Custom Action="SetLoginData" After="InstallFinalize">NOT Installed</Custom>
+      <Custom Action="QtExecStartProg" After="SetLoginData">NOT Installed AND (UILevel = 5 OR RUNAFTERINSTALL = 1)</Custom>
+    </InstallExecuteSequence>
+
+  </Product>
+  
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.ActivityRecorderClient.TargetName)">
+          <Directory Id="INSTALLFOLDERHU" Name="hu-HU"></Directory>
+          <Directory Id="INSTALLFOLDERPTBR" Name="pt-BR"></Directory>
+          <Directory Id="INSTALLFOLDERESMX" Name="es-MX"></Directory>
+          <Directory Id="INSTALLFOLDERKOKR" Name="ko-KR"></Directory>
+          <Directory Id="INSTALLFOLDERJAJP" Name="ja-JP"></Directory>
+          <Directory Id="INSTALLFOLDERVERSIONED" Name="v$(var.ProductVersion)">
+            <Directory Id="INSTALLFOLDEROLADDIN" Name="OutlookAddin">
+              <Directory Id="INSTALLFOLDEROLADDINHU" Name="hu-HU"></Directory>
+            </Directory>
+            <Directory Id="INSTALLFOLDERFF" Name="FirefoxInterop"></Directory>
+						<Directory Id="INSTALLFOLDEREDGE" Name="EdgeInterop"></Directory>
+						<Directory Id="INSTALLFOLDERCHROME" Name="ChromeInterop"></Directory>
+          </Directory>
+					<Directory Id="INSTALLFOLDERJAVACAPTURE" Name="JavaCapture"></Directory>
+          <Directory Id="INSTALLFOLDEROLSYNC" Name="OutlookSync"></Directory>
+          <Directory Id="INSTALLFOLDERLNSYNC" Name="LotusNotesSync"></Directory>
+          <?ifdef IncludeService ?>
+          <Directory Id="INSTALLFOLDERSERVICE" Name="Service"></Directory>
+          <?endif?>
+					<Directory Id="INSTALLFOLDEREDGEOLD" Name="EdgeInterop"></Directory>
+					<Directory Id="INSTALLFOLDERCHROMEOLD" Name="ChromeInterop"></Directory>
+          <?ifdef myOcrPlugin?>
+          <Directory Id="INSTALLFOLDERTESSERACTDATA" Name="tessdata">
+            <Directory Id="INSTALLFOLDERTESSERACTDATACONFIG" Name="configs" />
+            <Directory Id="INSTALLFOLDERTESSERACTDATATESSCONFIG" Name="tessconfigs" />
+          </Directory>
+          <Directory Id="INSTALLFOLDERTESSERACTx86" Name="x86" />
+          <Directory Id="INSTALLFOLDERTESSERACTx64" Name="x64" />
+          <?endif?>
+        </Directory>
+        <Directory Id="ProgramMenuFolder">
+          <Directory Id="ApplicationProgramsFolder" Name="$(var.ActivityRecorderClient.TargetName)"/>
+        </Directory>
+      </Directory>
+    </Directory>
+	</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Condition><![CDATA[NOT SUPRESSSHORTCUT]]></Condition>
+        <Shortcut Id="ApplicationStartMenuShortcut"
+             Name="$(var.ActivityRecorderClient.TargetName)"
+           Description="Workforce management software"
+            Target="[INSTALLFOLDER]$(var.ActivityRecorderClient.TargetFileName)"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RemoveFile Name="$(var.ActivityRecorderClient.TargetName)" Id="ApplicationStartMenuShortcut" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\JobCTRL\$(var.ActivityRecorderClient.TargetName)" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RemoveRegistryKey Root="HKCU" Key="Software\JobCTRL\$(var.ActivityRecorderClient.TargetName)" Action="removeOnUninstall"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="TARGETDIR">
+      <Component Id="RegistryEntries" Guid="8BE41FA0-12A4-4ECA-830B-B5D1892CF341">
+        <?if $(var.MsiInstallScope) = perMachine ?>
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\$(var.ActivityRecorderClient.TargetFileName)" Type="string" Value="[INSTALLFOLDER]$(var.ActivityRecorderClient.TargetFileName)" />
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\$(var.ActivityRecorderClient.TargetFileName)" Name="Path" Type="string" Value="[INSTALLFOLDER]" />
+        <RemoveRegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\$(var.ActivityRecorderClient.TargetFileName)" Action="removeOnUninstall" />
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="JobCTRL" Type="string" Value="[INSTALLFOLDER]$(var.ActivityRecorderClient.TargetFileName)" />
+        <?endif ?>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents">
+      <Component Id="ProductComponent" Guid="CA9294EE-EAA1-4E15-817F-20A97C05979B" Directory="INSTALLFOLDER">
+        <File Id="jobctrl.exe" Source="$(var.ActivityRecorderClient.TargetPath)" KeyPath="yes" />
+        <File Source="$(var.ActivityRecorderClient.TargetPath).config" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\TctEncoder.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\BitmapManipulation.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\bootstrap.exe" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\JabApiLib.dll" Id="JabApiLib"/>
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\ImageTools.dll" />
+        <File Source="$(var.JcSend.TargetDir)\JcSend.exe" />
+        <File Id="log4net" Source="$(var.ActivityRecorderClient.TargetDir)\log4net.dll" />
+        <File Source="$(var.ActivityRecorderClient.ProjectDir)\..\TaskSchedLib\Microsoft.Win32.TaskScheduler.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\MetroFramework.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Newtonsoft.Json.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\SuperSocket.Common.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\SuperSocket.Facility.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\SuperSocket.SocketBase.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\SuperSocket.SocketEngine.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\SuperWebSocket.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\System.Management.Automation.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\sapfewse.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\saprotwr.net.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.Auth.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.Auth.PlatformServices.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.Calendar.v3.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.Core.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.Drive.v3.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Google.Apis.PlatformServices.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.Office.Client.Policy.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.Office.Client.TranslationServices.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.Office.SharePoint.Tools.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.Online.SharePoint.Client.Tenant.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.DocumentManagement.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Publishing.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Runtime.Windows.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Search.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Search.Applications.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Taxonomy.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.UserProfiles.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.WorkflowServices.dll" />
+        <?ifdef ProjectSync ?>
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.SharePoint.Client.Runtime.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\Microsoft.ProjectServer.Client.dll" />
+        <?endif?>
+        <?ifdef myOcrPlugin ?>
+          <File Source="$(var.ActivityRecorderClient.TargetDir)\Tesseract.dll" />
+        <?endif?>
+      </Component>
+      <?ifdef myOcrPlugin ?>
+      <Component Id="TesseractData" Guid="505C8B91-774E-49C2-95AA-CB230C00533C" Directory="INSTALLFOLDERTESSERACTDATA">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng.traineddata" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng0.traineddata" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng1.traineddata" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng2.traineddata" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng3.traineddata" />
+	      <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\eng4.traineddata" />
+      </Component>
+      <Component Id="Tesseractx86" Guid="62B71BC1-5A4C-4533-BAF2-1DF1AC035826" Directory="INSTALLFOLDERTESSERACTx86">
+          <File Id="_172x86" Source="$(var.ActivityRecorderClient.TargetDir)\x86\liblept1753.dll" />
+          <File Id="_304x86" Source="$(var.ActivityRecorderClient.TargetDir)\x86\libtesseract3052.dll" />
+      </Component>
+      <Component Id="Tesseractx64" Guid="7A0B7FEA-A003-4606-8737-C1AFEC8AC9F5" Directory="INSTALLFOLDERTESSERACTx64">
+          <File Source="$(var.ActivityRecorderClient.TargetDir)\x64\liblept1753.dll" />
+          <File Source="$(var.ActivityRecorderClient.TargetDir)\x64\libtesseract3052.dll" />
+      </Component>
+      <Component Id="TesseractDataConfig" Guid="0D8E2DF0-39F6-4ECC-9DCB-5D9C2855B30D" Directory="INSTALLFOLDERTESSERACTDATACONFIG">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\ambigs.train" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\api_config" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\bigram" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\box.train" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\box.train.stderr" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\config.cfg" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\digits" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\hocr" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\inter" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\kannada" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\logfile" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\linebox" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\makebox" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\unlv" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\quiet" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\rebox" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\configs\strokewidth" />
+      </Component>
+      <Component Id="TesseractDataTessConfig" Guid="A34240FB-3E68-4C9D-BC5A-AAC8981DBE21"  Directory="INSTALLFOLDERTESSERACTDATATESSCONFIG">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\batch" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\batch.nochop" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\matdemo" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\msdemo" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\nobatch" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\tessdata\tessconfigs\segdemo" />
+      </Component>
+      <?endif?>
+      <Component Id="ProductComponentHU" Guid="221DCCE1-E5C2-4C72-8012-BC8C3E38299B" Directory="INSTALLFOLDERHU">
+        <File Id="res.huhu.dll" Source="$(var.ActivityRecorderClient.TargetDir)\hu-HU\$(var.ActivityRecorderClient.TargetName).resources.dll" KeyPath="yes" />
+        <File Source="$(var.JcSend.TargetDir)\hu-HU\JcSend.resources.dll" />
+      </Component>
+      <Component Id="ProductComponentPTBR" Guid="871F9D3B-BF9F-4AA5-AB35-DBABC80B8D5D" Directory="INSTALLFOLDERPTBR">
+        <File Id="res.ptbr.dll" Source="$(var.ActivityRecorderClient.TargetDir)\pt-BR\$(var.ActivityRecorderClient.TargetName).resources.dll" />
+      </Component>
+	    <Component Id="ProductComponentESMX" Guid="F6B5123C-2923-4346-AFA5-F38568211581" Directory="INSTALLFOLDERESMX">
+        <File Id="res.esmx.dll" Source="$(var.ActivityRecorderClient.TargetDir)\es-MX\$(var.ActivityRecorderClient.TargetName).resources.dll" />
+      </Component>
+	    <Component Id="ProductComponentKOKR" Guid="EDBAE6E0-24D3-4A45-ADF4-54B7CEDE9DBC" Directory="INSTALLFOLDERKOKR">
+        <File Id="res.kokr.dll" Source="$(var.ActivityRecorderClient.TargetDir)\ko-KR\$(var.ActivityRecorderClient.TargetName).resources.dll" />
+      </Component>
+      <Component Id="ProductComponentJAJP" Guid="D7E45716-2919-4D36-9E95-5DAEF557F41F" Directory="INSTALLFOLDERJAJP">
+        <File Id="res.jajp.dll" Source="$(var.ActivityRecorderClient.TargetDir)\ja-JP\$(var.ActivityRecorderClient.TargetName).resources.dll" />
+      </Component>
+      <Component Id="ProductComponentOutlookSync" Guid="4773BAA4-BF00-456A-8AC1-849311302FEC" Directory="INSTALLFOLDEROLSYNC">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Meeting.exe" KeyPath="yes" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Meeting64.exe" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\OutlookMeetingCaptureService.dll" />
+        <!-- <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\Redemption.zip" /> --> <!-- In case of perMachine outlook process may not have permission to extract to programfiles. And it is unnecessary to use zip in msi package. -->
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\Interop.Redemption.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\Redemption.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\Redemption64.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Meeting.exe.config" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Meeting64.exe.config" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\ICSharpCode.SharpZipLib.dll" />
+				<!--OutlookSync\log4net.dll-->
+	      <CopyFile Id="Log4netCopyOutlookSync" FileId="log4net" DestinationDirectory="INSTALLFOLDEROLSYNC" DestinationName="log4net.dll" />
+        <File Id="OutlookInteropService" Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\OutlookInteropService.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Mail64.exe" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Mail.exe" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Mail64.exe.config" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookSync\JC.Mail.exe.config" />
+      </Component>
+      <Component Id="ProductComponentLotusNotesSync" Guid="620E3BF4-6283-4B08-AC20-311B83EEF727" Directory="INSTALLFOLDERLNSYNC">
+        <File Id="JC.Meeting.exe.lns" Source="$(var.ActivityRecorderClient.TargetDir)\LotusNotesSync\JC.Meeting.exe" KeyPath="yes" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\LotusNotesSync\LotusNotesMeetingCaptureService.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\LotusNotesSync\Interop.Domino.dll" />
+        <File Id="JC.Meeting.exe.config.lns" Source="$(var.ActivityRecorderClient.TargetDir)\LotusNotesSync\JC.Meeting.exe.config" />
+	      <!--LotusNotesSync\log4net.dll-->
+	      <CopyFile Id="Log4netCopyLotusNotesSync" FileId="log4net" DestinationDirectory="INSTALLFOLDERLNSYNC" DestinationName="log4net.dll" />
+      </Component>
+      <Component Id="ProductComponentFirefoxInterop" Guid="4CD86E61-96B7-4F4B-AFBF-8AE0BED95AB1" Directory="INSTALLFOLDERFF">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\FirefoxInterop\com.tct.jobctrl.json" Id="FirefoxInteropJson"/>
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\FirefoxInterop\ffinterop@jobctrl.com_signed.xpi" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\FirefoxInterop\ffinterop@jobctrl.com_legacy.xpi" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\FirefoxInterop\JC.FF.exe" />
+	      <File Source="$(var.ActivityRecorderClient.TargetDir)\FirefoxInterop\JC.FF.exe.config" />
+	      <!--FirefoxInterop\log4net.dll-->
+	      <CopyFile Id="Log4netCopyFirefoxInterop" FileId="log4net" DestinationDirectory="INSTALLFOLDERFF" DestinationName="log4net.dll" />
+      </Component>
+			<Component Id="ProductComponentEdgeInterop" Guid="41CEB392-F04C-4F80-ABE4-BD4A13ACBBF3" Directory="INSTALLFOLDEREDGE">
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\EdgeInterop\edgeExtension.appx" />
+				<RemoveFile Name="edgeExtension.appx" Id="OldEdgeInteropCleanup" Directory="INSTALLFOLDEREDGEOLD" On="install"/>
+				<RemoveFolder Id="OldEdgeInteropFolderDelete" Directory="INSTALLFOLDEREDGEOLD" On="install"/>
+			</Component>
+			<Component Id="ProductComponentChromeInterop" Guid="E8A7FB6C-E8BD-4BFC-A317-93B25EB3D516" Directory="INSTALLFOLDERCHROME">
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\ChromeInterop\com.tct.jobctrl.json" Id="ChromeInteropJson"/>
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\ChromeInterop\JC.Chrome.exe" />
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\ChromeInterop\JC.Chrome.exe.config" />
+				<!--ChromeInterop\log4net.dll-->
+				<CopyFile Id="Log4netCopyChromeInterop" FileId="log4net" DestinationDirectory="INSTALLFOLDERCHROME" DestinationName="log4net.dll" />
+				<RemoveFile Name="com.tct.jobctrl.json" Id="OldChromeInteropCleanup1" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+				<RemoveFile Name="chromeinterop@jobctrl.com.crx" Id="OldChromeInteropCleanup2" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+				<RemoveFile Name="JC.Chrome.exe" Id="OldChromeInteropCleanup3" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+				<RemoveFile Name="JC.Chrome.exe.config" Id="OldChromeInteropCleanup4" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+				<RemoveFile Name="log4net.dll" Id="OldChromeInteropCleanup5" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+				<RemoveFolder Id="OldChromeInteropFolderDelete" Directory="INSTALLFOLDERCHROMEOLD" On="install"/>
+			</Component>
+			<Component Id="ProductComponentJavaCapture" Guid="597C6187-A27A-415A-859D-1806B0C5917C" Directory="INSTALLFOLDERJAVACAPTURE">
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\JavaCapture\JC.JavaCapture.exe" />
+				<File Source="$(var.ActivityRecorderClient.TargetDir)\JavaCapture\JC.JavaCapture.exe.config" />
+				<!--JavaCapture\JabApiLib.dll-->
+				<CopyFile Id="JabApiLibCopyJavaCapture" FileId="JabApiLib" DestinationDirectory="INSTALLFOLDERJAVACAPTURE" DestinationName="JabApiLib.dll"/>
+				<!--JavaCapture\log4net.dll-->
+				<CopyFile Id="Log4netCopyJavaCapture" FileId="log4net" DestinationDirectory="INSTALLFOLDERJAVACAPTURE" DestinationName="log4net.dll"  />
+			</Component>
+      <Component Id="ProductComponentOutlookAddin" Guid="4AF18779-EAEE-4A22-B23F-535ADC21C26F" Directory="INSTALLFOLDEROLADDIN">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\MailActivityTracker.vsto" KeyPath="yes" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\MailActivityTracker.dll.manifest" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\MailActivityTracker.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\MailActivityTracker.dll.config" />
+	      <!--OutlookAddin\log4net.dll-->
+	      <CopyFile Id="Log4netCopyOutlookAddin" FileId="log4net" DestinationDirectory="INSTALLFOLDEROLADDIN" DestinationName="log4net.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\OutlookInteropService.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll" />
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\Microsoft.Office.Tools.v4.0.Framework.dll" />
+      </Component>
+      <Component Id="ProductComponentOutlookAddinHu" Guid="F8BF58F7-CE61-4C4B-ABEE-6E3883A10495" Directory="INSTALLFOLDEROLADDINHU">
+        <File Source="$(var.ActivityRecorderClient.TargetDir)\OutlookAddin\hu-HU\MailActivityTracker.resources.dll" />
+      </Component>
+      <?ifdef IncludeService ?>
+      <Component Id="ProductComponentService" Guid="7086ADD5-6941-428C-8782-89172599E952" Directory="INSTALLFOLDERSERVICE">
+        <File Source="$(var.AppControlService.TargetDir)\AppControlService.exe" KeyPath="yes" />
+	      <File Source="$(var.AppControlService.TargetDir)\AppControlService.exe.config" />
+	      <CopyFile Id="Log4netCopyProductComponentService" FileId="log4net" DestinationDirectory="INSTALLFOLDERSERVICE" DestinationName="log4net.dll" />
+        <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Vital="yes" Name="JobCTRL:JcAppChkService" DisplayName="JcAppChkService" Description="Checks and controls JobCTRL applications" Start="auto" Account="LocalSystem" ErrorControl="ignore" Interactive="no">
+          <util:ServiceConfig FirstFailureActionType="restart" SecondFailureActionType="restart" ThirdFailureActionType="none" />
+        </ServiceInstall>
+        <ServiceControl Id="StartService" Start="install" Stop="both" Remove="uninstall" Name="JobCTRL:JcAppChkService" Wait="yes" />
+      </Component>
+      <?endif?>
+      <ComponentRef Id="ApplicationShortcut"/>
+      <ComponentRef Id="RegistryEntries"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

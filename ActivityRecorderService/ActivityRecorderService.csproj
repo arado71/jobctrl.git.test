@@ -1,0 +1,975 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Obfuscar.2.2.19\build\obfuscar.props" Condition="Exists('..\packages\Obfuscar.2.2.19\build\obfuscar.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95BF4851-77A1-4738-9377-0C2BA92CF256}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tct.ActivityRecorderService</RootNamespace>
+    <AssemblyName>ActivityRecorderService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <XsdCodeGenEnabled>False</XsdCodeGenEnabled>
+    <WcfConfigValidationEnabled>False</WcfConfigValidationEnabled>
+    <XsdCodeGenSerializerMode>XmlSerializer</XsdCodeGenSerializerMode>
+    <XsdCodeGenReuseTypesFlag>True</XsdCodeGenReuseTypesFlag>
+    <XsdCodeGenReuseTypesMode>All</XsdCodeGenReuseTypesMode>
+    <XsdCodeGenReferences />
+    <XsdCodeGenNamespaceMappings>%2a, Tct.ActivityRecorderService.ContractTypes</XsdCodeGenNamespaceMappings>
+    <XsdCodeGenCollectionTypes>System.Array%3bSystem.Collections.Generic.Dictionary`2</XsdCodeGenCollectionTypes>
+    <XsdCodeGenExcludedTypes />
+    <XsdCodeGenImportXmlTypes>True</XsdCodeGenImportXmlTypes>
+    <XsdCodeGenGenerateSerializableTypes>True</XsdCodeGenGenerateSerializableTypes>
+    <XsdCodeGenGenerateInternalTypes>False</XsdCodeGenGenerateInternalTypes>
+    <XsdCodeGenEnableDataBinding>False</XsdCodeGenEnableDataBinding>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EncodeTransmissionScreen;ASYNC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;EncodeTransmissionScreen;ASYNC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Keys\JobCTRL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\Keys\JobCTRL.snk">
+      <Link>Properties\JobCTRL.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Google.Apis, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.36.1\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.36.1\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.36.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.36.1.1412, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.36.1.1412\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.36.1\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.36.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MeteorIA, Version=1.2.2.35005, Culture=neutral, PublicKeyToken=462a9292f6070282, processorArchitecture=MSIL" />
+    <Reference Include="MathNet.Numerics, Version=3.20.0.0, Culture=neutral, PublicKeyToken=cd8b63ad3d691a37, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.Signed.3.20.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tesseract, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.3.0\lib\net45\Tesseract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient\CachedDictionary.cs">
+      <Link>Ocr\CachedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>Common\WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\StopwatchLite.cs">
+      <Link>Common\StopwatchLite.cs</Link>
+    </Compile>
+    <Compile Include="AcceptanceData.cs" />
+    <Compile Include="ActiveDirectoryIntegration\ClientLoginAuthenticator.cs" />
+    <Compile Include="ActiveDirectoryIntegration\IActiveDirectoryLoginService.cs" />
+    <Compile Include="ActiveDirectoryIntegration\ClientLoginTicket.cs" />
+    <Compile Include="ActiveWindow.cs" />
+    <Compile Include="ActivityRecorderDataClasses.cs">
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityRecorderDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityRecorderDataClassesDataContext.ClientSettings.cs" />
+    <Compile Include="ActivityRecorderUserNamePasswordValidator.cs" />
+    <Compile Include="AddManualMeetingsResult.cs" />
+    <Compile Include="AggregateCollectedItems.cs" />
+    <Compile Include="AggregateDataClasses.cs">
+      <DependentUpon>AggregateDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="AggregateDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AggregateDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="AssignCompositeData.cs" />
+    <Compile Include="AssignProjectData.cs" />
+    <Compile Include="AssignTaskResult.cs" />
+    <Compile Include="AssignWorkData.cs" />
+    <Compile Include="AuthData.cs" />
+    <Compile Include="AuthenticationManager.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyLite.cs" />
+    <Compile Include="Caching.Works\WorkOrProject.cs" />
+    <Compile Include="ClientComputerData\AcquireClientLogHelper.cs" />
+    <Compile Include="Collector\StringCipher.cs" />
+    <Compile Include="Calendar\WorktimeSchedulesLookup.cs" />
+    <Compile Include="Common\AsyncDuplicateLock.cs" />
+    <Compile Include="Common\HeapHelper.cs" />
+    <Compile Include="Maintenance\GlobalActivityEvent.cs" />
+    <Compile Include="Maintenance\GlobalActivityEventHandler.cs" />
+    <Compile Include="MeetingSync\CloudTokenData.cs" />
+    <Compile Include="MeetingSync\GoogleCalendarSource.cs" />
+    <Compile Include="MeetingSync\GoogleDatabaseDataStore.cs" />
+    <Compile Include="Calendar\CalendarLookup.cs" />
+    <Compile Include="Calendar\CalendarManager.cs" />
+    <Compile Include="Collector\CollectedLookupIdCache.cs" />
+    <Compile Include="CollectorRule.cs" />
+    <Compile Include="CollectedItem.cs" />
+    <Compile Include="Collector\CollectedItemDbHelper.cs" />
+    <Compile Include="Collector\CollectedItemDTHelper.cs" />
+    <Compile Include="DesktopWindow.cs" />
+    <Compile Include="IssueData.cs" />
+    <Compile Include="Maintenance\TelemetryFileStorage.cs" />
+    <Compile Include="MeetingSync\IGoogleCalendarSource.cs" />
+    <Compile Include="MeetingSync\MeetingSyncManager.cs" />
+    <Compile Include="Ocr\CustomRecognition.cs" />
+    <Compile Include="Ocr\LearningManager.cs" />
+    <Compile Include="Ocr\OcrEmailHelper.cs" />
+    <Compile Include="Ocr\OcrLearnMetric.cs" />
+    <Compile Include="Ocr\OcrRuleParameter.cs" />
+    <Compile Include="Ocr\OcrRuleParameters.cs" />
+    <Compile Include="Ocr\OcrRules.cs" />
+    <Compile Include="Ocr\OcrSnippetValidator.cs" />
+    <Compile Include="Ocr\OcrStatsHelper.cs" />
+    <Compile Include="Ocr\SampleStorage.cs" />
+    <Compile Include="Messaging\IMessageService.cs" />
+    <Compile Include="Messaging\Message.cs" />
+    <Compile Include="Messaging\MessageService.cs" />
+    <Compile Include="Ocr\SnippetFilter.cs" />
+    <Compile Include="OnlineStats\MobileActivityBuilder.cs" />
+    <Compile Include="OnlineStats\WorkTimeSpecificBuilder.cs" />
+    <Compile Include="Proxy\CloneHelper.cs" />
+    <Compile Include="Proxy\IProxyService.cs" />
+    <Compile Include="Proxy\IProxyCallback.cs" />
+    <Compile Include="Proxy\ProxyService.cs" />
+    <Compile Include="Proxy\ProxyUserNamePasswordValidator.cs" />
+    <Compile Include="Stats\WorktimeStatIntervalAggregator.cs" />
+    <Compile Include="Storage\CompactScreenShotPathResolver.cs" />
+    <Compile Include="TODOs\TodoListDTO.cs" />
+    <Compile Include="TODOs\TodoListItemDTO.cs" />
+    <Compile Include="TODOs\TodoListItemStatusDTO.cs" />
+    <Compile Include="TODOs\TodoListService.cs" />
+    <Compile Include="TODOs\TodoListToken.cs" />
+    <Compile Include="UserAccessLevel.cs" />
+    <Compile Include="WorkerThreadPoolBehavior.cs" />
+    <Compile Include="WorkManagement\ReasonItem.cs" />
+    <Compile Include="Telemetry\TelemetryHelper.cs" />
+    <Compile Include="Telemetry\TelemetryItem.cs" />
+    <Compile Include="WorkTimeHistory\UserSettings.cs" />
+    <Compile Include="WorkTimeHistory\WorkNames.cs" />
+    <Compile Include="Caching.Works\IWorkHierarchyService.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyCacheLru.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyService.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyCacheRwLock.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyCacheDict.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyManagerDict.cs" />
+    <Compile Include="Caching\CachedFunc.cs" />
+    <Compile Include="Caching\LookupStatsManager.cs" />
+    <Compile Include="Caching\StopwatchLiteThreadSafe.cs" />
+    <Compile Include="Caching\ThreadSafeCachedFunc.cs" />
+    <Compile Include="Caching\LookupIdCache.cs" />
+    <Compile Include="Caching\LruCache.cs" />
+    <Compile Include="Calendar\CalendarHelper.cs" />
+    <Compile Include="CannedCloseReasons.cs" />
+    <Compile Include="CategoryData.cs" />
+    <Compile Include="CensorRule.cs" />
+    <Compile Include="ClientComputerData\ClientComputerInfo.cs" />
+    <Compile Include="ClientComputerData\ClientComputerInfoDataClasses.cs">
+      <DependentUpon>ClientComputerInfoDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ClientComputerData\ClientComputerInfoDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientComputerInfoDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ClientComputerData\ClientComputerError.cs" />
+    <Compile Include="ClientComputerData\ClientComputerErrorPath.cs" />
+    <Compile Include="ClientMenu.cs" />
+    <Compile Include="CloseWorkResult.cs" />
+    <Compile Include="CompositeMapping.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="Cover\AggregateWorkItemIntervalCovered.cs" />
+    <Compile Include="Cover\AllWorkItemsCovered.cs" />
+    <Compile Include="Cover\IAggregateWorkItemIntervalCovered.cs" />
+    <Compile Include="Cover\ManualWorkItemCovered.cs" />
+    <Compile Include="Cover\MobileWorkItemCovered.cs" />
+    <Compile Include="DailyAggregation\DailyWorkTimesCache.cs" />
+    <Compile Include="DailyAggregation\DailyWorkTimesHelper.cs" />
+    <Compile Include="DailyAggregation\DailyWorkTimesManager.cs" />
+    <Compile Include="DailyAggregation\TodaysWorkTimeCache.cs" />
+    <Compile Include="Dapper\DapperExtensions.cs" />
+    <Compile Include="Dapper\SqlMapper.cs" />
+    <Compile Include="Dapper\SqlMapperAsync.cs" />
+    <Compile Include="Dapper\SqlMapperVersion.cs" />
+    <Compile Include="DateTimeWithZone.cs" />
+    <Compile Include="DailyAggregation\DailyWorkTimeStats.cs" />
+    <Compile Include="Update\DownloadSessionInfo.cs" />
+    <Compile Include="EmailStats\ActiveWindowGroup.cs" />
+    <Compile Include="EmailStats\AggregateActivityBuilder.cs" />
+    <Compile Include="EmailStats\AggregatedActivity.cs" />
+    <Compile Include="EmailStats\CalculatorHelper.cs" />
+    <Compile Include="EmailStats\ChartHelper.cs" />
+    <Compile Include="EmailStats\DateRangeFormatter.cs" />
+    <Compile Include="EmailStats\EmailMobileLocationStatsHelper.cs" />
+    <Compile Include="EmailStats\EmailHelper.cs" />
+    <Compile Include="EmailStats\EmailManager.cs" />
+    <Compile Include="EmailStats\EmailMessage.cs" />
+    <Compile Include="EmailStats\EmailProjectStatsHelper.cs" />
+    <Compile Include="EmailStats\EmailResource.cs" />
+    <Compile Include="EmailStats\EmailStats.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailStats.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailStats\EmailStatsAggregateHelper.cs" />
+    <Compile Include="EmailStats\EmailStatsAutoSendHelper.cs" />
+    <Compile Include="EmailStats\EmailStatsHelper.cs" />
+    <Compile Include="EmailStats\EmailToSend.cs" />
+    <Compile Include="EmailStats\EmailToSendBase.cs" />
+    <Compile Include="EmailStats\EmailToSendProject.cs" />
+    <Compile Include="EmailStats\HourlyWage.cs" />
+    <Compile Include="EmailStats\IWorkTimeStat.cs" />
+    <Compile Include="EmailStats\ProjectCost.cs" />
+    <Compile Include="EmailStats\RandomHelper.cs" />
+    <Compile Include="EmailStats\ReportFrequency.cs" />
+    <Compile Include="EmailStats\ReportType.cs" />
+    <Compile Include="EmailStats\UrlFormatHelper.cs" />
+    <Compile Include="EmailStats\Wage.cs" />
+    <Compile Include="EmailStats\UserWorkCost.cs" />
+    <Compile Include="EmailStats\WorkTimeAndCost.cs" />
+    <Compile Include="ErrorHandling\ErrorHandlerBehaviorAttribute.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Update\FileDownloadManager.cs" />
+    <Compile Include="Update\IFileData.cs" />
+    <Compile Include="Update\IMsiFileData.cs" />
+    <Compile Include="Update\InstallerHelper.cs" />
+    <Compile Include="Maintenance\FileCleanup.cs" />
+    <Compile Include="Maintenance\IFileCleanup.cs" />
+    <Compile Include="Maintenance\FileCleanupConfiguration.cs" />
+    <Compile Include="Maintenance\FileCleanupManager.cs" />
+    <Compile Include="Maintenance\FileCleanupSection.cs" />
+    <Compile Include="Maintenance\MobileFileStorage.cs" />
+    <Compile Include="Meeting\FinishedMeetingEntryDead.cs" />
+    <Compile Include="Meeting\ManualMeetingDataDead.cs" />
+    <Compile Include="Update\MsiFileCache.cs" />
+    <Compile Include="Notifications\INotificationService.cs" />
+    <Compile Include="Notifications\NotificationDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotificationDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications\NotificationData.cs" />
+    <Compile Include="Notifications\NotificationCacheManager.cs" />
+    <Compile Include="Notifications\NotificationResult.cs" />
+    <Compile Include="Notifications\NotificationService.cs" />
+    <Compile Include="Persistence\DeadLetterHelper.cs" />
+    <Compile Include="Persistence\DeadLetterPathResolver.cs" />
+    <Compile Include="Screenshots\DecodeStatsManager.cs" />
+    <Compile Include="UpdatePathHelper.cs" />
+    <Compile Include="Voice\IStreamData.cs" />
+    <Compile Include="Voice\IVoiceRecorder.cs" />
+    <Compile Include="Meeting\FinishedMeetingData.cs" />
+    <Compile Include="FixedThreadPool.cs" />
+    <Compile Include="IActivityMobile.cs" />
+    <Compile Include="IActivityStats.cs" />
+    <Compile Include="IntervalAggregator.cs" />
+    <Compile Include="IntervalConcatenator.cs" />
+    <Compile Include="IActivityMonitoring.cs" />
+    <Compile Include="IStartable.cs" />
+    <Compile Include="IvrDataClasses.cs">
+      <DependentUpon>IvrDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="IvrDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IvrDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="JobControlDataClasses.cs">
+      <DependentUpon>JobControlDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="JobControlDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobControlDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Kicks\ClientComputerKick.cs" />
+    <Compile Include="Kicks\KickCoordinator.cs" />
+    <Compile Include="Kicks\KickManager.cs" />
+    <Compile Include="Kicks\KickDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KickDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Kicks\KickDbHelper.cs" />
+    <Compile Include="Kicks\KickResult.cs" />
+    <Compile Include="Kicks\KickTimeoutException.cs" />
+    <Compile Include="LinqHelper.cs" />
+    <Compile Include="ManualDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManualDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ManualWorkItemTypeHelper.cs" />
+    <Compile Include="MeetingData.cs" />
+    <Compile Include="Meeting\DataMappingException.cs" />
+    <Compile Include="Meeting\ManualMeetingData.cs" />
+    <Compile Include="Meeting\MeetingDataMapper.cs" />
+    <Compile Include="Meeting\PendingMeeting.cs" />
+    <Compile Include="MobileDataClasses.cs">
+      <DependentUpon>MobileDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MobileDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineStats\ClientWorkTimeStats.cs" />
+    <Compile Include="OnlineStats\DesktopLayoutVisualizer.cs" />
+    <Compile Include="OnlineStats\IComputerWorkItem.cs" />
+    <Compile Include="OnlineStats\IManualWorkItem.cs" />
+    <Compile Include="OnlineStats\IMobileWorkItem.cs" />
+    <Compile Include="OnlineStats\MobileClientWrapper.cs" />
+    <Compile Include="OnlineStats\MobileHelper.cs" />
+    <Compile Include="OnlineStats\MobileStatusManager.cs" />
+    <Compile Include="OnlineStats\OnlineStatusAndCurrentWorksHelper.cs" />
+    <Compile Include="OnlineStats\ComputerStatusCalculator.cs" />
+    <Compile Include="OnlineStats\OnlineUserStatsBuilder.cs" />
+    <Compile Include="OnlineStats\OnlineTodaysWorkTimeBuilder.cs" />
+    <Compile Include="OnlineStats\OnlineStatsManager.cs" />
+    <Compile Include="OnlineStats\OnlineUserStats.cs" />
+    <Compile Include="OnlineStats\OnlineUserTimeSynchronizer.cs" />
+    <Compile Include="OnlineStats\ReportIntervals.cs" />
+    <Compile Include="ParallelWorkItemTypeHelper.cs" />
+    <Compile Include="PeriodicManager.cs" />
+    <Compile Include="Persistence\EmailPathResolver.cs" />
+    <Compile Include="Persistence\IPathResolver.cs" />
+    <Compile Include="Persistence\PersistenceHelper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReasonStats.cs" />
+    <Compile Include="RetryHelper.cs" />
+    <Compile Include="RuleGeneratorData.cs" />
+    <Compile Include="Screenshots\CapturePrevious.cs" />
+    <Compile Include="Screenshots\DecodeId.cs" />
+    <Compile Include="Screenshots\ScreenshotDecoderHelper.cs" />
+    <Compile Include="Service References\MobileServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebsiteServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SilverLight\CrossDomainService.cs" />
+    <Compile Include="SilverLight\ICrossDomainService.cs" />
+    <Compile Include="SilverLight\SilverlightFaultBehavior.cs" />
+    <Compile Include="StartEndDate.cs" />
+    <Compile Include="StatsDbHelper.cs" />
+    <Compile Include="Stats\DailyStats.cs" />
+    <Compile Include="Stats\DailyStatsBuilder.cs" />
+    <Compile Include="Stats\DetailedWorkTimeStats.cs" />
+    <Compile Include="Stats\DetailedWorkTimeStatsBuilder.cs" />
+    <Compile Include="EmailStats\EmailBuilder.cs" />
+    <Compile Include="EmailStats\EmailTable.cs" />
+    <Compile Include="Stats\FullWorkTimeStats.cs" />
+    <Compile Include="Stats\IFilterableStats.cs" />
+    <Compile Include="Stats\IntervalWorkTimeStats.cs" />
+    <Compile Include="Stats\IntervalWorkTimeStatsBuilder.cs" />
+    <Compile Include="OnlineStats\SimpleWorkTimeStat.cs" />
+    <Compile Include="OnlineStats\SimpleWorkTimeStats.cs" />
+    <Compile Include="OnlineStats\SimpleWorkTimeStatsBuilder.cs" />
+    <Compile Include="Stats\StatsFilter.cs" />
+    <Compile Include="Stats\TotalWorkTimeStat.cs" />
+    <Compile Include="Stats\TotalWorkTimeStats.cs" />
+    <Compile Include="Stats\TotalWorkTimeStatsBuilder.cs" />
+    <Compile Include="OnlineStats\SimpleWorkTimeStatsManager.cs" />
+    <Compile Include="Stats\UserStats.cs" />
+    <Compile Include="IActivityRecorder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityRecorderService.cs" />
+    <Compile Include="Stats\Enumetarions.cs" />
+    <Compile Include="Stats\UserWorkStats.cs" />
+    <Compile Include="Storage\IScreenShotPathResolver.cs" />
+    <Compile Include="Storage\LegacyScreenShotPathResolver.cs" />
+    <Compile Include="Storage\ModuloIdScreenShotPathResolver.cs" />
+    <Compile Include="Storage\StorageDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StorageDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\StorageManager.cs" />
+    <Compile Include="TaskEx.cs" />
+    <Compile Include="Update\UpdateApplicationInfo.cs" />
+    <Compile Include="UsageStats\UsageStat.cs" />
+    <Compile Include="UsageStats\UsageStatsBuilder.cs" />
+    <Compile Include="UsageStats\UsageStatsHelper.cs" />
+    <Compile Include="UsageStats\UsageStatsManager.cs" />
+    <Compile Include="UserIdManager.cs" />
+    <Compile Include="Stats\WorkTimeStats.cs" />
+    <Compile Include="Stats\WorkTimeStatsBuilder.cs" />
+    <Compile Include="VersionCacheManager.cs" />
+    <Compile Include="Voice\StreamDataUploadStore.cs" />
+    <Compile Include="Voice\VoiceRecorderDataClasses.cs">
+      <DependentUpon>VoiceRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Voice\VoiceRecorderDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoiceRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Voice\VoiceRecordingPath.cs" />
+    <Compile Include="Website\WebsiteClientWrapper.cs" />
+    <Compile Include="WorkData.cs" />
+    <Compile Include="WorkDetectorRule.cs" />
+    <Compile Include="Caching.Works\WorkHierarchyBase.cs" />
+    <Compile Include="WorkDetectorRuleActions.cs" />
+    <Compile Include="WorkItemAggregator.cs" />
+    <Compile Include="WorkItemExtensions.cs" />
+    <Compile Include="Persistence\XmlPersistenceHelper.cs" />
+    <Compile Include="WorkManagement\WorkManagementCommon.cs" />
+    <Compile Include="WorkManagement\ProjectManagementConstraints.cs" />
+    <Compile Include="WorkManagement\WorkManagementService.cs" />
+    <Compile Include="WorkTimeHistory\ModifyWorkTimeHelper.cs" />
+    <Compile Include="WorkTimeHistory\WorkTimeHistoryDbHelper.cs" />
+    <Compile Include="WorkTimeHistory\WorkTimeModifications.cs" />
+    <Compile Include="WorkTimeHistory\ClientWorkTimeHistory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ActivityRecorderDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ActivityRecorderDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>Tct.ActivityRecorderService</CustomToolNamespace>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClientComputerData\ClientComputerInfoDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ClientComputerInfoDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Kicks\KickDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>KickDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Notifications\NotificationDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NotificationDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer.wsdl" />
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer1.wsdl" />
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\MobileJobCTRLServer25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\Tct.ActivityRecorderService.MobileServiceReference.UserData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\clientApi.wsdl" />
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddManualMeetingsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddManualWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddMessageRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddMessageRet3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddUsersCommentsToWorkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AddUsersCommentsToWorkRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AssignUserToTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AssignUserToWorksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.AssignUserToWorks_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CarpetDiagram.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.ClientTab.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CloseTaskForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CloseTaskForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CreateTaskDynamicallyForExternalKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CreateWorkAndAssignmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.CreateWorkAndAssignment_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.DisableCompanyDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.DisplayedReports.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.FavoriteReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetContentForUserTabResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetCreateWorkLimitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetDisplayedReportsForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetMandatoryFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetMessageChangesResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetProjectAccessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetReasonsItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetReasonsItemsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetUpdateWorkLimitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetUsersReasonsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetUsersReasonsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.GetWorktimeStatsForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.ManageMeetingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.MandatoryFields.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.MarkMessageAsReadRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.MarkMessagesAsSentRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.Message.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.ProjectAccess.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.ReasonItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.ReasonItemTextKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.SignedInFromClientRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.SignedOutFromClientRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.StayingLocationsReportItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.TaskLimits.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UpdateAssignmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UpdateAssignment_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UpdateRuleParametersRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UpdateWorkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UpdateWork_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.UsersReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference.WorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Storage\StorageDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>StorageDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Voice\VoiceRecorderDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>VoiceRecorderDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ActivityRecorderDataClasses.dbml.layout">
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </None>
+    <None Include="JobControlDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>JobControlDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MobileDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MobileDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AggregateDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AggregateDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JobControlDataClasses.dbml.layout">
+      <DependentUpon>JobControlDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AggregateDataClasses.dbml.layout">
+      <DependentUpon>AggregateDataClasses.dbml</DependentUpon>
+    </None>
+    <None Include="IvrDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IvrDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IvrDataClasses.dbml.layout">
+      <DependentUpon>IvrDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ManualDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ManualDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dependencies\MeteorIA.dll" />
+    <Content Include="obfuscar.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\productivity.png" />
+    <None Include="Resources\devices.png" />
+    <None Include="Resources\barchart.png" />
+    <None Include="Resources\google_marker_blue.png" />
+    <None Include="Service References\WebsiteServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebsiteServiceReference\configuration.svcinfo" />
+    <None Include="Service References\WebsiteServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\MobileServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MobileServiceReference\configuration.svcinfo" />
+    <None Include="Service References\MobileServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ManualDataClasses.dbml.layout">
+      <DependentUpon>ManualDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MobileDataClasses.dbml.layout">
+      <DependentUpon>MobileDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MobileServiceReference\" />
+    <WCFMetadataStorage Include="Service References\WebsiteServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Storage\StorageDataClasses.dbml.layout">
+      <DependentUpon>StorageDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Kicks\KickDataClasses.dbml.layout">
+      <DependentUpon>KickDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitmapManipulation\BitmapManipulation.csproj">
+      <Project>{E6D3F875-B52C-447A-9D95-52158DAC9B16}</Project>
+      <Name>BitmapManipulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ocr\Ocr.csproj">
+      <Project>{ae73c941-3ffb-4e60-9a3e-0456aba691bd}</Project>
+      <Name>Ocr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reporting.Core\Reporting.Core.csproj">
+      <Project>{de7db5e4-e46f-4f25-8191-d4cccc4353ae}</Project>
+      <Name>Reporting.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TctEncoder\TctEncoder.csproj">
+      <Project>{3EB736C4-62EA-4887-B040-948B13EF29B9}</Project>
+      <Name>TctEncoder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientComputerData\ClientComputerInfoDataClasses.dbml.layout">
+      <DependentUpon>ClientComputerInfoDataClasses.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="EmailStats\EmailStats.hu-HU.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailStats\EmailStats.ja-JP.resx" />
+    <EmbeddedResource Include="EmailStats\EmailStats.ko-KR.resx" />
+    <EmbeddedResource Include="EmailStats\EmailStats.pt-BR.resx" />
+    <EmbeddedResource Include="EmailStats\EmailStats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailStats.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Notifications\NotificationDataClasses.dbml.layout">
+      <DependentUpon>NotificationDataClasses.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Voice\VoiceRecorderDataClasses.dbml.layout">
+      <DependentUpon>VoiceRecorderDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WindowsInstaller">
+      <Guid>{000C1092-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>1033</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+      <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+      <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationVersion)")</ReplaceWith>
+      <InProject>false</InProject>
+    </SetRegexTransform>
+  </ItemGroup>
+  <PropertyGroup>
+    <PublishDependsOn>SetVersionInfo;$(PublishDependsOn)</PublishDependsOn>
+  </PropertyGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\Tools\WcfOrderCheck.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\ResxCheck\ResxCheck.targets" />
+  <Target Name="BeforeBuild" Condition="'$(ApplicationVersion)' != ''">
+    <RegexTransform Items="@(SetRegexTransform)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!-- Inline tasks -->
+  <UsingTask TaskName="RegexTransform" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Items ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="Microsoft.Build.Framework" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+          foreach(ITaskItem item in Items) {
+            string fileName = item.GetMetadata("FullPath");
+            string find = item.GetMetadata("Find");
+            string replaceWith = item.GetMetadata("ReplaceWith");
+
+            if(!File.Exists(fileName)) {
+              Log.LogError(null, null, null, null, 0, 0, 0, 0, String.Format("Could not find file: {0}", fileName), new object[0]);
+            }
+            string content = File.ReadAllText(fileName);
+            File.WriteAllText(
+              fileName,
+              Regex.Replace(
+                content,
+                find,
+                replaceWith,
+                RegexOptions.Multiline
+              ),
+              System.Text.Encoding.UTF8
+            );
+            Log.LogMessage("Updated file " + fileName, MessageImportance.High);
+          }
+        ]]></Code>
+    </Task>
+  </UsingTask>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Obfuscar.2.2.19\build\obfuscar.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Obfuscar.2.2.19\build\obfuscar.props'))" />
+    <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
+  </Target>
+  <Target Name="CoreClean">
+    <Exec Condition="!Exists('..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\vCurrent')" Command="mklink /j ..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\vCurrent ..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\v15.0" />
+  </Target>
+  <PropertyGroup Condition="'$(GoObfuscation)'!=''">
+    <PostBuildEvent>"$(Obfuscar)" "$(ProjectDir)obfuscar.xml"
+xcopy "$(TargetDir)Obfuscator_Output\*" "$(TargetDir)" /Y
+rmdir "$(TargetDir)Obfuscator_Output" /S /Q</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" />
+</Project>

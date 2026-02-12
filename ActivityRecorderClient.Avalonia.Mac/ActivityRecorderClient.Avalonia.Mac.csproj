@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-macos</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Tct.ActivityRecorderClient.Mac</RootNamespace>
+    <SupportedOSPlatformVersion>10.15</SupportedOSPlatformVersion>
+    <UseAppHost>true</UseAppHost>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <Version>2.5.501.3388</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
+    <UseAppHost>true</UseAppHost>
+    <PublishAot>false</PublishAot>
+    <PublishSingleFile>false</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>copy</TrimMode>
+    <LinkMode>None</LinkMode>
+    <ApplicationId>com.JobCTRL.JobCTRL</ApplicationId>
+    <AssemblyName>JC360</AssemblyName>
+    <Product>JC360</Product>
+    <CFBundleName>JC360</CFBundleName>
+    <CFBundleDisplayName>JC360</CFBundleDisplayName>
+    <CFBundleIdentifier>com.JobCTRL.JobCTRL</CFBundleIdentifier>
+    <CFBundleVersion>$(Version)</CFBundleVersion>
+    <CFBundleShortVersionString>$(Version)</CFBundleShortVersionString>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebuggerSupport>true</DebuggerSupport>
+    <MmpDebug>true</MmpDebug>
+  </PropertyGroup>
+
+  <Target Name="_ForceDebuggerIsSupported" BeforeTargets="GenerateBuildRuntimeConfigurationFiles" Condition="'$(Configuration)' == 'Debug'">
+    <ItemGroup>
+      <RuntimeHostConfigurationOption Remove="System.Diagnostics.Debugger.IsSupported" />
+      <RuntimeHostConfigurationOption Include="System.Diagnostics.Debugger.IsSupported" Value="true" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_PrintDebuggerProps" BeforeTargets="Build" Condition="'$(PrintDebuggerProps)' == 'true'">
+    <Message Importance="High" Text="Configuration=$(Configuration); RuntimeIdentifier=$(RuntimeIdentifier); DebuggerSupport=$(DebuggerSupport); MmpDebug=$(MmpDebug); _BundlerDebug=$(_BundlerDebug)" />
+  </Target>
+
+  <ItemGroup>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Info.plist" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootDescriptor Include="linker.xml" />
+    <TrimmerRootAssembly Include="ActivityRecorderClient.Avalonia" />
+    <TrimmerRootAssembly Include="JC360" />
+    <TrimmerRootAssembly Include="Avalonia.Controls.ColorPicker" />
+    <TrimmerRootAssembly Include="CoreWCF.Primitives" />
+    <TrimmerRootAssembly Include="System.ServiceModel" />
+    <TrimmerRootAssembly Include="System.ServiceModel.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.8" />
+    <PackageReference Include="SkiaTextRenderer" Version="2.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityRecorderClient.Avalonia\ActivityRecorderClient.Avalonia.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BundleResource Include="..\ActivityRecorderClient.Avalonia\Assets\JobCTRL.icns">
+      <Link>JobCTRL.icns</Link>
+    </BundleResource> 
+  </ItemGroup>
+
+</Project>

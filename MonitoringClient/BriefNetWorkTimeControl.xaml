@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MonitoringClient.BriefNetWorkTimeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:my="clr-namespace:MonitoringClient.ActivityMonitoringServiceReference" Loaded="UserControl_Loaded" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:src="clr-namespace:MonitoringClient.Converters">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="briefNetWorkTimeStatsViewSource" d:DesignSource="{d:DesignInstance my:BriefNetWorkTimeStats, CreateList=True}"/>
+        <src:TimeSpanConverter x:Key="timeSpanConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding}">
+        <!--{StaticResource briefNetWorkTimeStatsViewSource}"-->
+        <Grid HorizontalAlignment="Left" Name="grid1" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Computer Work Time:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="3,0" Name="computerWorkTimeTextBox" Text="{Binding Path=ComputerWorkTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Holiday Time:" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Margin="3,0" Name="holidayTimeTextBox" Text="{Binding Path=HolidayTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Ivr Work Time:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="3,0" Name="ivrWorkTimeTextBox" Text="{Binding Path=IvrWorkTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Manually Added Work Time:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="3,0" Name="manuallyAddedWorkTimeTextBox" Text="{Binding Path=ManuallyAddedWorkTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Mobile Work Time:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="3,0" Name="mobileWorkTimeTextBox" Text="{Binding Path=MobileWorkTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Net Work Time:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="3,0" Name="netWorkTimeTextBox" Text="{Binding Path=NetWorkTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+            <sdk:Label Content="Sick Leave Time:" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="3,0" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="3,0" Name="sickLeaveTimeTextBox" Text="{Binding Path=SickLeaveTime, Converter={StaticResource timeSpanConverter}}" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

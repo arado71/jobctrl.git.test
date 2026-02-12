@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ClientWorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ThisMonthsWorkTime" nillable="true" type="tns:BriefNetWorkTimeStats" />
+      <xs:element minOccurs="0" name="ThisWeeksWorkTime" nillable="true" type="tns:BriefNetWorkTimeStats" />
+      <xs:element minOccurs="0" name="TodaysWorkTime" nillable="true" type="tns:BriefNetWorkTimeStats" />
+      <xs:element minOccurs="0" name="ThisMonthsTargetNetWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ThisMonthsTargetUntilTodayNetWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ThisWeeksTargetNetWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ThisWeeksTargetUntilTodayNetWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="TodaysTargetNetWorkTime" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientWorkTimeStats" nillable="true" type="tns:ClientWorkTimeStats" />
+  <xs:complexType name="BriefNetWorkTimeStats">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BriefWorkTimeStats">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NetWorkTime" type="ser:duration" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BriefNetWorkTimeStats" nillable="true" type="tns:BriefNetWorkTimeStats" />
+  <xs:complexType name="BriefWorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="HolidayTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ManuallyAddedWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="MobileWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="SickLeaveTime" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BriefWorkTimeStats" nillable="true" type="tns:BriefWorkTimeStats" />
+  <xs:complexType name="SimpleWorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Stats" nillable="true" type="q1:ArrayOfKeyValueOfintSimpleWorkTimeStatEUfoD8aB" />
+      <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SimpleWorkTimeStats" nillable="true" type="tns:SimpleWorkTimeStats" />
+  <xs:complexType name="SimpleWorkTimeStat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TotalWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SimpleWorkTimeStat" nillable="true" type="tns:SimpleWorkTimeStat" />
+</xs:schema>

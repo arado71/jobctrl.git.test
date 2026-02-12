@@ -1,0 +1,68 @@
+#!/bin/sh
+# filepath: /Users/andrasrado/dev/jobctrl.git/JC-client-server/ActivityRecorderClient.Avalonia.Mac/scripts/preinstall
+set -u
+
+CONSOLE_USER="$(/usr/bin/stat -f%Su /dev/console 2>/dev/null || true)"
+
+if [[ -n "$CONSOLE_USER" && "$CONSOLE_USER" != "root" && "$CONSOLE_USER" != "loginwindow" ]]; then
+  USER_HOME=$(/usr/bin/dscl . -read "/Users/$CONSOLE_USER" NFSHomeDirectory | awk '{print $2}')
+  LOG_DIR="$USER_HOME/Library/Logs/JobCTRL"
+else
+  # Fallback ha nincs GUI user
+  LOG_DIR="/var/log"
+fi
+
+mkdir -p "$LOG_DIR" 2>/dev/null || true
+chown "$CONSOLE_USER" "$LOG_DIR" 2>/dev/null || true
+
+LOG="$LOG_DIR/jc360-install.log"
+exec >>"$LOG" 2>&1
+
+echo "=== JC360 preinstall $(date) ==="
+
+PKGID="com.JobCTRL.JobCTRL"
+BUNDLE_ID="com.jobctrl.JobCTRL"
+APP="/Applications/JC360.app"
+PLIST="/Library/LaunchAgents/com.jc360.autostart.plist"
+RELOCATED_FLAG="/tmp/.jc360-was-relocated"
+
+# Töröld az előző flagot (ha maradt volna)
+rm -f "$RELOCATED_FLAG" || true
+
+# Keress más helyen telepített példányokat (bundle id alapján)
+OTHER_APPS=$(/usr/bin/mdfind "kMDItemCFBundleIdentifier == '$BUNDLE_ID'" 2>/dev/null | grep -F ".app" || true)
+
+FOUND_RELOCATED=false
+echo "$OTHER_APPS" | while IFS= read -r p; do
+  [ -z "$p" ] && continue
+  if [ "$p" != "$APP" ]; then
+    echo "Found relocated copy: $p"
+    FOUND_RELOCATED=true
+    rm -rf "$p" || true
+  fi
+done
+
+# Ha volt relokált példány, hagyjunk flaget a postinstallnak
+if [ "$FOUND_RELOCATED" = true ]; then
+  touch "$RELOCATED_FLAG"
+  echo "Relocated app was removed; TCC reset will be performed."
+fi
+
+# Fix helyek takarítása
+if [ -e "$APP" ]; then
+  echo "Removing old app: $APP"
+  rm -rf "$APP" || true
+fi
+
+if [ -f "$PLIST" ]; then
+  echo "Removing old LaunchAgent: $PLIST"
+  rm -f "$PLIST" || true
+fi
+
+if pkgutil --pkg-info "$PKGID" >/dev/null 2>&1; then
+  echo "Forgetting receipt: $PKGID"
+  pkgutil --forget "$PKGID" || true
+fi
+
+echo "preinstall done."
+exit 0

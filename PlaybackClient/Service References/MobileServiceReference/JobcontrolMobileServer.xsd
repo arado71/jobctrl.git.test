@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="MobileClientStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Off" />
+      <xs:enumeration value="On" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MobileClientStatus" nillable="true" type="tns:MobileClientStatus" />
+  <xs:simpleType name="WorkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Project" />
+      <xs:enumeration value="Task" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WorkType" nillable="true" type="tns:WorkType" />
+</xs:schema>

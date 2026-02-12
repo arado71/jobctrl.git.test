@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="DeviceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mobile" />
+      <xs:enumeration value="Beacon" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeviceType" nillable="true" type="tns:DeviceType" />
+  <xs:complexType name="SiteMapData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HeightInCm" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteId" type="xs:int" />
+      <xs:element minOccurs="0" name="WidthInCm" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ZoneGroups" nillable="true" type="q1:ArrayOfKeyValueOfintZoneGroupMapDatasXw21vH2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiteMapData" nillable="true" type="tns:SiteMapData" />
+  <xs:complexType name="ZoneGroupMapData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Polygons" nillable="true" type="q2:ArrayOfKeyValueOfintPolygonsXw21vH2" />
+      <xs:element minOccurs="0" name="ZoneGroupId" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Zones" nillable="true" type="q3:ArrayOfKeyValueOfintZoneMapDatasXw21vH2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ZoneGroupMapData" nillable="true" type="tns:ZoneGroupMapData" />
+  <xs:complexType name="Polygon">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PolygonId" type="xs:int" />
+      <xs:element minOccurs="0" name="Vertices" nillable="true" type="tns:ArrayOfPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Polygon" nillable="true" type="tns:Polygon" />
+  <xs:complexType name="ArrayOfPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Point" nillable="true" type="tns:Point" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPoint" nillable="true" type="tns:ArrayOfPoint" />
+  <xs:complexType name="Point">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PosXInCm" type="xs:int" />
+      <xs:element minOccurs="0" name="PosYInCm" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Point" nillable="true" type="tns:Point" />
+  <xs:complexType name="ZoneMapData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CenterXInCm" type="xs:int" />
+      <xs:element minOccurs="0" name="CenterYInCm" type="xs:int" />
+      <xs:element minOccurs="0" name="LastDetectedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RadiusInCm" type="xs:int" />
+      <xs:element minOccurs="0" name="ZoneId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ZoneMapData" nillable="true" type="tns:ZoneMapData" />
+  <xs:complexType name="ArrayOfUserMapData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMapData" nillable="true" type="tns:UserMapData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMapData" nillable="true" type="tns:ArrayOfUserMapData" />
+  <xs:complexType name="UserMapData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="ZoneGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ZoneId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMapData" nillable="true" type="tns:UserMapData" />
+</xs:schema>

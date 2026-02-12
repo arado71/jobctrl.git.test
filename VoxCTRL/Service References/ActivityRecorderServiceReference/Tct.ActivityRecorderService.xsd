@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="AuthData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthData" nillable="true" type="tns:AuthData" />
+  <xs:complexType name="ApplicationUpdateInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DownloadSessionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationUpdateInfo" nillable="true" type="tns:ApplicationUpdateInfo" />
+  <xs:complexType name="DownloadSessionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChunkCount" type="xs:long" />
+      <xs:element minOccurs="0" name="FileId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadSessionInfo" nillable="true" type="tns:DownloadSessionInfo" />
+  <xs:complexType name="ClientSetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuUpdateInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureWorkItemInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureActiveWindowInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureScreenShotInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeSyncThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JpegQuality" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JpegScalePct" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeStartInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeEndInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AfterWorkTimeIdleInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxOfflineWorkItems" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DuringWorkTimeIdleInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DuringWorkTimeIdleManualInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxManualMeetingInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleRestrictions" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsMeetingTrackingEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMeetingSubjectMandatory" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BusyTimeThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CoincidentalClientsEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsManualMeetingStartsOnLock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLotusNotesMeetingTrackingEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RuleMatchingInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsOutlookAddinRequired" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOutlookAddinMailTrackingId" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultWorkId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureDeadlockInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MouseMovingThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EnabledFeature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PluginFailThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CollectedItemAggregateInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ForceCountdownRules" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MsProjectAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManualWorkItemEditAgeLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AutoReturnFromMeeting" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOutlookAddinMailTrackingUseSubject" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TelemetryMaxCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TelemetryMaxAgeInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TelemetryCollectedKeys" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsMeetingUploadModifications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMeetingTentativeSynced" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInjectedInputAllowed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DataCollectionSettings" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsNotificationShown" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsTodoListEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MailTrackingSettings" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiagnosticOperationMode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsGoogleCalendarTrackingEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAnonymModeEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VoxIsNameMandatory" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VoxQuality" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VoxIsManualStartStopEnabled" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientSetting" nillable="true" type="tns:ClientSetting" />
+</xs:schema>

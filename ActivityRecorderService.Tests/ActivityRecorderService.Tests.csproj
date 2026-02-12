@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C490B8E-A4B1-4DE7-A7EC-B8528FA4A194}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tct.Tests.ActivityRecorderService</RootNamespace>
+    <AssemblyName>ActivityRecorderService.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/ActivityRecorderService.Tests/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Keys\JobCTRL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\Keys\JobCTRL.snk">
+      <Link>Properties\JobCTRL.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.10.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.10.0\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient.Tests\RuleGeneratorFactoryHelper.cs">
+      <Link>RuleGeneratorFactoryHelper.cs</Link>
+    </Compile>
+    <Compile Include="AggregateConcurrenyTests.cs" />
+    <Compile Include="AggregateDailyWorkTimeTests.cs" />
+    <Compile Include="AggregateIdleTests.cs" />
+    <Compile Include="AggregateIntervalTests.cs" />
+    <Compile Include="AsyncDuplicateLockTests.cs" />
+    <Compile Include="CachedFuncTests.cs" />
+    <Compile Include="CalendarCacheTests.cs" />
+    <Compile Include="CalendarWorktimeSchedulesTests.cs" />
+    <Compile Include="ClientComputerErrorsTests.cs" />
+    <Compile Include="ClientSettingsTests.cs" />
+    <Compile Include="CollectedItemTests.cs" />
+    <Compile Include="DailyWorkTimesCacheTests.cs" />
+    <Compile Include="DapperPerfomanceTests.cs" />
+    <Compile Include="DeadLetterTests.cs" />
+    <Compile Include="DevDbTests.cs" />
+    <Compile Include="CollectionAllocationTests.cs" />
+    <Compile Include="EmailProjectStatsHelperPerfTests.cs" />
+    <Compile Include="FileCleanupTests.cs" />
+    <Compile Include="GetNextValueForSequenceTests.cs" />
+    <Compile Include="GoogleCalendarSyncTests.cs" />
+    <Compile Include="IntDiffOverflowTests.cs" />
+    <Compile Include="LruCacheTests.cs" />
+    <Compile Include="ChartTests.cs" />
+    <Compile Include="DailyStatsBuilderTests.cs" />
+    <Compile Include="DateRangeFormatterTests.cs" />
+    <Compile Include="DateRoundTripDbTests.cs" />
+    <Compile Include="DateTimeWithZoneTests.cs" />
+    <Compile Include="DateRoundTripWithoutDbTests.cs" />
+    <Compile Include="DbTestsBase.cs" />
+    <Compile Include="DesktopLayoutVisualizerTests.cs" />
+    <Compile Include="DetailedWorkTimeStatsBuilderTests.cs" />
+    <Compile Include="EmailPersistenceTests.cs" />
+    <Compile Include="EmailStatsHelperTests.cs" />
+    <Compile Include="EmailStatsHelperWithoutDbTests.cs" />
+    <Compile Include="EmailTimeoutTests.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="FixedThreadPoolTests.cs" />
+    <Compile Include="IntervalAggregatorTests.cs" />
+    <Compile Include="IntervalConcatenatorTests.cs" />
+    <Compile Include="IntervalWorkTimeStatsBuilderTests.cs" />
+    <Compile Include="CalendarTestsBase.cs" />
+    <Compile Include="KickCoordinatorTests.cs" />
+    <Compile Include="KickTests.cs" />
+    <Compile Include="ManualWorkItemTest.cs" />
+    <Compile Include="ManualWorkItemTypeTests.cs" />
+    <Compile Include="MobileHelperTests.cs" />
+    <Compile Include="MobileLocationTests.cs" />
+    <Compile Include="ModifyWorkTimeHelperTests.cs" />
+    <Compile Include="NotificationTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomTests.cs" />
+    <Compile Include="ReasonTests.cs" />
+    <Compile Include="ReportAddressTests.cs" />
+    <Compile Include="RuleGeneratorDbTests.cs" />
+    <Compile Include="ScreenshotDbTests.cs" />
+    <Compile Include="SerializationTests.cs" />
+    <Compile Include="SimpleWorkTimeStatsBuilderTests.cs" />
+    <Compile Include="StorageManagerTests.cs" />
+    <Compile Include="StreamDataUploadStoreTests.cs" />
+    <Compile Include="StringCipherTests.cs" />
+    <Compile Include="StringStripTests.cs" />
+    <Compile Include="TaskExTests.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="TestDataCreator.cs" />
+    <Compile Include="TestDb.cs" />
+    <Compile Include="HourlyWageTests.cs" />
+    <Compile Include="UrlFormatTests.cs" />
+    <Compile Include="UsageStatsBuilderTests.cs" />
+    <Compile Include="UsageStatsDbTests.cs" />
+    <Compile Include="ReportVersionTests.cs" />
+    <Compile Include="VoiceRecordingTests.cs" />
+    <Compile Include="WorkHierarchy.cs" />
+    <Compile Include="WorkHierarchyCachePerfTests.cs" />
+    <Compile Include="WorkItemExtensionsTests.cs" />
+    <Compile Include="WorkItemTests.cs" />
+    <Compile Include="WorkNameTests.cs" />
+    <Compile Include="WorkTimeSprocTests.cs" />
+    <Compile Include="WorktimeStatIntervalAggregatorTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dependencies\Moq.dll" />
+    <Content Include="dependencies\xunit.dll" />
+    <EmbeddedResource Include="..\RecorderDatabase\Create Scripts\IvrGenerateAll.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityRecorderService\ActivityRecorderService.csproj">
+      <Project>{95BF4851-77A1-4738-9377-0C2BA92CF256}</Project>
+      <Name>ActivityRecorderService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecorderDatabase\RecorderDatabase.sqlproj">
+      <Project>{12b4f3c8-6720-418a-a86a-e71dab509c6c}</Project>
+      <Name>RecorderDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reporting.Core\Reporting.Core.csproj">
+      <Project>{de7db5e4-e46f-4f25-8191-d4cccc4353ae}</Project>
+      <Name>Reporting.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <!--XUnit task-->
+  <UsingTask AssemblyFile="..\Utilities\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit" />
+  <Target Name="Test">
+    <xunit Assembly=".\bin\Debug\ActivityRecorderService.Tests.dll" Xml="test.xml" />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Target Name="CoreClean">
+    <Exec Condition="!Exists('..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\vCurrent')" Command="mklink /j ..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\vCurrent ..\packages\CodeContracts.MSBuild.1.12.0\Contracts\MsBuild\v15.0" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

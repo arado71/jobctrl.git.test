@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="46dba8a8-2a3f-4b0b-bff6-c9747fd882eb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/ActivityRecorderService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d3f982b7-facd-40fd-9abe-2fcd3c26a3ee" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cee11ec8-9792-4da3-971b-14d80bcd19ee" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0143ad00-b5a7-4faf-a9b6-c474b193ab99" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="df4247b6-28bb-4725-a745-3b576970ebbf" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Tct.ActivityRecorderService.OnlineStats.xsd" MetadataType="Schema" ID="b846ec39-47fa-4ffd-9907-54e92555267c" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="Tct.ActivityRecorderService.xsd" MetadataType="Schema" ID="22892ee5-7a3d-4cc0-a2ba-71951593b6a9" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="System.Data.Linq.xsd" MetadataType="Schema" ID="92a2b363-350d-4216-a393-1bfb7c7f70a0" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="c381feb6-8c6c-40c8-8e9d-adec5e3a7f98" SourceId="1" SourceUrl="http://localhost:8000/ActivityRecorderService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

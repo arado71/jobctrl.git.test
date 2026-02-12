@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B70E1C31-896C-44A9-9689-0F90E3B64D2A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlaybackClient</RootNamespace>
+    <AssemblyName>PlaybackClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\PlaybackClient.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\PlaybackClient.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient\CachedDictionary.cs">
+      <Link>CachedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>Communication\WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\ActiveWindow.cs">
+      <Link>Tct.ActivityRecorderService\ActiveWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\ActivityRecorderDataClasses.designer.cs">
+      <Link>Common\ActivityRecorderDataClasses.designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Caching\CachedFunc.cs">
+      <Link>CachedFunc.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Caching\ThreadSafeCachedFunc.cs">
+      <Link>ThreadSafeCachedFunc.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Common\AsyncDuplicateLock.cs">
+      <Link>Common\AsyncDuplicateLock.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\IStartable.cs">
+      <Link>Common\IStartable.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\ManualDataClasses.designer.cs">
+      <Link>Common\ManualDataClasses.designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManualDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\ManualWorkItemTypeHelper.cs">
+      <Link>Common\ManualWorkItemTypeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\ParallelWorkItemTypeHelper.cs">
+      <Link>Common\ParallelWorkItemTypeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\PeriodicManager.cs">
+      <Link>Common\PeriodicManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Properties\Settings.Designer.cs">
+      <Link>Tct.ActivityRecorderService\Settings.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\CompactScreenShotPathResolver.cs">
+      <Link>Common\Storage\CompactScreenShotPathResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\IScreenShotPathResolver.cs">
+      <Link>Common\Storage\IScreenShotPathResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\LegacyScreenShotPathResolver.cs">
+      <Link>Common\Storage\LegacyScreenShotPathResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\ModuloIdScreenShotPathResolver.cs">
+      <Link>Common\Storage\ModuloIdScreenShotPathResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\StorageDataClasses.designer.cs">
+      <Link>Common\Storage\StorageDataClasses.designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StorageDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Storage\StorageManager.cs">
+      <Link>Common\Storage\StorageManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Maintenance\FileCleanupSection.cs">
+      <Link>Common\Maintenance\FileCleanupSection.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\Maintenance\IFileCleanup.cs">
+      <Link>Common\Maintenance\IFileCleanup.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\TaskEx.cs">
+      <Link>Common\TaskEx.cs</Link>
+    </Compile>
+    <Compile Include="ActivityRecorderServiceReference\ManualWorkItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkItem.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
+    <Compile Include="Common\ActivityRecorderDataClasses.cs">
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ClientDataCollectionSettings.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="DbHelper.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Screen.cs" />
+    <Compile Include="IPlaybackDataCollector.cs" />
+    <Compile Include="IPlaybackDataConverter.cs" />
+    <Compile Include="IPlaybackDataSender.cs" />
+    <Compile Include="MobileDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MobileServiceReference\LocationInfo.cs" />
+    <Compile Include="MobileServiceReference\UploadData_v4Request.cs" />
+    <Compile Include="MobileServiceReference\WorkItem.cs" />
+    <Compile Include="PlaybackClientDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlaybackClientDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="PlaybackData.cs" />
+    <Compile Include="PlaybackDataBaseSender.cs" />
+    <Compile Include="PlaybackDataCollector.cs" />
+    <Compile Include="PlaybackDataComputerSender.cs" />
+    <Compile Include="PlaybackDataConverter.cs" />
+    <Compile Include="PlaybackDataMobileSender.cs" />
+    <Compile Include="PlaybackDataScheduler.cs" />
+    <Compile Include="PlaybackDataSender.cs" />
+    <Compile Include="PlaybackSchedule.cs" />
+    <Compile Include="PlaybackSchedulerFactory.cs" />
+    <Compile Include="PriorityQueue.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PlaybackDataItem.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduling\DaysOfWeek.cs" />
+    <Compile Include="Scheduling\Schedule.cs" />
+    <Compile Include="Scheduling\ScheduleData.cs" />
+    <Compile Include="Scheduling\ScheduleType.cs" />
+    <Compile Include="Service References\ActivityRecorderServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimeEx.cs" />
+    <Compile Include="Service References\MobileServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Tct.ActivityRecorderService\ScreenShot.cs" />
+    <Compile Include="DbDataConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActivityRecorderService\ActivityRecorderDataClasses.dbml">
+      <Link>Common\ActivityRecorderDataClasses.dbml</Link>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ActivityRecorderDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\ActivityRecorderService\ManualDataClasses.dbml">
+      <Link>Common\ManualDataClasses.dbml</Link>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ManualDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\ActivityRecorderService\Properties\Settings.settings">
+      <Link>Tct.ActivityRecorderService\Settings.settings</Link>
+    </None>
+    <None Include="..\ActivityRecorderService\Storage\StorageDataClasses.dbml">
+      <Link>Common\Storage\StorageDataClasses.dbml</Link>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>StorageDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MobileDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MobileDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PlaybackClientDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PlaybackClientDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.AllWorkItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ApplicationUpdateInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.AssignTaskResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.AuthData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.CannedCloseReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.CensorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ClientComputerKick.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ClientMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ClientSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ClientWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.CloseWorkResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.MeetingData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.ReasonStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.RuleGeneratorData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.SimpleWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\JobcontrolMobileServer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\MobileJobCTRL.wsdl" />
+    <None Include="Service References\MobileServiceReference\MobileJobCTRL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.ConfigInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.ConfigInfo_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.KickData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.ReasonStats_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.Rule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.TaskStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.UserTimes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.User_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.Work.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.WorkPhonenumber.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.WorkPhoneNumber_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\PlaybackClient.MobileServiceReference.WorkTime.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileServiceReference\service.wsdl" />
+    <None Include="Service References\MobileServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\ActivityRecorderServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.TaskReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\PlaybackClient.ActivityRecorderServiceReference.WorkDetectorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ActivityRecorderServiceReference\" />
+    <WCFMetadataStorage Include="Service References\MobileServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActivityRecorderServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActivityRecorderServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActivityRecorderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActivityRecorderService\Storage\StorageDataClasses.dbml.layout">
+      <Link>Common\Storage\StorageDataClasses.dbml.layout</Link>
+      <DependentUpon>StorageDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActivityRecorderService\ActivityRecorderDataClasses.dbml.layout">
+      <Link>Common\ActivityRecorderDataClasses.dbml.layout</Link>
+      <DependentUpon>ActivityRecorderDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActivityRecorderService\ManualDataClasses.dbml.layout">
+      <Link>Common\ManualDataClasses.dbml.layout</Link>
+      <DependentUpon>ManualDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlaybackClientDataClasses.dbml.layout">
+      <DependentUpon>PlaybackClientDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MobileDataClasses.dbml.layout">
+      <DependentUpon>MobileDataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

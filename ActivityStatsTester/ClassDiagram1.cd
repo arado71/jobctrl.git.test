@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ActivityStatsTester.ActivityStatsServiceReference.DailyStats">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Events" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAACACAgAAAAACAAAAAAAAgAAAAAAFAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ActivityStatsServiceReference\Reference.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="UsersField" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ActivityStatsTester.ActivityStatsServiceReference.UserStats">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAhAgAGAQIAAAAAIAABAQoEgBAEAwAEAAMAAA4AAAA=</HashCode>
+      <FileName>Service References\ActivityStatsServiceReference\Reference.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CurrentWorkField" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="RecentWorksField" />
+      <Field Name="LastScreenShotsField" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ActivityStatsTester.ActivityStatsServiceReference.UserWorkStats">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAAAAAAAAAACAAAgAgAAAAEAAEAAEKAAAA=</HashCode>
+      <FileName>Service References\ActivityStatsServiceReference\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ActivityStatsTester.ActivityStatsServiceReference.ScreenShot">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAACAAAAAAAQAAAgAAAATAMAAAhAAIAAAA=</HashCode>
+      <FileName>Service References\ActivityStatsServiceReference\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

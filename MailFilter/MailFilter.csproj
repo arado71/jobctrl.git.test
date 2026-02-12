@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A285D4B-418D-475A-915E-FD2E0E016371}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tct.MailFilterService</RootNamespace>
+    <AssemblyName>MailFilterService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveUp.Net, Version=2.1.17.0, Culture=neutral, PublicKeyToken=2ff270728258992b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Common, Version=2.1.17.0, Culture=neutral, PublicKeyToken=6cceae6a4844c51b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Dns, Version=2.1.17.0, Culture=neutral, PublicKeyToken=6fc67824e0089991, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Dns.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Groupware, Version=2.1.17.0, Culture=neutral, PublicKeyToken=db51b95d57ebfe25, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Groupware.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Imap4, Version=2.1.17.0, Culture=neutral, PublicKeyToken=9d424b1770e92b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Imap4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Mail, Version=2.1.17.0, Culture=neutral, PublicKeyToken=851b9e39ef2572fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Mail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Nntp, Version=2.1.17.0, Culture=neutral, PublicKeyToken=01416978360a49a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Nntp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.OpenPGP, Version=2.1.17.0, Culture=neutral, PublicKeyToken=0e094b86584219e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.OpenPGP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Pop3, Version=2.1.17.0, Culture=neutral, PublicKeyToken=962567372c07b9fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Pop3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Smtp, Version=2.1.17.0, Culture=neutral, PublicKeyToken=366752d00f09ae34, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.Smtp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveUp.Net.WhoIs, Version=2.1.17.0, Culture=neutral, PublicKeyToken=6b9afb81c1de5ed4, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.17\lib\net40\ActiveUp.Net.WhoIs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ActivityRecorderClient\OutlookAddin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\AliasCollection.cs" />
+    <Compile Include="Configuration\MailBoxElement.cs" />
+    <Compile Include="Configuration\MailFilterConfig.cs" />
+    <Compile Include="DateStore.cs" />
+    <Compile Include="IssueContext.cs" />
+    <Compile Include="MailFilterServiceHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MailFilterServiceHost.Designer.cs">
+      <DependentUpon>MailFilterServiceHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailHelper.cs" />
+    <Compile Include="Model\Issue.cs" />
+    <Compile Include="PeriodicManager.cs" />
+    <Compile Include="PeriodicManagerBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Service References\WebsiteApi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceInstaller.Designer.cs">
+      <DependentUpon>ServiceInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebsiteClientWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\WebsiteApi\api.wsdl" />
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddHolidayForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddHolidayForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddHolidayLimitsForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddHolidayLimitsForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddSickLeaveForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AddSickLeaveForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ApplyTemplateRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ArrayOfDateTime.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignCostCenterError.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignCostCentersToUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignedTaskHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUsersToTasksRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUsersToTasksRet_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUsersToTasks_v3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUsersToTasks_v4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUserToWorkerGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.AssignUserToWorkerGroupsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CalendarException.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CloseTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CostCenter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CostCenterCreateError.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CostCenterUpdateError.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CostCenter_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCalendarExceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCalendarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCalendarRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCollectedItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCollectedItemRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCostCenterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateCostCenter_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateIssueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateIssueRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateNotificationFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateNotificationFormRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateProjectMembershipRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateProjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateProjectRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateProjectRet_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateProject_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateWorkRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateWorktimeScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.CreateWork_v3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DailyWorktimeReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DataCollectorDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DataCollectorReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeassignUsersFromTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeassignUsersFromTasksRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteCalendarRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteHolidayRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteProjectMembershipRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteSickLeaveRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DeleteWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DictionaryAutoRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DictionaryAutoRuleSample.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DownloadDataSourceFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.DownloadDataSourceFileRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetApprovableHolidayRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetApprovableHolidayRequestsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetApprovableWorktimeModificationRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetApprovableWorktimeModificationRequestsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetAssignedTaskHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetAssignedTaskHistoryRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCalendarExceptionsOfCalendarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCalendarExceptionsOfCalendarRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetChildrenForTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetChildrenForTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCommentsOfUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCommentsOfUsersRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCompanyDataCollectorReportDefinitionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCompanyDataCollectorReportDefinitionsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCompanyDictionaryAutoRuleSamplesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCompanyDictionaryAutoRuleSamplesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCostCentersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetCostCenters_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetDailyWorktimeReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetDailyWorktimeReportRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetDataCollectorReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetDataCollectorReportRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetEffectiveSettingsForUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetEffectiveSettingsForUsersRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidayCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidayCategoriesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidayLimitsOfUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidayLimitsOfUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidaysForCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidaysForCompanyRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidaysOfUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetHolidaysOfUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetMobileClientLocationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetMobileClientLocationsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetModifiedTasksRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetModifiedTasks_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetModifiedTasks_v4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetOrganizationHierarchyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetOrganizationHierarchyRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetOrganizationHierarchy_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetPlanningPeriodsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetPlanningPeriodsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectMembershipOfUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectMembershipOfUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectMembersOfProjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectMembersOfProjectRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectReportRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetProjectReport_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetSickLeavesForCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetSickLeavesForCompanyRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetSickLeavesOfUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetSickLeavesOfUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetStartWorkDictionaryAutoRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetStartWorkDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetStopWorkDictionaryAutoRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetStopWorkDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskCategoriesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHierarchyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHierarchyRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHierarchy_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHierarchy_v3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskHistoryRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTasksOfUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTasksOfUser_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTasksOfUser_v4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTask_V2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetTask_V3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetUsersDictionaryAutoRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetUsersDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkdaysBetweenDatesForCalendarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkdaysBetweenDatesForCalendarRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkflowReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkflowReportRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkTimeForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorkTimeForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorktimeReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorktimeReportRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorktimeSchedulesOfUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.GetWorktimeSchedulesOfUsersRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.Holiday.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.HolidayCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.HolidayLimit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ImportUsersAndGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ImportUsersAndGroupsRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.MobileClientLocation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.MoveTaskRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.OrganizationHierarchy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.OrganizationHierarchy_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.PlanningPeriod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ProjectMembership.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ProjectReportHierarchy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ProjectReportHierarchy_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.RemoveHolidayLimitsForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ReopenTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetExternalIdForTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetExternalIdForTaskRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetHourlyWagesForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetHourlyWagesForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetPhoneNumberForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetPhoneNumberForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetSystemSettingsForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SetSystemSettingsForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ShowNotificationFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.ShowNotificationFormRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.SickLeave.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.TaskCategoryData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.TaskHierarchy_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.TaskHierarchy_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.TaskHierarchy_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.TaskHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.Task_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.Task_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.Task_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCalendarExceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCalendarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCalendarRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCostCenterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateCostCenter_v2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateProjectMembershipRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateProjectRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateProject_v3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateSystemSettingForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateSystemSettingForUserRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateTaskAssignmentRet_v2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateTaskAssignmentRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWorkRet_v3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWorkRet_v4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWorktimeScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWork_v3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpdateWork_v4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UploadDataSourceFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UploadDataSourceFileRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpsertStartWorkDictionaryAutoRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpsertStartWorkDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpsertStopWorkDictionaryAutoRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UpsertStopWorkDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UserDictionaryAutoRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UserEffectiveSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.UsersComment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.WorkFlowReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.WorkTime.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.WorktimeModification.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.WorktimeReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsiteApi\Tct.MailFilterService.WebsiteApi.WorktimeSchedule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ServiceInstaller.resx">
+      <DependentUpon>ServiceInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebsiteApi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsiteApi\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsiteApi\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsiteApi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

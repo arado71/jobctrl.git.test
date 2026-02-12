@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(ClientTargetFrameworkVersion)' != ''">$(ClientTargetFrameworkVersion)</TargetFrameworkVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">MixedWix</Platform>
+    <AssemblyName Condition=" '$(ClientAssemblyName)' != '' ">$(ClientAssemblyName)</AssemblyName>
+    <MsiInstallScope Condition=" '$(MsiInstallScope)' == '' ">perUser</MsiInstallScope>
+    <SignToolPath Condition="Exists('C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe')">C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe</SignToolPath>
+    <SignToolPath Condition="Exists('C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\bin\signtool.exe')">C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\bin\signtool.exe</SignToolPath>
+    <SignToolPath Condition="Exists('C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1\bin\signtool.exe')">C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1\bin\signtool.exe</SignToolPath>
+	<SignToolPath Condition="Exists('C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe')">C:\Program Files (x86)\Windows Kits\10\App Certification Kit\signtool.exe</SignToolPath>
+    <SignToolPath Condition="Exists('$(SDK35ToolsPath)signtool.exe')">$(SDK35ToolsPath)signtool.exe</SignToolPath>
+    <ProductVersion>3.7</ProductVersion>
+    <ProjectGuid>{c60e821e-cddd-40c5-8aae-74b575b36f29}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>JobCTRL</OutputName>
+    <OutputType>Package</OutputType>
+    <DefineSolutionProperties>false</DefineSolutionProperties>
+    <!-- To supress warning -->
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SignOutput>true</SignOutput>
+    <SuppressIces>ICE61</SuppressIces>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedWix' ">
+    <!-- <PlatformTarget>x86</PlatformTarget> -->
+	<InstallerPlatform>x86</InstallerPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">
+    <OutputName>JobCTRL4</OutputName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+    <HarvestDirectory Include="bin\$(Configuration)\">
+      <DirectoryRefId>DataDir</DirectoryRefId>
+    </HarvestDirectory>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ActivityRecorderClient\ActivityRecorderClient.csproj">
+      <Name>ActivityRecorderClient</Name>
+      <Project>{a8c067f6-c35e-4a9d-9414-86d68d650d8a}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AppControlService\AppControlService.csproj">
+      <Name>AppControlService</Name>
+      <Project>{7bb4cb3c-bc5c-406e-aa67-7779c6d86b99}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JcSend\JcSend.csproj">
+      <Name>JcSend</Name>
+      <Project>{e1128ab4-90cf-403d-9cf2-3bc63fd6ccc3}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <Import Project="$(ProjectDir)\checkfiles.targets" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+  <!--To avoid DefineConstants warnings from msbuild we process UpgradeCode as a property-->
+  <Target Name="BeforeBuild">
+    <CreateProperty Condition="$(UpgradeCode) != ''" Value="UpgradeCode=$(UpgradeCode);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <CreateProperty Condition="$(MsiInstallScope) != ''" Value="MsiInstallScope=$(MsiInstallScope);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <CreateProperty Value="TargetFrameworkVersion=$(TargetFrameworkVersion);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <CreateProperty Condition="$(IncludeService) != ''" Value="IncludeService=$(IncludeService);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <CreateProperty Condition="$(ProjectSync) != ''" Value="ProjectSync=$(ProjectSync);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <CreateProperty Condition="$(OcrPlugin) != ''" Value="myOcrPlugin=$(OcrPlugin);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <MSBuild Projects="$(ProjectDir)..\..\CustomActions\CustomActions.csproj" Targets="Clean;Build" Properties="Configuration=$(Configuration);Platform=x86;TargetFrameworkVersion=$(TargetFrameworkVersion)" />
+  </Target>
+  <Target Name="HarvestDirectory">
+    <Exec WorkingDirectory="..\..\ActivityRecorderClient\bin\$(Configuration)" Command="$(ClientAssemblyName).exe StartupCheck" ConsoleToMSBuild="true" UseUtf8Encoding="Always" >
+      <Output TaskParameter="ConsoleOutput" PropertyName="AppClassifier" />
+    </Exec>
+	<PropertyGroup>
+	  <ClassifierPostfix Condition="'$(AppClassifier)' == ''"></ClassifierPostfix>
+	  <ClassifierPostfix Condition="'$(AppClassifier)' != ''"> ($(AppClassifier))</ClassifierPostfix>
+	</PropertyGroup>
+    <CreateProperty Value="ClassifierPostfix=$(ClassifierPostfix);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+  </Target>
+  <Target Name="SignCabs">
+    <Exec Command="if not !%TOKENSIGN% == ! ( &quot;$(SignToolPath)&quot; sign /a /f &quot;..\..\Keys\TcT_CS_Public.cer&quot; /csp &quot;eToken Base Cryptographic Provider&quot; /k &quot;[{{Jobctrl789$}}]=Sectigo_20231010110831&quot; /fd sha256 /tr http://timestamp.comodoca.com /td sha256 &quot;%(SignCabs.FullPath)&quot; || exit /b 255 )
+	if !%TOKENSIGN% == ! ( &quot;$(SignToolPath)&quot; sign /a /f &quot;..\..\Keys\tct_self.pfx&quot; /p jobctrl789 /fd sha256 /tr http://timestamp.comodoca.com /td sha256 &quot;%(SignCabs.FullPath)&quot; || exit /b 255 )" />
+  </Target>
+  <Target Name="SignMsi">
+    <Exec Command="if not !%25TOKENSIGN%25 == ! ( &quot;$(SignToolPath)&quot; sign /a /f &quot;..\..\Keys\TcT_CS_Public.cer&quot; /csp &quot;eToken Base Cryptographic Provider&quot; /k &quot;[{{Jobctrl789$}}]=Sectigo_20231010110831&quot; /fd sha256 /tr http://timestamp.comodoca.com /td sha256 &quot;%(SignMsi.FullPath)&quot; || exit /b 255 )
+	if !%25TOKENSIGN%25 == ! ( &quot;$(SignToolPath)&quot; sign /a /f &quot;..\..\Keys\tct_self.pfx&quot; /p jobctrl789 /fd sha256 /tr http://timestamp.comodoca.com /td sha256 &quot;%(SignMsi.FullPath)&quot; || exit /b 255 )" />
+  </Target>
+  <Target Name="AfterClean">
+	<Message Text="Cleaning referenced projects" />
+    <MsBuild Projects="@(ProjectReference)" Targets="Clean" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+  </Target>
+  <Target Name="SnkAndSignAssemblies" Condition="'$(AsmSnkAndSign)' != ''">
+    <Exec Command="&quot;$(ProjectDir)snksign.bat&quot; &quot;$(ProjectDir)&quot; $(ConfigurationName) &quot;$(GoObfuscation)&quot; &quot;1&quot; || exit /b 255" />
+  </Target>
+  <PropertyGroup>
+    <HarvestDependsOn>$(HarvestDependsOn);CheckFiles;SnkAndSignAssemblies</HarvestDependsOn>
+  </PropertyGroup>
+</Project>

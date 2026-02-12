@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://jobctrl.com/WorkManagement" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/WorkManagement" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/ProxyService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ProjectManagementConstraints">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProjectId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectManagementPermissions" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkMandatoryFields" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkMaxEndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkMaxTargetCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="WorkMaxTargetWorkTime" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="WorkMinStartDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectManagementConstraints" nillable="true" type="tns:ProjectManagementConstraints" />
+</xs:schema>

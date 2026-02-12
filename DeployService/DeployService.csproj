@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0AE5A8F-8BC9-47A7-AD36-1660E4F42ADC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tct.DeployService</RootNamespace>
+    <AssemblyName>DeployService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Setup_Install.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Log4Net\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseConfiguration.cs" />
+    <Compile Include="InstallHelper.cs" />
+    <Compile Include="Page\Failed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\Failed.Designer.cs">
+      <DependentUpon>Failed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UpToDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\UpToDate.Designer.cs">
+      <DependentUpon>UpToDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page\NotFound.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\NotFound.Designer.cs">
+      <DependentUpon>NotFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UpdateReady.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\UpdateReady.Designer.cs">
+      <DependentUpon>UpdateReady.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Updating.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\Updating.Designer.cs">
+      <DependentUpon>Updating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceConfiguration.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SmtpConfiguration.cs" />
+    <Compile Include="Version.cs" />
+    <Compile Include="WizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page\Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IWizard.cs" />
+    <Compile Include="WizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPage.Designer.cs">
+      <DependentUpon>WizardPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Page\Failed.resx">
+      <DependentUpon>Failed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\UpToDate.resx">
+      <DependentUpon>UpToDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\NotFound.resx">
+      <DependentUpon>NotFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\UpdateReady.resx">
+      <DependentUpon>UpdateReady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\Updating.resx">
+      <DependentUpon>Updating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WizardPage.resx">
+      <DependentUpon>WizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Setup.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityRecorderService\ActivityRecorderService.csproj">
+      <Project>{95bf4851-77a1-4738-9377-0c2ba92cf256}</Project>
+      <Name>ActivityRecorderService</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Log4Net\log4net.dll" />
+    <EmbeddedResource Include="..\SharpZipLib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Setup_Install.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(ProjectDir)Setup.zip" del "$(ProjectDir)Setup.zip"
+pushd "$(ProjectDir)..\ActivityRecorderService\bin\$(ConfigurationName)"
+..\..\..\Utilities\7za.exe a -mx9 -y "$(ProjectDir)\Setup.zip" *
+pushd ..\..\..\RecorderDatabase\
+..\Utilities\7za.exe a -mx9 -y "$(ProjectDir)\Setup.zip" "Change Scripts\Change_*.sql"
+pushd Deployment
+..\..\Utilities\7za.exe a -mx9 -y "$(ProjectDir)\Setup.zip" Upgrade-auto.bat
+popd
+popd
+popd</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)..\Utilities\mt.exe" -manifest "$(ProjectDir)app.manifest" -outputresource:"$(TargetDir)$(TargetFileName);#1"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

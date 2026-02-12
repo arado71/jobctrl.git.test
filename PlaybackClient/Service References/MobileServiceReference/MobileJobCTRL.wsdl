@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="MobileJobCTRL" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="MobileJobCTRL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="MobileJobCTRL/Imports">
+      <xsd:import namespace="MobileJobCTRL" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SetStatusRequest">
+    <wsdl:part name="parameters" element="tns:SetStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetStatusResponse">
+    <wsdl:part name="parameters" element="tns:SetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionRequest">
+    <wsdl:part name="parameters" element="tns:GetVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionResponse">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketRequest">
+    <wsdl:part name="parameters" element="tns:GetTicketRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketResponse">
+    <wsdl:part name="parameters" element="tns:GetTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeWorkPhonebookRequest">
+    <wsdl:part name="parameters" element="tns:SynchronizeWorkPhonebookRequest" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeWorkPhonebookResponse">
+    <wsdl:part name="parameters" element="tns:SynchronizeWorkPhonebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileRequest">
+    <wsdl:part name="parameters" element="tns:UploadFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileResponse">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigRequest">
+    <wsdl:part name="parameters" element="tns:GetConfigRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigResponse">
+    <wsdl:part name="parameters" element="tns:GetConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksRequest">
+    <wsdl:part name="parameters" element="tns:GetTasksRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksResponse">
+    <wsdl:part name="parameters" element="tns:GetTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTodayWorkTimeRequest">
+    <wsdl:part name="parameters" element="tns:GetTodayWorkTimeRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTodayWorkTimeResponse">
+    <wsdl:part name="parameters" element="tns:GetTodayWorkTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadWorkItemsRequest">
+    <wsdl:part name="parameters" element="tns:UploadWorkItemsRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadWorkItemsResponse">
+    <wsdl:part name="parameters" element="tns:UploadWorkItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadPhoneCallsRequest">
+    <wsdl:part name="parameters" element="tns:UploadPhoneCallsRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadPhoneCallsResponse">
+    <wsdl:part name="parameters" element="tns:UploadPhoneCallsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadLocationsRequest">
+    <wsdl:part name="parameters" element="tns:UploadLocationsRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadLocationsResponse">
+    <wsdl:part name="parameters" element="tns:UploadLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadDataRequest">
+    <wsdl:part name="parameters" element="tns:DownloadDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="DownloadDataResponse">
+    <wsdl:part name="parameters" element="tns:DownloadDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadDataRequest">
+    <wsdl:part name="parameters" element="tns:UploadDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadDataResponse">
+    <wsdl:part name="parameters" element="tns:UploadDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeDataRequest">
+    <wsdl:part name="parameters" element="tns:ExchangeDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeDataResponse">
+    <wsdl:part name="parameters" element="tns:ExchangeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v2Request">
+    <wsdl:part name="parameters" element="tns:UploadData_v2Request" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v2Response">
+    <wsdl:part name="parameters" element="tns:UploadData_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="DownloadData_v2Request">
+    <wsdl:part name="parameters" element="tns:DownloadData_v2Request" />
+  </wsdl:message>
+  <wsdl:message name="DownloadData_v2Response">
+    <wsdl:part name="parameters" element="tns:DownloadData_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v2Request">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v2Request" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v2Response">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeRulesRequest">
+    <wsdl:part name="parameters" element="tns:SynchronizeRulesRequest" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeRulesResponse">
+    <wsdl:part name="parameters" element="tns:SynchronizeRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeWorkPhoneNumbers_v3Request">
+    <wsdl:part name="parameters" element="tns:SynchronizeWorkPhoneNumbers_v3Request" />
+  </wsdl:message>
+  <wsdl:message name="SynchronizeWorkPhoneNumbers_v3Response">
+    <wsdl:part name="parameters" element="tns:SynchronizeWorkPhoneNumbers_v3Response" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v3Request">
+    <wsdl:part name="parameters" element="tns:UploadData_v3Request" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v3Response">
+    <wsdl:part name="parameters" element="tns:UploadData_v3Response" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v3Request">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v3Request" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v3Response">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v3Response" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v4Request">
+    <wsdl:part name="parameters" element="tns:UploadData_v4Request" />
+  </wsdl:message>
+  <wsdl:message name="UploadData_v4Response">
+    <wsdl:part name="parameters" element="tns:UploadData_v4Response" />
+  </wsdl:message>
+  <wsdl:message name="DownloadData_v4Request">
+    <wsdl:part name="parameters" element="tns:DownloadData_v4Request" />
+  </wsdl:message>
+  <wsdl:message name="DownloadData_v4Response">
+    <wsdl:part name="parameters" element="tns:DownloadData_v4Response" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v4Request">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v4Request" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeData_v4Response">
+    <wsdl:part name="parameters" element="tns:ExchangeData_v4Response" />
+  </wsdl:message>
+  <wsdl:portType name="IMobileJobcontrolService">
+    <wsdl:operation name="SetStatus">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SetStatus" name="SetStatusRequest" message="tns:SetStatusRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SetStatusResponse" name="SetStatusResponse" message="tns:SetStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetVersion" name="GetVersionRequest" message="tns:GetVersionRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetVersionResponse" name="GetVersionResponse" message="tns:GetVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTicket" name="GetTicketRequest" message="tns:GetTicketRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTicketResponse" name="GetTicketResponse" message="tns:GetTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeWorkPhonebook">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhonebook" name="SynchronizeWorkPhonebookRequest" message="tns:SynchronizeWorkPhonebookRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhonebookResponse" name="SynchronizeWorkPhonebookResponse" message="tns:SynchronizeWorkPhonebookResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadFile" name="UploadFileRequest" message="tns:UploadFileRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadFileResponse" name="UploadFileResponse" message="tns:UploadFileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetConfig" name="GetConfigRequest" message="tns:GetConfigRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetConfigResponse" name="GetConfigResponse" message="tns:GetConfigResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTasks" name="GetTasksRequest" message="tns:GetTasksRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTasksResponse" name="GetTasksResponse" message="tns:GetTasksResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodayWorkTime">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTodayWorkTime" name="GetTodayWorkTimeRequest" message="tns:GetTodayWorkTimeRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/GetTodayWorkTimeResponse" name="GetTodayWorkTimeResponse" message="tns:GetTodayWorkTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadWorkItems">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadWorkItems" name="UploadWorkItemsRequest" message="tns:UploadWorkItemsRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadWorkItemsResponse" name="UploadWorkItemsResponse" message="tns:UploadWorkItemsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPhoneCalls">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadPhoneCalls" name="UploadPhoneCallsRequest" message="tns:UploadPhoneCallsRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadPhoneCallsResponse" name="UploadPhoneCallsResponse" message="tns:UploadPhoneCallsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadLocations">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadLocations" name="UploadLocationsRequest" message="tns:UploadLocationsRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadLocationsResponse" name="UploadLocationsResponse" message="tns:UploadLocationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadData" name="DownloadDataRequest" message="tns:DownloadDataRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadDataResponse" name="DownloadDataResponse" message="tns:DownloadDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadData">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData" name="UploadDataRequest" message="tns:UploadDataRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadDataResponse" name="UploadDataResponse" message="tns:UploadDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData" name="ExchangeDataRequest" message="tns:ExchangeDataRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeDataResponse" name="ExchangeDataResponse" message="tns:ExchangeDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v2">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v2" name="UploadData_v2Request" message="tns:UploadData_v2Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v2Response" name="UploadData_v2Response" message="tns:UploadData_v2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData_v2">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v2" name="DownloadData_v2Request" message="tns:DownloadData_v2Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v2Response" name="DownloadData_v2Response" message="tns:DownloadData_v2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v2">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v2" name="ExchangeData_v2Request" message="tns:ExchangeData_v2Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v2Response" name="ExchangeData_v2Response" message="tns:ExchangeData_v2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeRules">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeRules" name="SynchronizeRulesRequest" message="tns:SynchronizeRulesRequest" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeRulesResponse" name="SynchronizeRulesResponse" message="tns:SynchronizeRulesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeWorkPhoneNumbers_v3">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhoneNumbers_v3" name="SynchronizeWorkPhoneNumbers_v3Request" message="tns:SynchronizeWorkPhoneNumbers_v3Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhoneNumbers_v3Response" name="SynchronizeWorkPhoneNumbers_v3Response" message="tns:SynchronizeWorkPhoneNumbers_v3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v3">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v3" name="UploadData_v3Request" message="tns:UploadData_v3Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v3Response" name="UploadData_v3Response" message="tns:UploadData_v3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v3">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v3" name="ExchangeData_v3Request" message="tns:ExchangeData_v3Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v3Response" name="ExchangeData_v3Response" message="tns:ExchangeData_v3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v4">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v4" name="UploadData_v4Request" message="tns:UploadData_v4Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/UploadData_v4Response" name="UploadData_v4Response" message="tns:UploadData_v4Response" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData_v4">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v4" name="DownloadData_v4Request" message="tns:DownloadData_v4Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v4Response" name="DownloadData_v4Response" message="tns:DownloadData_v4Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v4">
+      <wsdl:input wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v4" name="ExchangeData_v4Request" message="tns:ExchangeData_v4Request" />
+      <wsdl:output wsaw:Action="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v4Response" name="ExchangeData_v4Response" message="tns:ExchangeData_v4Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+hostname
+makecert -r -eku 1.3.6.1.5.5.7.3.1 -n "CN=Zs-MacBook-Pro.local" -sv zmac.pvk zmac.cer
+httpcfg -add -port 8080 -cert zmac.cer -pvk zmac.pvk
+
+#test
+openssl s_client -connect localhost:8080 -msg
+mono ../../TestMonoWcf/WcfClient/tlstest.exe https://localhost:8080

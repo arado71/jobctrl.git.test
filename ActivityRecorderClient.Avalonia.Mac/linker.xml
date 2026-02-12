@@ -1,0 +1,17 @@
+<linker>
+	<assembly fullname="log4net" preserve="all" />
+	<assembly fullname="ActivityRecorderClient.Avalonia" preserve="all" />
+	<assembly fullname="JC360" preserve="all" />
+	<assembly fullname="System.ServiceModel" preserve="all" />
+	<assembly fullname="System.ServiceModel.Duplex" preserve="all" />
+	<assembly fullname="System.ServiceModel.Http" preserve="all" />
+	<assembly fullname="System.ServiceModel.NetFramingBase" preserve="all" />
+	<assembly fullname="System.ServiceModel.NetTcp" preserve="all" />
+	<assembly fullname="System.ServiceModel.Primitives" preserve="all" />
+	<assembly fullname="System.ServiceModel.Security" preserve="all" />
+	<assembly fullname="System.Configuration.ConfigurationManager">
+		<type fullname="System.Configuration.ClientConfigurationHost" preserve="all" />
+		<type fullname="System.Configuration.AppSettingsSection" preserve="all" />
+		<type fullname="System.Configuration.KeyValueConfigurationCollection" preserve="all" />
+	</assembly>
+</linker>

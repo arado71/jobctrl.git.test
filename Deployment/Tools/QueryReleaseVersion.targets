@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="QueryReleaseVersion" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <ReleaseName ParameterType="System.String" Output="true" />
+      <DayOffset ParameterType="System.Int32" Output="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Net.Http" />
+      <Reference Include="$(SolutionDir)\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="Newtonsoft.Json.Linq" />
+      <Using Namespace="System.Linq" />
+      <Using Namespace="System.Net" />
+      <Using Namespace="System.Net.Http" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+			Log.LogMessage("Querying ReleaseVersion from JIRA...", MessageImportance.High);
+			try
+			{
+				HttpMessageHandler handler = new HttpClientHandler()
+				{
+				};
+
+				var httpClient = new HttpClient(handler)
+				{
+					BaseAddress = new Uri("https://jobctrl.atlassian.net"),
+					Timeout = new TimeSpan(0, 2, 0)
+				};
+
+				httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+
+				var plainTextBytes = System.Text.Encoding.UTF8.GetBytes("rado.andras@tct.hu:NQb2hmQ91mBT0LCLsxkb07BB");
+				string val = System.Convert.ToBase64String(plainTextBytes);
+				httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + val);
+
+				HttpResponseMessage response = httpClient.GetAsync("/rest/api/3/project/JC/versions").Result;
+				string content = string.Empty;
+
+				using (StreamReader stream = new StreamReader(response.Content.ReadAsStreamAsync().Result, System.Text.Encoding.UTF8))
+				{
+					content = stream.ReadToEnd();
+					var jsonObject = JToken.Parse(content);
+					var values = jsonObject.Select(v => new { StartDate = v["startDate"] != null ? v["startDate"].Value<DateTime?>() : null, ReleaseDate = v["releaseDate"] != null ? v["releaseDate"].Value<DateTime?>() : null, Name = v["name"] != null ? v["name"].Value<string>() : null }).ToList();
+					var rName = values.Where(v => v.StartDate <= DateTime.Today.AddDays(DayOffset) && v.ReleaseDate >= DateTime.Today.AddDays(DayOffset)).Select(v => v.Name).FirstOrDefault();
+					ReleaseName = rName != null ? rName.Substring(1) : null;
+					Log.LogMessage("ReleaseVersion: " + ReleaseName, MessageImportance.High);
+				}
+				return true;
+			}
+			catch (AggregateException e)
+			{
+				Log.LogError(e.Message.ToString());
+				var ae = e as AggregateException;
+				if (ae == null) return false; 
+				foreach (var innerException in ae.InnerExceptions)
+				{
+					Log.LogError(innerException.ToString());
+				}
+				return false;
+			}
+      ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

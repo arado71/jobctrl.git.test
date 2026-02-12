@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishDependsOn>ResxCheckBeforePublish;$(PublishDependsOn)</PublishDependsOn>
+    <BuildDependsOn>ResxCheckBeforeBuild;$(BuildDependsOn)</BuildDependsOn>
+    <ResxWarnAsErrors Condition="'$(ResxWarnAsErrors)' == ''">false</ResxWarnAsErrors>
+    <ResxGenerateHtml Condition="'$(ResxGenerateHtml)' == ''">false</ResxGenerateHtml>
+  </PropertyGroup>
+
+  <Target Name="ResxCheckBeforePublish">
+    <ResxCheck RootPath="$(ProjectDir)" WarningsAsErrors="$(ResxWarnAsErrors)" GenerateHtml="$(ResxGenerateHtml)" />
+  </Target>
+
+  <Target Name="ResxCheckBeforeBuild" Condition="'$(Configuration)' == 'Release'">
+    <ResxCheck RootPath="$(ProjectDir)" WarningsAsErrors="$(ResxWarnAsErrors)" GenerateHtml="$(ResxGenerateHtml)" />
+  </Target>
+
+  <UsingTask TaskName="ResxCheck" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <RootPath ParameterType="System.String" Required="true" />
+      <WarningsAsErrors ParameterType="System.Boolean" Required="false" />
+      <GenerateHtml ParameterType="System.Boolean" Required="false" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Reference Include="System.Xml.Linq" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="System.Xml.Linq" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+      Log.LogMessage("Searching resx files in " + RootPath, MessageImportance.High);
+      var sourceFiles = Directory.GetFiles(RootPath, "*.cs", SearchOption.AllDirectories).ToArray();
+      var groups = Directory.GetFiles(RootPath, "*.resx", SearchOption.AllDirectories)
+        .GroupBy(n => new FileInfo(n).DirectoryName + new FileInfo(n).Name.Split(new[] { '.' })[0], StringComparer.OrdinalIgnoreCase)
+        .ToArray();
+
+      foreach (var files in groups)
+      {
+        var mainFile = files.OrderBy(n=>Path.GetFileNameWithoutExtension(n).Length).First();
+        var data = files.Select(file =>
+        {
+          var seenKeys = new HashSet<string>();
+          return new
+          {
+            FileName = file,
+            IsMain = file == mainFile,
+            Data = XDocument.Load(file)
+              .Element("root").Elements("data")
+              .Where(n => n.Attribute("name") != null)
+              .Select(n => new
+                {
+                  Key = (string)n.Attribute("name"),
+                  Value = (string)n.Element("value"),
+                  FormatStr = string.Join(",",
+                    Regex.Matches(((string)n.Element("value") ?? ""), @"\{(?<num>\d+)\}")
+                    .OfType<Match>()
+                    .Where(m => m.Success)
+                    .Select(m => m.Groups["num"].Value)
+                    .Distinct()
+                    .OrderBy(m => int.Parse(m)))
+                })
+              .Where(n =>
+                {
+                  if (seenKeys.Add(n.Key)) return true;
+                  Log.LogError(null,null,null,file,0,0,0,0,"Duplicate key " + n.Key + " in file " + file,0);
+                  return false;
+                })
+              .ToDictionary(n => n.Key)
+          };
+        }).ToList();
+        if (Log.HasLoggedErrors) return false;
+        if (files.Count() < 2) continue;
+
+        StreamWriter s = null;
+        using(GenerateHtml ? s = new StreamWriter("resxResult.html") : null)
+        {
+            if (s!=null) s.WriteLine("<h1>Missing resources</h1><table><tr><th>Key</th><th>File</th></tr>");
+            var keys = data.SelectMany(n => n.Data.Keys).Distinct().OrderBy(n => n).ToList();
+            foreach (var key in keys)
+            {
+              foreach (var res in data.Where(n => !n.Data.ContainsKey(key)))
+              {
+                if (s!=null) s.WriteLine(string.Format("<tr><td>{0}</td><td>{1}</td></tr>", key, res.FileName));
+                if (WarningsAsErrors)
+                  Log.LogError(null,null,null,res.FileName,0,0,0,0,key + " is missing from " + res.FileName,0);
+                else
+                  Log.LogWarning(null,null,null,res.FileName,0,0,0,0,key + " is missing from " + res.FileName,0);
+              }
+            }
+
+            if (s!=null) s.WriteLine("</table><h1>Format string mismatch</h1><table><tr><th>Key</th><th>Files</th></tr>");
+            foreach (var key in keys)
+            {
+              var containsKey = data.Where(n => n.Data.ContainsKey(key)).OrderBy(n => n.IsMain).ToList();
+              if (containsKey.Count > 1)
+              {
+                var format = containsKey[0].Data[key].FormatStr;
+                if (containsKey.Any(n => n.Data[key].FormatStr != format))
+                {
+                    if (s!=null) s.WriteLine(string.Format("<tr><td>{0}</td><td>{1}</td></tr>", key, string.Join(",", containsKey.Select(n => new { FileName = n.FileName, Value = n.Data[key].Value, FormatStr = n.Data[key].FormatStr }))));
+					if (WarningsAsErrors)
+						Log.LogError(null,null,null,containsKey[0].FileName,0,0,0,0,"Format string mismatch for key " + key + ": " + string.Join(",", containsKey.Select(n => new { FileName = n.FileName, Value = n.Data[key].Value, FormatStr = n.Data[key].FormatStr })),null);
+					else
+						Log.LogWarning(null,null,null,containsKey[0].FileName,0,0,0,0,"Format string mismatch for key " + key + ": " + string.Join(",", containsKey.Select(n => new { FileName = n.FileName, Value = n.Data[key].Value, FormatStr = n.Data[key].FormatStr })),null);
+				}
+              }
+            }
+            
+            if (s != null) s.WriteLine("</table><h1>Unused labels</h1><table><tr><th>Key</th><th>Files</th></tr>");
+			Dictionary<string, bool> isKeySeen = new Dictionary<string, bool>();
+			keys.ForEach(n => isKeySeen.Add(n, false));
+
+			foreach (var sourceFile in sourceFiles)
+			{
+				string text = File.ReadAllText(sourceFile);
+				foreach (var key in keys)
+				{
+					if (isKeySeen[key]) continue;
+					var regexPattern = "Labels." + key + @"\W";
+					var matches = Regex.Matches(text, regexPattern);
+					foreach (Match match in matches)
+					{
+						var previous = text.ElementAt(match.Index - 1).ToString();
+						if (Regex.IsMatch(previous, @"\W"))
+						{
+							isKeySeen[key] = true;
+						}
+					}
+				}
+			}
+
+			isKeySeen.Where(n => !n.Value).ToList().ForEach(unusedKey =>
+			{
+				foreach (var res in data.Where(n => n.Data.ContainsKey(unusedKey.Key)))
+				{
+					if (s != null) s.WriteLine(string.Format("<tr><td>{0}</td><td>{1}</td></tr>", unusedKey.Key, res.FileName));
+					if (WarningsAsErrors)
+					{
+						Log.LogError(null, null, null, res.FileName, 0, 0, 0, 0, unusedKey.Key + " is unused in " + res.FileName, 0);
+					}
+					else
+					{
+						Log.LogWarning(null, null, null, res.FileName, 0, 0, 0, 0, unusedKey.Key + " is unused in " + res.FileName, 0);
+					}
+				}
+			});
+            if (s!=null) s.WriteLine("</table>");
+        }
+      }
+
+      return !Log.HasLoggedErrors;
+      ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

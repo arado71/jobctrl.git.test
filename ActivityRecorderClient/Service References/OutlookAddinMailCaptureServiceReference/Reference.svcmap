@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="b9ff51df-aafe-4c44-9021-8d7e786e05a5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/OutlookAddinMailCaptureService/mex" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="d8c087c6-d0fa-4a97-99d5-5f0cc1a7af80" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd1" />
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="cc97ac98-e89f-4e8b-b801-e16c22892be3" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex3.xsd" MetadataType="Schema" ID="0b70a0e5-ff50-4360-953f-6c8e38adcec7" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd3" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="0ce0ec37-7221-48ec-aa2f-0a92fba64d32" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd2" />
+    <MetadataFile FileName="mex42.xsd" MetadataType="Schema" ID="e6db06b4-f87d-4907-8b58-2eec013b6da3" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd4" />
+    <MetadataFile FileName="OutlookAddinMailCaptureService.wsdl" MetadataType="Wsdl" ID="96a66baa-d363-40cb-9d31-507db96ff9bd" SourceId="1" SourceUrl="http://localhost:8000/OutlookAddinMailCaptureService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

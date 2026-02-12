@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="ClientComputerInfoDataClassesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClientComputerErrors" Member="ClientComputerErrors">
+    <Type Name="ClientComputerError">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Major" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Minor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Build" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Revision" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="HasAttachment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FirstReceiveDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastReceiveDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Offset" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsCompleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsCancelled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EnabledFeatures" Member="Features" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientComputerInfo" Member="ClientComputerInfos">
+    <Type Name="ClientComputerInfo">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OSMajor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OSMinor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OSBuild" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OSRevision" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsNet4Available" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsNet45Available" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HighestNetVersionAvailable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LocalUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ReportClientComputerVersion" Method="ReportClientComputerVersion">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="computerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="major" Type="System.Int32" DbType="Int" />
+    <Parameter Name="minor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="build" Type="System.Int32" DbType="Int" />
+    <Parameter Name="revision" Type="System.Int32" DbType="Int" />
+    <Parameter Name="application" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpsertClientComputerError" Method="UpsertClientComputerError">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="clientId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="computerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="major" Type="System.Int32" DbType="Int" />
+    <Parameter Name="minor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="build" Type="System.Int32" DbType="Int" />
+    <Parameter Name="revision" Type="System.Int32" DbType="Int" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(2000)" />
+    <Parameter Name="features" Type="System.String" DbType="NVarChar(2000)" />
+    <Parameter Name="hasAttachment" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="offset" Type="System.Int32" DbType="Int" />
+    <Parameter Name="length" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isCompleted" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="isCancelled" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="firstReceiveDate" Type="System.DateTime" DbType="DateTime" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

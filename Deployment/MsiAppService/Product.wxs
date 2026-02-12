@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Product Id="*" Name="JcAppService" Language="0" Version="1.0.0.1" Manufacturer="JobCTRL Kft." UpgradeCode="a93accdb-c54f-4609-854f-ae4b316ce13f">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="JcAppService" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="JcAppService" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ProductComponentService" Guid="891E0288-8DB4-41C8-BFE3-C9D848CD6A5E">
+        <File Source="$(var.AppControlService.TargetDir)\AppControlService.exe" KeyPath="yes" />
+        <File Source="$(var.AppControlService.TargetDir)\AppControlService.exe.config" />
+        <File Id="log4net.srv" Source="$(var.AppControlService.TargetDir)\log4net.dll" />
+        <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Vital="yes" Name="JobCTRL:JcAppChkService" DisplayName="JcAppChkService" Description="Checks and controls JobCTRL applications" Start="auto" Account="LocalSystem" ErrorControl="ignore" Interactive="no">
+          <util:ServiceConfig FirstFailureActionType="restart" SecondFailureActionType="restart" ThirdFailureActionType="none" />
+        </ServiceInstall>
+        <ServiceControl Id="StartService" Start="install" Stop="both" Remove="uninstall" Name="JobCTRL:JcAppChkService" Wait="yes" />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

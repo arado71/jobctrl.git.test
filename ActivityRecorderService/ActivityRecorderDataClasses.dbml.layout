@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.875, 16.25" name="ActivityRecorderDataClasses">
+  <DataContextMoniker Name="/ActivityRecorderDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6b33cd95-3898-40ca-8894-09adbe82291a" absoluteBounds="0.5, 0.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/WorkItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e3355d1-4ca5-4946-b998-afba7ca0e502" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="63077ef5-a220-4877-a729-f32bfcb122dc" absoluteBounds="8.125, 0.75, 2, 15.2319970703125">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/ClientSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="331ebcfa-a0f8-4c62-8104-9b810703506c" absoluteBounds="8.14, 1.21, 1.9700000000000002, 14.6719970703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d35fbbc0-fdeb-414a-8462-2c2b2088e29a" absoluteBounds="0.5, 5.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/Issue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="691bf40c-4d17-41ad-b136-4e147c585d2f" absoluteBounds="0.51499999999999968, 6.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="84b3fb77-753f-49ce-a93d-090e0d0a1149" absoluteBounds="5.625, 5.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/Snippet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c461417-bc0e-42fc-90af-05411306fa18" absoluteBounds="5.64, 6.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af985ecb-25a7-419e-8268-ee549cb0a171" absoluteBounds="3.125, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/PluginParametersOfAutoRules" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7cf2d533-7fc6-45e9-811e-27b063ba61b3" absoluteBounds="3.14, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="62d3f913-a7ea-4a2d-8870-b5b29bdc1dce" absoluteBounds="10.625, 1.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/ClientUserCloudEventDate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2baa366f-4cbc-4dee-a6e7-1b6b4c7a97b9" absoluteBounds="10.64, 1.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43f3b748-71e6-4494-9d9c-5ddb0db7fa45" absoluteBounds="0.5, 1.25, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/WorkItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04ffc430-3bc7-478a-8b05-c04affdd795f" absoluteBounds="0.51500000000000012, 1.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2ef2f4f-c89b-4ae9-b58d-bfb7c81fa25b" absoluteBounds="3, 5.625, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/ScreenShot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0458bf93-a791-4fb7-a19b-a81243b2ce7c" absoluteBounds="3.015, 6.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44f83006-6b79-4b60-b378-e4f8ba6f503a" absoluteBounds="0.75, 10.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/TodoListItemStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="514d3efc-eb3d-44fd-80db-33892014c5a7" absoluteBounds="0.765, 10.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e082943e-7096-4568-9da1-e62768eccb78" absoluteBounds="0.75, 12.875, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/TodoList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cce74902-f03c-47c4-8e8e-5a8e1ff3ea34" absoluteBounds="0.765, 13.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57383609-6fc6-4261-a757-82105dfd8437" absoluteBounds="3.5, 9.875, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/ActivityRecorderDataClassesDataContext/TodoListItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f33b7eae-2029-4471-a1ae-c6db71524b29" absoluteBounds="3.515, 10.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 13.8565991210937); (4.5 : 13.8565991210937); (4.5 : 11.8381982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ActivityRecorderDataClassesDataContext/TodoList/TodoList_TodoListItem" />
+      <nodes>
+        <classShapeMoniker Id="e082943e-7096-4568-9da1-e62768eccb78" />
+        <classShapeMoniker Id="57383609-6fc6-4261-a757-82105dfd8437" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.8469962565104); (3.5 : 10.8469962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ActivityRecorderDataClassesDataContext/TodoListItemStatus/TodoListItemStatus_TodoListItem" />
+      <nodes>
+        <classShapeMoniker Id="44f83006-6b79-4b60-b378-e4f8ba6f503a" />
+        <classShapeMoniker Id="57383609-6fc6-4261-a757-82105dfd8437" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

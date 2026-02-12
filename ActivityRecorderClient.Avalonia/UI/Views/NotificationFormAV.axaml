@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+        xmlns:dialogs="using:AvaloniaDialogs.Views"
+        x:Class="ActivityRecorderClientAV.NotificationFormAV"
+        TransparencyLevelHint="AcrylicBlur, Transparent"
+        mc:Ignorable="d" CanResize="False"
+        ShowInTaskbar = "False"
+        Width="300" Height="100"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="0"
+        ExtendClientAreaChromeHints="0">
+
+ <LayoutTransformControl x:Name="NotificationWindowLayoutTransformControl">        
+
+    <Grid>
+
+    <!-- Message TextBlock -->
+    <TextBlock x:Name="MessageText" Text="X"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="24"
+               FontWeight="Bold"
+               PointerPressed="TextBlock_PointerPressed"
+               Foreground="{DynamicResource TextColor}"
+               Cursor="Hand" />
+
+    <!-- Close Button -->
+        <Button x:Name="CloseButton" Click="OnCloseClick" Width="30" Height="30" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Cursor="Hand">
+                <Image x:Name="CloseIcon" Width="18" Height="18">
+                  <Image.Source>
+                    <!--svg:SvgImage Source="icons/close.svg"/-->
+                  </Image.Source>
+                </Image>
+        </Button>
+    
+    </Grid>
+
+</LayoutTransformControl>
+
+</Window>
+

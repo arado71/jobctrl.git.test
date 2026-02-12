@@ -1,0 +1,70 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ActivityRecorderClientAV.MessageViewAV"
+        Width="750" Height="400" MinWidth="600" MinHeight="400" Topmost="False" Title="Messages"
+        TransparencyLevelHint="AcrylicBlur, Transparent"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True">
+
+<LayoutTransformControl x:Name="MessagesWindowLayoutTransformControl">
+<Grid>
+      <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+    <!-- Header -->
+    <Border Grid.Row="0" 
+            PointerPressed="OnHeaderPointerPressed" 
+            Background="{DynamicResource BackgroundBrush}"
+            Height="35"
+            VerticalAlignment="Top"
+            Margin="0,0,0,0"
+            Cursor="Hand"/>
+
+    <TextBlock  Grid.Row="0"
+                IsHitTestVisible="False"
+                Text="Messages" 
+                x:Name="MessagesHeader"
+                FontSize="18" 
+                FontWeight="Medium" 
+                HorizontalAlignment="Center" 
+                Margin="0,7,0,0"/>
+
+    <Grid Grid.Row="1">
+        <!-- Define two columns with a resizable splitter -->
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition MinWidth="135" MaxWidth="500" Width="33*"/>
+          <ColumnDefinition Width="5"/>  <!-- GridSplitter width -->
+          <ColumnDefinition Width="67*"/> <!-- Right panel: Remaining 65% -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel: Messages List -->
+        <ScrollViewer Grid.Column="0" Margin="0,0,0,15">
+          <StackPanel x:Name="MessagesList" Margin="15,0,15,0">
+          </StackPanel>
+        </ScrollViewer>
+
+        <!-- Static Divider -->
+        <!--Border Grid.Column="1" Width="5" Background="Gray"/-->
+
+        <!-- Grid Splitter -->
+        <GridSplitter Grid.Column="1" 
+                      Margin="0,0,0,15"
+                      Width="5" 
+                      Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+                      HorizontalAlignment="Stretch" 
+                      ShowsPreview="True"/>
+
+        <!-- Right Panel: Message Content -->
+        <ScrollViewer Grid.Column="2" Margin="0,0,0,20">
+          <TextBlock Name="MessageContent"
+                    Margin="17,5,20,0"
+                    TextWrapping="Wrap"
+                    Text=""
+                    VerticalAlignment="Top"/>
+        </ScrollViewer>
+    </Grid>
+</Grid>
+</LayoutTransformControl>
+</Window>

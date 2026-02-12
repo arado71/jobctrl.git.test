@@ -1,0 +1,2117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NotificationActiveOnlyErrorBody" xml:space="preserve">
+    <value>Your account is not active. Service unavailable.</value>
+  </data>
+  <data name="NotificationActiveOnlyErrorTitle" xml:space="preserve">
+    <value>Your account is not active.</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelBody" xml:space="preserve">
+    <value>Unsuccessful setting</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationCannotOpenLogBody" xml:space="preserve">
+    <value>Opening the log file failed</value>
+  </data>
+  <data name="NotificationCannotOpenLogTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationClockSkewErrorBody" xml:space="preserve">
+    <value>Your clock shows {0}, the server's {1}. Set the clock to be able to upload data.</value>
+  </data>
+  <data name="NotificationClockSkewErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationManualWorkCreatedBody" xml:space="preserve">
+    <value>Your task between {0} and {1}  {2}</value>
+  </data>
+  <data name="NotificationManualWorkCreatedTitle" xml:space="preserve">
+    <value>{0}, edited task</value>
+  </data>
+  <data name="NotificationPersistAndSendErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationPesistAndSendErrorBody" xml:space="preserve">
+    <value>Failed to save. Please check your storage capacity.</value>
+  </data>
+  <data name="NotificationWorkIdleBody" xml:space="preserve">
+    <value>Due to inactivity you have been put into non-work status.</value>
+  </data>
+  <data name="NotificationWorkIdleTitle" xml:space="preserve">
+    <value>You are in non-work status</value>
+  </data>
+  <data name="Menu_NoWorkToContinue" xml:space="preserve">
+    <value>(empty)</value>
+  </data>
+  <data name="NumberOfItemsToUpload" xml:space="preserve">
+    <value>Data to upload: {0} </value>
+  </data>
+  <data name="Menu_RecentWorks" xml:space="preserve">
+    <value>Recent tasks</value>
+  </data>
+  <data name="SumWorkHours" xml:space="preserve">
+    <value>All measured working time {0} hour(s)</value>
+  </data>
+  <data name="TodaysLocalWorkTime" xml:space="preserve">
+    <value>Today's working time on this computer</value>
+  </data>
+  <data name="Menu_UploadWorkItemsStop" xml:space="preserve">
+    <value>Pause uploading data</value>
+  </data>
+  <data name="AutoRuleData_TempStopWork" xml:space="preserve">
+    <value>Temporary logout</value>
+  </data>
+  <data name="AutoRules_EmptyRuleError" xml:space="preserve">
+    <value>Empty rule</value>
+  </data>
+  <data name="AutoRules_ExampleExe" xml:space="preserve">
+    <value>processname.exe</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCase" xml:space="preserve">
+    <value>Ignore (lower/upper) case</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCaseLong" xml:space="preserve">
+    <value>Ignore (lower/upper) case</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabled" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabledLong" xml:space="preserve">
+    <value>Active rule</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegex" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegexLong" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="AutoRules_HeaderName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AutoRules_HeaderNameLong" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRule" xml:space="preserve">
+    <value>Process condition</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRuleLong" xml:space="preserve">
+    <value>Process condition</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedId" xml:space="preserve">
+    <value>Task ID</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedIdLong" xml:space="preserve">
+    <value>Task or category ID</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRule" xml:space="preserve">
+    <value>Title bar condition</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRuleLong" xml:space="preserve">
+    <value>Title bar condition</value>
+  </data>
+  <data name="AutoRules_ModifyRule" xml:space="preserve">
+    <value>Edit rule</value>
+  </data>
+  <data name="AutoRules_NewRule" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorBody" xml:space="preserve">
+    <value>You have no tasks.</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="AutoRules_Title" xml:space="preserve">
+    <value>Automated rules</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeletedWork" xml:space="preserve">
+    <value>Closed task</value>
+  </data>
+  <data name="DeletedWorks" xml:space="preserve">
+    <value>Closed tasks</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Login_NotificationEnterNumberBody" xml:space="preserve">
+    <value>The format of the User ID / e-mail is incorrect. Please enter a number or a valid e-mail address.</value>
+  </data>
+  <data name="Login_NotificationEnterNumberTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedBody" xml:space="preserve">
+    <value>Invalid user ID or password.</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveBody" xml:space="preserve">
+    <value>Your account is not active.</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownBody" xml:space="preserve">
+    <value>Password verification failed</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownTitle" xml:space="preserve">
+    <value>Communication error</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_RememeberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Menu_AcHolSick" xml:space="preserve">
+    <value>Leave management</value>
+  </data>
+  <data name="Menu_AcMain" xml:space="preserve">
+    <value>My JobCTRL</value>
+  </data>
+  <data name="Menu_AcManual" xml:space="preserve">
+    <value>Edit working time</value>
+  </data>
+  <data name="Menu_AcWorks" xml:space="preserve">
+    <value>My tasks</value>
+  </data>
+  <data name="Menu_ChangeUser" xml:space="preserve">
+    <value>Switch user</value>
+  </data>
+  <data name="Menu_DeleteRecentWorks" xml:space="preserve">
+    <value>Delete list</value>
+  </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Preference_MenuChange" xml:space="preserve">
+    <value>Task change</value>
+  </data>
+  <data name="Preference_NotWorking" xml:space="preserve">
+    <value>Non-work status</value>
+  </data>
+  <data name="Menu_OpenLog" xml:space="preserve">
+    <value>Open log file</value>
+  </data>
+  <data name="Preference_PopupDurations" xml:space="preserve">
+    <value>Length of notifications</value>
+  </data>
+  <data name="Preference_PopupIntervals" xml:space="preserve">
+    <value>Frequency of notifications</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Menu_TopEndDateWorks" xml:space="preserve">
+    <value>By start and end date</value>
+  </data>
+  <data name="Menu_TopPriorityWorks" xml:space="preserve">
+    <value>Top tasks by priority</value>
+  </data>
+  <data name="Menu_TopTargetWorkTimeWorks" xml:space="preserve">
+    <value>Top tasks by estimated working hours</value>
+  </data>
+  <data name="Menu_Troubleshooting" xml:space="preserve">
+    <value>Troubleshooting</value>
+  </data>
+  <data name="Menu_WorkDetectorRules" xml:space="preserve">
+    <value>Automated rules</value>
+  </data>
+  <data name="Preference_Working" xml:space="preserve">
+    <value>Current task</value>
+  </data>
+  <data name="NewWork" xml:space="preserve">
+    <value>New task</value>
+  </data>
+  <data name="NewWorks" xml:space="preserve">
+    <value>New tasks</value>
+  </data>
+  <data name="NotificationCannotResumeWorkBody" xml:space="preserve">
+    <value>Select a task, the last one has been closed</value>
+  </data>
+  <data name="NotificationCannotResumeWorkTitle" xml:space="preserve">
+    <value>Select a task</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkBody" xml:space="preserve">
+    <value>The automated rule contains a closed task:{0}.</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkTitle" xml:space="preserve">
+    <value>Auto task switch failed</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkBody" xml:space="preserve">
+    <value>The selected task {0} has been closed.</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkTitle" xml:space="preserve">
+    <value>Task switch failed</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkBody" xml:space="preserve">
+    <value>The recently selected task {0} - not automated - has been closed.</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkTitle" xml:space="preserve">
+    <value>Switch task</value>
+  </data>
+  <data name="NotificationChangeWorkAutomaticTitle" xml:space="preserve">
+    <value>Auto task switch</value>
+  </data>
+  <data name="NotificationChangeWorkUserTitle" xml:space="preserve">
+    <value>You have switched task</value>
+  </data>
+  <data name="NotificationMenuChangedBody" xml:space="preserve">
+    <value>Your tasks have been changed.</value>
+  </data>
+  <data name="NotificationMenuChangedTitle" xml:space="preserve">
+    <value>Task change</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticBody" xml:space="preserve">
+    <value>The data collection is suspended until you switch to another window.</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticTitle" xml:space="preserve">
+    <value>Auto logout</value>
+  </data>
+  <data name="NotificationNotWorkingUserBody" xml:space="preserve">
+    <value>The data collection is suspended until you select a task.</value>
+  </data>
+  <data name="NotificationNotWorkingUserTitle" xml:space="preserve">
+    <value>You are in non-work status</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkBody" xml:space="preserve">
+    <value>The selected task{0} has been closed.</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkTitle" xml:space="preserve">
+    <value>Switch task</value>
+  </data>
+  <data name="NotificationWorkingBody" xml:space="preserve">
+    <value>Current task: {0}</value>
+  </data>
+  <data name="NotificationWorkingTitle" xml:space="preserve">
+    <value>You are in work status</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningBody" xml:space="preserve">
+    <value>This computer is already running another JobCTRL application.</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartBody" xml:space="preserve">
+    <value>Start the application from the Start menu.</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="TodaysComputerWorkTime" xml:space="preserve">
+    <value>Today's working time (desktop)</value>
+  </data>
+  <data name="TodaysWorkTime" xml:space="preserve">
+    <value>Today's working time</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="WorkData_EndDate" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="WorkData_Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="WorkData_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="WorkData_StartDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="WorkData_TargetHours" xml:space="preserve">
+    <value>Estimated time</value>
+  </data>
+  <data name="WorkData_WorkedHours" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorBody" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorTitle" xml:space="preserve">
+    <value>JobCTRL - invalid password</value>
+  </data>
+  <data name="Preference_Language" xml:space="preserve">
+    <value>Software language</value>
+  </data>
+  <data name="NotificationLanguageChangeBody" xml:space="preserve">
+    <value>To apply the settings, restart the application.</value>
+  </data>
+  <data name="NotificationLanguageChangeTitle" xml:space="preserve">
+    <value>Restart the application</value>
+  </data>
+  <data name="Menu_MainPage" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="NewFeaturesBody" xml:space="preserve">
+    <value>JobCTRL's desktop icon has changed.</value>
+  </data>
+  <data name="NewFeaturesTitle" xml:space="preserve">
+    <value>JobCTRL</value>
+  </data>
+  <data name="AutoRuleData_DoNothing" xml:space="preserve">
+    <value>Exception managing rule</value>
+  </data>
+  <data name="AutoRuleData_StartWorkType" xml:space="preserve">
+    <value>Switch task</value>
+  </data>
+  <data name="AutoRuleData_StartCategoryType" xml:space="preserve">
+    <value>Switch task by category</value>
+  </data>
+  <data name="UnknownCategory" xml:space="preserve">
+    <value>Unknown category</value>
+  </data>
+  <data name="AutoRules_HeaderRuleType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="AutoRules_TempStartWorkTypeShort" xml:space="preserve">
+    <value>Switching to task</value>
+  </data>
+  <data name="AutoRules_TempStopWorkTypeShort" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="AutoRules_TempStartCategoryTypeShort" xml:space="preserve">
+    <value>Switch category</value>
+  </data>
+  <data name="AutoRules_DoNothingTypeShort" xml:space="preserve">
+    <value>Approval</value>
+  </data>
+  <data name="AutoRules_AdvancedSettings" xml:space="preserve">
+    <value>Advanced settings</value>
+  </data>
+  <data name="AutoRules_HeaderRuleTypeLong" xml:space="preserve">
+    <value>Rule type</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryTitle" xml:space="preserve">
+    <value>There are various tasks in this category</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryBody" xml:space="preserve">
+    <value>There are various tasks in the category selected by the automated rule.</value>
+  </data>
+  <data name="AutoRules_CopyToClipboard" xml:space="preserve">
+    <value>To clipboard</value>
+  </data>
+  <data name="AutoRules_SelectRuleFirst" xml:space="preserve">
+    <value>Select a task first</value>
+  </data>
+  <data name="ChangedWork" xml:space="preserve">
+    <value>Changed task</value>
+  </data>
+  <data name="ChangedWorks" xml:space="preserve">
+    <value>Changed tasks</value>
+  </data>
+  <data name="WorkData_Name" xml:space="preserve">
+    <value>Taskname</value>
+  </data>
+  <data name="WorkData_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ConfirmExitStillWorkingBody" xml:space="preserve">
+    <value>Your are in work status, are you sure to logout?</value>
+  </data>
+  <data name="ConfirmExitStillWorkingTitle" xml:space="preserve">
+    <value>Are you sure to logout?</value>
+  </data>
+  <data name="Preference_StopResume" xml:space="preserve">
+    <value>Start/stop settings</value>
+  </data>
+  <data name="IntForm_InvalidNumber" xml:space="preserve">
+    <value>Invalid number</value>
+  </data>
+  <data name="IntForm_PleaseEnterANumber" xml:space="preserve">
+    <value>Enter a number</value>
+  </data>
+  <data name="ThisMonthsWorkTime" xml:space="preserve">
+    <value>Monthly working time</value>
+  </data>
+  <data name="ThisWeeksWorkTime" xml:space="preserve">
+    <value>Weekly working time</value>
+  </data>
+  <data name="TodaysManuallyAddedWorkTime" xml:space="preserve">
+    <value>Today's offline worktime</value>
+  </data>
+  <data name="TodaysMobileWorkTime" xml:space="preserve">
+    <value>Today's working time (mobile)</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRule" xml:space="preserve">
+    <value>URL condition</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRuleLong" xml:space="preserve">
+    <value>URL condition</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanent" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanentLong" xml:space="preserve">
+    <value>Permanent task switch</value>
+  </data>
+  <data name="NotificationKickedBody" xml:space="preserve">
+    <value>You {1} have been logged out remotly with the following comment: {0}</value>
+  </data>
+  <data name="NotificationKickedTitle" xml:space="preserve">
+    <value>You have been logged out remotely</value>
+  </data>
+  <data name="CountDown_TimeLeft" xml:space="preserve">
+    <value>Remaining time:</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimBody" xml:space="preserve">
+    <value>Are you sure to add as working time of the following task: {0}?</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimTitle" xml:space="preserve">
+    <value>Edit working time</value>
+  </data>
+  <data name="NotificationManualWorkOverBody" xml:space="preserve">
+    <value>Time expired.</value>
+  </data>
+  <data name="NotificationManualWorkOverTitle" xml:space="preserve">
+    <value>Time expired</value>
+  </data>
+  <data name="Preference_FlattenFactor" xml:space="preserve">
+    <value>Number of tasks that may be elevated one level higher</value>
+  </data>
+  <data name="WorkTimeStats_DeltaTime" xml:space="preserve">
+    <value>Today's scheduled working time (positive: behind schedule, negative: overtime)</value>
+  </data>
+  <data name="WorkTimeStats_SummaTime" xml:space="preserve">
+    <value>Scheduled working time</value>
+  </data>
+  <data name="Menu_AcOnlineMon" xml:space="preserve">
+    <value>Real-time activity</value>
+  </data>
+  <data name="Preference_ShowThisWeeksStats" xml:space="preserve">
+    <value>Show weekly working time</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopBody" xml:space="preserve">
+    <value>Are you sure to close the time task?</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopTitle" xml:space="preserve">
+    <value>Confirmation (time task)</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewBody" xml:space="preserve">
+    <value>Are you sure to close the time task?</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewTitle" xml:space="preserve">
+    <value>Confirmation (time task)</value>
+  </data>
+  <data name="Program_Req35SP1Body" xml:space="preserve">
+    <value>In order to run the application, you need .NET framework 3.5 SP1 or newer.</value>
+  </data>
+  <data name="Program_Req35SP1Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="AutoRules_InvalidRuleTitle" xml:space="preserve">
+    <value>Invalid rule</value>
+  </data>
+  <data name="AutoRules_InvalidWorkTitle" xml:space="preserve">
+    <value>The task does not exist.</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndEndTempEffect" xml:space="preserve">
+    <value>Self-learning rule</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndTempStartWork" xml:space="preserve">
+    <value>Self-learning rule with default task switch</value>
+  </data>
+  <data name="AutoRuleData_EndTempEffect" xml:space="preserve">
+    <value>Switch to the previous task</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndEndTempEffectTypeShort" xml:space="preserve">
+    <value>Self-learning rule</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndTempStartWorkTypeShort" xml:space="preserve">
+    <value>With Self-learning task switch</value>
+  </data>
+  <data name="AutoRules_EndTempEffectTypeShort" xml:space="preserve">
+    <value>Switch back to the previous task</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRule" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="AutoRuleData_SelectRuleTypeFirst" xml:space="preserve">
+    <value>Select rule type.</value>
+  </data>
+  <data name="AutoRuleData_SelectWorkFirst" xml:space="preserve">
+    <value>Select a task.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="AutoRuleData_SelectCategoryFirst" xml:space="preserve">
+    <value>Select a category.</value>
+  </data>
+  <data name="AutoRules_InvalidCategoryTitle" xml:space="preserve">
+    <value>The category does not exist</value>
+  </data>
+  <data name="AutoRuleData_CaptureNotMatched" xml:space="preserve">
+    <value>The rule does not apply with the given settings</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRuleSimple" xml:space="preserve">
+    <value>Select a task to the self-learning rule</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDate" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDateLong" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDate" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDateLong" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Preference_MenuTopItemsCount" xml:space="preserve">
+    <value>Number of Top tasks</value>
+  </data>
+  <data name="ConfirmChangeUserBody" xml:space="preserve">
+    <value>Restart the application in order to login with a different user ID. Restart now? </value>
+  </data>
+  <data name="ConfirmChangeUserTitle" xml:space="preserve">
+    <value>Confirmatin (change user ID)</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeBody" xml:space="preserve">
+    <value>Set the correct time on your computer to switch task.</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeTitle" xml:space="preserve">
+    <value>Switching task failed</value>
+  </data>
+  <data name="CloseWork" xml:space="preserve">
+    <value>Close task</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Reasons" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CloseWorkErrorAlreadyClosedBody" xml:space="preserve">
+    <value>The task has already been closed</value>
+  </data>
+  <data name="CloseWorkErrorBody" xml:space="preserve">
+    <value>Closing task failed, try again in the web application.</value>
+  </data>
+  <data name="CloseWorkErrorReasonRequiredBody" xml:space="preserve">
+    <value>Enter an explanation to close the task.</value>
+  </data>
+  <data name="CloseWorkErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="WmsWarnTargetDateOverBody" xml:space="preserve">
+    <value>Expired deadline(s):</value>
+  </data>
+  <data name="WmsWarnTargetTimeOverBody" xml:space="preserve">
+    <value>Exceeded estimated hours:</value>
+  </data>
+  <data name="WmsWarnTitle" xml:space="preserve">
+    <value>Expired deadline(s)</value>
+  </data>
+  <data name="AddReason" xml:space="preserve">
+    <value>Explanation</value>
+  </data>
+  <data name="AddReasonButton" xml:space="preserve">
+    <value>Explain</value>
+  </data>
+  <data name="AddReasonErrorBody" xml:space="preserve">
+    <value>Saving failed, try again in the web application</value>
+  </data>
+  <data name="AddReasonErrorReasonRequired" xml:space="preserve">
+    <value>Enter an explanation.</value>
+  </data>
+  <data name="AddReasonErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="CloseWorkButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="SearchForWork" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ThisMonthsComputerWorkTime" xml:space="preserve">
+    <value>Monthly working time (desktop)</value>
+  </data>
+  <data name="ThisMonthsManuallyAddedWorkTime" xml:space="preserve">
+    <value>Monthly amended working time</value>
+  </data>
+  <data name="ThisMonthsMobileWorkTime" xml:space="preserve">
+    <value>Monthly working time (mobile)</value>
+  </data>
+  <data name="ThisWeeksComputerWorkTime" xml:space="preserve">
+    <value>Weekly working time (desktop)</value>
+  </data>
+  <data name="ThisWeeksManuallyAddedWorkTime" xml:space="preserve">
+    <value>Weekly amended working time</value>
+  </data>
+  <data name="ThisWeeksMobileWorkTime" xml:space="preserve">
+    <value>Weekly working time (mobile)</value>
+  </data>
+  <data name="Preference_ShowSummaDelta" xml:space="preserve">
+    <value>Show summa and delta</value>
+  </data>
+  <data name="Preference_MenuRecentItemsCount" xml:space="preserve">
+    <value>Number of recent tasks</value>
+  </data>
+  <data name="AutoRules_DAAFifteenMinutes" xml:space="preserve">
+    <value>15 minutes</value>
+  </data>
+  <data name="AutoRules_DAANever" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="AutoRules_DAAOneMinute" xml:space="preserve">
+    <value>1 minute</value>
+  </data>
+  <data name="AutoRules_DAAThirtyMinutes" xml:space="preserve">
+    <value>30 minutes</value>
+  </data>
+  <data name="AutoRules_DontAskAgain" xml:space="preserve">
+    <value>Do not ask</value>
+  </data>
+  <data name="AutoRules_HelpAdvanced" xml:space="preserve">
+    <value>Enter the rule properties.</value>
+  </data>
+  <data name="AutoRules_HelpSimpleLearn" xml:space="preserve">
+    <value>Select a task from the menu or from the drop down menu to create a self-learning rule.</value>
+  </data>
+  <data name="PluginEditFormId" xml:space="preserve">
+    <value>Plug-in</value>
+  </data>
+  <data name="PluginEditFormIdEmpty" xml:space="preserve">
+    <value>Enter a plug-in.</value>
+  </data>
+  <data name="PluginEditFormKey" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PluginEditFormKeyEmpty" xml:space="preserve">
+    <value>Enter a name.</value>
+  </data>
+  <data name="PluginEditFormTitle" xml:space="preserve">
+    <value>Plug-in management</value>
+  </data>
+  <data name="PluginEditFormValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Menu_AcMeetings" xml:space="preserve">
+    <value>Offline works</value>
+  </data>
+  <data name="NotificationMeetingPendingFormatBody" xml:space="preserve">
+    <value>{0} Start: {1} ({2})</value>
+  </data>
+  <data name="NotificationMeetingPendingTitle" xml:space="preserve">
+    <value>The following offline worktime needs attention</value>
+  </data>
+  <data name="AutoRules_MatchedTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="AutoRules_OKVDefault" xml:space="preserve">
+    <value>     - Valid until withdrawal (default)</value>
+  </data>
+  <data name="AutoRules_OKVForOneDay" xml:space="preserve">
+    <value>1d - valid for one day</value>
+  </data>
+  <data name="AutoRules_OKVForOneHour" xml:space="preserve">
+    <value>1h - valid for one hour</value>
+  </data>
+  <data name="AutoRules_OKVUntilClosed" xml:space="preserve">
+    <value>Z  - valid until the window is open</value>
+  </data>
+  <data name="Preference_SearchOwnTasks" xml:space="preserve">
+    <value>Search only in my tasks</value>
+  </data>
+  <data name="Preference_SearchInClosed" xml:space="preserve">
+    <value>Search also in closed tasks</value>
+  </data>
+  <data name="Preference_SearchAllReload" xml:space="preserve">
+    <value>Update all tasks</value>
+  </data>
+  <data name="NotificationAssignMeConfirmBody" xml:space="preserve">
+    <value>Do you assign the '{0}' task to yourself?</value>
+  </data>
+  <data name="NotificationAssignMeConfirmTitle" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="NotificationAssignTaskErrorBody" xml:space="preserve">
+    <value>Task assignment failed.</value>
+  </data>
+  <data name="NotificationAssignTaskErrorTitle" xml:space="preserve">
+    <value>Failure while assigning task</value>
+  </data>
+  <data name="Menu_AddReasonToCurrentWorkOnClick" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="Preference_HighlightNonReasoned" xml:space="preserve">
+    <value>Highlight tasks with no explanation</value>
+  </data>
+  <data name="ChooseReasonHint" xml:space="preserve">
+    <value>Select an explanation from the menu.</value>
+  </data>
+  <data name="Reason_Created" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Reason_SelectedReason" xml:space="preserve">
+    <value>Explanation</value>
+  </data>
+  <data name="Reason_TypedReason" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="TaskInformation" xml:space="preserve">
+    <value>Task information</value>
+  </data>
+  <data name="TaskReasons" xml:space="preserve">
+    <value>Task explanations</value>
+  </data>
+  <data name="AddMeeting_Participiants" xml:space="preserve">
+    <value>Participants (e-mails)</value>
+  </data>
+  <data name="AddMeeting_SelectedWork" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="AddMeeting_Title" xml:space="preserve">
+    <value>Offline worktime</value>
+  </data>
+  <data name="AddMeeting_DurationInvalid" xml:space="preserve">
+    <value>Value should be between 1 and the number of inactive minutes</value>
+  </data>
+  <data name="AddMeeting_EmailFormatError" xml:space="preserve">
+    <value>Enter one or more valid e-mail address(es).</value>
+  </data>
+  <data name="AddMeeting_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="AddMeeting_SelectWorkCaption" xml:space="preserve">
+    <value>Select a task for the offline worktime.</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmation" xml:space="preserve">
+    <value>An offline worktime is being registered.
+Are you sure you want to delete the offline worktime?</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationTitle" xml:space="preserve">
+    <value>Confirm delete.</value>
+  </data>
+  <data name="AddMeeting_ExceedLimit" xml:space="preserve">
+    <value>The period exceeds the maximum duration of offline worktime</value>
+  </data>
+  <data name="SplashMessage" xml:space="preserve">
+    <value>Closing in progress, please wait.</value>
+  </data>
+  <data name="AddMeeting_SubjectLengthInvalid" xml:space="preserve">
+    <value>Subject is empty or too long (max. 200 chrs)</value>
+  </data>
+  <data name="AddMeeting_EmailsLengthInvalid" xml:space="preserve">
+    <value>E-mail addresses are too long (max. 2000 chrs)</value>
+  </data>
+  <data name="CreditRunLowTitle" xml:space="preserve">
+    <value>Service is limited</value>
+  </data>
+  <data name="CreditRunLowBody" xml:space="preserve">
+    <value>Service is limited. Please contact your administrator.</value>
+  </data>
+  <data name="CreditRunOutTitle" xml:space="preserve">
+    <value>Service is suspended</value>
+  </data>
+  <data name="CreditRunOutBody" xml:space="preserve">
+    <value>Service is suspended. Please contact your administrator.</value>
+  </data>
+  <data name="AddMeeting_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="AddMeeting_DescriptionLengthInvalid" xml:space="preserve">
+    <value>Description is too long (max. of 1000 chrs)</value>
+  </data>
+  <data name="AutoRuleData_ActiveType" xml:space="preserve">
+    <value>Active (Foreground)</value>
+  </data>
+  <data name="AutoRuleData_AnyType" xml:space="preserve">
+    <value>Any</value>
+  </data>
+  <data name="AutoRuleData_SelectWindowScopeFirst" xml:space="preserve">
+    <value>Select window state.</value>
+  </data>
+  <data name="AutoRuleData_VisibleOrActiveType" xml:space="preserve">
+    <value>Visible or active</value>
+  </data>
+  <data name="AutoRules_HeaderWindowScopeLong" xml:space="preserve">
+    <value>Window state</value>
+  </data>
+  <data name="AddMeeting_AddressBook" xml:space="preserve">
+    <value>Address Book</value>
+  </data>
+  <data name="Hotkeys_ActionTypeJobCTRLcom" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="Hotkeys_ActionTypeNewWorkDetectorRule" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="Hotkeys_ActionTypeResumeOrStopWork" xml:space="preserve">
+    <value>Stop/Resume</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartManualMeeting" xml:space="preserve">
+    <value>Offline worktime</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartWork" xml:space="preserve">
+    <value>Start task</value>
+  </data>
+  <data name="Hotkeys_EmptyHotkeyError" xml:space="preserve">
+    <value>Enter a hotkey.</value>
+  </data>
+  <data name="Hotkeys_HasNotBeenRegisteredError" xml:space="preserve">
+    <value>Hotkey is not registered.</value>
+  </data>
+  <data name="Hotkeys_HeaderAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Hotkeys_HeaderAlt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="Hotkeys_HeaderCtrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="Hotkeys_HeaderKey" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="Hotkeys_HeaderShift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="Hotkeys_HeaderWin" xml:space="preserve">
+    <value>Win</value>
+  </data>
+  <data name="Hotkeys_HeaderWork" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="Hotkeys_InvalidKeyValue" xml:space="preserve">
+    <value>Invalid hotkey.</value>
+  </data>
+  <data name="Hotkeys_MustBeUniqeError" xml:space="preserve">
+    <value>Hotkey is already in use: select another one.</value>
+  </data>
+  <data name="Hotkeys_OtherThanFKeysMustContainModifiers" xml:space="preserve">
+    <value>This key can be only used in combination with Ctrl, Alt, or Win.</value>
+  </data>
+  <data name="Hotkeys_UnregisterableError" xml:space="preserve">
+    <value>Cannot register hotkey.</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdInvalidError" xml:space="preserve">
+    <value>Invalid task: select an active task.</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdNeededError" xml:space="preserve">
+    <value>Select an active task.</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedBody" xml:space="preserve">
+    <value>The rule '{0}' is not acceptable in current project context.</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedTitle" xml:space="preserve">
+    <value>Rule not allowed</value>
+  </data>
+  <data name="Menu_RunAsAdmin" xml:space="preserve">
+    <value>Run as administrator</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeBody" xml:space="preserve">
+    <value>Please, confirm restarting of application due change adminstrative rights.</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeTitle" xml:space="preserve">
+    <value>Confirm restart</value>
+  </data>
+  <data name="Preference_NotificationPosition" xml:space="preserve">
+    <value>Notification position</value>
+  </data>
+  <data name="Preference_NotificationPositionTopLeft" xml:space="preserve">
+    <value>Top-left</value>
+  </data>
+  <data name="Preference_NotificationPositionTopRight" xml:space="preserve">
+    <value>Top-right</value>
+  </data>
+  <data name="Preference_NotificationPositionCenter" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomLeft" xml:space="preserve">
+    <value>Bottom-left</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomRight" xml:space="preserve">
+    <value>Bottom-right</value>
+  </data>
+  <data name="Preference_WorkingWarnDisplayable" xml:space="preserve">
+    <value>Show current task change</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientTitle" xml:space="preserve">
+    <value>Your task has been stopped</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientBody" xml:space="preserve">
+    <value>Your task has been stopped due activity on another device</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkBody" xml:space="preserve">
+    <value>Some dynamic tasks could not be created, please choose a default task for them.</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkTitle" xml:space="preserve">
+    <value>Select a task.</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstBody" xml:space="preserve">
+    <value>Select a task.</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Program_CertInvalidBody" xml:space="preserve">
+    <value>Invalid certificate. Do you accept?</value>
+  </data>
+  <data name="Program_CertInvalidTitle" xml:space="preserve">
+    <value>Do you want to accept this certificate?</value>
+  </data>
+  <data name="Hotkeys_ActionTypeAddReason" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="AutoRules_MatchedExtensions" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapBody" xml:space="preserve">
+    <value>Missing bootstrap file.</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecBody" xml:space="preserve">
+    <value>Cannot find msiexec.</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Preference_ShowDynamicWorks" xml:space="preserve">
+    <value>Show dynamic tasks</value>
+  </data>
+  <data name="Preference_NotificationPositionHidden" xml:space="preserve">
+    <value>Notifications disabled</value>
+  </data>
+  <data name="Menu_Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="Preference_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Preference_DoubleClick" xml:space="preserve">
+    <value>Double click</value>
+  </data>
+  <data name="Preference_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Preference_Hidden" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Preference_HotKey" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="HourPlural" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="Preference_Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Preference_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Preference_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Preference_Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Preference_On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Preference_Reset" xml:space="preserve">
+    <value>Cancel changes</value>
+  </data>
+  <data name="Preference_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Preference_Second" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="Preference_Shown" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Preference_SingleClick" xml:space="preserve">
+    <value>Single click</value>
+  </data>
+  <data name="Preference_Title" xml:space="preserve">
+    <value>{0} preferences</value>
+  </data>
+  <data name="Preference_EditText" xml:space="preserve">
+    <value>Every change is saved after closing</value>
+  </data>
+  <data name="Preference_NotPositiveInteger" xml:space="preserve">
+    <value>Save failed: enter a positive integer.</value>
+  </data>
+  <data name="Preference_NotPositiveReal" xml:space="preserve">
+    <value>Save failed: enter a positive real number.</value>
+  </data>
+  <data name="NotificationMore" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginBody" xml:space="preserve">
+    <value>Log in the IBM (Lotus) Notes to synchronize meetings. You can log in again only after restarting the JobCTRL.</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginTitle" xml:space="preserve">
+    <value>Skip IBM (Lotus) Notes login</value>
+  </data>
+  <data name="PluginEditFormParameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PluginEditFormName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="NavigationAll" xml:space="preserve">
+    <value>All tasks</value>
+  </data>
+  <data name="NavigationDeadline" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="NavigationFavorite" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="NavigationPriority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="NavigationProgress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="NavigationRoot" xml:space="preserve">
+    <value>Root</value>
+  </data>
+  <data name="NavigationSuggestion" xml:space="preserve">
+    <value>Suggested</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserBody" xml:space="preserve">
+    <value>If you do not allow to run the {0} process, email rules will be disabled. Would you rather enable email rules?</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserTitle" xml:space="preserve">
+    <value>Enable JobCTRL email rules</value>
+  </data>
+  <data name="MenuCompleted" xml:space="preserve">
+    <value>Elapsed time</value>
+  </data>
+  <data name="MenuPriority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="MenuBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="MenuFavorite" xml:space="preserve">
+    <value>Favorite</value>
+  </data>
+  <data name="MenuMenu" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>Current view</value>
+  </data>
+  <data name="NavigationRecent" xml:space="preserve">
+    <value>Recent tasks</value>
+  </data>
+  <data name="Hotkeys_ActionTypeToggleMenu" xml:space="preserve">
+    <value>Toggle menu</value>
+  </data>
+  <data name="NavigationRecentProject" xml:space="preserve">
+    <value>Recent projects</value>
+  </data>
+  <data name="Preference_OldMenu" xml:space="preserve">
+    <value>Use old version</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>{0} left</value>
+    <comment>Remaining time</comment>
+  </data>
+  <data name="OverduePlural" xml:space="preserve">
+    <value>{0} days overdue</value>
+  </data>
+  <data name="OverdueSingular" xml:space="preserve">
+    <value>{0} day overdue</value>
+  </data>
+  <data name="HourSingular" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="Preference_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Menu_Etc" xml:space="preserve">
+    <value>Additional options</value>
+  </data>
+  <data name="ErrorReporting_ErrorDescription" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="ErrorReporting_Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ErrorReporting_Title" xml:space="preserve">
+    <value>Send log files</value>
+  </data>
+  <data name="ErrorReporting_AttachLogs" xml:space="preserve">
+    <value>Attach error log</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmBody" xml:space="preserve">
+    <value>Sending in progress. Are you sure to cancel?</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmTitle" xml:space="preserve">
+    <value>Cancel sending log files</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Preparing" xml:space="preserve">
+    <value>Preparing</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Uploading" xml:space="preserve">
+    <value>Uploading</value>
+  </data>
+  <data name="ErrorReporting_ProgressTitle" xml:space="preserve">
+    <value>Send log files</value>
+  </data>
+  <data name="Menu_ErrorReporting" xml:space="preserve">
+    <value>Send log files</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorBody" xml:space="preserve">
+    <value>An unexpected error occurred while sending log files.</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorTitle" xml:space="preserve">
+    <value>Unexpected Error</value>
+  </data>
+  <data name="ExceptionDialog_ReportError" xml:space="preserve">
+    <value>Send error report</value>
+  </data>
+  <data name="ExceptionDialog_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ExceptionDialog_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ExceptionDialog_DetailsTitle" xml:space="preserve">
+    <value>Unexpected Error Details</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescription" xml:space="preserve">
+    <value>An unexpected error has occurred in JobCTRL. Click Continue to ignore it and try to continue working. Click Quit to close the application. Leaving 'Send error report' selected will help us diagnose and fix the problem faster.</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescriptionPromptText" xml:space="preserve">
+    <value>Error description (optional)</value>
+  </data>
+  <data name="ExceptionDialog_Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="ExceptionDialog_SendStatus" xml:space="preserve">
+    <value>Error report is submitted before you quit or continue.</value>
+  </data>
+  <data name="ExceptionDialog_Title" xml:space="preserve">
+    <value>Unexpected Error</value>
+  </data>
+  <data name="AutoRules_CancelConfirmBody" xml:space="preserve">
+    <value>Are you sure to discard changes in automated rule?</value>
+  </data>
+  <data name="AutoRules_CancelConfirmTitle" xml:space="preserve">
+    <value>Discard Changes</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmBody" xml:space="preserve">
+    <value>Are you sure to discard sending log files?</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmTitle" xml:space="preserve">
+    <value>Discard sending log files</value>
+  </data>
+  <data name="UserIdMappingChangedBody" xml:space="preserve">
+    <value>The current windows user has been mapped to a different JobCTRL user id. Application must be restarted.</value>
+  </data>
+  <data name="UserIdMappingChangedTitle" xml:space="preserve">
+    <value>Restart application</value>
+  </data>
+  <data name="Menu_AcDashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="WorkData_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="NewWork_CantCreate" xml:space="preserve">
+    <value>Task​ creation​​ failed​</value>
+  </data>
+  <data name="NewWork_CantUpdate" xml:space="preserve">
+    <value>T​ask​ update failed​</value>
+  </data>
+  <data name="NewWork_Mandatory" xml:space="preserve">
+    <value>Mandatory</value>
+  </data>
+  <data name="NewWork_Creating" xml:space="preserve">
+    <value>Creating...</value>
+  </data>
+  <data name="NewWork_SelectProject" xml:space="preserve">
+    <value>Must select project</value>
+  </data>
+  <data name="NewWork_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NewWork_Updating" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
+  <data name="NewWork_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>Invalid format</value>
+  </data>
+  <data name="NewWork_Interval" xml:space="preserve">
+    <value>Invalid ​period</value>
+  </data>
+  <data name="NewWork_NoConnection" xml:space="preserve">
+    <value>You can't create or modify task in offline mode. Check your connection and try again.</value>
+  </data>
+  <data name="NewWork_UnknownInterval" xml:space="preserve">
+    <value>You can't create or modify task in ​the desktop application, please use the website</value>
+  </data>
+  <data name="Worktime_Computer" xml:space="preserve">
+    <value>Computer {0}</value>
+  </data>
+  <data name="HourMinuteFormat" xml:space="preserve">
+    <value>hour:minute</value>
+  </data>
+  <data name="WorkData_Interval" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Worktime_Ivr" xml:space="preserve">
+    <value>Ivr</value>
+  </data>
+  <data name="WorkData_ProjectTooltip" xml:space="preserve">
+    <value>Project or customer this task is ​assigned to.</value>
+  </data>
+  <data name="Worktime_Manual" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="NewWork_NoPermCreate" xml:space="preserve">
+    <value>You don't have permission to create ​task in this project.</value>
+  </data>
+  <data name="Worktime_Mobile" xml:space="preserve">
+    <value>Mobile {0}</value>
+  </data>
+  <data name="NewWork_NoPermUpdate" xml:space="preserve">
+    <value>​You don't have permission to ​update ​task in this project.</value>
+  </data>
+  <data name="Worktime_NoResponse" xml:space="preserve">
+    <value>Server connection is required for this functionality. Please check you connection and try again.</value>
+  </data>
+  <data name="Worktime_Title" xml:space="preserve">
+    <value>Worktime overview</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelBody" xml:space="preserve">
+    <value>Are you sure to cancel pending operation?</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelTitle" xml:space="preserve">
+    <value>Cancel pending operation?</value>
+  </data>
+  <data name="Worktime_ComputerTotal" xml:space="preserve">
+    <value>Computer</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Worktime_Meeting" xml:space="preserve">
+    <value>Offline work</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Body" xml:space="preserve">
+    <value>Your ongoing offline work has been interrupted.
+You can accept or delete this offline worktime in the showed "Approve offline time" window. 
+Start date and interval of the offline worktime is set to the last known data. If it is inappropriate please delete it and create it on the website with the right interval.</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Title" xml:space="preserve">
+    <value>Unfinished offline worktime</value>
+  </data>
+  <data name="Menu_LogLevelChangeDebug" xml:space="preserve">
+    <value>Detailed logging</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningBody" xml:space="preserve">
+    <value>Offline work is disabled</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningTitle" xml:space="preserve">
+    <value>Offline work is disabled</value>
+  </data>
+  <data name="Worktime_MobileTotal" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="AutoRuleData_DeleteCurrentRule" xml:space="preserve">
+    <value>Delete automated rule</value>
+  </data>
+  <data name="Worktime_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AutoRules_HelpConfirmDelete" xml:space="preserve">
+    <value>Are you sure to delete this rule?</value>
+  </data>
+  <data name="Worktime_Duration" xml:space="preserve">
+    <value>Start/End difference</value>
+  </data>
+  <data name="Hotkeys_ActionTypeDeleteCurrentWorkDetectorRule" xml:space="preserve">
+    <value>Delete current rule</value>
+  </data>
+  <data name="Worktime_End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="NavigationRecentClosed" xml:space="preserve">
+    <value>Recently closed</value>
+  </data>
+  <data name="Worktime_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Menu_AcDefault" xml:space="preserve">
+    <value>Last selected</value>
+  </data>
+  <data name="Worktime_ManualComment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="NewWork_StartWork" xml:space="preserve">
+    <value>Switch to created task</value>
+  </data>
+  <data name="ModifyWork_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Hotkeys_HeaderSite" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="ModifyWork_InvalidInterval" xml:space="preserve">
+    <value>Invalid interval</value>
+  </data>
+  <data name="ModifyWork_NoValidInterval" xml:space="preserve">
+    <value>Interval fully overlaps with existing work.</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedBody" xml:space="preserve">
+    <value>Access denied.</value>
+  </data>
+  <data name="ModifyWork_Overlap" xml:space="preserve">
+    <value>Can't create work for the full interval, because it overlaps with existing work. Instead of {0} only {1} amount of work can be added in {2} piece(s).</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedTitle" xml:space="preserve">
+    <value>Failure while assigning task</value>
+  </data>
+  <data name="ModifyWork_IntervalTitle" xml:space="preserve">
+    <value>Modify interval</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Worktime_Tooltip" xml:space="preserve">
+    <value>Overview or add worktime</value>
+  </data>
+  <data name="ModifyWork_ModifyTitle" xml:space="preserve">
+    <value>Modify work time</value>
+  </data>
+  <data name="ModifyWork_SureDelete" xml:space="preserve">
+    <value>Are you sure you want to remove selected work?</value>
+  </data>
+  <data name="ModifyWork_Create" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ModifyWork_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ModifyWork_Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="ModifyWork_NoChange" xml:space="preserve">
+    <value>No change</value>
+  </data>
+  <data name="ModifyWork_ConnectionError" xml:space="preserve">
+    <value>Error while communicating with server. Please check you connection or try again later.</value>
+  </data>
+  <data name="ModifyWork_FailDelete" xml:space="preserve">
+    <value>Failed to delete work time.</value>
+  </data>
+  <data name="ModifyWork_FailModify" xml:space="preserve">
+    <value>Failed to modify work time.</value>
+  </data>
+  <data name="ModifyWork_AddIntervalDescription" xml:space="preserve">
+    <value>Adds worktime to the provided interval, where there is no other worktime.</value>
+  </data>
+  <data name="ModifyWork_DeleteIntervalDescription" xml:space="preserve">
+    <value>Deletes worktime which is inside the provided interval.</value>
+  </data>
+  <data name="ModifyWork_DeleteWorkDescription" xml:space="preserve">
+    <value>Deletes the selected worktime's interval on same device type.</value>
+  </data>
+  <data name="ModifyWork_ModifyIntervalDescription" xml:space="preserve">
+    <value>Changes task for the whole worktime, which is inside the provided interval.</value>
+  </data>
+  <data name="ModifyWork_ModifyWorkDescription" xml:space="preserve">
+    <value>Modifies the selected worktime's interval, removing or adding manual work if necessary.</value>
+  </data>
+  <data name="Worktime_ManualModificationWarn" xml:space="preserve">
+    <value>The required modifications contain manual worktime modification, which can't be undone</value>
+  </data>
+  <data name="Worktime_ValidationExplain" xml:space="preserve">
+    <value>The modifications need your approval because of the following:</value>
+  </data>
+  <data name="Worktime_ValidationSure" xml:space="preserve">
+    <value>Are you sure you want to apply the modifications?</value>
+  </data>
+  <data name="Worktime_ManualModificationError" xml:space="preserve">
+    <value>The required modifications can't be performed, because of the following:</value>
+  </data>
+  <data name="Worktime_ApprovalWarn" xml:space="preserve">
+    <value>The requested operation contains addition or modification of manual worktime, which will require approval from your superior</value>
+  </data>
+  <data name="Worktime_Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Worktime_ShowDeleted" xml:space="preserve">
+    <value>Show deleted</value>
+  </data>
+  <data name="Worktime_UndeleteText" xml:space="preserve">
+    <value>Are you sure you want to undo worktime deletion?</value>
+  </data>
+  <data name="Worktime_UndeleteTitle" xml:space="preserve">
+    <value>Undo delete?</value>
+  </data>
+  <data name="Worktime_WaitApprove" xml:space="preserve">
+    <value>Waiting approval</value>
+  </data>
+  <data name="Worktime_CantEdit" xml:space="preserve">
+    <value>Can't modify</value>
+  </data>
+  <data name="Worktime_CantEditError" xml:space="preserve">
+    <value>The operation you requested requires modifications of work time, which can't be edited.</value>
+  </data>
+  <data name="Worktime_TooMuchAddError" xml:space="preserve">
+    <value>The operation you requested contains too much addition of manual work time. Please make your change in smaller steps.</value>
+  </data>
+  <data name="Worktime_Grouping" xml:space="preserve">
+    <value>Color by</value>
+  </data>
+  <data name="Worktime_Work" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="Worktime_NoCategory" xml:space="preserve">
+    <value>No category</value>
+  </data>
+  <data name="Worktime_TooLong" xml:space="preserve">
+    <value>You can't modify more than 24 hours of work at a time!</value>
+  </data>
+  <data name="Worktime_NoFuture" xml:space="preserve">
+    <value>You can't modify worktime in the last 5 minutes or in the future!</value>
+  </data>
+  <data name="AutoRules_WindowRulesTitle" xml:space="preserve">
+    <value>Edit window rules</value>
+  </data>
+  <data name="Worktime_TooOldError" xml:space="preserve">
+    <value>You can't modify worktime older than {0} hours!</value>
+  </data>
+  <data name="AutoRules_RemoveInvalid" xml:space="preserve">
+    <value>Remove invalid</value>
+  </data>
+  <data name="NotificationInvalidRuleAction" xml:space="preserve">
+    <value>Edit rules</value>
+  </data>
+  <data name="NotificationInvalidRuleBody" xml:space="preserve">
+    <value>You have one or more rules, which contain closed tasks.</value>
+  </data>
+  <data name="NotificationInvalidRuleTitle" xml:space="preserve">
+    <value>Invalid rule(s)</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeBody" xml:space="preserve">
+    <value>To apply the settings, restart Microsoft Outlook.</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeTitle" xml:space="preserve">
+    <value>Restart Outlook</value>
+  </data>
+  <data name="NotificationUpdateFailedBody" xml:space="preserve">
+    <value>The update of JobCTRL application has been failed. Please, contact your system administrator.</value>
+  </data>
+  <data name="NotificationDcFreezeBody" xml:space="preserve">
+    <value>JobCTRL restarted because of another application.</value>
+  </data>
+  <data name="NotificationUpdateFailedTitle" xml:space="preserve">
+    <value>Application Update</value>
+  </data>
+  <data name="NotificationDcFreezeTitle" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Program_FailedRestartBody" xml:space="preserve">
+    <value>JobCTRL failed to restart, please shut down existing instance and start JobCTRL manually.</value>
+  </data>
+  <data name="Program_FailedRestartTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="WelcomeDontShow" xml:space="preserve">
+    <value>Don’t show it again.</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>Welcome to {0}.</value>
+  </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="WelcomeCommonText" xml:space="preserve">
+    <value>In the next {0} steps, we’ll show you the basics of the application.</value>
+  </data>
+  <data name="WelcomeDone" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="WelcomeInstructionText1" xml:space="preserve">
+    <value>You’ll find the JobCTRL icon on the system tray:</value>
+  </data>
+  <data name="WelcomeInstructionText2" xml:space="preserve">
+    <value>You can start or stop the application with a double click on the icon.</value>
+  </data>
+  <data name="WelcomeInstructionText3" xml:space="preserve">
+    <value>You can open the menu with a right click.</value>
+  </data>
+  <data name="WelcomeInstructionText4" xml:space="preserve">
+    <value>For documenting your worktime properly, you can choose the task you’d like to work on from your tasks grouped by different sort orders.</value>
+  </data>
+  <data name="WelcomeInstructionText5a" xml:space="preserve">
+    <value>You can find further settings in the Preferences menu.</value>
+  </data>
+  <data name="WelcomeInstructionText5b" xml:space="preserve">
+    <value>You can add new tasks in the application for yourself.</value>
+  </data>
+  <data name="WelcomeNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="WelcomeInstructionText1a" xml:space="preserve">
+    <value>the application is in non-work status, it doesn’t document the work activity,</value>
+  </data>
+  <data name="WelcomeInstructionText1b" xml:space="preserve">
+    <value>the application is in work status, it documents the work activity,</value>
+  </data>
+  <data name="WelcomeInstructionText1c" xml:space="preserve">
+    <value>the application is in work status without connection to the server.</value>
+  </data>
+  <data name="Login_ForgottenPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="Login_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Login_LoginButton" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="Login_StartInGreen" xml:space="preserve">
+    <value>Start automatically in work state</value>
+  </data>
+  <data name="Login_UserId" xml:space="preserve">
+    <value>User ID / E-mail</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Menu_Diagnostics" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="WelcomeInstructionText6a" xml:space="preserve">
+    <value>You can create automated rules in the Additional options menu.</value>
+  </data>
+  <data name="WelcomeInstructionText6b" xml:space="preserve">
+    <value>You can edit them in a pop-up window.</value>
+  </data>
+  <data name="MenuDetails" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="IssueMgr_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="IssueMgr_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="IssueMgr_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Login_ConnectionSettings" xml:space="preserve">
+    <value>Connection settings</value>
+  </data>
+  <data name="LoginSettings_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="LoginSettings_Automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="LoginSettings_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="LoginSettings_InvalidAddress" xml:space="preserve">
+    <value>Invalid address format.</value>
+  </data>
+  <data name="LoginSettings_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginSettings_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LoginSettings_Title" xml:space="preserve">
+    <value>Proxy settings</value>
+  </data>
+  <data name="LoginSettings_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="IssueMgr_Issues" xml:space="preserve">
+    <value>Issues</value>
+  </data>
+  <data name="IssueMgr_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="IssueMgr_CreatedByMe" xml:space="preserve">
+    <value>Created by me</value>
+  </data>
+  <data name="IssueMgr_Modified" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="IssueMgr_ModifiedByMe" xml:space="preserve">
+    <value>Modified by me</value>
+  </data>
+  <data name="IssueMgr_Owner" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="IssueMgr_SearchText" xml:space="preserve">
+    <value>Search text</value>
+  </data>
+  <data name="CountDown_TimeElapsed" xml:space="preserve">
+    <value>Elapsed time:</value>
+  </data>
+  <data name="AddReasonDelayedBody" xml:space="preserve">
+    <value>You're currently in offline mode, your comment will be posted automatically next time you're online.</value>
+  </data>
+  <data name="AddReasonDelayedTitle" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Menu_MsProjectUpload" xml:space="preserve">
+    <value>Upload timesheet</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationInactivity" xml:space="preserve">
+    <value>An offline time is being registered due to inactivity.
+Are you sure you want to delete the whole inactivity time?</value>
+  </data>
+  <data name="AddMeeting_AbortButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="AddMeeting_ConfirmButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddMeeting_Subtitle" xml:space="preserve">
+    <value>Triggered by inactivity</value>
+  </data>
+  <data name="AddMeeting_SubtitleHK" xml:space="preserve">
+    <value>Manually started</value>
+  </data>
+  <data name="IssueMgr_CreatedBy" xml:space="preserve">
+    <value>Created by</value>
+  </data>
+  <data name="IssueMgr_ModifiedBy" xml:space="preserve">
+    <value>Modified by</value>
+  </data>
+  <data name="Menu_AcReports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="IssueMgr_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="AutoUpdate_Prompt" xml:space="preserve">
+    <value>A new version is ready to be installed. Click here to install now!</value>
+  </data>
+  <data name="AutoUpdate_UpdateAvailable" xml:space="preserve">
+    <value>Update available</value>
+  </data>
+  <data name="OfflineDataNotUploaded" xml:space="preserve">
+    <value>There's data that couldn't be uploaded</value>
+  </data>
+  <data name="OfflineReason_EndpointNotFound" xml:space="preserve">
+    <value>Unable to communicate with server (Endpoint not found)</value>
+  </data>
+  <data name="OfflineReason_Timeout" xml:space="preserve">
+    <value>Unable to communicate with server (Timeout)</value>
+  </data>
+  <data name="AddMeeting_ConfirmButtonTooltip" xml:space="preserve">
+    <value>Add offline worktime</value>
+  </data>
+  <data name="Install_MessageText" xml:space="preserve">
+    <value>Please wait for the installer to finish.</value>
+  </data>
+  <data name="Install_MessageTitle" xml:space="preserve">
+    <value>Update is currently in progress...</value>
+  </data>
+  <data name="NotificationNewMessageTitle" xml:space="preserve">
+    <value>New message</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="WelcomeAgree" xml:space="preserve">
+    <value>I agree, next</value>
+  </data>
+  <data name="ConfirmExitBeforeDppAccept" xml:space="preserve">
+    <value>Are you sure to exit?</value>
+  </data>
+  <data name="IssueMgr_StateClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="IssueMgr_StateOpened" xml:space="preserve">
+    <value>Opened</value>
+  </data>
+  <data name="IssueMgr_StateWaitingForCustomer" xml:space="preserve">
+    <value>Waiting for customer</value>
+  </data>
+  <data name="TODOs" xml:space="preserve">
+    <value>TODOs</value>
+  </data>
+  <data name="TODOs_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TODOs_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TODOs_PromptSaveChanges" xml:space="preserve">
+    <value>Do you want to save changes?</value>
+  </data>
+  <data name="TODOs_StateCanceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="TODOs_StateFinished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="TODOs_StateOpened" xml:space="preserve">
+    <value>Opened</value>
+  </data>
+  <data name="TODOs_StatePostponed" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
+  <data name="TODOs_TypeHere" xml:space="preserve">
+    <value>Type here...</value>
+  </data>
+  <data name="TODOs_EditedBy" xml:space="preserve">
+    <value>Edited by {0}.</value>
+  </data>
+  <data name="TODOs_Modifiable" xml:space="preserve">
+    <value>The list can be modified now.</value>
+  </data>
+  <data name="AddMeeting_ChooseTask" xml:space="preserve">
+    <value>Choose task.</value>
+  </data>
+  <data name="AddMeeting_DeletedInfo" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="AddMeeting_Merge" xml:space="preserve">
+    <value>Merge</value>
+  </data>
+  <data name="AddMeeting_Split" xml:space="preserve">
+    <value>Split</value>
+  </data>
+  <data name="AddMeeting_UndoDeleted" xml:space="preserve">
+    <value>undo</value>
+  </data>
+  <data name="AddMeeting_NotAccText" xml:space="preserve">
+    <value>Blocked websites, applications, private content etc.</value>
+  </data>
+  <data name="AddMeeting_NotAccTitle" xml:space="preserve">
+    <value>Not accountable</value>
+  </data>
+  <data name="TODOs_EmptyListItemError" xml:space="preserve">
+    <value>The list can not contain empty elements.</value>
+  </data>
+  <data name="Menu_DiagDebugDisableAllPlugin" xml:space="preserve">
+    <value>Disable all plugin</value>
+  </data>
+  <data name="Menu_DiagDebugDisableAutomationPlugin" xml:space="preserve">
+    <value>Disable Automation plugin</value>
+  </data>
+  <data name="Menu_DiagDebugDisableDomCapture" xml:space="preserve">
+    <value>Disable DomCapture</value>
+  </data>
+  <data name="Menu_DiagDebugDisableJcMail" xml:space="preserve">
+    <value>Disable Outlook mail capture (via Jc.Mail)</value>
+  </data>
+  <data name="Menu_DiagDebugDisableLotusMeetingSync" xml:space="preserve">
+    <value>Disable Lotus Notes meeting synchronization</value>
+  </data>
+  <data name="Menu_DiagDebugDisableOlAddin" xml:space="preserve">
+    <value>Disable Outlook mail capture (via addin)</value>
+  </data>
+  <data name="Menu_DiagDebugDisableOutlookMeetingSync" xml:space="preserve">
+    <value>Disable Outlook meeting synchronization</value>
+  </data>
+  <data name="Menu_DiagDebugDisableProcessCapture" xml:space="preserve">
+    <value>Disable process metadata capture</value>
+  </data>
+  <data name="Menu_DiagDebugDisableTitleCapture" xml:space="preserve">
+    <value>Disable window title capture</value>
+  </data>
+  <data name="Menu_DiagDebugDisableUrlCapture" xml:space="preserve">
+    <value>Disable URL capture</value>
+  </data>
+  <data name="Menu_DiagDebugMode" xml:space="preserve">
+    <value>Diagnostic operation mode</value>
+  </data>
+  <data name="Notification_SoftphonePluginMessageBody" xml:space="preserve">
+    <value>To finish Softphone integration, restart SoftphonePro.</value>
+  </data>
+  <data name="Notification_SoftphonePluginMessageTitle" xml:space="preserve">
+    <value>Restart SoftphonePro</value>
+  </data>
+  <data name="AcquireLogs_NotificationMessage" xml:space="preserve">
+    <value>Click here to send your log files.</value>
+  </data>
+  <data name="AcquireLogs_NotificationTitle" xml:space="preserve">
+    <value>JobCTRL support team needs your help</value>
+  </data>
+  <data name="AcquireLogs_MessageBoxTitle" xml:space="preserve">
+    <value>Do you send log files?</value>
+  </data>
+  <data name="AcquireLogs_Remember" xml:space="preserve">
+    <value>Remember my decision</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredBody" xml:space="preserve">
+    <value>To perform application update please restart your computer</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredTitle" xml:space="preserve">
+    <value>Restart required</value>
+  </data>
+  <data name="NotificationRulesChangedText" xml:space="preserve">
+    <value>The rules supporting automatic mode have changed</value>
+  </data>
+  <data name="NotificationRulesChangedTitle" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>{0} - Login</value>
+  </data>
+  <data name="AutoMode_NotificationText" xml:space="preserve">
+    <value>Due to your company’s settings, it is not allowed to select tasks manually. Please contact your administrator.</value>
+  </data>
+  <data name="AutoMode_QueryDisplaySettings" xml:space="preserve">
+    <value>Due to your company’s settings, it is not allowed to select tasks manually. Would you like to edit these settings? (After clicking on “OK” we’ll redirect you to Default settings menu.)</value>
+  </data>
+  <data name="AutoMode_QuerySwitchOff" xml:space="preserve">
+    <value>Due to your company’s settings, it is not allowed to select tasks manually. Would you like to switch off the automatic mode? (After clicking on “OK” automatic mode will be turned off.)</value>
+  </data>
+  <data name="AutoMode_Title" xml:space="preserve">
+    <value>Automatic mode</value>
+  </data>
+  <data name="WorkData_ProjectInstructions" xml:space="preserve">
+    <value>Select project or task group. New items can be created on the [website].</value>
+  </data>
+  <data name="NotificationTimeZoneBody" xml:space="preserve">
+    <value>The time zone settings in web profile is not the same as on your computer. Please contact your administrator.</value>
+  </data>
+  <data name="NotificationTimeZoneTitle" xml:space="preserve">
+    <value>Time zone setting</value>
+  </data>
+  <data name="TODOs_Age_Days" xml:space="preserve">
+    <value>{0}d</value>
+  </data>
+  <data name="TODOs_Age_Weeks" xml:space="preserve">
+    <value>{0}w</value>
+  </data>
+  <data name="TODOs_Age_Weeks_Days" xml:space="preserve">
+    <value>{0}w {1}d</value>
+  </data>
+  <data name="ContextMenu_FavoriteReports" xml:space="preserve">
+    <value>Favorite Reports</value>
+  </data>
+  <data name="ContextMenu_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="ContextMenu_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportFailedText" xml:space="preserve">
+    <value>Assigning access rights to Google resources failed</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportSuccessText" xml:space="preserve">
+    <value>We have successfully obtained access to Google resources</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportTitle" xml:space="preserve">
+    <value>Google Account</value>
+  </data>
+  <data name="Login_NotificationAuthenticationFailed" xml:space="preserve">
+    <value>Authentication failed. Do you want to retry?</value>
+  </data>
+  <data name="TODOs_ListAlreadySaved" xml:space="preserve">
+    <value>Can't save this list because it has been already saved on another device. Press OK to close the Todo window or press Cancel to manually save your changes.</value>
+  </data>
+  <data name="GoogleAuthenticationForm_FirstRow" xml:space="preserve">
+    <value>We kindly ask for your consent in order to synchronize your Google Calendar events.</value>
+  </data>
+  <data name="GoogleAuthenticationForm_PrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="GoogleAuthenticationForm_SecondRow" xml:space="preserve">
+    <value>Click the button below to start the authentication process.</value>
+  </data>
+  <data name="Preference_ShowThisMonthStats" xml:space="preserve">
+    <value>Show monthly working time</value>
+  </data>
+  <data name="Preference_ShowThisQuarterStats" xml:space="preserve">
+    <value>Show quarterly working time</value>
+  </data>
+  <data name="Preference_ShowThisYearStats" xml:space="preserve">
+    <value>Show yearly working time</value>
+  </data>
+  <data name="ThisQuarterWorkTime" xml:space="preserve">
+    <value>Quarterly working time</value>
+  </data>
+  <data name="ThisYearWorkTime" xml:space="preserve">
+    <value>Yearly working time</value>
+  </data>
+  <data name="Login_PasswordExpiredClick" xml:space="preserve">
+    <value>Your password expired. Click here to renew it.</value>
+  </data>
+  <data name="Login_PasswordExpiredTitle" xml:space="preserve">
+    <value>Password expired</value>
+  </data>
+  <data name="Hotkeys_ActionTypeClearAutoRuleTimer" xml:space="preserve">
+    <value>Clear self-learning rule timers</value>
+  </data>
+</root>

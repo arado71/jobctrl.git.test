@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+  <log4net debug="false" xsi:noNamespaceSchemaLocation="..\Log4Net\log4net.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="Logs\JobCTRL.log" />
+      <appendToFile value="true" />
+      <maxSizeRollBackups value="5" />
+      <maximumFileSize value="10MB" />
+      <rollingStyle value="Size" />
+      <staticLogFileName value="true" />
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%date [%2thread] %-5level %24.24logger{1} - %message%newline" />
+      </layout>
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <levelMin value="INFO" />
+        <levelMax value="FATAL" />
+      </filter>
+    </appender>
+    <appender name="RollingDebugLogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="Logs\JobCTRL-Debug.log" />
+      <appendToFile value="true" />
+      <maxSizeRollBackups value="9" />
+      <maximumFileSize value="10MB" />
+      <rollingStyle value="Size" />
+      <staticLogFileName value="true" />
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%date [%2thread] %-5level %24.24logger{1} - %message%newline" />
+      </layout>
+    </appender>
+    <root>
+      <level value="DEBUG" />
+      <appender-ref ref="RollingLogFileAppender" />
+      <appender-ref ref="RollingDebugLogFileAppender" />
+    </root>
+  </log4net>
+  <appSettings>
+    <add key="WebsiteUrl" value="http://dev.jobctrl.net/"/>
+    <add key="AppClassifier" value="R2Z1"/>
+  </appSettings>
+  <system.net>
+    <defaultProxy useDefaultCredentials="true" />
+  </system.net>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBindingWithPass" closeTimeout="00:01:00"
+          openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+          allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferSize="5000001" maxBufferPoolSize="12000001" maxReceivedMessageSize="5000001"
+          messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered"
+          useDefaultWebProxy="true">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="100001"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="Transport">
+            <transport clientCredentialType="Basic" />
+          </security>
+        </binding>
+        <binding name="BasicHttpBindingWithWinAuth">
+          <security mode="Transport">
+            <transport clientCredentialType="Windows"/>
+          </security>
+        </binding>
+      </basicHttpBinding>
+      <netNamedPipeBinding>
+        <binding name="NetNamedPipeBinding_IMeetingCaptureService" closeTimeout="00:01:00"
+          openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+          transactionFlow="false" transferMode="Buffered" transactionProtocol="OleTransactions"
+          hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="524288"
+          maxBufferSize="65536" maxConnections="10" maxReceivedMessageSize="65536">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="Transport">
+            <transport protectionLevel="EncryptAndSign" />
+          </security>
+        </binding>
+        <binding name="NetNamedPipeBinding_IVoiceRecorderControllerService" />
+        <binding name="NetNamedPipeBinding_IChromeCaptureService" />
+      </netNamedPipeBinding>
+      <customBinding>
+        <binding name="CustomBinding_IActivityRecorder" closeTimeout="00:01:00"
+          openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00">
+          <TctMessageEncoding innerMessageEncoding="binaryMessageEncoding" />
+          <security authenticationMode="UserNameOverTransport" />
+          <TctTransport transferMode="Buffered"
+            hostNameComparisonMode="StrongWildcard" listenBacklog="10" maxBufferPoolSize="12000001"
+            maxBufferSize="5000001" maxPendingConnections="10" maxPendingAccepts="10" maxReceivedMessageSize="5000001"/>
+        </binding>
+      </customBinding>
+      <netTcpBinding>
+        <binding name="NetTcpBinding_IActivityRecorder" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+          transactionFlow="false" transferMode="Buffered" transactionProtocol="OleTransactions" hostNameComparisonMode="StrongWildcard" listenBacklog="10"
+          maxBufferPoolSize="12000001" maxBufferSize="5000001" maxConnections="10" maxReceivedMessageSize="5000001">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="100001" maxBytesPerRead="4096" maxNameTableCharCount="16384"/>
+          <reliableSession ordered="true" inactivityTimeout="00:10:00" enabled="false"/>
+          <security mode="Message">
+            <message clientCredentialType="UserName"/>
+          </security>
+        </binding>
+        <binding name="NetTcpBinding_IActiveDirectoryLoginService">
+          <security mode="Message">
+            <message clientCredentialType="Windows"/>
+          </security>
+        </binding>
+      </netTcpBinding>
+    </bindings>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="CustomBinding_Behav">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+        </behavior>
+        <behavior name="NetTcpBinding_Behav">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+          <clientCredentials>
+            <serviceCertificate>
+              <authentication certificateValidationMode="None"/>
+            </serviceCertificate>
+          </clientCredentials>
+        </behavior>
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="InterProcessServiceMEXBehavior">
+          <serviceMetadata/>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <extensions>
+      <bindingElementExtensions>
+        <add name="TctMessageEncoding" type="TctEncoder.TctBindingElementExtension, TctEncoder"/>
+        <add name="TctTransport" type="TctTransport.TctTransportElement, TctEncoder"/>
+      </bindingElementExtensions>
+    </extensions>
+    <client>
+      <endpoint address="net.tcp://dev.jobctrl.net:9000/ActivityRecorderService" binding="netTcpBinding" bindingConfiguration="NetTcpBinding_IActivityRecorder"
+        behaviorConfiguration="NetTcpBinding_Behav" contract="ActivityRecorderServiceReference.IActivityRecorder" name="NetTcpBinding_IActivityRecorder">
+        <identity>
+          <certificate encodedValue="AwAAAAEAAAAUAAAAIUjLKh97T1q4cdtbuwoTSiIbxjwgAAAAAQAAABMCAAAwggIPMIIBfKADAgECAhATc0lbTxU6okAWZV3u8DKQMAkGBSsOAwIdBQAwHzEdMBsGA1UEAxMUdGN0LkFjdGl2aXR5UmVjb3JkZXIwHhcNMTAwMzI2MTA0MzU0WhcNMzkxMjMxMjM1OTU5WjAfMR0wGwYDVQQDExR0Y3QuQWN0aXZpdHlSZWNvcmRlcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA+NvRWjz6XPuN8VfaYzVERhyG9FRq5Lig5GsUxi0vCvoOJVK0NEoDhmZfHVpnL3QCZz+vIjEe0QqmmeDXgFHXy/h9d39bquy9h1fbgRL5YwhGbKpBUTWia1dOlf7kux9BCJmD3RsqiirDotU4OSTbqRlkP+gTLggfr7wsPhKq+x8CAwEAAaNUMFIwUAYDVR0BBEkwR4AQD4xZT/b6J8HfPQw7RndWSaEhMB8xHTAbBgNVBAMTFHRjdC5BY3Rpdml0eVJlY29yZGVyghATc0lbTxU6okAWZV3u8DKQMAkGBSsOAwIdBQADgYEA4amYftpk9Lb0Taw04Ov+/W/A4k49MkN9czBIPT6Y5TIVJ5QDc2d/ZJrwBXgLKJyt/IRL2nKs4PmeFMIGkrU3VN6fH0weevqvk7N5DrqiaQIzoYJ+rEAkotHjpi0UsjHqUTWnA7HoFUz8vqD6nCaPte2sU8gvjVKLa9CjQfzYrqk="/>
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/OutlookMeetingCaptureService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IMeetingCaptureService"
+        contract="OutlookMeetingCaptureServiceReference.IMeetingCaptureService"
+        name="NetNamedPipeBinding_IMeetingCaptureService">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/OutlookMailCaptureService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IMeetingCaptureService"
+        contract="OutlookMailCaptureServiceReference.IMailCaptureService"
+        name="NetNamedPipeBinding_IMailCaptureService">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/LotusNotesMeetingCaptureService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IMeetingCaptureService"
+        contract="LotusNotesMeetingCaptureServiceReference.IMeetingCaptureService"
+        name="NetNamedPipeBinding_IMeetingCaptureService1">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/VoiceRecorderControllerService/"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IVoiceRecorderControllerService"
+        contract="VoiceRecorderControllerServiceReference.IVoiceRecorderControllerService"
+        name="NetNamedPipeBinding_IVoiceRecorderControllerService">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/ChromeCaptureService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IChromeCaptureService"
+        contract="ChromeCaptureServiceReference.IChromeCaptureService"
+        name="NetNamedPipeBinding_IChromeCaptureService">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/OutlookAddinMailCaptureService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IMeetingCaptureService"
+        contract="OutlookAddinMailCaptureServiceReference.IAddinMailCaptureService"
+        name="NetNamedPipeBinding_IMailCaptureService1">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.pipe://localhost/AppControlServiceService"
+        binding="netNamedPipeBinding" bindingConfiguration="NetNamedPipeBinding_IMeetingCaptureService"
+        contract="AppControlServiceReference.IAppControlServiceService"
+        name="NetNamedPipeBinding_IAppControlServiceService">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+      <endpoint address="net.tcp://dev.jobctrl.net:9020/ActiveDirectoryLoginService" binding="netTcpBinding"
+        bindingConfiguration="NetTcpBinding_IActiveDirectoryLoginService" contract="ActivityRecorderServiceReference.IActiveDirectoryLoginService"
+        name="NetTcpBinding_IActiveDirectoryLoginService">
+        <identity>
+          <userPrincipalName value="JCAPP1\ccenter"/>
+        </identity>
+      </endpoint>
+      <endpoint address="https://dev.jobctrl.net:9002/ActiveDirectoryLoginService" contract="ActivityRecorderServiceReference.IActiveDirectoryLoginService"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBindingWithWinAuth" behaviorConfiguration="NetTcpBinding_Behav"
+        name="HttpBinding_IActiveDirectoryLoginService"/>
+    </client>
+    <services>
+      <service name="Tct.ActivityRecorderClient.InterProcess.InterProcessService" behaviorConfiguration="InterProcessServiceMEXBehavior">
+        <endpoint address="" binding="netNamedPipeBinding" contract="Tct.ActivityRecorderClient.InterProcess.IInterProcessService" />
+        <endpoint address="mex" binding="mexNamedPipeBinding" contract="IMetadataExchange" />
+        <!-- <host>
+          <baseAddresses>
+            <add baseAddress="net.pipe://localhost/InterProcess-dbg"/>
+          </baseAddresses>
+        </host> -->
+      </service>
+    </services>
+  </system.serviceModel>
+  <runtime>
+    <!--Thanks to a CilckOnce bug in the FW we have to use it...-->
+    <legacyUnhandledExceptionPolicy enabled="1"/>
+  </runtime>
+</configuration>

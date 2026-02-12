@@ -1,0 +1,441 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+		xmlns:view="using:Tct.ActivityRecorderClient.Avalonia.UI.View"
+		xmlns:local="clr-namespace:ActivityRecorderClientAV"
+		xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+		mc:Ignorable="d" CanResize="False"
+		x:Class="ActivityRecorderClientAV.ActivityRecorderFormAV"
+		Title="JobCtrl Avalonia"
+		Width="365" Height="650"
+		SizeToContent="Height"
+		ShowInTaskbar="False"
+		Topmost="True"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaTitleBarHeightHint="0"
+		ExtendClientAreaChromeHints="0"
+		TransparencyLevelHint="AcrylicBlur, Transparent"
+		x:DataType="viewModels:TaskNavigatorViewModel">
+
+	<LayoutTransformControl x:Name="MainWindowLayoutTransformControl">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>  <!-- Buttons row -->
+				<RowDefinition Height="Auto"/>  <!-- Username label -->
+				<RowDefinition Height="Auto"/>  <!-- Worktime rows -->
+				<RowDefinition Height="Auto"/>  <!-- Task Box -->
+				<RowDefinition Height="Auto"/>  <!-- Search Field -->
+				<RowDefinition Height="Auto"/>   <!-- Empty space or content filler -->
+				<!--RowDefinition Height="Auto"/-->  <!-- Snackbar row -->
+				<!--RowDefinition Height="Auto"/-->  <!-- Snackbar row -->
+			</Grid.RowDefinitions>
+
+			<Grid Grid.Row="0" Margin="0,0,0,0" Height="45" IsVisible="True" x:Name="ButtonRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5" Margin="0,5,0,0">
+
+					<Button x:Name="WorkstateButton" Click="OnWorkstateClick" Width="40" Height="40" Background="Transparent"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+						<Image x:Name="WorkstateIcon" Width="30" Height="30" 
+							Source="{viewModels:Icon {Binding Source='toggle-off.svg'}}" />
+					</Button>
+
+					<Button x:Name="GlobeButton" Click="OnGlobeClick" Width="40" Height="40" Background="Transparent"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+						<Image x:Name="GlobeIcon" Width="25" Height="25"
+							Source="{viewModels:Icon {Binding Source='globe.svg'}}" />
+					</Button>
+
+					<Button x:Name="SettingsButton" Click="OnSettingsClick" Width="40" Height="40" Background="Transparent"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+						<Image x:Name="SettingsIcon" Width="25" Height="25"
+							Source="{viewModels:Icon {Binding Source='settings.svg'}}" />
+					</Button>
+
+					<Button x:Name="MoreButton" Click="OnMoreClick" Width="40" Height="40" Background="Transparent"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+						<Image x:Name="MoreIcon" Width="25" Height="25"
+							Source="{ viewModels:Icon {Binding Source='more.svg'}}" />
+					</Button>
+
+					<Button x:Name="ExitButton" Click="OnExitClick" Width="40" Height="40" Background="Transparent"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+						<Image x:Name="ExitIcon" Width="25" Height="25"
+							Source="{viewModels:Icon {Binding Source='exit.svg'}}" />
+					</Button>
+
+				</StackPanel>
+			</Grid>
+
+			<Viewbox Grid.Row="1"
+					 Stretch="Uniform"
+					 HorizontalAlignment="Stretch"
+					 VerticalAlignment="Stretch"
+					 Height="16">
+				<TextBlock
+				x:Name="UserNameTextBlock"
+				FontFamily="{StaticResource InterTightFont}"
+				HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center"
+				FontWeight="Medium" Margin="5,0,5,0">
+					<Run Text="{Binding UserName}" FontWeight="Bold"/>
+					<Run Text="{Binding UserId}" Foreground="Gray"/>
+				</TextBlock>
+			</Viewbox>
+
+			<!-- Worktime rows with tighter margins -->
+			<Grid Grid.Row="2"
+				  Margin="0,0,0,0"
+				  x:Name="WorktimeRows"
+				  Height="92" IsVisible="True">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>  <!-- Today's row -->
+					<RowDefinition Height="Auto"/>  <!-- Separator -->
+					<RowDefinition Height="Auto"/>  <!-- Weekly row -->
+					<RowDefinition Height="Auto"/>  <!-- Separator -->
+					<RowDefinition Height="Auto"/>  <!-- Monthly row -->
+					<RowDefinition Height="Auto"/>  <!-- Separator -->
+					<RowDefinition Height="Auto"/>  <!-- Quarterly row -->
+					<RowDefinition Height="Auto"/>  <!-- Separator -->
+					<RowDefinition Height="Auto"/>  <!-- Yearly row -->
+				</Grid.RowDefinitions>
+
+				<!-- Today's row -->
+				<Grid Grid.Row="0" Margin="10,5,10,5" x:Name="RowToday">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="60"/> <!-- Fixed width for time intervals -->
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="55"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource TodayText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" Text="{Binding WorkTimeStats.TodaysWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<TextBlock Grid.Column="2" Text="{Binding WorkTimeStats.TodaysTargetNetWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+				</Grid>
+
+				<!-- Thin separator -->
+				<Separator Grid.Row="1" Height="1" x:Name="Separator1" Background="{DynamicResource PrimaryColor}" Margin="10,0,10,0"/>
+
+				<!-- Weekly row -->
+				<Grid Grid.Row="2" Margin="10,5,10,5" x:Name="RowWeekly">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="55"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource WeeklyText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" Text="{Binding WorkTimeStats.ThisWeeksWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<TextBlock Grid.Column="2" Text="{Binding WorkTimeStats.ThisWeeksTargetNetWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<ContentControl Grid.Column="3">
+						<ContentControl.Content>
+							<MultiBinding Converter="{StaticResource DeltaMsConverter}">
+								<Binding Path="WorkTimeStats.ThisWeeksWorkTimeInMs"/>
+								<Binding Path="WorkTimeStats.ThisWeeksTargetUntilTodayNetWorkTimeInMs"/>
+							</MultiBinding>
+						</ContentControl.Content>
+						<ContentControl.ContentTemplate>
+							<DataTemplate>
+								<TextBlock FontFamily="{StaticResource InterTightFont}"
+										   FontWeight="SemiBold"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Right"
+										   Text="{Binding ., Converter={StaticResource MsToHourMinutes},
+										   StringFormat='ᐃ{0}'}"
+										   Foreground="{Binding ., Converter={StaticResource DeltaWorkTimeColor}}"/>
+							</DataTemplate>
+						</ContentControl.ContentTemplate>
+					</ContentControl>
+				</Grid>
+
+				<!-- Thin separator -->
+				<Separator Grid.Row="3" Height="1" x:Name="Separator2" Background="{DynamicResource PrimaryColor}" Margin="10,0,10,0"/>
+
+				<!-- Monthly row -->
+				<Grid Grid.Row="4" Margin="10,5,10,5" x:Name="RowMonthly">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="55"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource MonthyText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" Text="{Binding WorkTimeStats.ThisMonthsWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<TextBlock Grid.Column="2" Text="{Binding WorkTimeStats.ThisMonthsTargetNetWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<ContentControl Grid.Column="3">
+						<ContentControl.Content>
+							<MultiBinding Converter="{StaticResource DeltaMsConverter}">
+								<Binding Path="WorkTimeStats.ThisMonthsWorkTimeInMs"/>
+								<Binding Path="WorkTimeStats.ThisMonthsTargetUntilTodayNetWorkTimeInMs"/>
+							</MultiBinding>
+						</ContentControl.Content>
+						<ContentControl.ContentTemplate>
+							<DataTemplate>
+								<TextBlock FontFamily="{StaticResource InterTightFont}"
+										   FontWeight="SemiBold"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Right"
+										   Text="{Binding ., Converter={StaticResource MsToHourMinutes},
+										   StringFormat='ᐃ{0}'}"
+										   Foreground="{Binding ., Converter={StaticResource DeltaWorkTimeColor}}"/>
+							</DataTemplate>
+						</ContentControl.ContentTemplate>
+					</ContentControl>
+			</Grid>
+
+				<!-- Thin separator -->
+				<Separator Grid.Row="5" Height="1" x:Name="Separator3" Background="{DynamicResource PrimaryColor}" Margin="10,0,10,0"/>
+
+				<!-- Quarterly row -->
+				<Grid Grid.Row="6" Margin="10,5,10,5" x:Name="RowQuarterly">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="55"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource QuarterlyText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" Text="{Binding WorkTimeStats.ThisQuarterWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<TextBlock Grid.Column="2" Text="{Binding WorkTimeStats.ThisQuarterTargetNetWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<ContentControl Grid.Column="3">
+						<ContentControl.Content>
+							<MultiBinding Converter="{StaticResource DeltaMsConverter}">
+								<Binding Path="WorkTimeStats.ThisQuarterWorkTimeInMs"/>
+								<Binding Path="WorkTimeStats.ThisQuarterTargetUntilTodayNetWorkTimeInMs"/>
+							</MultiBinding>
+						</ContentControl.Content>
+						<ContentControl.ContentTemplate>
+							<DataTemplate>
+								<TextBlock FontFamily="{StaticResource InterTightFont}"
+										   FontWeight="SemiBold"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Right"
+										   Text="{Binding ., Converter={StaticResource MsToHourMinutes},
+										   StringFormat='ᐃ{0}'}"
+										   Foreground="{Binding ., Converter={StaticResource DeltaWorkTimeColor}}"/>
+							</DataTemplate>
+						</ContentControl.ContentTemplate>
+					</ContentControl>
+			</Grid>
+
+				<!-- Thin separator -->
+				<Separator Grid.Row="7" Height="1" x:Name="Separator4" Background="{DynamicResource PrimaryColor}" Margin="10,0,10,0"/>
+
+				<!-- Yearly row -->
+				<Grid Grid.Row="8" Margin="10,5,10,5" x:Name="RowYearly">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="55"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource YearlyText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+					<TextBlock Grid.Column="1" Text="{Binding WorkTimeStats.ThisYearWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<TextBlock Grid.Column="2" Text="{Binding WorkTimeStats.ThisYearTargetNetWorkTimeInMs, Converter={StaticResource MsToHourMinutes}}" FontFamily="{StaticResource InterTightFont}" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+					<ContentControl Grid.Column="3">
+						<ContentControl.Content>
+							<MultiBinding Converter="{StaticResource DeltaMsConverter}">
+								<Binding Path="WorkTimeStats.ThisYearWorkTimeInMs"/>
+								<Binding Path="WorkTimeStats.ThisYearTargetUntilTodayNetWorkTimeInMs"/>
+							</MultiBinding>
+						</ContentControl.Content>
+						<ContentControl.ContentTemplate>
+							<DataTemplate>
+								<TextBlock FontFamily="{StaticResource InterTightFont}"
+										   FontWeight="SemiBold"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Right"
+										   Text="{Binding ., Converter={StaticResource MsToHourMinutes},
+										   StringFormat='ᐃ{0}'}"
+										   Foreground="{Binding ., Converter={StaticResource DeltaWorkTimeColor}}"/>
+							</DataTemplate>
+						</ContentControl.ContentTemplate>
+					</ContentControl>
+				</Grid>
+
+			</Grid>
+
+			<!--
+			Task Box
+			-->
+
+			<Grid   Grid.Row="3"
+					x:Name="TaskBox"
+					Margin="0,0,0,0"
+					Cursor="Hand"
+					Height="108"
+					Background="{DynamicResource BackgroundBrush}"
+					IsVisible="True">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Panel IsVisible="{Binding CurrentTask, Converter={StaticResource IsNotNull}}">
+					<local:TaskDisplayControlAV x:Name="SelectedTaskDisplay"
+												DataContext="{Binding CurrentTask}"
+												DisplayMode="Active"/>
+				</Panel>
+				<Panel IsVisible="{Binding CurrentTask, Converter={StaticResource IsNull}}">
+					<local:TaskDisplayControlAV x:Name="LastSelectedTaskDisplay"
+												DataContext="{Binding LastTask}"
+												Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+												DisplayMode="Inactive"/>
+				</Panel>
+			</Grid>
+
+			<!-- Search Field -->
+			<Grid Grid.Row="4"
+				  Margin="0,0,0,0"
+				  x:Name="SearchBox"
+				  Height="50"
+				  IsVisible="True">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<!-- The TextBox -->
+				<AutoCompleteBox Name="SearchField"
+								 Grid.Column="0"
+								 Width="345"
+								 Height="40"
+								 CornerRadius="10"
+								 VerticalAlignment="Center"
+								 FontSize="22"
+								 Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+								 Padding="10,4.5,10,5"
+								 Margin="0,10,0,0"
+								 BorderThickness="2"
+								 ItemsSource="{Binding TaskSearch.AllItems}"
+								 SelectedItem="{Binding TaskSearch.SelectedItem}"
+								 FilterMode="Custom"
+								 />
+
+				<!-- The Search Icon -->
+				<Image Width="22" Height="22"
+					   Name="SearchIcon"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Right" Margin="0,10,25,0"
+					   >
+					<Image.Source>
+						<!--svg:SvgImage Source="icons/search.svg"/-->
+					</Image.Source>
+				</Image>
+			</Grid>
+
+			<TabControl Grid.Row="5"
+						Margin="0,0,0,0"
+						x:Name="TabView"
+						Height="340"
+						IsVisible="True">
+				<TabItem Header="Tasks" FontSize="14" Padding="10,10,10,10" FontWeight="Medium" Margin="0,0,0,0" Cursor="Hand">
+					<!--
+					<ScrollViewer AllowAutoHide="True">
+					-->
+					<Grid>
+						<!-- Top Toolbar -->
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+
+						<!-- Home and Navigation Icons -->
+						<StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,-5,0,0">
+
+							<Button x:Name="HomeButton" Width="30" Height="30" Click="OnHomeClick" Cursor="Hand" Margin="0,0,0,0" Background="Transparent">
+								<Image x:Name="HomeIcon" Width="20" Height="20"
+									Source="{viewModels:Icon {Binding Source='home.svg'}}" />
+							</Button>
+
+							<Button Name="UpButton" Width="30" Height="30" Click="OnUpClick" Cursor="Hand" Background="Transparent">
+								<Image x:Name="UpIcon" Width="20" Height="20"
+									Source="{viewModels:Icon {Binding Source='folder_up.svg'}}" />
+							</Button>
+
+							<TextBlock Name="FolderName" Text="{Binding CurrentFolder.Name}" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="16" FontWeight="Bold" />
+						</StackPanel>
+
+						<!-- Thin separator -->
+						<!--
+						<Separator Height="1" Background="#FF0078D7" Margin="0,24,0,0"/>
+						-->
+						<!-- Task Browser -->
+
+						<Grid Grid.Row="1" Margin="0,0,0,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<ScrollViewer AllowAutoHide="True">
+								<ItemsControl x:Name="BrowserItems"
+											  ItemsSource="{Binding CurrentItems}"
+											  Cursor="Hand">
+
+									<ItemsControl.Styles>
+										<Style Selector="ItemsControl view|TaskItemControl">
+											<Setter Property="Background" Value="Transparent"/>
+										</Style>
+
+										<Style Selector="ItemsControl view|TaskItemControl:pointerover">
+											<Setter Property="Background" Value="#D0EBF8"/>
+										</Style>
+									</ItemsControl.Styles>
+
+									<ItemsControl.ItemTemplate>
+										<DataTemplate x:DataType="viewModels:TaskViewModel">
+											<StackPanel>
+												<view:TaskItemControl PointerPressed="TaskItemDisplay_PointerPressed" />
+												<Border Height="1" Background="#DDD" Padding="10,0,10,0" />
+											</StackPanel>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</ScrollViewer>
+						</Grid>
+
+					</Grid>
+					<!--
+					</ScrollViewer>
+					-->
+				</TabItem>
+
+				<!--<TabItem Header="Overview" IsEnabled="False" FontSize="14" Padding="10,10,10,10" FontWeight="Medium" Margin="-5,0,-3,0" Cursor="Hand">
+				--><!--
+				<TextBlock Margin="0,-10,0,-10" FontSize="30">Overview</TextBlock>
+				--><!--
+				</TabItem>
+				<TabItem Header="Favorite Reports" IsEnabled="False" Padding="10,10,10,10" FontSize="14" FontWeight="Medium" Margin="-5,0,-3,0" Cursor="Hand">
+				--><!--
+				<TextBlock Margin="0,-10,0,-10" FontSize="30">Favorite Reports</TextBlock>
+				--><!--
+				</TabItem>
+				<TabItem Header="Gamification" IsEnabled="False" Padding="10,10,10,10" FontSize="14" FontWeight="Medium" Margin="-5,0,-3,0" Cursor="Hand">
+				--><!--
+				<TextBlock Margin="0,-10,0,-10" FontSize="30">Gamification</TextBlock>
+				--><!--
+				</TabItem>-->
+			</TabControl>
+
+			<!-- Snackbar at the bottom -->
+			<!--
+			<Canvas>
+			<dialogs:Snackbar Name="Snackbar" Margin="200,600,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+			</Canvas>
+			-->
+
+		</Grid>
+	</LayoutTransformControl>
+</Window>

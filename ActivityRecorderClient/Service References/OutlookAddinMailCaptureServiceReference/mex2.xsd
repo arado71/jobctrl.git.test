@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jobctrl.com/mail" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/mail" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="MailCaptures">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MailCaptureByHWnd" nillable="true" type="q1:ArrayOfKeyValueOfintMailCaptureUxvjgO7M" />
+      <xs:element minOccurs="0" name="IsSafeMailItemCommitUsable" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailCaptures" nillable="true" type="tns:MailCaptures" />
+  <xs:complexType name="MailCapture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cc" nillable="true" type="tns:ArrayOfMailAddress" />
+      <xs:element minOccurs="0" name="From" nillable="true" type="tns:MailAddress" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="tns:ArrayOfMailAddress" />
+      <xs:element minOccurs="0" name="JcId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailCapture" nillable="true" type="tns:MailCapture" />
+  <xs:complexType name="ArrayOfMailAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailAddress" nillable="true" type="tns:MailAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMailAddress" nillable="true" type="tns:ArrayOfMailAddress" />
+  <xs:complexType name="MailAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailAddress" nillable="true" type="tns:MailAddress" />
+</xs:schema>

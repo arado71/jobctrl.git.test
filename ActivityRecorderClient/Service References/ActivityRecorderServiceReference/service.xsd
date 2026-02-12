@@ -1,0 +1,1269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://jobctrl.com/Notifications" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+  <xs:import namespace="http://jobctrl.com/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Kicks" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WorkManagement" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://jobctrl.com/WorkManagement" />
+  <xs:import namespace="http://jobctrl.com/WorkTimeHistory" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Telemetry" />
+  <xs:import namespace="http://jobctrl.com/clientApi" />
+  <xs:import namespace="http://jobctrl.com" />
+  <xs:import namespace="http://jobctrl.com/Authentication" />
+  <xs:element name="GetPendingNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="lastId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendingNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://jobctrl.com/Notifications" minOccurs="0" name="GetPendingNotificationResult" nillable="true" type="q1:NotificationData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://jobctrl.com/Notifications" minOccurs="0" name="result" nillable="true" type="q2:NotificationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmNotificationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddWorkItemEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="workItem" nillable="true" type="q3:WorkItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddWorkItemExResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="GetClientMenuResult" nillable="true" type="q4:ClientMenu" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="newMenu" nillable="true" type="q5:ClientMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetClientMenuResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="GetClientSettingsResult" nillable="true" type="q6:ClientSetting" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Authenticate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientInfo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="AuthenticateResult" nillable="true" type="q7:AuthData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAuthTicketResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://jobctrl.com/" minOccurs="0" name="GetClientRulesResult" nillable="true" type="q8:ArrayOfWorkDetectorRule" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q9="http://jobctrl.com/" minOccurs="0" name="newRules" nillable="true" type="q9:ArrayOfWorkDetectorRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetClientRulesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientCensorRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientCensorRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://jobctrl.com/" minOccurs="0" name="GetClientCensorRulesResult" nillable="true" type="q10:ArrayOfCensorRule" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientCensorRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q11="http://jobctrl.com/" minOccurs="0" name="newRules" nillable="true" type="q11:ArrayOfCensorRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientCensorRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetClientCensorRulesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManualWorkItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="manualWorkItem" nillable="true" type="q12:ManualWorkItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManualWorkItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartWork">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="workId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="createDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sendDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopWork">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="createDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sendDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientWorkTimeStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientWorkTimeStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" minOccurs="0" name="GetClientWorkTimeStatsResult" nillable="true" type="q13:ClientWorkTimeStats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="major" type="xs:int" />
+        <xs:element minOccurs="0" name="minor" type="xs:int" />
+        <xs:element minOccurs="0" name="build" type="xs:int" />
+        <xs:element minOccurs="0" name="revision" type="xs:int" />
+        <xs:element minOccurs="0" name="application" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientVersionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientComputerInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" minOccurs="0" name="info" nillable="true" type="q14:ClientComputerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientComputerInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" minOccurs="0" name="clientError" nillable="true" type="q15:ClientComputerError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportClientErrorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendingKick">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendingKickResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Kicks" minOccurs="0" name="GetPendingKickResult" nillable="true" type="q16:ClientComputerKick" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmKick">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="kickId" type="xs:int" />
+        <xs:element xmlns:q17="http://jobctrl.com/" minOccurs="0" name="result" type="q17:KickResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmKickResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeClientActive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="deviceId" type="xs:int" />
+        <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeClientActiveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignWorkByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q18="http://jobctrl.com/" minOccurs="0" name="assignWorkData" nillable="true" type="q18:AssignWorkData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignWorkByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignWorkByKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="clientTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServerTimeResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearningRuleGenerators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearningRuleGeneratorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://jobctrl.com/" minOccurs="0" name="GetLearningRuleGeneratorsResult" nillable="true" type="q19:ArrayOfRuleGeneratorData" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCannedCloseReasons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCannedCloseReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://jobctrl.com/" minOccurs="0" name="GetCannedCloseReasonsResult" nillable="true" type="q20:CannedCloseReasons" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseWork">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="workId" type="xs:int" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonItemId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseWorkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://jobctrl.com/" minOccurs="0" name="CloseWorkResult" type="q21:CloseWorkResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="workId" type="xs:int" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonItemId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReasonResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReasonEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WorkManagement" minOccurs="0" name="reasonItem" nillable="true" type="q22:ReasonItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddReasonExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddReasonExResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReasonStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReasonStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://jobctrl.com/" minOccurs="0" name="GetReasonStatsResult" nillable="true" type="q23:ReasonStats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSimpleWorkTimeStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="desiredEndDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSimpleWorkTimeStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" minOccurs="0" name="GetSimpleWorkTimeStatsResult" nillable="true" type="q24:SimpleWorkTimeStats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://jobctrl.com/" minOccurs="0" name="GetMeetingDataResult" nillable="true" type="q25:MeetingData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWorks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWorksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="GetAllWorksResult" nillable="true" type="q26:ArrayOfAllWorkItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://jobctrl.com/" minOccurs="0" name="AssignTaskResult" type="q27:AssignTaskResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageMeetings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element xmlns:q28="http://jobctrl.com/" minOccurs="0" name="finishedMeetingData" nillable="true" type="q28:FinishedMeetingData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageMeetingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://jobctrl.com/" minOccurs="0" name="ManageMeetingsResult" nillable="true" type="q29:MeetingData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManualMeeting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q30="http://jobctrl.com/" minOccurs="0" name="manualMeeting" nillable="true" type="q30:ManualMeetingData" />
+        <xs:element minOccurs="0" name="computerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManualMeetingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskReasons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="GetTaskReasonsResult" nillable="true" type="q31:TaskReasons" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignProjectByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q32="http://jobctrl.com/" minOccurs="0" name="assignProjectData" nillable="true" type="q32:AssignProjectData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignProjectByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignProjectByKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExpiryDay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExpiryDayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExpiryDayResult" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="GetApplicationUpdateResult" nillable="true" type="q33:ApplicationUpdateInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateChunk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="fileId" type="q34:guid" />
+        <xs:element minOccurs="0" name="chunkIndex" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateChunkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUpdateChunkResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignProjectAndWorkByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q35="http://jobctrl.com/" minOccurs="0" name="assignCompositeData" nillable="true" type="q35:AssignCompositeData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignProjectAndWorkByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignProjectAndWorkByKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddParallelWorkItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="parallelWorkItem" nillable="true" type="q36:ParallelWorkItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddParallelWorkItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagementConstraints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="projectId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagementConstraintsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://jobctrl.com/WorkManagement" minOccurs="0" name="GetProjectManagementConstraintsResult" nillable="true" type="q37:ProjectManagementConstraints" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateWork">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="projectId" type="xs:int" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="workData" nillable="true" type="q38:WorkData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateWorkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateWorkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWork">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="workData" nillable="true" type="q39:WorkData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDailyWorkTimeStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDailyWorkTimeStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://jobctrl.com/" minOccurs="0" name="GetDailyWorkTimeStatsResult" nillable="true" type="q40:ArrayOfDailyWorkTimeStats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkTimeHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkTimeHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://jobctrl.com/WorkTimeHistory" minOccurs="0" name="GetWorkTimeHistoryResult" nillable="true" type="q41:ClientWorkTimeHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStartOfDayOffset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStartOfDayOffsetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GetStartOfDayOffsetResult" type="q42:duration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyWorkTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q43="http://jobctrl.com/WorkTimeHistory" minOccurs="0" name="modifications" nillable="true" type="q43:WorkTimeModifications" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyWorkTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyWorkTimeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="workIds" nillable="true" type="q44:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://jobctrl.com/WorkTimeHistory" minOccurs="0" name="GetWorkNamesResult" nillable="true" type="q45:WorkNames" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientCollectorRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientCollectorRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://jobctrl.com/" minOccurs="0" name="GetClientCollectorRulesResult" nillable="true" type="q46:CollectorRules" />
+        <xs:element minOccurs="0" name="newVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientCollectorRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q47="http://jobctrl.com/" minOccurs="0" name="newRules" nillable="true" type="q47:CollectorRules" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetClientCollectorRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetClientCollectorRulesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCollectedItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://jobctrl.com/" minOccurs="0" name="collectedItem" nillable="true" type="q48:CollectedItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCollectedItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAggregateCollectedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://jobctrl.com/" minOccurs="0" name="collectedItems" nillable="true" type="q49:AggregateCollectedItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAggregateCollectedItemsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIssue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://jobctrl.com/" minOccurs="0" name="issue" nillable="true" type="q50:IssueData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddIssueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTelemetry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Telemetry" minOccurs="0" name="telemetryItem" nillable="true" type="q51:TelemetryItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTelemetryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyIssue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://jobctrl.com/" minOccurs="0" name="issue" nillable="true" type="q52:IssueData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyIssueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIssue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="issueCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIssueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://jobctrl.com/" minOccurs="0" name="GetIssueResult" nillable="true" type="q53:IssueData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FilterIssues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="keywords" nillable="true" type="q54:ArrayOfstring" />
+        <xs:element minOccurs="0" name="filterState" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="filterOwner" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FilterIssuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://jobctrl.com/" minOccurs="0" name="FilterIssuesResult" nillable="true" type="q55:ArrayOfIssueData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSnippet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="data" nillable="true" type="q56:Snippet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSnippetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSnippetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="lastMessageLastChangeDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" maxOccurs="1" name="computerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetMessagesResult" type="tns:ArrayOfMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element xmlns:q57="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="q57:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarkMessageAsRead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="messageId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="computerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkMessageAsReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="MarkMessageAsReadResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTodoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTodoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetTodoListResult" type="tns:TodoListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TodoListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TodoListItems" type="tns:ArrayOfTodoListItemDTO" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UserId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LockLastTakenAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTodoListItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TodoListItemDTO" nillable="true" type="tns:TodoListItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TodoListItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ListId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Status" type="tns:TodoListItemStatusDTO" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TodoListItemStatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTodoListItemStatuses">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="GetTodoListItemStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetTodoListItemStatusesResult" type="tns:ArrayOfTodoListItemStatusDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfTodoListItemStatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TodoListItemStatusDTO" nillable="true" type="tns:TodoListItemStatusDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateOrUpdateTodoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="todoList" type="tns:TodoListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrUpdateTodoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="CreateOrUpdateTodoListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMostRecentTodoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMostRecentTodoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetMostRecentTodoListResult" type="tns:TodoListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquireTodoListLock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="todoListId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquireTodoListLockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AcquireTodoListLockResult" type="tns:TodoListToken" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TodoListToken">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAcquired" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EditedByLastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EditedByFirstName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReleaseTodoListLock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="todoListId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseTodoListLockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="ReleaseTodoListLockResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDisplayedReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="culture" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDisplayedReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="1" name="GetDisplayedReportsResult" type="q58:DisplayedReports" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavoriteReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="culture" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavoriteReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetFavoriteReportsResult" type="tns:ArrayOfFavoriteReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfFavoriteReport">
+    <xs:sequence>
+      <xs:element xmlns:q59="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="unbounded" name="FavoriteReport" nillable="true" type="q59:FavoriteReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDppInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDppInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://jobctrl.com/" minOccurs="0" name="GetDppInformationResult" nillable="true" type="q60:AcceptanceData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDppAcceptanceDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="acceptedAt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDppAcceptanceDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDppAcceptanceDateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageCloudTokens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="googleCalendarToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageCloudTokensResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://jobctrl.com" minOccurs="0" name="ManageCloudTokensResult" nillable="true" type="q61:CloudTokenData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShouldSendLogs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShouldSendLogsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ShouldSendLogsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkTimeStatsForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="computerId" type="xs:int" />
+        <xs:element xmlns:q62="http://jobctrl.com/clientApi" minOccurs="1" maxOccurs="1" name="intervals" type="q62:WorktimeStatIntervals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkTimeStatsForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="1" name="GetWorkTimeStatsForUserResult" type="q63:WorkTimeStats" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwitchAutomaticRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwitchAutomaticRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SwitchAutomaticRulesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomTabs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="culture" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomTabsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetCustomTabsResult" type="tns:ArrayOfClientTab" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfClientTab">
+    <xs:sequence>
+      <xs:element xmlns:q64="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="unbounded" name="ClientTab" nillable="true" type="q64:ClientTab" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDisplayedReportForTabId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="culture" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="tabId" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="localToday" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDisplayedReportForTabIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://jobctrl.com/clientApi" minOccurs="0" maxOccurs="1" name="GetDisplayedReportForTabIdResult" type="q65:DisplayedReports" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWorkdays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWorkdaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUserWorkdaysResult" nillable="true" type="q66:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Disconnect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="computerId" type="xs:int" />
+        <xs:element minOccurs="0" name="osName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisconnectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientLoginTicket">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientLoginTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://jobctrl.com/Authentication" minOccurs="0" name="GetClientLoginTicketResult" nillable="true" type="q67:ClientLoginTicket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

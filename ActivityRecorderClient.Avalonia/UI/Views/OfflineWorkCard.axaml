@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:cl="using:ActivityRecorderClientAV"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:local="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.Views"
+			 xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+			 xmlns:oldView="clr-namespace:Tct.ActivityRecorderClient.View"
+			 x:DataType="oldView:MeetingInfo"
+			 x:Class="Tct.ActivityRecorderClient.Avalonia.UI.Views.OfflineWorkCard">
+
+	<Design.DataContext>
+		<local:DesignMeetingInfo/>
+	</Design.DataContext>
+	<Border x:Name="CardBorder" BorderThickness="1" BorderBrush="#000000" CornerRadius="12" Margin="0,0,0,0" VerticalAlignment="Top">
+		<Expander x:Name="OfflineWorkCardXpander" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,0,0" CornerRadius="10">
+			<Expander.Header>
+				<Border x:Name="HeaderBackground" Height="60" CornerRadius="10">
+					<Grid ColumnDefinitions="60,20,40,20,100,7,*,7,40">
+						<!-- Timer -->
+						<TextBlock x:Name="TimerText" FontSize="18" FontWeight="SemiBold" Grid.Column="0" Text="{Binding DurationText.Item1}" VerticalAlignment="Center" Margin="0,0,0,0"  />
+
+						<!-- Separator -->
+						<Border Grid.Column="1" x:Name="Separator1" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+						<!-- Hand Icon -->
+						<Image Grid.Column="2" x:Name="HandPointerIcon" Width="30" Height="30" VerticalAlignment="Center"
+							   Source="{viewModels:Icon {Binding Source='hand-pointer.svg'}}"/>
+
+						<!-- Separator -->
+						<Border Grid.Column="3" x:Name="Separator2" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+						<!-- Time Range -->
+						<TextBlock x:Name="TimeRangeText" FontSize="14" FontWeight="Medium" Grid.Column="4" VerticalAlignment="Center" Margin="0,0,0,0" Width="100" >
+							<Run Text="{Binding StartTimeText.Item1}"/>
+							<Run Text="-"/>
+							<Run Text="{Binding EndTimeText.Item1}"/>
+						</TextBlock>
+
+						<!-- Separator -->
+						<Border Grid.Column="5" x:Name="Separator3" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+						<!-- Task Name -->
+						<TextBlock x:Name="TaskNameText" FontSize="16" FontWeight="SemiBold" Grid.Column="6" Text="{Binding NavigationWork.Work.FullName}" VerticalAlignment="Center" Margin="5,0" />
+
+						<!-- Separator -->
+						<Border Grid.Column="7" x:Name="Separator4" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+						<!-- Trashcan Button -->
+						<Panel Grid.Column="8">
+							<Button x:Name="TrashButton" IsVisible="{Binding CardStyle, Converter={x:Static viewModels:IsDeletedCardStyleConverter.Instance}, ConverterParameter=True}" Click="TrashButton_Click" Width="40" Height="40" Padding="0" Cursor="Hand" Margin="10,0,-7,0">
+								<Image x:Name="TrashCanIcon" Width="30" Height="30"
+									   Source="{viewModels:Icon {Binding Source='trash-can.svg'}}"/>
+							</Button>
+							<Button x:Name="UndoButton" IsVisible="{Binding CardStyle, Converter={x:Static viewModels:IsDeletedCardStyleConverter.Instance}}" Click="UndoButton_Click" Width="40" Height="40" Padding="0" Cursor="Hand" Margin="10,0,-7,0" >
+								<TextBlock Text="&#x21A9;" FontSize="27" Height="30" Width="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+							</Button>
+						</Panel>
+					</Grid>
+				</Border>
+			</Expander.Header>
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/> <!-- Task -->
+					<RowDefinition Height="Auto"/> <!-- Subject -->
+					<RowDefinition Height="Auto"/> <!-- Description -->
+					<RowDefinition Height="Auto"/> <!-- Participants -->
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="160"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Row="0" Grid.Column="0" Text="Task:" VerticalAlignment="Center"/>
+				<local:SearchTaskComboBox Grid.Row="0" Grid.Column="1" Margin="0,1,0,1" x:Name="cbTask" Cursor="Hand" HorizontalAlignment="Stretch"/>
+
+				<TextBlock Grid.Row="1" Grid.Column="0" Text="Subject:" VerticalAlignment="Center"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,0,1" x:Name="txbSubject" Text="{Binding Subject}"/>
+
+				<TextBlock Grid.Row="2" Grid.Column="0" Text="Description:" VerticalAlignment="Center" />
+				<TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,0,1" x:Name="txbDescription" Text="{Binding Comment}"/>
+
+				<TextBlock Grid.Row="3" Grid.Column="0" Text="Participants (e-mails):" VerticalAlignment="Center" />
+				<TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,0,1" x:Name="txbParticipants" Text="{Binding Participants}" />
+			</Grid>
+		</Expander>
+	</Border>
+</UserControl>

@@ -1,0 +1,38 @@
+{
+    "author": "",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "page.js",
+                "content.js"
+            ]
+        }
+    ],
+    "description": "Extension to support JobCTRL automatic rules to work with Google Chrome.",
+    "icons": {
+        "128": "icon.png"
+    },
+    "manifest_version": 2,
+    "name": "JobCTRL Extension",
+    "permissions": [
+        "nativeMessaging",
+        "tabs"
+    ],
+    "version": "1.6",
+    "web_accessible_resources": [
+        "jquery-1.10.2.min.js",
+        "gmail.js",
+        "main.js"
+    ],
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
+}

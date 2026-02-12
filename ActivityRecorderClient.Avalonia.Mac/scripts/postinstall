@@ -1,0 +1,66 @@
+#!/bin/bash
+CONSOLE_USER="$(/usr/bin/stat -f%Su /dev/console 2>/dev/null || true)"
+
+if [[ -n "$CONSOLE_USER" && "$CONSOLE_USER" != "root" && "$CONSOLE_USER" != "loginwindow" ]]; then
+  USER_HOME=$(/usr/bin/dscl . -read "/Users/$CONSOLE_USER" NFSHomeDirectory | awk '{print $2}')
+  LOG_DIR="$USER_HOME/Library/Logs/JobCTRL"
+else
+  # Fallback ha nincs GUI user
+  LOG_DIR="/var/log"
+fi
+
+mkdir -p "$LOG_DIR" 2>/dev/null || true
+chown "$CONSOLE_USER" "$LOG_DIR" 2>/dev/null || true
+
+LOG="$LOG_DIR/jc360-install.log"
+exec >>"$LOG" 2>&1
+
+echo "=== JC360 postinstall $(date) ==="
+
+APP="/Applications/JC360.app"
+PLIST="/Library/LaunchAgents/com.jc360.autostart.plist"
+BUNDLE_ID="com.jobctrl.JobCTRL"
+RELOCATED_FLAG="/tmp/.jc360-was-relocated"
+
+if [[ ! -d "$APP" ]]; then
+  echo "APP missing: $APP"
+  exit 0
+fi
+
+if [[ -f "$PLIST" ]]; then
+  chown root:wheel "$PLIST" || true
+  chmod 644 "$PLIST" || true
+else
+  echo "PLIST missing: $PLIST"
+fi
+
+echo "Console user: $CONSOLE_USER"
+
+if [[ "$CONSOLE_USER" == "root" || "$CONSOLE_USER" == "loginwindow" || -z "$CONSOLE_USER" ]]; then
+  echo "No GUI user session; will start on next login via LaunchAgent."
+  exit 0
+fi
+
+USER_UID="$(/usr/bin/id -u "$CONSOLE_USER" 2>/dev/null || true)"
+echo "USER_UID: $USER_UID"
+
+if [[ -n "$USER_UID" && -f "$PLIST" ]]; then
+  /bin/launchctl asuser "$USER_UID" /bin/launchctl bootout "gui/$USER_UID" "$PLIST" 2>/dev/null || true
+  /bin/launchctl asuser "$USER_UID" /bin/launchctl bootstrap "gui/$USER_UID" "$PLIST" 2>/dev/null || true
+  /bin/launchctl asuser "$USER_UID" /bin/launchctl enable "gui/$USER_UID/com.jc360.autostart" 2>/dev/null || true
+fi
+
+# Csak akkor reseteld a TCC-t, ha volt relocation (azaz új helyről fut)
+if [[ -f "$RELOCATED_FLAG" ]]; then
+  echo "Relocated install detected; resetting TCC permissions for $BUNDLE_ID"
+  /usr/bin/tccutil reset ScreenCapture "$BUNDLE_ID" 2>/dev/null || true
+  /usr/bin/tccutil reset Accessibility "$BUNDLE_ID" 2>/dev/null || true
+  rm -f "$RELOCATED_FLAG" || true
+else
+  echo "Normal update; keeping existing TCC permissions."
+fi
+
+/bin/launchctl asuser "$USER_UID" /usr/bin/open -g -a "$APP" 2>/dev/null || true
+
+echo "postinstall done."
+exit 0

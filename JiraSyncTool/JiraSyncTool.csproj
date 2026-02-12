@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4317AE6-6C19-4AA7-A789-0F4BE69EE6E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JiraSyncTool</RootNamespace>
+    <AssemblyName>JiraSyncTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InstallService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Jira\SyncDataContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SyncDataContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UninstallService.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AddHolidayForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AddHolidayLimitsForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AddManualWorkitemsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AddSickLeaveForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\api.wsdl" />
+    <None Include="Web References\jobCTRLAPI\ApplyTemplateRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignCostCenterError.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignedTaskHistory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignUsersToRoleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignUsersToTasksRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignUsersToTasksRet_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\AssignUserToWorkerGroupsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CalendarException.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CloseTaskRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenter.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterCreateError.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterCreateError_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterCreateError_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterUpdateError.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterUpdateError_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenterUpdateError_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenter_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenter_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CostCenter_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateCalendarRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateCollectedItemRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateIssueRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateNotificationFormRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateProjectMembershipRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateProjectRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateProjectRet_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateWorkRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateWorkRet_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\CreateWorktimeScheduleRet_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DailyWorktimeReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DataCollectorDefinition.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DataCollectorReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeassignUsersFromTasksRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteCalendarRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteHolidayRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteProjectMembershipRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteSickLeaveRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DeleteWorktimesInIntervalRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DictionaryAutoRule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DictionaryAutoRuleSample.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\DownloadDataSourceFileRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetAllUserGroupsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetAllUsersRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetApprovableHolidayRequestsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetApprovableWorktimeModificationRequestsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetAssignedSupervisorsToWorkerGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetAssignedTaskHistoryRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetCalendarExceptionsOfCalendarRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetChildrenForTaskRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetCommentsOfUsersRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetCompanyDataCollectorReportDefinitionsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetCompanyDictionaryAutoRuleSamplesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetDailyWorktimeReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetDataCollectorReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetEffectiveSettingsForUsersRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetFavoriteCustomReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetHolidayCategoriesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetHolidayLimitsOfUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetHolidaysForCompanyRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetHolidaysOfUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetJiraTokenRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetManualWorkitemsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetMobileClientLocationsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetModifiedTasksRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetOrganizationHierarchyRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetPlanningPeriodsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetPOIsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetProjectMembershipOfUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetProjectMembersOfProjectRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetProjectReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetSickLeavesForCompanyRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetSickLeavesOfUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetStartWorkDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetStopWorkDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetTaskCategoriesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetTaskHierarchyRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetTaskHistoryRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetTaskRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetTasksOfUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetUsersDictionaryAutoRulesRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorkdaysBetweenDatesForCalendarRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorkflowReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorkTimeForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorktimeReportRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorktimeSchedulesOfUsersRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\GetWorktimeSchedulesOfUsersRet_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Holiday.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\HolidayCategory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\HolidayLimit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ImportPOIsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ImportUsersAndGroupsRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\JiraTokenDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ManualWorkitemErrorWithIndex.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\MobileClientLocation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\MoveTaskRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\MoveUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\MoveUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\OrganizationHierarchy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\OrganizationHierarchy_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\PlanningPeriod.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\POIEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\POIErrorEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ProjectMembership.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ProjectReportHierarchy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ProjectReportHierarchy_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\jobCTRLAPI\RemoveHolidayLimitsForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ReopenTaskRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ReopenUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ReopenUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\SetExternalIdForTaskRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\SetHourlyWagesForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\SetPhoneNumberForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\SetSystemSettingsForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\ShowNotificationFormRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\SickLeave.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\TaskCategoryData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\TaskHierarchy_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\TaskHierarchy_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\TaskHierarchy_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\TaskHistory.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Task_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Task_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Task_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateCalendarExceptionRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateCalendarRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateProjectMembershipRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateProjectRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateSystemSettingForUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateTaskAssignmentRet_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateTaskAssignmentRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateUserGroupRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateUserRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateWorkRet_v3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateWorkRet_v4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateWorktimeScheduleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpdateWorktimeScheduleRet_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UploadDataSourceFileRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpsertStartWorkDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UpsertStopWorkDictionaryAutoRuleRet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UserDictionaryAutoRules.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UserEffectiveSetting.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\UsersComment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorkerGroup_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\Worker_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorkFlowReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorkTime.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorktimeModification.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorktimeReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorktimeSchedule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\jobCTRLAPI\WorktimeSchedule_v2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.11.0\lib\net45\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.11.0\lib\net45\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.11.0\lib\net45\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.11.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Jira\DataContext.cs" />
+    <Compile Include="Jira\Exceptions\IdNotFoundException.cs" />
+    <Compile Include="Jira\Exceptions\UnexpectedResultException.cs" />
+    <Compile Include="Jira\Interface\IJcAdapter.cs" />
+    <Compile Include="Jira\Interface\IJiraAdapter.cs" />
+    <Compile Include="Jira\Interface\ISyncDataContext.cs" />
+    <Compile Include="Jira\JiraService.cs" />
+    <Compile Include="Jira\Logic\ApplicationSync.cs" />
+    <Compile Include="Jira\Logic\JcApiAdapter.cs" />
+    <Compile Include="Jira\Logic\JcSyncConverter.cs" />
+    <Compile Include="Jira\Logic\JiraApiAdapter.cs" />
+    <Compile Include="Jira\Logic\JiraFromJcApiSyncDataContext.cs" />
+    <Compile Include="Jira\Logic\JiraSyncDataContext.cs" />
+    <Compile Include="Jira\Model\Interval.cs" />
+    <Compile Include="Jira\Model\Jc\Assignment.cs" />
+    <Compile Include="Jira\Model\Jc\IId.cs" />
+    <Compile Include="Jira\Model\Jc\Project.cs" />
+    <Compile Include="Jira\Model\Jc\Task.cs" />
+    <Compile Include="Jira\Model\Jc\User.cs" />
+    <Compile Include="Jira\Model\Jc\WorkTime.cs" />
+    <Compile Include="Jira\Model\Jira\JiraIssue.cs" />
+    <Compile Include="Jira\Model\Jira\JiraIssuePriority.cs" />
+    <Compile Include="Jira\Model\Jira\JiraIssueType.cs" />
+    <Compile Include="Jira\Model\Jira\JiraProject.cs" />
+    <Compile Include="Jira\Model\Jira\JiraStatus.cs" />
+    <Compile Include="Jira\Model\Jira\JiraStatusCategory.cs" />
+    <Compile Include="Jira\Model\Jira\JiraUser.cs" />
+    <Compile Include="Jira\Model\Jira\JiraWorklog.cs" />
+    <Compile Include="Jira\Model\Jira\PriorityConverter.cs" />
+    <Compile Include="Jira\PeriodicManager.cs" />
+    <Compile Include="Jira\SyncDataContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Jira\Utils\DateFixupJsonConverter.cs" />
+    <Compile Include="Jira\Utils\Extensions.cs" />
+    <Compile Include="Jira\Interface\IRestHelper.cs" />
+    <Compile Include="Jira\Utils\JiraAuthenticationHelper.cs" />
+    <Compile Include="Jira\Utils\JiraConfig.cs" />
+    <Compile Include="Jira\Utils\JiraConfigFileConfigManager.cs" />
+    <Compile Include="Jira\Utils\JiraCloudRestHelper.cs" />
+    <Compile Include="Jira\Utils\JiraServerRestHelper.cs" />
+    <Compile Include="Jira\Utils\JiraToken.cs" />
+    <Compile Include="Jira\Utils\ProjHelper.cs" />
+    <Compile Include="Jira\Utils\ReferenceComparer.cs" />
+    <Compile Include="Jira\Utils\SyncHelper.cs" />
+    <Compile Include="Jira\Utils\WcfHelper.cs" />
+    <Compile Include="PartialParts.cs" />
+    <Compile Include="PeriodicManagerBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SyncService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SyncService.Designer.cs">
+      <DependentUpon>SyncService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WcfClientDisposeHelper.cs" />
+    <Compile Include="Web References\jobCTRLAPI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Jira\SyncDataContext.dbml.layout">
+      <DependentUpon>SyncDataContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://dev.jobctrl.net/api/api.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\jobCTRLAPI\</RelPath>
+      <UpdateFromURL>http://dev.jobctrl.net/api/api.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JiraSyncTool_jobCTRLAPI_API</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\jobCTRLAPI\api.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

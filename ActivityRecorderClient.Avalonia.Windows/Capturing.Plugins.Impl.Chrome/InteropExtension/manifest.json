@@ -1,0 +1,38 @@
+{
+    "content_scripts": [{
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "page.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://mail.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "description": "Extension to support JobCTRL automatic rules to work with Google Chrome.",
+    "icons": {
+        "128": "icon.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "manifest_version": 2,
+    "name": "JobCTRL Extension",
+    "permissions": [
+        "nativeMessaging",
+        "tabs"
+    ],
+    "version": "1.12.0",
+    "web_accessible_resources": [
+        "main.js",
+        "inboxsdk.js"
+    ]
+}

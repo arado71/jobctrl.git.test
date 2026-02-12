@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VoiceRecorderDataClasses">
+  <DataContextMoniker Name="/VoiceRecorderDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7b5e62e9-de80-41a8-aba6-38a104d32da8" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/VoiceRecorderDataClassesDataContext/VoiceRecording" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd06ed9f-6e56-451a-a9d2-c91915f399bd" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,168 @@
+﻿<UserControl xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="MonitoringClient.DetailedStatsGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="512" d:DesignWidth="640"
+    xmlns:my="clr-namespace:MonitoringClient.ActivityMonitoringServiceReference"
+    xmlns:my1="clr-namespace:MonitoringClient" 
+    xmlns:my2="clr-namespace:MonitoringClient.Converters"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+    <UserControl.Resources>
+        <my2:TimeSpanConverter x:Key="TimeSpanConverter" />
+        <my2:BriefUserStatsCurrentWorksConverter x:Key="BriefUserStatsCurrentWorksConverter" />
+        <Style TargetType="toolkit:Title" x:Key="ActivityTitle">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="toolkit:Title">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Controls:Label Style="{StaticResource ImageLabel}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="toolkit:Chart" x:Key="ActivityChart">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Palette">
+                <Setter.Value>
+                    <toolkit:ResourceDictionaryCollection>
+                        <!-- Green -->
+                        <ResourceDictionary>
+                            <RadialGradientBrush x:Key="Background" GradientOrigin="-0.1,-0.1" Center="0.075,0.015" RadiusX="1.05" RadiusY="0.9">
+                                <GradientStop Color="#FFFBB7B5" />
+                                <GradientStop Color="#CC00FF00" Offset="1" />
+                                <!--<GradientStop Color="#FFB8C0AC"/>
+                                <GradientStop Color="#FF5F7143" Offset="1"/>-->
+                            </RadialGradientBrush>
+                            <Style x:Key="DataPointStyle" TargetType="Control">
+                                <Setter Property="Background" Value="{StaticResource Background}"/>
+                            </Style>
+                            <Style x:Key="DataShapeStyle" TargetType="Shape">
+                                <Setter Property="Stroke" Value="{StaticResource Background}" />
+                                <Setter Property="StrokeThickness" Value="2" />
+                                <Setter Property="StrokeMiterLimit" Value="1" />
+                                <Setter Property="Fill" Value="{StaticResource Background}" />
+                            </Style>
+                        </ResourceDictionary>
+                        <!-- Red -->
+                        <ResourceDictionary>
+                            <RadialGradientBrush x:Key="Background" GradientOrigin="-0.1,-0.1" Center="0.075,0.015" RadiusX="1.05" RadiusY="0.9">
+                                <GradientStop Color="#FFB9D6F7" Offset="0" />
+                                <GradientStop Color="#CCFF0000" Offset="1" />
+                                <!--<GradientStop Color="#FFFBB7B5"/>
+                                <GradientStop Color="#FF702828" Offset="1"/>-->
+                            </RadialGradientBrush>
+                            <Style x:Key="DataPointStyle" TargetType="Control">
+                                <Setter Property="Background" Value="{StaticResource Background}"/>
+                            </Style>
+                            <Style x:Key="DataShapeStyle" TargetType="Shape">
+                                <Setter Property="Stroke" Value="{StaticResource Background}" />
+                                <Setter Property="StrokeThickness" Value="2" />
+                                <Setter Property="StrokeMiterLimit" Value="1" />
+                                <Setter Property="Fill" Value="{StaticResource Background}" />
+                            </Style>
+                        </ResourceDictionary>
+                    </toolkit:ResourceDictionaryCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="toolkit:Legend" x:Key="ActivityLegend">
+            <!--<Setter Property="Foreground" Value="#FFFFFFFF"/>
+            <Setter Property="Background" Value="#99000000"/>
+            <Setter Property="BorderBrush" Value="#770000BB"/>
+            <Setter Property="BorderThickness" Value="1"/>-->
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="TitleStyle">
+                <Setter.Value>
+                    <Style TargetType="toolkit:Title">
+                        <Setter Property="Margin" Value="0,5,0,10"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="toolkit:Legend">
+                        <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <toolkit:Title
+                                Grid.Row="0"
+                                x:Name="HeaderContent"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Style="{TemplateBinding TitleStyle}"/>
+                                <ScrollViewer
+                                Grid.Row="1"
+                                VerticalScrollBarVisibility="Auto"
+                                BorderThickness="0"
+                                Padding="0"
+                                IsTabStop="False">
+                                    <ItemsPresenter 
+                                    x:Name="Itemsw" 
+                                    Margin="10,0,10,10" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <my2:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignInstance Type=my:DetailedUserStats}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Controls:Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Style="{StaticResource ImageLabelMargin}" HorizontalAlignment="Left" >
+            <TextBlock Text="{Binding Path=UserName}" TextWrapping="Wrap" />
+        </Controls:Label>
+        <Controls:Label Grid.Column="0" Grid.Row="1" Content="{Binding Path=Status}" VerticalAlignment="Top" Style="{StaticResource ImageLabelMargin}" HorizontalAlignment="Left" />
+        <Controls:Label Grid.Column="0" Grid.Row="2" Content="{Binding Path=TodaysWorkTime.NetWorkTime, Converter={StaticResource TimeSpanConverter}, StringFormat=Today: \{0\}}" VerticalAlignment="Top" Style="{StaticResource ImageLabelMargin}" HorizontalAlignment="Left" />
+        <!--<Controls:Label Grid.Column="0" Grid.Row="3" Content="{Binding Path=ThisWeeksWorkTime.NetWorkTime, Converter={StaticResource TimeSpanConverter}, StringFormat=Week: \{0\}}" VerticalAlignment="Center" Style="{StaticResource ImageLabel}" HorizontalAlignment="Left" />
+        <Controls:Label Grid.Column="0" Grid.Row="4" Content="{Binding Path=ThisMonthsWorkTime.NetWorkTime, Converter={StaticResource TimeSpanConverter}, StringFormat=Month: \{0\}}" VerticalAlignment="Center" Style="{StaticResource ImageLabel}" HorizontalAlignment="Left" />-->
+        <Controls:Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource ImageLabelMargin}" HorizontalAlignment="Left" >
+            <TextBlock Text="{Binding Converter={StaticResource BriefUserStatsCurrentWorksConverter}, StringFormat=Current: \{0\}}" TextWrapping="Wrap" />
+        </Controls:Label>
+        <Controls:Label Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Top" Style="{StaticResource ImageLabelMargin}" HorizontalAlignment="Left" >
+            <TextBlock Text="{Binding Path=AllActiveWindowsString}" TextWrapping="Wrap" />
+        </Controls:Label>
+        <toolkit:Chart Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Title="Activity" TitleStyle="{StaticResource ActivityTitle}" LegendStyle="{StaticResource ActivityLegend}" Style="{StaticResource ActivityChart}" Visibility="{Binding Path=ShowActivity, Converter={StaticResource BoolToVisibilityConverter}}">
+            <toolkit:Chart.Axes>
+                <toolkit:LinearAxis Maximum="90" Minimum="0" Orientation="Y" ShowGridLines="True" />
+            </toolkit:Chart.Axes>
+            <toolkit:Chart.BorderBrush>
+                <SolidColorBrush />
+            </toolkit:Chart.BorderBrush>
+            <toolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding Path=AggregateMouseActivity}" Title="Mouse" />
+            <toolkit:AreaSeries DependentValuePath="Y" IndependentValuePath="X" ItemsSource="{Binding Path=AggregateKeyboardActivity}" Title="Keyboard" />
+        </toolkit:Chart>
+    </Grid>
+</UserControl>

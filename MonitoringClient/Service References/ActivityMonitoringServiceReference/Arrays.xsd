@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" />
+  <xs:complexType name="ArrayOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+  <xs:complexType name="ArrayOfKeyValueOfintBriefWorkStatsEUfoD8aB">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintBriefWorkStatsEUfoD8aB">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" name="Value" nillable="true" type="q1:BriefWorkStats" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintBriefWorkStatsEUfoD8aB" nillable="true" type="tns:ArrayOfKeyValueOfintBriefWorkStatsEUfoD8aB" />
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfKeyValueOfintDetailedComputerStatsEUfoD8aB">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintDetailedComputerStatsEUfoD8aB">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" name="Value" nillable="true" type="q2:DetailedComputerStats" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintDetailedComputerStatsEUfoD8aB" nillable="true" type="tns:ArrayOfKeyValueOfintDetailedComputerStatsEUfoD8aB" />
+  <xs:complexType name="ArrayOfKeyValueOfintWorkWithIntervalsEUfoD8aB">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintWorkWithIntervalsEUfoD8aB">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" name="Value" nillable="true" type="q3:WorkWithIntervals" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintWorkWithIntervalsEUfoD8aB" nillable="true" type="tns:ArrayOfKeyValueOfintWorkWithIntervalsEUfoD8aB" />
+  <xs:complexType name="ArrayOfKeyValueOflongDetailedMobileStatsEUfoD8aB">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflongDetailedMobileStatsEUfoD8aB">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" name="Value" nillable="true" type="q4:DetailedMobileStats" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflongDetailedMobileStatsEUfoD8aB" nillable="true" type="tns:ArrayOfKeyValueOflongDetailedMobileStatsEUfoD8aB" />
+</xs:schema>

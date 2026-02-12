@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ClientComputerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="OSMajor" type="xs:int" />
+      <xs:element minOccurs="0" name="OSMinor" type="xs:int" />
+      <xs:element minOccurs="0" name="OSBuild" type="xs:int" />
+      <xs:element minOccurs="0" name="OSRevision" type="xs:int" />
+      <xs:element minOccurs="0" name="IsNet4Available" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNet45Available" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HighestNetVersionAvailable" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientComputerInfo" nillable="true" type="tns:ClientComputerInfo" />
+  <xs:complexType name="ClientComputerError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Major" type="xs:int" />
+      <xs:element minOccurs="0" name="Minor" type="xs:int" />
+      <xs:element minOccurs="0" name="Build" type="xs:int" />
+      <xs:element minOccurs="0" name="Revision" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasAttachment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Offset" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCompleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCancelled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Features" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientComputerError" nillable="true" type="tns:ClientComputerError" />
+</xs:schema>

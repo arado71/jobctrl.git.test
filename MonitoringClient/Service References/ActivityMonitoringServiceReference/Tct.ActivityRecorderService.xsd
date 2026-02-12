@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+  <xs:complexType name="ActiveWindow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActiveWindow" nillable="true" type="tns:ActiveWindow" />
+  <xs:complexType name="ArrayOfScreenShot">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScreenShot" nillable="true" type="tns:ScreenShot" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreenShot" nillable="true" type="tns:ArrayOfScreenShot" />
+  <xs:complexType name="ScreenShot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ScreenNumber" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Data" nillable="true" type="q1:Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenShot" nillable="true" type="tns:ScreenShot" />
+</xs:schema>

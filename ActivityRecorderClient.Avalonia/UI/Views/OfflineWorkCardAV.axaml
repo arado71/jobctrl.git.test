@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+             xmlns:local="clr-namespace:ActivityRecorderClientAV"
+             x:Class="ActivityRecorderClientAV.OfflineWorkCardAV">
+    <Border x:Name="CardBorder" BorderThickness="3" BorderBrush="#000000" CornerRadius="12" Margin="10,10,10,0">
+        <Expander x:Name="OfflineWorkCardXpander" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,0,0" CornerRadius="10">
+            <Expander.Header>
+                <Border x:Name="HeaderBackground" Height="60" CornerRadius="10">
+                <!--Border x:Name="HeaderBackground" Height="60" CornerRadius="10" BorderThickness="3" BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" Padding="10,0,13,0"-->
+                    <Grid ColumnDefinitions="60,20,40,20,100,7,*,7,40">
+                        <!-- Timer -->
+                        <TextBlock x:Name="TimerText" FontSize="18" FontWeight="SemiBold" Grid.Column="0" Text="00:00" VerticalAlignment="Center" Margin="0,0,0,0"  />
+                        
+                        <!-- Separator -->
+                        <!--Border Grid.Column="1" x:Name="Separator1" Background="{DynamicResource SystemControlForegroundBaseHighBrush}" Width="1" Height="40" VerticalAlignment="Center" /-->
+                        <Border Grid.Column="1" x:Name="Separator1" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+                        
+                        <!-- Hand Icon -->
+                        <Image Grid.Column="2" x:Name="HandPointerIcon" Width="30" Height="30" VerticalAlignment="Center" />
+
+                        <!-- Hand Button -->
+                        <!--Button x:Name="HandButton" Grid.Column="2" Width="40" Height="40" Padding="0" Cursor="Hand">
+                            <Image x:Name="HandPointerIcon" Width="30" Height="30" VerticalAlignment="Center" />
+                        </Button-->
+                        
+                        <!-- Separator -->
+                        <!--Border Grid.Column="3" x:Name="Separator2" Background="{DynamicResource SystemControlForegroundBaseHighBrush}" Width="1" Height="40" VerticalAlignment="Center" /-->
+                        <Border Grid.Column="3" x:Name="Separator2" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+                        <!-- Time Range -->
+                        <TextBlock x:Name="TimeRangeText" FontSize="14" FontWeight="Medium" Grid.Column="4" Text="00:00 - 00:00" VerticalAlignment="Center" Margin="0,0,0,0" Width="100" />
+
+                        <!-- Separator -->
+                        <!--Border Grid.Column="5" x:Name="Separator3" Background="{DynamicResource SystemControlForegroundBaseHighBrush}" Width="1" Height="40" VerticalAlignment="Center" /-->
+                        <Border Grid.Column="5" x:Name="Separator3" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+                        <!-- Task Name -->
+                        <TextBlock x:Name="TaskNameText" FontSize="16" FontWeight="SemiBold" Grid.Column="6" Text="Task Name" VerticalAlignment="Center" Margin="5,0" />
+
+                        <!-- Separator -->
+                        <!--Border Grid.Column="7" x:Name="Separator4" Background="{DynamicResource SystemControlForegroundBaseHighBrush}" Width="1" Height="40" VerticalAlignment="Center" /-->
+                        <Border Grid.Column="7" x:Name="Separator4" Classes="Separator" Width="1" Height="40" VerticalAlignment="Center" />
+
+                        <!-- Trashcan Button -->
+                        <Button x:Name="TrashButton" Grid.Column="8" Width="40" Height="40" Padding="0" Cursor="Hand" Margin="10,0,-7,0">
+                            <Image x:Name="TrashCanIcon" Width="30" Height="30" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </Expander.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!-- Task -->
+                    <RowDefinition Height="Auto"/> <!-- Subject -->
+                    <RowDefinition Height="Auto"/> <!-- Description -->
+                    <RowDefinition Height="Auto"/> <!-- Participants -->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Task:" VerticalAlignment="Center"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" x:Name="cbTask" Cursor="Hand" HorizontalAlignment="Stretch"/>
+
+                <!--local:WorkSelectorComboBoxAV Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" x:Name="cbTask" 
+                             Cursor="Hand" HorizontalAlignment="Stretch"/-->
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Subject:" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" x:Name="txbSubject"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Description:" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" x:Name="txbDescription"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Participants (e-mails):" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" x:Name="txbParticipants"/>
+            </Grid>
+        </Expander>
+    </Border>
+</UserControl>

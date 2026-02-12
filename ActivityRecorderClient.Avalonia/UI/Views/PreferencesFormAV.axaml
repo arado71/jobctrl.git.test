@@ -1,0 +1,125 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+		xmlns:dialogs="using:AvaloniaDialogs.Views"
+		mc:Ignorable="d" CanResize="True"
+		x:Class="ActivityRecorderClientAV.PreferencesFormAV"
+		xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+		x:DataType="viewModels:SettingsViewModel"
+		Title="Preferences"
+		MinWidth="640" MinHeight="480"
+		Width="640" Height="480"
+		Topmost="False"
+		WindowStartupLocation="CenterScreen"
+		TransparencyLevelHint="AcrylicBlur, Transparent"
+		ExtendClientAreaToDecorationsHint="True">
+
+
+	<Design.DataContext>
+		<viewModels:SettingsViewModel>
+			<viewModels:SettingsViewModel.HotkeysSettings>
+				<viewModels:HotkeysSettingsDesignViewModel />
+			</viewModels:SettingsViewModel.HotkeysSettings>
+		</viewModels:SettingsViewModel>
+	</Design.DataContext>
+
+	<LayoutTransformControl x:Name="SettingsWindowLayoutTransformControl">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40"/> <!-- Title -->
+				<RowDefinition Height="*"/> <!-- Tabcontrol -->
+			</Grid.RowDefinitions>
+
+			<!-- Header -->
+			<Border PointerPressed="OnHeaderPointerPressed"
+					Background="#00000000"
+					Cursor="Hand">
+				<!-- Title on the center -->
+				<TextBlock Text="JobCTRL Preferences" IsHitTestVisible="True" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,7,0,0" Grid.Row="0"/>
+			</Border>
+
+			<TabControl Grid.Row="1"
+						Margin="20,0,20,20"
+						Background="{DynamicResource BackgroundBrush}">
+
+				<TabItem Header="Hotkeys" IsSelected="False" FontSize="16" Padding="10,8,10,8" FontWeight="Medium" Margin="0,5,0,5" Cursor="Hand">
+					<Grid RowDefinitions="Auto,*,Auto">
+
+						<Grid Grid.Row="0" ColumnDefinitions="80,40,40,40,40,160,*,55" Margin="2">
+							<TextBlock Text="Key" Grid.Column="0" />
+							<TextBlock Text="Shift" Grid.Column="1" />
+							<TextBlock Text="Ctrl" Grid.Column="2" />
+							<TextBlock Text="Alt" Grid.Column="3" x:Name="lblAlt" />
+							<TextBlock Text="Win" Grid.Column="4" x:Name="lblWin" />
+							<TextBlock Text="Action" Grid.Column="5" />
+							<TextBlock Text="Task" Grid.Column="6" />
+							<TextBlock Text="Remove" Grid.Column="7" />
+						</Grid>
+
+						<ScrollViewer Grid.Row="1">
+							<ItemsControl ItemsSource="{Binding HotkeysSettings.Hotkeys}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate x:DataType="viewModels:HotkeyEntryViewModel">
+										<Grid ColumnDefinitions="80,40,40,40,40,160,*,30" Margin="2">
+											<!-- Key -->
+											<ComboBox Grid.Column="0" ItemsSource="{Binding FilteredKeys}" SelectedItem="{Binding Key}" >
+												<ComboBox.ItemTemplate>
+													<DataTemplate>
+														<TextBlock Text="{Binding Label}"/>
+													</DataTemplate>
+												</ComboBox.ItemTemplate>
+											</ComboBox>
+
+											<!-- Modifier checkboxes -->
+											<CheckBox IsChecked="{Binding Shift}" Grid.Column="1" />
+											<CheckBox IsChecked="{Binding Ctrl}"  Grid.Column="2" />
+											<CheckBox IsChecked="{Binding Alt}"   Grid.Column="3" />
+											<CheckBox IsChecked="{Binding Win}"   Grid.Column="4" />
+
+											<!-- Action -->
+											<ComboBox Grid.Column="5" ItemsSource="{Binding FilteredActions}" SelectedItem="{Binding Action}" HorizontalAlignment="Stretch" Margin="0 0 5 0">
+												<ComboBox.ItemTemplate>
+													<DataTemplate>
+														<TextBlock Text="{Binding Label}"/>
+													</DataTemplate>
+												</ComboBox.ItemTemplate>
+											</ComboBox>
+
+											<!-- Task -->
+											<!--
+											<ComboBox Grid.Column="6" SelectedItem="{Binding Task}" HorizontalAlignment="Stretch" Margin="0 0 5 0">
+											<ComboBoxItem Content=""/>
+											</ComboBox>-->
+
+											<Button Grid.Column="7"
+													Content="&#x2716;"
+													Command="{Binding RemoveSelfCommand}"
+													Width="25"
+													Padding="0"
+													HorizontalContentAlignment="Center"
+													HorizontalAlignment="Center"/>
+
+										</Grid>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</ScrollViewer>
+
+						<Grid Grid.Row="2" ColumnDefinitions="120,120,*,180">
+							<Button Grid.Column="0" Content="Add Hotkey" Margin="0,10,0,10"
+									Command="{Binding HotkeysSettings.AddHotkeyCommand}"/>
+							<Button Grid.Column="1" Content="Save" Margin="0,10,0,10"
+									Command="{Binding HotkeysSettings.SaveHotkeysCommand}"/>
+							<Button Grid.Column="3" Content="Cancel Changes" Margin="0,10,0,10"
+									Command="{Binding HotkeysSettings.CancelChanges}"/>
+						</Grid>
+
+					</Grid>
+				</TabItem>
+
+			</TabControl>
+		</Grid>
+	</LayoutTransformControl>
+</Window>

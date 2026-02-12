@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jobctrl.com/java" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/java" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/JavaCaptureService/mex?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:8000/JavaCaptureService/mex?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="JavaCaptureSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaptureName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Hwnd" type="q1:IntPtr" />
+      <xs:element minOccurs="0" name="JavaPluginValueType" type="tns:JavaPluginValueType" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PathToElement" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JavaCaptureSettings" nillable="true" type="tns:JavaCaptureSettings" />
+  <xs:simpleType name="JavaPluginValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="Role" />
+      <xs:enumeration value="Description" />
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="ComboValue" />
+      <xs:enumeration value="Table" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JavaPluginValueType" nillable="true" type="tns:JavaPluginValueType" />
+  <xs:complexType name="FailReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:FailReasonType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FailReason" nillable="true" type="tns:FailReason" />
+  <xs:simpleType name="FailReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CaptureImpossible" />
+      <xs:enumeration value="UnexpectedException" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FailReasonType" nillable="true" type="tns:FailReasonType" />
+</xs:schema>

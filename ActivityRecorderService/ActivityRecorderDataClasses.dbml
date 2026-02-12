@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" EntityNamespace="Tct.ActivityRecorderService" ContextNamespace="Tct.ActivityRecorderService" Class="ActivityRecorderDataClassesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.WorkItems" Member="WorkItems">
+    <Type Name="WorkItem">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhaseId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiveDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyId" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MouseActivity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyboardActivity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsRemoteDesktop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsVirtualMachine" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientSettings" Member="ClientSettings">
+    <Type Name="ClientSetting">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="CreateDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Menu" AccessModifier="Internal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MenuUpdateInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaptureWorkItemInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaptureActiveWindowInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaptureScreenShotInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeSyncThreshold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JpegQuality" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JpegScalePct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkTimeStartInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkTimeEndInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AfterWorkTimeIdleInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxOfflineWorkItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkDetectorRules" AccessModifier="Internal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CensorRules" AccessModifier="Internal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DuringWorkTimeIdleInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DuringWorkTimeIdleManualInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxManualMeetingInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RuleRestrictions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsMeetingTrackingEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsMeetingSubjectMandatory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BusyTimeThreshold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CoincidentalClientsEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsManualMeetingStartsOnLock" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsLotusNotesMeetingTrackingEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RuleMatchingInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MenuVersion" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="BINARY (8) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkDetectorRulesVersion" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="BINARY(8) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CensorRulesVersion" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="BINARY(8) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientSettingsVersion" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="BINARY(8) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CollectorRules" AccessModifier="Internal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CollectorRulesVersion" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="BINARY(8) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsOutlookAddinRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOutlookAddinMailTrackingId" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DefaultWorkId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaptureDeadlockInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MouseMovingThreshold" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="EnabledFeatures" Member="EnabledFeature" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="PluginFailThreshold" Storage="_PluginFailTreshold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CollectedItemAggregateInMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ForceCountdownRules" Storage="_IsUserCountdownPermanent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MsProjectAddress" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ManualWorkItemEditAgeLimit" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="AutoReturnFromMeeting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOutlookAddinMailTrackingUseSubject" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TelemetryMaxCount" Storage="_StatsMaxCount" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="TelemetryMaxAgeInMins" Storage="_StatsMaxAgeInMins" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="TelemetryCollectedKeys" Storage="_StatsCollectedKeys" Type="System.String" DbType="nvarchar(2000)" CanBeNull="true" />
+      <Column Name="IsMeetingUploadModifications" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsMeetingTentativeSynced" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsInjectedInputAllowed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataCollectionSettings" Storage="_ClientDataCollectionSettings" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="IsNotificationShown" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="IsTodoListEnabled" Type="System.Boolean" DbType="bit" CanBeNull="false" />
+      <Column Name="MailTrackingSettings" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="DiagnosticOperationMode" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="IsGoogleCalendarTrackingEnabled" Type="System.Nullable&lt;bool&gt;" DbType="bit" CanBeNull="true" />
+      <Column Name="IsAnonymModeEnabled" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+      <Column Name="VoxIsNameMandatory" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+      <Column Name="VoxQuality" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="VoxIsManualStartStopEnabled" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+      <Column Name="DisplayOptions" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="NonWorkStateNotificationParams" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="WorkStateNotificationParams" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="TasksChangedNotificationParams" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="AutoStartClientOnNonWorkDays" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+      <Column Name="MeetingPluginTaskIdSettings" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdHocMeetingDefaultSelectedTaskId" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="IsVideoRecordingEnabled" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+      <Column Name="VideoRecordingFps" Type="System.Nullable&lt;float&gt;" DbType="float" CanBeNull="true" />
+      <Column Name="VideoRecordingBitRate" Type="System.Nullable&lt;int&gt;" DbType="int" CanBeNull="true" />
+      <Column Name="IsWorkEnabledOutsideWorkTimeStartEnd" Type="System.Boolean" DbType="bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Issues" Member="Issues">
+    <Type Name="Issue">
+      <Column Name="IssueCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CompanyId" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="State" Type="System.Int32" DbType="int  NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DATETIME2 NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DATETIME2 NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Snippets" Member="Snippets">
+    <Type Name="Snippet">
+      <Column Name="ImageData" Type="System.Byte[]" DbType="varbinary(MAX)" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="nvarchar(500)" CanBeNull="true" />
+      <Column Name="Guid" Storage="_PhaseId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RuleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsBadData" Type="System.Boolean" DbType="bit" CanBeNull="false" />
+      <Column Name="ProcessName" Type="System.String" DbType="nvarchar(100)" CanBeNull="false" />
+      <Column Name="ProcessedAt" Type="DateTime?" DbType="Datetime NULL" CanBeNull="true" />
+      <Column Name="Quality" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PluginParametersOfAutoRules" Member="PluginParametersOfAutoRules">
+    <Type Name="PluginParametersOfAutoRules">
+      <Column Name="AutoRuleId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PluginId" Type="System.String" DbType="NVarChar(50)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParameterKey" Type="System.String" DbType="NVarChar(200)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParameterValue" Type="System.String" DbType="NVarChar(500)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientUserCloudEventDates" Member="ClientUserCloudEventDates">
+    <Type Name="ClientUserCloudEventDate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventId" Type="System.String" DbType="VarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="EventIdHash" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScreenShots" Member="ScreenShots">
+    <Type Name="ScreenShot">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" AutoSync="Always" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiveDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="X" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Y" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Width" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ScreenNumber" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Extension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TodoListItemStatus" Member="TodoListItemStatus">
+    <Type Name="TodoListItemStatus">
+      <Column Name="Id" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TodoListItemStatus_TodoListItem" Member="TodoListItems" ThisKey="Id" OtherKey="Status" Type="TodoListItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TodoList" Member="TodoLists">
+    <Type Name="TodoList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EditingBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LockLastTakenAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Association Name="TodoList_TodoListItem" Member="TodoListItems" ThisKey="Id" OtherKey="ListId" Type="TodoListItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TodoListItem" Member="TodoListItems">
+    <Type Name="TodoListItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Association Name="TodoList_TodoListItem" Member="TodoList" ThisKey="ListId" OtherKey="Id" Type="TodoList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="TodoListItemStatus_TodoListItem" Member="TodoListItemStatus" ThisKey="Status" OtherKey="Id" Type="TodoListItemStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetActiveWindowsGrouppedForUser" Method="GetActiveWindowsGrouppedForUser">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetActiveWindowsGrouppedForUserResult">
+      <Column Name="ProcessName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertDesktopWindow" Method="InsertDesktopWindow">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="desktopCaptureId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="createDate" Type="System.DateTime" DbType="DateTime" Direction="InOut" />
+    <Parameter Name="processNameId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="titleId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="urlId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="x" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="y" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="width" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="height" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="clientArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="visibleClientArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="processName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="title" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="url" Type="System.String" DbType="NVarChar(1000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetLearningRuleGenerators" Method="GetLearningRuleGenerators">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="oldVersion" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="newVersion" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <ElementType Name="GetLearningRuleGeneratorsResult">
+      <Column Name="LearningRuleGenerators" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUsersForUsageStats" Method="GetUsersForUsageStats">
+    <Parameter Name="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetUsersForUsageStatsResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ReportClientComputerAddress" Method="ReportClientComputerAddress">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="computerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="address" Type="System.String" DbType="VarChar(39)" />
+    <Parameter Name="locals" Type="System.String" DbType="VarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SetStatusForTodoListItem" Method="SetStatusForTodoListItem">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ListItemId" Parameter="listItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TryAcquireTodoListLock" Method="TryAcquireTodoListLock">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TodoListId" Parameter="todoListId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="TryAcquireTodoListLockResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ReleaseTodoListLock" Method="ReleaseTodoListLock">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TodoListId" Parameter="todoListId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Client_GetSupervisorsOfWorker" Method="Client_GetSupervisorsOfWorker">
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TargetUserId" Parameter="targetUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IncludeAdmins" Parameter="includeAdmins" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="Client_GetSupervisorsOfWorkerResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CultureId" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Client_SetCloudToken" Method="Client_SetCloudToken">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AuthToken" Parameter="authToken" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Client_UpdateCloudToken" Method="Client_UpdateCloudToken">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SyncToken" Parameter="syncToken" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ServiceType" Parameter="serviceType" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="LastUpdateTime" Parameter="lastUpdateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LastCheckTime" Parameter="lastCheckTime" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Client_GetCloudTokenByUserId" Method="Client_GetCloudTokenByUserId">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Client_GetCloudTokenByUserIdResult">
+      <Column Name="AuthToken" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="SyncToken" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ServiceType" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LastUpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastCheckTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Client_DeleteCloudToken" Method="Client_DeleteCloudToken">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Client_GetCloudTokens" Method="Client_GetCloudTokens">
+    <Parameter Name="SyncedBefore" Parameter="syncedBefore" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="Client_GetCloudTokensResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuthToken" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="SyncToken" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ServiceType" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LastUpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastCheckTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsMeetingTentativeSynced" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Client_GetAcquireClientLogRequest" Method="Client_GetAcquireClientLogRequest">
+    <ElementType Name="Client_GetAcquireClientLogRequestResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RequestedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CreateTodoList" Method="CreateTodoList">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TargetUserId" Parameter="targetUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Day" Parameter="day" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CreatedId" Parameter="createdId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTodoListById" Method="GetTodoListById">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ListId" Parameter="listId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetTodoListByIdResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="LockLastTakenAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ListItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt1" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateTodoListItem" Method="UpdateTodoListItem">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ListItemId" Parameter="listItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Priority" Parameter="priority" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreateTodoListItem" Method="CreateTodoListItem">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ListId" Parameter="listId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Priority" Parameter="priority" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CreatedAt" Parameter="createdAt" Type="System.DateTime" DbType="DateTime2" />
+    <Parameter Name="CreatedId" Parameter="createdId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetLastTodoListOfUser" Method="GetLastTodoListOfUser">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TargetUserId" Parameter="targetUserId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetLastTodoListOfUserResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="LockLastTakenAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ListItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemCreatedAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTodoListsOfUser" Method="GetTodoListsOfUser">
+    <Parameter Name="SupUserId" Parameter="supUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TargetUserId" Parameter="targetUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Day" Parameter="day" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="GetTodoListsOfUserResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="LockLastTakenAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ListItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemCreatedAt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InterProcessService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetNamedPipeBinding_IInterProcessService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInterProcessService_AddProjectAndWorkByRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectAndWorkByRule" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_AddProjectAndWorkByRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProjectAndWorkByRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_StartWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartWork" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_StartWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_StopWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopWork" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_StopWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_SwitchWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:SwitchWork" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_SwitchWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SwitchWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_AddExtText_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExtText" />
+  </wsdl:message>
+  <wsdl:message name="IInterProcessService_AddExtText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExtTextResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IInterProcessService">
+    <wsdl:operation name="AddProjectAndWorkByRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInterProcessService/AddProjectAndWorkByRule" message="tns:IInterProcessService_AddProjectAndWorkByRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInterProcessService/AddProjectAndWorkByRuleResponse" message="tns:IInterProcessService_AddProjectAndWorkByRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInterProcessService/StartWork" message="tns:IInterProcessService_StartWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInterProcessService/StartWorkResponse" message="tns:IInterProcessService_StartWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInterProcessService/StopWork" message="tns:IInterProcessService_StopWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInterProcessService/StopWorkResponse" message="tns:IInterProcessService_StopWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SwitchWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInterProcessService/SwitchWork" message="tns:IInterProcessService_SwitchWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInterProcessService/SwitchWorkResponse" message="tns:IInterProcessService_SwitchWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExtText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInterProcessService/AddExtText" message="tns:IInterProcessService_AddExtText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInterProcessService/AddExtTextResponse" message="tns:IInterProcessService_AddExtText_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetNamedPipeBinding_IInterProcessService" type="tns:IInterProcessService">
+    <wsp:PolicyReference URI="#NetNamedPipeBinding_IInterProcessService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/named-pipe" />
+    <wsdl:operation name="AddProjectAndWorkByRule">
+      <soap12:operation soapAction="http://tempuri.org/IInterProcessService/AddProjectAndWorkByRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartWork">
+      <soap12:operation soapAction="http://tempuri.org/IInterProcessService/StartWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopWork">
+      <soap12:operation soapAction="http://tempuri.org/IInterProcessService/StopWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchWork">
+      <soap12:operation soapAction="http://tempuri.org/IInterProcessService/SwitchWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExtText">
+      <soap12:operation soapAction="http://tempuri.org/IInterProcessService/AddExtText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InterProcessService">
+    <wsdl:port name="NetNamedPipeBinding_IInterProcessService" binding="tns:NetNamedPipeBinding_IInterProcessService">
+      <soap12:address location="net.pipe://localhost/JcIpc-dbg" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.pipe://localhost/JcIpc-dbg</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>arado@tct.local</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

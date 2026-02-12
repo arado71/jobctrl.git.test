@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Tct.ActivityRecorderService.IVoiceRecorder" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Tct.ActivityRecorderService.IVoiceRecorder" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Tct.ActivityRecorderService.IVoiceRecorder/Imports">
+      <xsd:import namespace="Tct.ActivityRecorderService.IVoiceRecorder" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Voice" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVoiceRecorder_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_UpsertVoiceRecording_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpsertVoiceRecording" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_UpsertVoiceRecording_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpsertVoiceRecordingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_DeleteVoiceRecording_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVoiceRecording" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_DeleteVoiceRecording_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVoiceRecordingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetApplicationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetApplicationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetUpdateChunk_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateChunk" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetUpdateChunk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateChunkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetClientSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSettings" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_GetClientSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_ReportClientVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientVersion" />
+  </wsdl:message>
+  <wsdl:message name="IVoiceRecorder_ReportClientVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportClientVersionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVoiceRecorder">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/Authenticate" message="tns:IVoiceRecorder_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/AuthenticateResponse" message="tns:IVoiceRecorder_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpsertVoiceRecording">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/UpsertVoiceRecording" message="tns:IVoiceRecorder_UpsertVoiceRecording_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/UpsertVoiceRecordingResponse" message="tns:IVoiceRecorder_UpsertVoiceRecording_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVoiceRecording">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/DeleteVoiceRecording" message="tns:IVoiceRecorder_DeleteVoiceRecording_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/DeleteVoiceRecordingResponse" message="tns:IVoiceRecorder_DeleteVoiceRecording_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationUpdate">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetApplicationUpdate" message="tns:IVoiceRecorder_GetApplicationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetApplicationUpdateResponse" message="tns:IVoiceRecorder_GetApplicationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateChunk">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetUpdateChunk" message="tns:IVoiceRecorder_GetUpdateChunk_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetUpdateChunkResponse" message="tns:IVoiceRecorder_GetUpdateChunk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSettings">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetClientSettings" message="tns:IVoiceRecorder_GetClientSettings_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/GetClientSettingsResponse" message="tns:IVoiceRecorder_GetClientSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportClientVersion">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/ReportClientVersion" message="tns:IVoiceRecorder_ReportClientVersion_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IVoiceRecorder/IVoiceRecorder/ReportClientVersionResponse" message="tns:IVoiceRecorder_ReportClientVersion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

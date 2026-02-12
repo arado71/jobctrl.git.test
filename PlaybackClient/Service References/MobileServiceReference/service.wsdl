@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="MobileJobCTRL" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MobileJobcontrolService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IMobileJobcontrolService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="MobileJobCTRL" location="" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IMobileJobcontrolService" type="i0:IMobileJobcontrolService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IMobileJobcontrolService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetStatus">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/SetStatus" style="document" />
+      <wsdl:input name="SetStatusRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/GetVersion" style="document" />
+      <wsdl:input name="GetVersionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/GetTicket" style="document" />
+      <wsdl:input name="GetTicketRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTicketResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeWorkPhonebook">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhonebook" style="document" />
+      <wsdl:input name="SynchronizeWorkPhonebookRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SynchronizeWorkPhonebookResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadFile" style="document" />
+      <wsdl:input name="UploadFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/GetConfig" style="document" />
+      <wsdl:input name="GetConfigRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetConfigResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/GetTasks" style="document" />
+      <wsdl:input name="GetTasksRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTasksResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodayWorkTime">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/GetTodayWorkTime" style="document" />
+      <wsdl:input name="GetTodayWorkTimeRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTodayWorkTimeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadWorkItems">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadWorkItems" style="document" />
+      <wsdl:input name="UploadWorkItemsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadWorkItemsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPhoneCalls">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadPhoneCalls" style="document" />
+      <wsdl:input name="UploadPhoneCallsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadPhoneCallsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLocations">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadLocations" style="document" />
+      <wsdl:input name="UploadLocationsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadLocationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/DownloadData" style="document" />
+      <wsdl:input name="DownloadDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadData">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadData" style="document" />
+      <wsdl:input name="UploadDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/ExchangeData" style="document" />
+      <wsdl:input name="ExchangeDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ExchangeDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v2">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadData_v2" style="document" />
+      <wsdl:input name="UploadData_v2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadData_v2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData_v2">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v2" style="document" />
+      <wsdl:input name="DownloadData_v2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadData_v2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v2">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v2" style="document" />
+      <wsdl:input name="ExchangeData_v2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ExchangeData_v2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeRules">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/SynchronizeRules" style="document" />
+      <wsdl:input name="SynchronizeRulesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SynchronizeRulesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchronizeWorkPhoneNumbers_v3">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/SynchronizeWorkPhoneNumbers_v3" style="document" />
+      <wsdl:input name="SynchronizeWorkPhoneNumbers_v3Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SynchronizeWorkPhoneNumbers_v3Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v3">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadData_v3" style="document" />
+      <wsdl:input name="UploadData_v3Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadData_v3Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v3">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v3" style="document" />
+      <wsdl:input name="ExchangeData_v3Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ExchangeData_v3Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadData_v4">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/UploadData_v4" style="document" />
+      <wsdl:input name="UploadData_v4Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadData_v4Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadData_v4">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/DownloadData_v4" style="document" />
+      <wsdl:input name="DownloadData_v4Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadData_v4Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeData_v4">
+      <soap:operation soapAction="MobileJobCTRL/IMobileJobcontrolService/ExchangeData_v4" style="document" />
+      <wsdl:input name="ExchangeData_v4Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ExchangeData_v4Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobileJobcontrolService">
+    <wsdl:port name="BasicHttpBinding_IMobileJobcontrolService" binding="tns:BasicHttpBinding_IMobileJobcontrolService">
+      <soap:address location="https://217.79.135.15:15000/MobileJobcontrolService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

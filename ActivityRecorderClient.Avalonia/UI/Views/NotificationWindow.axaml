@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:view="using:Tct.ActivityRecorderClient.Avalonia.UI.View"
+		xmlns:local="clr-namespace:ActivityRecorderClientAV"
+		xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+		x:Class="Tct.ActivityRecorderClient.Avalonia.UI.Views.NotificationWindow"
+		x:DataType="viewModels:NotificationViewModel"
+		Title="NotificationWindow"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="-1"
+		CanMaximize="False"
+		CanMinimize="False"
+		CanResize="False"
+		Width="400"
+		Height="100"
+		>
+
+	<Design.DataContext>
+		<viewModels:NotificationViewModel
+		Title="My Title"
+		Message="This is some custom message. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e.v Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e. Thi s is some cust om mes s ag e.This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. This is some custom message. "
+		BarColor="Green"
+		/>
+	</Design.DataContext>
+	<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="0 1 1 1" >
+		<Border Background="{DynamicResource ThemeBackgroundBrush}" BorderBrush="{Binding BarColor, Converter={x:Static viewModels:StringToBrushConverter.Instance}, FallbackValue=#FF981D}" Padding="4 2 2 2" BorderThickness="10 0 0 0">
+			<Grid>
+				<ScrollViewer>
+					<StackPanel Margin="0,0,20,0">
+						<TextBlock
+							x:Name="Title"
+							Padding="0 0 0 4"
+							Text="{Binding Title}" />
+						<TextBlock
+							x:Name="Message"
+							FontSize="12"
+							TextWrapping="Wrap"
+							Text="{Binding Message}" />
+					</StackPanel>
+				</ScrollViewer>
+				<Button
+					x:Name="Close"
+					Width="20"
+					Height="20"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Padding="4,0,0,0"
+					Margin="0,0,5,0"
+					Background="Transparent"
+					ZIndex="10"
+					Click="OnCloseClick">
+					<TextBlock FontWeight="ExtraBold">X</TextBlock>
+				</Button>
+			</Grid>
+		</Border>
+	</Border>
+</Window>

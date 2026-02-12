@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="ManualDataClassesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ManualWorkItems" Member="ManualWorkItems">
+    <Type Name="ManualWorkItem">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManualWorkItemTypeId" Type="global::Tct.ActivityRecorderService.ManualWorkItemTypeEnum" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyId" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedBy" AccessModifier="Internal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SourceId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="ManualWorkItemType_ManualWorkItem" Member="ManualWorkItemType" AccessModifier="Internal" ThisKey="ManualWorkItemTypeId" OtherKey="Id" Type="ManualWorkItemType" IsForeignKey="true" />
+      <Association Name="ManualWorkItemSource_ManualWorkItem" Member="ManualWorkItemSource" AccessModifier="Internal" ThisKey="SourceId" OtherKey="SourceId" Type="ManualWorkItemSource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManualWorkItemTypes" Member="ManualWorkItemTypes">
+    <Type Name="ManualWorkItemType">
+      <Column Name="Id" Type="global::Tct.ActivityRecorderService.ManualWorkItemTypeEnum" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="IsWorkIdRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ManualWorkItemType_ManualWorkItem" Member="ManualWorkItems" AccessModifier="Internal" ThisKey="Id" OtherKey="ManualWorkItemTypeId" Type="ManualWorkItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParallelWorkItems" Member="ParallelWorkItems">
+    <Type Name="ParallelWorkItem">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParallelWorkItemTypeId" Type="global::Tct.ActivityRecorderService.ParallelWorkItemTypeEnum" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="ParallelWorkItemType_ParallelWorkItem" Member="ParallelWorkItemType" ThisKey="ParallelWorkItemTypeId" OtherKey="Id" Type="ParallelWorkItemType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParallelWorkItemTypes" Member="ParallelWorkItemTypes">
+    <Type Name="ParallelWorkItemType">
+      <Column Name="Id" Type="global::Tct.ActivityRecorderService.ParallelWorkItemTypeEnum" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ParallelWorkItemType_ParallelWorkItem" Member="ParallelWorkItems" ThisKey="Id" OtherKey="ParallelWorkItemTypeId" Type="ParallelWorkItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManualWorkItemSource" Member="ManualWorkItemSources" AccessModifier="Internal">
+    <Type Name="ManualWorkItemSource" AccessModifier="Internal">
+      <Column Name="SourceId" AccessModifier="Internal" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ManualWorkItemSource_ManualWorkItem" Member="ManualWorkItems" AccessModifier="Internal" ThisKey="SourceId" OtherKey="SourceId" Type="ManualWorkItem" />
+    </Type>
+  </Table>
+</Database>

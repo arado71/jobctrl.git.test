@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="MobileJobCTRL" elementFormDefault="qualified" targetNamespace="MobileJobCTRL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="SetStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q1:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Platform" type="xs:short" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SynchronizeWorkPhonebookRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllPhonenumbers" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfWorkPhonenumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkPhonenumber" nillable="true" type="tns:WorkPhonenumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkPhonenumber" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+  <xs:complexType name="WorkPhonenumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Phonenumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operation" type="tns:Operation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkPhonenumber" nillable="true" type="tns:WorkPhonenumber" />
+  <xs:simpleType name="Operation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Remove" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Operation" nillable="true" type="tns:Operation" />
+  <xs:element name="SynchronizeWorkPhonebookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element minOccurs="0" name="FileData" nillable="true" type="tns:FileUpload" />
+        <xs:element minOccurs="0" name="FileBytes" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FileUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileUpload" nillable="true" type="tns:FileUpload" />
+  <xs:element name="UploadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TaskUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TodayWorkTimeUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="VersionUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="EndOfDayMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationRefreshPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="PrivateCallDuration" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItemUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="CallTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="DataUploadMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="WorkTimeStartMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkTimeEndMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AfterWorkTimeIdleMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmBeforeStop" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmRepeat" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PhotoSettingsMode" nillable="true" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfWork" />
+        <xs:element minOccurs="0" name="WorkTimes" nillable="true" type="tns:ArrayOfWorkTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfWork">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Work" nillable="true" type="tns:Work" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWork" nillable="true" type="tns:ArrayOfWork" />
+  <xs:complexType name="Work">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Type" type="q2:WorkType" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetTotalWorkTime" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Work" nillable="true" type="tns:Work" />
+  <xs:complexType name="ArrayOfWorkTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkTime" nillable="true" type="tns:WorkTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkTime" nillable="true" type="tns:ArrayOfWorkTime" />
+  <xs:complexType name="WorkTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkTime" nillable="true" type="tns:WorkTime" />
+  <xs:element name="GetTodayWorkTimeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTodayWorkTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TotalWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="PcWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="IvrWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="TodaysWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisWeeksWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisMonthsWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ServerClockTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadWorkItemsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q3:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkItem" nillable="true" type="tns:WorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkItem" nillable="true" type="tns:ArrayOfWorkItem" />
+  <xs:complexType name="WorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkItem" nillable="true" type="tns:WorkItem" />
+  <xs:element name="UploadWorkItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadPhoneCallsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q5:MobileClientStatus" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfPhoneCall">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneCall" nillable="true" type="tns:PhoneCall" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoneCall" nillable="true" type="tns:ArrayOfPhoneCall" />
+  <xs:complexType name="PhoneCall">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" type="tns:Direction" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Keep" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CallWorkItems" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneCall" nillable="true" type="tns:PhoneCall" />
+  <xs:simpleType name="Direction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Inbound" />
+      <xs:enumeration value="Outbound" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Direction" nillable="true" type="tns:Direction" />
+  <xs:element name="UploadPhoneCallsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q6:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadLocationsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q7:MobileClientStatus" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfLocationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocationInfo" nillable="true" type="tns:LocationInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocationInfo" nillable="true" type="tns:ArrayOfLocationInfo" />
+  <xs:complexType name="LocationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Accuracy" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocationInfo" nillable="true" type="tns:LocationInfo" />
+  <xs:element name="UploadLocationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q8:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TaskUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TodayWorkTimeUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="VersionUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="EndOfDayMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationRefreshPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="PrivateCallDuration" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItemUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="CallTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="DataUploadMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="WorkTimeStartMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkTimeEndMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AfterWorkTimeIdleMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmBeforeStop" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmRepeat" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PhotoSettingsMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfWork" />
+        <xs:element minOccurs="0" name="WorkTimes" nillable="true" type="tns:ArrayOfWorkTime" />
+        <xs:element minOccurs="0" name="TodaysWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisWeeksWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisMonthsWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ServerClockTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q9:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q11:ArrayOfstring" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q12:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q13:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TaskUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="TodayWorkTimeUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="VersionUpdatePeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="EndOfDayMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationRefreshPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="LocationTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="PrivateCallDuration" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItemUploadPeriod" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="CallTrackMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="DataUploadMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="WorkTimeStartMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkTimeEndMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AfterWorkTimeIdleMinutes" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmBeforeStop" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="AlarmRepeat" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PhotoSettingsMode" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfWork" />
+        <xs:element minOccurs="0" name="WorkTimes" nillable="true" type="tns:ArrayOfWorkTime" />
+        <xs:element minOccurs="0" name="TodaysWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisWeeksWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ThisMonthsWorkTime" type="xs:double" />
+        <xs:element minOccurs="0" name="ServerClockTime" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q14:ArrayOfstring" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadData_v2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q17:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfErrorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorData" nillable="true" type="tns:ErrorData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorData" nillable="true" type="tns:ArrayOfErrorData" />
+  <xs:complexType name="ErrorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorData" nillable="true" type="tns:ErrorData" />
+  <xs:complexType name="ArrayOfTaskAssignment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskAssignment" nillable="true" type="tns:TaskAssignment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskAssignment" nillable="true" type="tns:ArrayOfTaskAssignment" />
+  <xs:complexType name="TaskAssignment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskAssignment" nillable="true" type="tns:TaskAssignment" />
+  <xs:complexType name="ArrayOfRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rule" nillable="true" type="tns:Rule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRule" nillable="true" type="tns:ArrayOfRule" />
+  <xs:complexType name="Rule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="OrderNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Radius" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartMinutes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndMinutes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActionType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="WorkId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="TimeStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerId" type="xs:int" />
+      <xs:element minOccurs="0" name="TripWorkId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlwaysEnabled" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rule" nillable="true" type="tns:Rule" />
+  <xs:element name="UploadData_v2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q19:ArrayOfstring" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q20:ArrayOfstring" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q21:ArrayOfstring" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q22:ArrayOfstring" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadData_v2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllWorks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadData_v2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigInfo" nillable="true" type="tns:ConfigInfo" />
+        <xs:element minOccurs="0" name="TaskStats" nillable="true" type="tns:TaskStats" />
+        <xs:element minOccurs="0" name="UserTimes" nillable="true" type="tns:UserTimes" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ConfigInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConfigUpdatePeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskUpdatePeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="TodayWorkTimeUpdatePeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionUpdatePeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="EndOfDayMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationRefreshPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationUploadPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationTrackMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="PrivateCallDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkItemUploadPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="CallTrackMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="DataUploadMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="WorkTimeStartMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeEndMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="AfterWorkTimeIdleMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmBeforeStop" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmRepeat" type="xs:int" />
+      <xs:element minOccurs="0" name="PhotoSettingsMode" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigInfo" nillable="true" type="tns:ConfigInfo" />
+  <xs:complexType name="TaskStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfWork" />
+      <xs:element minOccurs="0" name="WorkTimes" nillable="true" type="tns:ArrayOfWorkTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskStats" nillable="true" type="tns:TaskStats" />
+  <xs:complexType name="UserTimes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TodaysWorkTime" type="xs:double" />
+      <xs:element minOccurs="0" name="ThisWeeksWorkTime" type="xs:double" />
+      <xs:element minOccurs="0" name="ThisMonthsWorkTime" type="xs:double" />
+      <xs:element minOccurs="0" name="ServerClockTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserTimes" nillable="true" type="tns:UserTimes" />
+  <xs:element name="ExchangeData_v2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q23:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllWorks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="AllPhonenumbers" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeData_v2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigInfo" nillable="true" type="tns:ConfigInfo" />
+        <xs:element minOccurs="0" name="TaskStats" nillable="true" type="tns:TaskStats" />
+        <xs:element minOccurs="0" name="UserTimes" nillable="true" type="tns:UserTimes" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q24:ArrayOfstring" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q25:ArrayOfstring" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q26:ArrayOfstring" />
+        <xs:element minOccurs="0" name="WorkPhonenumbers" nillable="true" type="tns:ArrayOfWorkPhonenumber" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q27:ArrayOfstring" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q28:ArrayOfstring" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SynchronizeRulesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SynchronizeRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SynchronizeWorkPhoneNumbers_v3Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfWorkPhoneNumber_v3">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkPhoneNumber_v3" nillable="true" type="tns:WorkPhoneNumber_v3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkPhoneNumber_v3" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+  <xs:complexType name="WorkPhoneNumber_v3">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="TimeStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerId" type="xs:int" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkPhoneNumber_v3" nillable="true" type="tns:WorkPhoneNumber_v3" />
+  <xs:element name="SynchronizeWorkPhoneNumbers_v3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadData_v3Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q29:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadData_v3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q30:ArrayOfstring" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q31:ArrayOfstring" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q32:ArrayOfstring" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q33:ArrayOfstring" />
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q34:ArrayOfstring" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeData_v3Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q35:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllWorks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeData_v3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConfigInfo" nillable="true" type="tns:ConfigInfo" />
+        <xs:element minOccurs="0" name="TaskStats" nillable="true" type="tns:TaskStats" />
+        <xs:element minOccurs="0" name="UserTimes" nillable="true" type="tns:UserTimes" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q36:ArrayOfstring" />
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q37:ArrayOfstring" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q38:ArrayOfstring" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q39:ArrayOfstring" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q40:ArrayOfstring" />
+        <xs:element minOccurs="0" name="Version" type="xs:int" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+        <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadData_v4Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q41:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+        <xs:element minOccurs="0" name="ReasonResponses" nillable="true" type="tns:ArrayOfReasonResponse_v4" />
+        <xs:element minOccurs="0" name="KickStatus" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="KickId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfReasonResponse_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReasonResponse_v4" nillable="true" type="tns:ReasonResponse_v4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReasonResponse_v4" nillable="true" type="tns:ArrayOfReasonResponse_v4" />
+  <xs:complexType name="ReasonResponse_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReasonItemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonResponse_v4" nillable="true" type="tns:ReasonResponse_v4" />
+  <xs:element name="UploadData_v4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q42:ArrayOfint" />
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q43:ArrayOfint" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q44:ArrayOfint" />
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q45:ArrayOfint" />
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q46:ArrayOfint" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedReasonResponses" nillable="true" type="q47:ArrayOfint" />
+        <xs:element minOccurs="0" name="KickData" nillable="true" type="tns:KickData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="KickData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KickResult" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="KickId" type="xs:int" />
+      <xs:element minOccurs="0" name="KickDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KickData" nillable="true" type="tns:KickData" />
+  <xs:element name="DownloadData_v4Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllTasks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ClientPlatform" type="xs:short" />
+        <xs:element minOccurs="0" name="ClientVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Reasons" nillable="true" type="tns:ArrayOfReason_v4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfReason_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reason_v4" nillable="true" type="tns:Reason_v4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReason_v4" nillable="true" type="tns:ArrayOfReason_v4" />
+  <xs:complexType name="Reason_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reason_v4" nillable="true" type="tns:Reason_v4" />
+  <xs:element name="DownloadData_v4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="tns:User_v4" />
+        <xs:element minOccurs="0" name="ConfigInfo" nillable="true" type="tns:ConfigInfo_v4" />
+        <xs:element minOccurs="0" name="TaskStats" nillable="true" type="tns:TaskStats" />
+        <xs:element minOccurs="0" name="UserTimes" nillable="true" type="tns:UserTimes" />
+        <xs:element minOccurs="0" name="ClientVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="ReasonStats" nillable="true" type="tns:ReasonStats_v4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="User_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndOfDayMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeStartMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeEndMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User_v4" nillable="true" type="tns:User_v4" />
+  <xs:complexType name="ConfigInfo_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataUploadPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="DataDownloadPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationRefreshPeriod" type="xs:int" />
+      <xs:element minOccurs="0" name="CallTrackMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LocationTrackMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="DataUploadMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="PrivateCallDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="PhotoSettingsMode" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="AfterWorkTimeIdleMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkCallDuration" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigInfo_v4" nillable="true" type="tns:ConfigInfo_v4" />
+  <xs:complexType name="ReasonStats_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Reasons" nillable="true" type="tns:ArrayOfReason_v4" />
+      <xs:element minOccurs="0" name="ReasonItems" nillable="true" type="tns:ArrayOfReasonItem_v4" />
+      <xs:element minOccurs="0" name="ReasonTexts" nillable="true" type="tns:ArrayOfReasonText_v4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonStats_v4" nillable="true" type="tns:ReasonStats_v4" />
+  <xs:complexType name="ArrayOfReasonItem_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReasonItem_v4" nillable="true" type="tns:ReasonItem_v4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReasonItem_v4" nillable="true" type="tns:ArrayOfReasonItem_v4" />
+  <xs:complexType name="ReasonItem_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentId" type="xs:int" />
+      <xs:element minOccurs="0" name="TextId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReasonId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonItem_v4" nillable="true" type="tns:ReasonItem_v4" />
+  <xs:complexType name="ArrayOfReasonText_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReasonText_v4" nillable="true" type="tns:ReasonText_v4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReasonText_v4" nillable="true" type="tns:ArrayOfReasonText_v4" />
+  <xs:complexType name="ReasonText_v4">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonText_v4" nillable="true" type="tns:ReasonText_v4" />
+  <xs:element name="ExchangeData_v4Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Imei" type="xs:long" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/JobcontrolMobileServer" minOccurs="0" name="Status" type="q48:MobileClientStatus" />
+        <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+        <xs:element minOccurs="0" name="LocationInfos" nillable="true" type="tns:ArrayOfLocationInfo" />
+        <xs:element minOccurs="0" name="PhoneCalls" nillable="true" type="tns:ArrayOfPhoneCall" />
+        <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorData" />
+        <xs:element minOccurs="0" name="TaskAssignments" nillable="true" type="tns:ArrayOfTaskAssignment" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+        <xs:element minOccurs="0" name="ReasonResponses" nillable="true" type="tns:ArrayOfReasonResponse_v4" />
+        <xs:element minOccurs="0" name="KickStatus" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="KickId" type="xs:int" />
+        <xs:element minOccurs="0" name="ConfigVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AllTasks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ClientPlatform" type="xs:short" />
+        <xs:element minOccurs="0" name="ClientVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Reasons" nillable="true" type="tns:ArrayOfReason_v4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExchangeData_v4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedWorkItems" nillable="true" type="q49:ArrayOfint" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedLocationInfos" nillable="true" type="q50:ArrayOfint" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedPhoneCalls" nillable="true" type="q51:ArrayOfint" />
+        <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedErrors" nillable="true" type="q52:ArrayOfint" />
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedTaskAssignments" nillable="true" type="q53:ArrayOfint" />
+        <xs:element minOccurs="0" name="PhoneNumberVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="WorkPhoneNumbers" nillable="true" type="tns:ArrayOfWorkPhoneNumber_v3" />
+        <xs:element minOccurs="0" name="RuleVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfRule" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AcknowledgedReasonResponses" nillable="true" type="q54:ArrayOfint" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="tns:User_v4" />
+        <xs:element minOccurs="0" name="ConfigInfo" nillable="true" type="tns:ConfigInfo_v4" />
+        <xs:element minOccurs="0" name="TaskStats" nillable="true" type="tns:TaskStats" />
+        <xs:element minOccurs="0" name="UserTimes" nillable="true" type="tns:UserTimes" />
+        <xs:element minOccurs="0" name="ClientVersion" type="xs:int" />
+        <xs:element minOccurs="0" name="ReasonStats" nillable="true" type="tns:ReasonStats_v4" />
+        <xs:element minOccurs="0" name="KickData" nillable="true" type="tns:KickData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,37 @@
+﻿using System;
+using System.ServiceModel;
+
+namespace Tct.ActivityRecorderClient.Configuration
+{
+#if AppConfigBrasil || DEBUG
+
+	public class AppConfigBrasil : AppConfigBrasilBase
+	{
+		public override string GoogleClientId => "fnl9cXx5enp7enh9ZX88PCstPiA9LC84ez5xPis8PjohcCMnPSArOjkte3EgZik4ODtmLycnLyQtPTstOisnJjwtJjxmKycl"; //encoded value of "615941223205-7ttcevhudgp3v9vctvri8kouhcrqe39h.apps.googleusercontent.com"
+		public override string GoogleClientSecret => "KCwhIC1OUEdwYFovc0pdTkBKNXd+ei1b"; //encoded value of "04985VH_hxB7kREVXR-ofb5C"
+		public override string AppClassifier => "Brasil";
+	}
+
+#endif
+
+#if AppConfigBrasil || AppConfigBrasilInvisible || DEBUG
+
+	public abstract class AppConfigBrasilBase : AppConfig
+	{
+		protected override EndpointAddress ServiceBinZipHttpsEndpointAddress => new EndpointAddress(
+			new Uri("https://br.jobctrl.com:443/JC/", UriKind.Absolute));
+
+		protected override EndpointAddress ServiceHttpsEndpointAddress => new EndpointAddress(
+			new Uri("https://br.jobctrl.com:443/JobCTRL/", UriKind.Absolute)
+		);
+
+		protected override EndpointAddress ServiceNetTcpEndpointAddress => null; /* new EndpointAddress(
+			new Uri("net.tcp://br.jobctrl.com:9000/ActivityRecorderService", UriKind.Absolute)
+			, EndpointIdentity.CreateX509CertificateIdentity(defaultCertificate)
+		); */
+
+		public override string WebsiteUrl => "https://br.jobctrl.com/";
+	}
+
+#endif
+}

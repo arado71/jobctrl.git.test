@@ -1,0 +1,7 @@
+{
+    "name": "com.tct.jobctrl",
+    "description": "JobCTRL Native Messaging Host",
+    "path": "JC.FF.exe",
+    "type": "stdio",
+    "allowed_extensions": [ "ffinterop@jobctrl.com" ]
+}

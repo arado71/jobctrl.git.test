@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Obfuscator>
+	<Var name="InPath" value="." />
+	<Var name="OutPath" value=".\Obfuscator_Output" />
+	<Var name="HidePrivateApi" value="true" />
+	<Var name="KeepPublicApi" value="false" />
+	<Var name="UseUnicodeNames" value="false" />
+	<Var name="UseKoreanNames" value="false" />
+	<Var name="RegenerateDebugInfo" value="true" />
+	<Var name="HideStrings" value="false" />
+	<Var name="KeyFile" value=".\..\..\..\Keys\JobCTRL.snk" />
+
+	<Module file="$(InPath)\ActivityRecorderService.dll">
+		<SkipNamespace name="Tct.ActivityRecorderService.ActiveDirectoryIntegration" />
+		<SkipNamespace name="Tct.ActivityRecorderService.ClientComputerData" />
+		<SkipNamespace name="Dapper" />
+		<SkipNamespace name="Tct.ActivityRecorderService.WebsiteServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderService.MobileServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderService.Stats" />
+		<SkipNamespace name="Tct.ActivityRecorderService" />
+		<SkipNamespace name="Tct.ActivityRecorderService.Properties" />
+		<SkipNamespace name="Tct.ActivityRecorderService.Storage" />
+		<SkipType name="*AnonymousType*" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Storage.Storage" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Storage.StorageDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Storage.StorageManager" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Storage.StorageDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Kicks.KickDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Kicks.ClientComputerKick" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Kicks.ActiveDevice" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.ClientComputerData.ClientComputerInfoDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.ClientComputerData.ClientComputerInfo" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.ClientComputerData.ClientComputerError" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Notifications.NotificationDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Notifications.NotificationForm" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Notifications.ClientNotification" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Voice.VoiceRecorderDataClassesDataContext" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+		<SkipType name="Tct.ActivityRecorderService.Voice.VoiceRecording" skipProperties="true" skipMethods="true" skipFields="true" skipEvents="true" skipStringHiding="true" />
+
+		<SkipMethod name="*GetPaths" />
+		<SkipMethod name="*GetCompanyIds" />
+
+	</Module>
+</Obfuscator>

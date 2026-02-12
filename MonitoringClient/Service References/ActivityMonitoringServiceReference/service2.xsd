@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jobctrl.com/" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="KickResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="AlreadyOffline" />
+      <xs:enumeration value="UnknownError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KickResult" nillable="true" type="tns:KickResult" />
+  <xs:complexType name="KickTimeoutException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="KickTimeoutException" nillable="true" type="tns:KickTimeoutException" />
+</xs:schema>

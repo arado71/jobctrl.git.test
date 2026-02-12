@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Obfuscator>
+	<Var name="InPath" value="." />
+	<Var name="OutPath" value=".\Obfuscator_Output" />
+	<Var name="HidePrivateApi" value="true" />
+	<Var name="KeepPublicApi" value="false" />
+	<Var name="UseUnicodeNames" value="false" />
+	<Var name="UseKoreanNames" value="false" />
+	<Var name="RegenerateDebugInfo" value="true" />
+	<Var name="HideStrings" value="false" />
+
+	<Module file="$(InPath)\JobCTRL.exe">
+		<SkipType name="Tct.ActivityRecorderClient.WinApi" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Desktop.Windows.ProcessInfo.ProcessElevationHelper" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Desktop.Windows.ProcessInfo.ProcessNameHelper" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Desktop.Windows.ProcessInfo.SafeProcessHandle" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.EnumWindowsHelper" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.Monitors" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.PluginOcrModeEnum" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.OcrConfig" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.UserActivity.UserActivityHook" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipNamespace name="WindowsInstaller" />
+		<SkipType name="Tct.ActivityRecorderClient.Update.ClickOnceHelper" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.ComboBoxEx" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.ComboBoxItemEx" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.NativeMethods" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.WinFormsExtensions" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.CachedDictionary" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Core.AllWorksData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Core.AssignCommonData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Core.AssignData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Core.MenuCoordinator" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Core.WorkDetector" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Meeting.DataMappingException" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Impl.DomCaptureException" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Impl.IssueNamesAndCompanies" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Impl.IssueNamesAndCompanies.Entry" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.IssueState" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.IsolatedStorageHelper.ImageData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.IsolatedStorageHelper.ImageDataExt" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Capturing.Plugins.Ocr.IsolatedStorageHelper" />
+		<SkipType name="Tct.ActivityRecorderClient.ConfigManager" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ConfigManager.LocalSettings" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ConfigManager.UserIdPassword" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ConfigManager.ProxySettings" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ConfigManager.LoginData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ClientDataCollectionSettings" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Hotkeys.HotkeySetting" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Hotkeys.HotkeyActionType" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Meeting.AddMeetingHistory" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Meeting.ManualMeetingItem" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Meeting.PostponedMeetingItem" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Meeting.CountDown.UnfinishedTimedTaskItem" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Menu.LearnedUserWorkSwitch" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Menu.NewWorkStatistic" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Menu.WorkDataWithParentNames" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Notification.PendingNotification" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.ProjectSync.ProjectCredentials" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.StartEndDateTime" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.DailyWorkTimeStatsData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.Interval" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.IntervalWithType" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.LocalWorkStats" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.SimpleWorkTimeStatsBuilderState" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.WorkInterval" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Stats.WorkType" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Telemetry.TelemetryContainer" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Telemetry.TelemetryManager" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Update.ClickOnceMigrator.UninstallInfo" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Update.UpdateWixWinService.UpdateInfo" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Update.UpdateWixData" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.IssueFilterForm.IssueFilterFormState" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.Navigation.LocationKey" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.View.ComboBoxElement" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels.es-MX" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels.hu-HU" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels.ja-JP" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels.ko-KR" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Labels.pt-BR" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.InterProcess.InterProcessManager" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Controller.WorkState" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.Menu.Management.WorkDetailsFormState" skipMethods="true" skipFields="true" skipProperties="true" />
+		<SkipType name="Tct.ActivityRecorderClient.TodoLists.TodoListItemState" skipMethods="true" skipFields="true" skipProperties="true" />
+		
+
+
+		<SkipNamespace name="AcrobatAccessLib" />
+		<SkipNamespace name="LotusNotesMeetingCaptureServiceNamespace" />
+		<SkipNamespace name="OutlookInteropService" />
+		
+		<SkipNamespace name="Tct.ActivityRecorderClient.Communication" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.ActivityRecorderServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.AppControlServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.ChromeCaptureServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.LotusNotesMeetingCaptureServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.OutlookAddinMailCaptureServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.OutlookMailCaptureServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.OutlookMeetingCaptureServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.VoiceRecorderControllerServiceReference" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.Logging" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.Rules.Generation" />
+		<SkipNamespace name="Tct.ActivityRecorderClient.InterProcess" />
+		<SkipStringHiding type="Tct.ActivityRecorderClient.Logging.CustomRollingDebugLogFileAppender" name="*" />
+
+		<ForceMethod type="Tct.ActivityRecorderClient.Communication.GeneralLongIntervalQueryManager" name="ManagerCallbackImpl" />
+		<ForceMethod type="Tct.ActivityRecorderClient.Communication.PreferredEndpointManager" name="ManagerCallbackImpl" />
+
+	</Module>
+
+	<Module file="$(InPath)\BitmapManipulation.dll">
+
+	</Module>
+	<Module file="$(InPath)\JabApiLib.dll">
+
+	</Module>
+	<Module file="$(InPath)\TctEncoder.dll">
+		<SkipNamespace name="SZL" />
+		<SkipType name="SZL.SharpZipBaseException" />
+		<SkipType name="SZL.Zip.ZipException" />
+		<SkipType name="TctEncoder.TctBindingElementExtension" />
+		<SkipType name="TctTransport.TctTransportElement" />
+	</Module>
+</Obfuscator>

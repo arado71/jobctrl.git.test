@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://jobctrl.com/" />
+  <xs:complexType name="TaskReasons">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReasonsByWorkId" nillable="true" type="q1:ArrayOfKeyValueOfintArrayOfReasonrAztyu7B" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskReasons" nillable="true" type="tns:TaskReasons" />
+  <xs:complexType name="ArrayOfReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reason" nillable="true" type="tns:Reason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReason" nillable="true" type="tns:ArrayOfReason" />
+  <xs:complexType name="Reason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReasonItemId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReasonText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="createdAt" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reason" nillable="true" type="tns:Reason" />
+  <xs:complexType name="ApplicationUpdateInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DownloadSessionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationUpdateInfo" nillable="true" type="tns:ApplicationUpdateInfo" />
+  <xs:complexType name="DownloadSessionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChunkCount" type="xs:long" />
+      <xs:element minOccurs="0" name="FileId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadSessionInfo" nillable="true" type="tns:DownloadSessionInfo" />
+  <xs:complexType name="ParallelWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ParallelWorkItemTypeId" type="tns:ParallelWorkItemTypeEnum" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParallelWorkItem" nillable="true" type="tns:ParallelWorkItem" />
+  <xs:simpleType name="ParallelWorkItemTypeEnum">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IEBusy" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ParallelWorkItemTypeEnum" nillable="true" type="tns:ParallelWorkItemTypeEnum" />
+  <xs:complexType name="WorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhaseId" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="MouseActivity" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyboardActivity" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRemoteDesktop" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVirtualMachine" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DesktopCaptures" nillable="true" type="tns:ArrayOfDesktopCapture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkItem" nillable="true" type="tns:WorkItem" />
+  <xs:complexType name="ArrayOfDesktopCapture">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DesktopCapture" nillable="true" type="tns:DesktopCapture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDesktopCapture" nillable="true" type="tns:ArrayOfDesktopCapture" />
+  <xs:complexType name="DesktopCapture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DesktopWindows" nillable="true" type="tns:ArrayOfDesktopWindow">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Screens" nillable="true" type="tns:ArrayOfScreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DesktopCapture" nillable="true" type="tns:DesktopCapture" />
+  <xs:complexType name="ArrayOfDesktopWindow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DesktopWindow" nillable="true" type="tns:DesktopWindow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDesktopWindow" nillable="true" type="tns:ArrayOfDesktopWindow" />
+  <xs:complexType name="DesktopWindow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="X" type="xs:short" />
+      <xs:element minOccurs="0" name="Y" type="xs:short" />
+      <xs:element minOccurs="0" name="Width" type="xs:short" />
+      <xs:element minOccurs="0" name="Height" type="xs:short" />
+      <xs:element minOccurs="0" name="ClientArea" type="xs:int" />
+      <xs:element minOccurs="0" name="VisibleClientArea" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DesktopWindow" nillable="true" type="tns:DesktopWindow" />
+  <xs:complexType name="ArrayOfScreen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Screen" nillable="true" type="tns:Screen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreen" nillable="true" type="tns:ArrayOfScreen" />
+  <xs:complexType name="Screen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="X" type="xs:short" />
+      <xs:element minOccurs="0" name="Y" type="xs:short" />
+      <xs:element minOccurs="0" name="Width" type="xs:short" />
+      <xs:element minOccurs="0" name="Height" type="xs:short" />
+      <xs:element minOccurs="0" name="ScreenNumber" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScreenShot" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="EncodeMaster" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EncodeZipped" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EncodeBitmapId" type="xs:int" />
+      <xs:element minOccurs="0" name="EncodeEncoderBitmapId" type="xs:int" />
+      <xs:element minOccurs="0" name="EncodeJpgQuality" type="xs:int" />
+      <xs:element minOccurs="0" name="EncodeVersion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Screen" nillable="true" type="tns:Screen" />
+  <xs:complexType name="ClientMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfWorkData">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoriesById" nillable="true" type="q2:ArrayOfKeyValueOfintCategoryDatarAztyu7B">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExternalWorkIdMapping" nillable="true" type="q3:ArrayOfKeyValueOfstringint">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExternalProjectIdMapping" nillable="true" type="q4:ArrayOfKeyValueOfstringint">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q5="http://jobctrl.com/" minOccurs="0" name="ExternalCompositeMapping" nillable="true" type="q5:CompositeMapping">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientMenu" nillable="true" type="tns:ClientMenu" />
+  <xs:complexType name="ArrayOfWorkData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkData" nillable="true" type="tns:WorkData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkData" nillable="true" type="tns:ArrayOfWorkData" />
+  <xs:complexType name="WorkData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfWorkData">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="TargetTotalWorkTime" nillable="true" type="ser:duration">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ManualAddWorkDuration" nillable="true" type="ser:duration">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsForMobile" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExtId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="TaxId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CloseReasonRequiredTime" nillable="true" type="ser:duration">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CloseReasonRequiredDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CloseReasonRequiredTimeRepeatInterval" nillable="true" type="ser:duration">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CloseReasonRequiredTimeRepeatCount" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExternalWorkIdMapping" nillable="true" type="q6:ArrayOfKeyValueOfstringint">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkData" nillable="true" type="tns:WorkData" />
+  <xs:complexType name="CategoryData">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryData" nillable="true" type="tns:CategoryData" />
+  <xs:complexType name="ClientSetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuUpdateInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureWorkItemInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureActiveWindowInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CaptureScreenShotInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeSyncThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JpegQuality" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JpegScalePct" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeStartInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTimeEndInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AfterWorkTimeIdleInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxOfflineWorkItems" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DuringWorkTimeIdleInMins" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DuringWorkTimeIdleManualInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxManualMeetingInterval" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleRestrictions" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsMeetingTrackingEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMeetingSubjectMandatory" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BusyTimeThreshold" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CoincidentalClientsEnabled" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientSetting" nillable="true" type="tns:ClientSetting" />
+  <xs:complexType name="AuthData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthData" nillable="true" type="tns:AuthData" />
+  <xs:complexType name="ManualWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ManualWorkItemTypeId" type="tns:ManualWorkItemTypeEnum" />
+      <xs:element minOccurs="0" name="WorkId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalEndDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManualWorkItem" nillable="true" type="tns:ManualWorkItem" />
+  <xs:simpleType name="ManualWorkItemTypeEnum">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AddWork" />
+      <xs:enumeration value="DeleteInterval" />
+      <xs:enumeration value="DeleteIvrInterval" />
+      <xs:enumeration value="DeleteComputerInterval" />
+      <xs:enumeration value="AddHoliday" />
+      <xs:enumeration value="AddSickLeave" />
+      <xs:enumeration value="DeleteMobileInterval" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ManualWorkItemTypeEnum" nillable="true" type="tns:ManualWorkItemTypeEnum" />
+  <xs:complexType name="ArrayOfAllWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AllWorkItem" nillable="true" type="tns:AllWorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAllWorkItem" nillable="true" type="tns:ArrayOfAllWorkItem" />
+  <xs:complexType name="AllWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClosedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnTask" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AllWorkItem" nillable="true" type="tns:AllWorkItem" />
+</xs:schema>

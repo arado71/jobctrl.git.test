@@ -1,0 +1,29 @@
+{
+  "name": "jobctrl-extension",
+  "version": "2.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "deps": "npm install",
+    "stage": "mkdir dist || echo Dist already exists.",
+    "bundle": "webpack --config webpack.dev.js",
+    "webpack": "webpack --config webpack.prod.js",
+    "devbuild": "npm run build",
+    "build": "npm run stage && npm run bundle",
+    "dev": "npm run bundle -- --watch"
+  },
+  "author": "Kristof Dobosy",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^4.0.0-beta",
+    "@inboxsdk/core": "^2.1.51"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "source-map-loader": "^5.0.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
+  }
+}

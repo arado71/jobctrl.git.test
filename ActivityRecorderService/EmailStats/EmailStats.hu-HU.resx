@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AggregatedStatisticsSubject" xml:space="preserve">
+    <value>Aggregált statisztika</value>
+  </data>
+  <data name="AllWorkShort" xml:space="preserve">
+    <value>Össz.</value>
+  </data>
+  <data name="AnybodysStatistic" xml:space="preserve">
+    <value>{0} statisztikája</value>
+  </data>
+  <data name="BrowsingOthers" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="CharKeyboardActivityShort" xml:space="preserve">
+    <value>Bill. Akt.</value>
+  </data>
+  <data name="CharKeyboardShort" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="ChartAxisComputer" xml:space="preserve">
+    <value>Szg.</value>
+  </data>
+  <data name="ChartAxisHoliday" xml:space="preserve">
+    <value>Szab.</value>
+  </data>
+  <data name="ChartAxisManual" xml:space="preserve">
+    <value>Mód.</value>
+  </data>
+  <data name="ChartAxisPhone" xml:space="preserve">
+    <value>Tel.</value>
+  </data>
+  <data name="ChartAxisSickLeave" xml:space="preserve">
+    <value>Bet.</value>
+  </data>
+  <data name="ChartAxisSmartphone" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="ChartDays" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="ChartEffortNeeded" xml:space="preserve">
+    <value>Befejezésig szükséges ráfordítás</value>
+  </data>
+  <data name="ChartFinished" xml:space="preserve">
+    <value>Kész</value>
+  </data>
+  <data name="ChartHourPerDay" xml:space="preserve">
+    <value>ó/nap</value>
+  </data>
+  <data name="ChartHours" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="ChartMouse" xml:space="preserve">
+    <value>Egér</value>
+  </data>
+  <data name="ChartMouseActivityShort" xml:space="preserve">
+    <value>Egér Akt.</value>
+  </data>
+  <data name="ChartOthers" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="ChartRemainingTime" xml:space="preserve">
+    <value>Hátralévő idő</value>
+  </data>
+  <data name="ChartTargetTime" xml:space="preserve">
+    <value>Tervezett</value>
+  </data>
+  <data name="ComputerActivityByHour" xml:space="preserve">
+    <value>Számítógépes aktivitás órás bontása</value>
+  </data>
+  <data name="ComputerActivityHeaderComputer" xml:space="preserve">
+    <value>Gép</value>
+  </data>
+  <data name="ComputerActivityHeaderDuration" xml:space="preserve">
+    <value>idő</value>
+  </data>
+  <data name="ComputerActivityHeaderKeyboardAct" xml:space="preserve">
+    <value>Bill.Akt</value>
+  </data>
+  <data name="ComputerActivityHeaderMouseAct" xml:space="preserve">
+    <value>Egér Akt</value>
+  </data>
+  <data name="ComputerActivityHeaderTime" xml:space="preserve">
+    <value>Idő</value>
+  </data>
+  <data name="ComputerActivityHeaderWork" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="DefaultPlainTextBody" xml:space="preserve">
+    <value>Ez egy HTML e-mail.</value>
+  </data>
+  <data name="ExceedDeadLine" xml:space="preserve">
+    <value>Határidőn túli feladatok</value>
+  </data>
+  <data name="ExceedTargetTime" xml:space="preserve">
+    <value>Tervezett időt meghaladó feladatok</value>
+  </data>
+  <data name="FrequentBrowsing" xml:space="preserve">
+    <value>Tipikus böngészés</value>
+  </data>
+  <data name="FrequentTitles" xml:space="preserve">
+    <value>Tipikus címsorok</value>
+  </data>
+  <data name="FrequentUsage" xml:space="preserve">
+    <value>Tipikus programhasználat</value>
+  </data>
+  <data name="HolidayTime" xml:space="preserve">
+    <value>Szabadság</value>
+  </data>
+  <data name="IvrTimeStatByTime" xml:space="preserve">
+    <value>Telefonos bejelentkezések idő szerinti bontásban</value>
+  </data>
+  <data name="IvrTimeStatHeaderDuration" xml:space="preserve">
+    <value>Feladatra könyvelt idő**</value>
+  </data>
+  <data name="IvrTimeStatHeaderPhone" xml:space="preserve">
+    <value>Szám</value>
+  </data>
+  <data name="IvrTimeStatHeaderTime" xml:space="preserve">
+    <value>Idő</value>
+  </data>
+  <data name="IvrTimeStatHeaderWork" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="KeyboardActivityInfo" xml:space="preserve">
+    <value>Billentyűzet aktivitás: a billentyű leütések átlagos száma percenként a munkaidő alatt.</value>
+  </data>
+  <data name="LinkBackToTop" xml:space="preserve">
+    <value>Vissza az elejére</value>
+  </data>
+  <data name="ManualWorkItemAddHoliday" xml:space="preserve">
+    <value>Szabadságok</value>
+  </data>
+  <data name="ManualWorkItemAddSickLeave" xml:space="preserve">
+    <value>Betegszabadság</value>
+  </data>
+  <data name="ManualWorkItemAddWork" xml:space="preserve">
+    <value>Módosított munkaidők</value>
+  </data>
+  <data name="ManualWorkItemDeleteComputerInterval" xml:space="preserve">
+    <value>Törölt időszakok (desktop)</value>
+  </data>
+  <data name="ManualWorkItemDeleteInterval" xml:space="preserve">
+    <value>Törölt időszakok</value>
+  </data>
+  <data name="ManualWorkItemDeleteIvrInterval" xml:space="preserve">
+    <value>Törölt időszakok (telefon)</value>
+  </data>
+  <data name="ManualWorkItemDeleteMobileInverval" xml:space="preserve">
+    <value>Törölt időszakok (mobil)</value>
+  </data>
+  <data name="ManualWorkItemUnknown" xml:space="preserve">
+    <value>Ismeretlen módosítások</value>
+  </data>
+  <data name="MouseActivityInfo" xml:space="preserve">
+    <value>Egér aktivitás: az egér által generált események (pl: kattintás, görgetés) átlagos száma percenként a munkaidő alatt.</value>
+  </data>
+  <data name="NoCreditText" xml:space="preserve">
+    <value>Negatív pontegyenleg miatt a hozzáférés korlátozott.
+Kérjük lépjen kapcsolatba adminisztrátorával.</value>
+  </data>
+  <data name="SickLeaveTime" xml:space="preserve">
+    <value>Betegszabadság</value>
+  </data>
+  <data name="SubjectMonthly" xml:space="preserve">
+    <value>{0}. {1} havi</value>
+  </data>
+  <data name="SubjectStatistics" xml:space="preserve">
+    <value>Statisztika</value>
+  </data>
+  <data name="SubjectWeekly" xml:space="preserve">
+    <value>{0}. {1}. heti</value>
+  </data>
+  <data name="TimeStatByTime" xml:space="preserve">
+    <value>Idő szerinti bontás</value>
+  </data>
+  <data name="TimeStatByWork" xml:space="preserve">
+    <value>Feladatok szerinti bontás</value>
+  </data>
+  <data name="TimeStatHeaderAll" xml:space="preserve">
+    <value>Munkaidő*</value>
+  </data>
+  <data name="TimeStatHeaderComputerTime" xml:space="preserve">
+    <value>Idő (desktop)</value>
+  </data>
+  <data name="TimeStatHeaderDate" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
+  <data name="TimeStatHeaderElapsed" xml:space="preserve">
+    <value>Eltelt %</value>
+  </data>
+  <data name="TimeStatHeaderEnd" xml:space="preserve">
+    <value>Vége</value>
+  </data>
+  <data name="TimeStatHeaderHoliday" xml:space="preserve">
+    <value>Szabadság</value>
+  </data>
+  <data name="TimeStatHeaderManuallyAdded" xml:space="preserve">
+    <value>Módosított idő</value>
+  </data>
+  <data name="TimeStatHeaderPhone" xml:space="preserve">
+    <value>Idő (tel)</value>
+  </data>
+  <data name="TimeStatHeaderPriority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="TimeStatHeaderSickLeave" xml:space="preserve">
+    <value>Betegség</value>
+  </data>
+  <data name="TimeStatHeaderSmartPhone" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="TimeStatHeaderStart" xml:space="preserve">
+    <value>Kezdete</value>
+  </data>
+  <data name="TimeStatHeaderStatus" xml:space="preserve">
+    <value>Státusz</value>
+  </data>
+  <data name="TimeStatHeaderTarget" xml:space="preserve">
+    <value>Tervezett</value>
+  </data>
+  <data name="TimeStatHeaderTime" xml:space="preserve">
+    <value>Feladatra könyvelt idő**</value>
+  </data>
+  <data name="TimeStatHeaderWorked" xml:space="preserve">
+    <value>Ledolg.</value>
+  </data>
+  <data name="TimeStatHeaderWorkedPct" xml:space="preserve">
+    <value>Ledolg. %</value>
+  </data>
+  <data name="TimeStatHeaderWorkname" xml:space="preserve">
+    <value>Feladat neve</value>
+  </data>
+  <data name="TimeStatTotal" xml:space="preserve">
+    <value>Összesen</value>
+  </data>
+  <data name="TitleOthers" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="UsageOthers" xml:space="preserve">
+    <value>Egyéb</value>
+  </data>
+  <data name="WarnedTasks" xml:space="preserve">
+    <value>Problémás feladatok</value>
+  </data>
+  <data name="WorkEnd" xml:space="preserve">
+    <value>Munka vége</value>
+  </data>
+  <data name="WorksByTime" xml:space="preserve">
+    <value>Feladatok idő szerinti bontása</value>
+  </data>
+  <data name="WorkStarted" xml:space="preserve">
+    <value>Munka kezdete</value>
+  </data>
+  <data name="WorkStateClosed" xml:space="preserve">
+    <value>Lezárva</value>
+  </data>
+  <data name="WorkStateClosedAgo" xml:space="preserve">
+    <value>Lezárt</value>
+  </data>
+  <data name="WorkStateContiguous" xml:space="preserve">
+    <value>Folyamatos</value>
+  </data>
+  <data name="WorkStateOpened" xml:space="preserve">
+    <value>Aktuális</value>
+  </data>
+  <data name="WorkTimeAll" xml:space="preserve">
+    <value>Munkaidő*</value>
+  </data>
+  <data name="WorkTimeComputer" xml:space="preserve">
+    <value>Munkaidő (desktop)</value>
+  </data>
+  <data name="WorkTimeManuallyAdded" xml:space="preserve">
+    <value>Módosított munkaidő</value>
+  </data>
+  <data name="WorkTimeName" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="WorkTimeNetto" xml:space="preserve">
+    <value>nettó</value>
+  </data>
+  <data name="WorkTimePhone" xml:space="preserve">
+    <value>Munkaidő (telefon)</value>
+  </data>
+  <data name="WorkTimePhoneAndSmartPhone" xml:space="preserve">
+    <value>Munkaidő (mobil + telefon)</value>
+  </data>
+  <data name="WorkTimeRemoteDesktop" xml:space="preserve">
+    <value>Távoli hozzáférés</value>
+  </data>
+  <data name="WorkTimeSmartPhone" xml:space="preserve">
+    <value>Munkaidő (mobil)</value>
+  </data>
+  <data name="WorkTimeVirtualMachine" xml:space="preserve">
+    <value>Virtuális gép</value>
+  </data>
+  <data name="WorkTimeWOCorrection" xml:space="preserve">
+    <value>korrekció nélkül</value>
+  </data>
+  <data name="UnknownWork" xml:space="preserve">
+    <value>Ismeretlen feladat</value>
+  </data>
+  <data name="IVRCancelled" xml:space="preserve">
+    <value>megszakította</value>
+  </data>
+  <data name="IVRCancelledSession" xml:space="preserve">
+    <value>Ezzel a bejelentkezéssel megszakította az előző telefonos bejelentkezését az alábbi feladathoz</value>
+  </data>
+  <data name="IVRLoggedInWork" xml:space="preserve">
+    <value>Ön telefonon bejelentkezett az alábbi feladatra</value>
+  </data>
+  <data name="IVRLoggedOutAutoWork" xml:space="preserve">
+    <value>Önnek lejárt a telefonos bejelentkezése az alábbi feladathoz</value>
+  </data>
+  <data name="IVRLoggedOutDueInactivityWork" xml:space="preserve">
+    <value>Számítógépes aktivitás {0} az ön telefonos bejelentkezését az alábbi feladathoz</value>
+  </data>
+  <data name="IVRLoggedOutWork" xml:space="preserve">
+    <value>Ön telefonon kijelentkezett az alábbi feladatból</value>
+  </data>
+  <data name="IVRLogin" xml:space="preserve">
+    <value>bejelentkezés</value>
+  </data>
+  <data name="IVRLogOut" xml:space="preserve">
+    <value>kijelentkezés</value>
+  </data>
+  <data name="IVRLogOutAuto" xml:space="preserve">
+    <value>automata kijelentkezés</value>
+  </data>
+  <data name="IVRLogoutAutoTime" xml:space="preserve">
+    <value>Automata kijelenkeztetés időpontja</value>
+  </data>
+  <data name="IVRLogoutDueActivity" xml:space="preserve">
+    <value>kijelentkeztetés</value>
+  </data>
+  <data name="IVRLogOutIn" xml:space="preserve">
+    <value>ki/bejelentkezés</value>
+  </data>
+  <data name="IVRModified" xml:space="preserve">
+    <value>módosította</value>
+  </data>
+  <data name="IVRPreviousLogout" xml:space="preserve">
+    <value>A régi kijelentkezés időpontja</value>
+  </data>
+  <data name="ProjectStatAllCost" xml:space="preserve">
+    <value>Költség</value>
+  </data>
+  <data name="ProjectStatAllWorktime" xml:space="preserve">
+    <value>Feladatra könyvelt idő**</value>
+  </data>
+  <data name="ProjectStatAnybodysWorks" xml:space="preserve">
+    <value>{0} feladatai</value>
+  </data>
+  <data name="ProjectStatCost" xml:space="preserve">
+    <value>Költség</value>
+  </data>
+  <data name="ProjectStatCreated" xml:space="preserve">
+    <value>Létrehozva</value>
+  </data>
+  <data name="ProjectStatEndDate" xml:space="preserve">
+    <value>Végdátum</value>
+  </data>
+  <data name="ProjectStatistics" xml:space="preserve">
+    <value>Projekt Statisztika</value>
+  </data>
+  <data name="ProjectStatStartDate" xml:space="preserve">
+    <value>Kezdő dátum</value>
+  </data>
+  <data name="ProjectStatSummaryProjectName" xml:space="preserve">
+    <value>Összesen</value>
+  </data>
+  <data name="ProjectStatSummaryProjects" xml:space="preserve">
+    <value>Projekt szintű bontás</value>
+  </data>
+  <data name="ProjectStatSummaryWorkers" xml:space="preserve">
+    <value>Felhasználói szintű bontás</value>
+  </data>
+  <data name="ProjectStatWorkerName" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="ProjectStatWorkers" xml:space="preserve">
+    <value>Felhasználók</value>
+  </data>
+  <data name="ProjectStatWorkTime" xml:space="preserve">
+    <value>Feladatra könyvelt idő**</value>
+  </data>
+  <data name="IsInternal" xml:space="preserve">
+    <value>Belső használatra</value>
+  </data>
+  <data name="NetWorkTimeDescription" xml:space="preserve">
+    <value>* Munkaidő: felhasználónként minden időátfedés levonása utáni összes aktív munkaidő</value>
+  </data>
+  <data name="WorkTimeDescription" xml:space="preserve">
+    <value>** Feladatra könyvelt idő: felhasználónként az összes JobCTRL alkalmazás által párhuzamosan mért összes aktív munkaidő</value>
+  </data>
+  <data name="AggregatedMobilLocationStatisticsSubject" xml:space="preserve">
+    <value>Mobil statisztika</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Address" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Events" xml:space="preserve">
+    <value>Események</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_EventsInTimeOrder" xml:space="preserve">
+    <value>Események időrendben</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Reasons" xml:space="preserve">
+    <value>Indoklások</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Scene" xml:space="preserve">
+    <value>Helyszín</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_SceneCount" xml:space="preserve">
+    <value>Összesen {0} alkalommal</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TasksUserWorkedOn" xml:space="preserve">
+    <value>Lejelentett munkák</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TimeSpanFormatHourMinutes" xml:space="preserve">
+    <value>{0} óra {1} perc</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TitleFormat" xml:space="preserve">
+    <value>{0}  [{1} - {2}, Helyszínek: {3} db, Események: {4} db]</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TotalTime" xml:space="preserve">
+    <value>Összes idő</value>
+  </data>
+  <data name="WorkStartEndDifference" xml:space="preserve">
+    <value>Munka kezdete és vége közötti idő</value>
+  </data>
+  <data name="ChartAxisMeeting" xml:space="preserve">
+    <value>Meet.</value>
+  </data>
+  <data name="LockedComputer" xml:space="preserve">
+    <value>Zárolt gép</value>
+  </data>
+  <data name="UnknownProcess" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+  <data name="WorkTimeEndsSoon" xml:space="preserve">
+    <value>A munkaideje véget ér {0}-kor.
+Köszönjük a mai munkáját!</value>
+  </data>
+  <data name="TODOs_NotificationMessage" xml:space="preserve">
+    <value>Teendők:
+Az Ön beosztottja ({1} {0}) létrehozta vagy módosította a {2} naphoz tartozó teendőit.
+
+&lt;a href='/UserCenter/TodoLists/?TargetUserId={3}&amp;Date={4}'&gt;Megtekintés&lt;/a&gt;</value>
+  </data>
+  <data name="SpecificScheduleFirstNotificationMessage" xml:space="preserve">
+    <value>Megkezdted a túlmunkát.</value>
+  </data>
+  <data name="SpecificScheduleLastNotificationMessage" xml:space="preserve">
+    <value>A számítógéped kikapcsol {0} perc múlva!</value>
+  </data>
+  <data name="SpecificScheduleSecondNotificationMessage" xml:space="preserve">
+    <value>A számítógéped le lesz állítva {0} percen belül!</value>
+  </data>
+</root>

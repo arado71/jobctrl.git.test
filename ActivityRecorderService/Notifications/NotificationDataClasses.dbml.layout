@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="NotificationDataClasses">
+  <DataContextMoniker Name="/NotificationDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="900a732d-8f5f-4f03-be5b-aaa3cf6f654c" absoluteBounds="0.5, 1, 2, 2.5401025390625">
+      <DataClassMoniker Name="/NotificationDataClassesDataContext/NotificationForm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a04beebe-c866-49d9-9d8e-5a6e4221eb53" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa05c675-916e-4484-b298-62d1d548840a" absoluteBounds="3.375, 1, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/NotificationDataClassesDataContext/ClientNotification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="699cfcb8-d051-4d4f-8fe2-f278731dec58" absoluteBounds="3.3899999999999997, 1.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.27005126953125); (3.375 : 2.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NotificationDataClassesDataContext/NotificationForm/NotificationForm_ClientNotification" />
+      <nodes>
+        <classShapeMoniker Id="900a732d-8f5f-4f03-be5b-aaa3cf6f654c" />
+        <classShapeMoniker Id="aa05c675-916e-4484-b298-62d1d548840a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

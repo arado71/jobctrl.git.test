@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <DatabaseName Condition="'$(DatabaseName)' == '' ">recorder</DatabaseName>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>RecorderDatabase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{12b4f3c8-6720-418a-a86a-e71dab509c6c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>RecorderDatabase</RootNamespace>
+    <AssemblyName>RecorderDatabase</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <GenerateCreateScript>True</GenerateCreateScript>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ManualWorkItemTypes.sql" />
+    <Build Include="dbo\Tables\EmailStats.sql" />
+    <Build Include="dbo\Tables\DeadLetterItems.sql" />
+    <Build Include="dbo\Tables\IvrCustomRules.sql" />
+    <Build Include="dbo\Tables\ActiveDevices.sql" />
+    <Build Include="dbo\Tables\AggregateWorkItemIntervals.sql" />
+    <Build Include="dbo\Tables\AggregateLastWorkItem.sql" />
+    <Build Include="dbo\Tables\AggregateIdleIntervals.sql" />
+    <Build Include="dbo\Tables\Calendars.sql" />
+    <Build Include="dbo\Tables\ClientComputerAddresses.sql" />
+    <Build Include="dbo\Tables\ClientComputerKicks.sql" />
+    <Build Include="dbo\Tables\ClientComputerVersions.sql" />
+    <Build Include="dbo\Tables\WorkItems.sql" />
+    <Build Include="dbo\Tables\VoiceRecordings.sql" />
+    <Build Include="dbo\Tables\ClientComputerInfo.sql" />
+    <Build Include="dbo\Tables\UsageStats.sql" />
+    <Build Include="dbo\Tables\Storages.sql" />
+    <Build Include="dbo\Tables\IvrWorkItems.sql" />
+    <Build Include="dbo\Tables\NotificationForms.sql" />
+    <Build Include="dbo\Tables\MobileWorkItems.sql" />
+    <Build Include="dbo\Tables\ClientComputerErrors.sql" />
+    <Build Include="dbo\Tables\ParallelWorkItemTypes.sql" />
+    <Build Include="dbo\Tables\ParallelWorkItems.sql" />
+    <Build Include="dbo\Tables\ClientSettings.sql" />
+    <Build Include="dbo\Tables\IvrRules.sql" />
+    <Build Include="dbo\Tables\IvrLocations.sql" />
+    <Build Include="dbo\Tables\CalendarExceptions.sql" />
+    <Build Include="dbo\Tables\ClientNotifications.sql" />
+    <Build Include="dbo\Tables\IvrUserWorks.sql" />
+    <Build Include="dbo\Tables\ManualWorkItemSource.sql" />
+    <Build Include="dbo\Tables\ManualWorkItems.sql" />
+    <Build Include="dbo\Functions\GetIntersectDuration.sql" />
+    <Build Include="dbo\Functions\GetDatePart.sql" />
+    <Build Include="dbo\Functions\IsWorkDay.sql" />
+    <Build Include="dbo\Functions\GetFlattenedCalendarExceptions.sql" />
+    <Build Include="dbo\Functions\GetInheritedCalendarIds.sql" />
+    <Build Include="dbo\Stored Procedures\GetLearningRuleGenerators.sql" />
+    <Build Include="dbo\Stored Procedures\Client_SetWorkedUsersOnDay.sql" />
+    <Build Include="dbo\Stored Procedures\UpsertClientComputerError.sql" />
+    <Build Include="dbo\Stored Procedures\GetUsersForUsageStats.sql" />
+    <Build Include="dbo\Stored Procedures\ReportClientComputerVersion.sql" />
+    <Build Include="dbo\Stored Procedures\ReportClientComputerAddress.sql" />
+    <Build Include="dbo\Stored Procedures\UpsertVoiceRecordings.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateIvrWorkItemsWithComputerActivity.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateHourlyAggregateWorkItemsFromId.sql" />
+    <Build Include="dbo\Stored Procedures\ClientComputerKickSend.sql" />
+    <Build Include="dbo\Stored Procedures\ClientComputerKickConfirm.sql" />
+    <Build Include="dbo\Stored Procedures\GetMobileWorkTimeByWorkIdForUser.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteVoiceRecordings.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorkTimeByWorkIdForUser.sql" />
+    <Build Include="dbo\Stored Procedures\GetIvrWorkTimeByWorkIdForUser.sql" />
+    <Build Include="dbo\Stored Procedures\GetTotalWorkTimeByWorkIdForUser.sql" />
+    <Build Include="dbo\Stored Procedures\Client_CommitUsageStatsToEcomm.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateHourlyAggregateWorkItems.sql" />
+    <Build Include="dbo\Stored Procedures\GetActiveWindowsGrouppedForUser.sql" />
+    <Build Include="dbo\Stored Procedures\GetSchemaVersion.sql" />
+    <Build Include="dbo\Tables\RowVersionSequence.sql" />
+    <Build Include="dbo\Stored Procedures\GetNextValueForSequence.sql" />
+    <Build Include="dbo\Tables\AggregateDailyWorkTimesByWorkId.sql" />
+    <Build Include="dbo\Tables\AggregateDailyWorkTimes.sql" />
+    <Build Include="dbo\Functions\GetDayRange.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateDailyAggregateWorkTimeTables.sql" />
+    <Build Include="dbo\User Defined Types\WorkTimesById.sql" />
+    <Build Include="dbo\Functions\GetIvrEndDateNotNull.sql" />
+    <Build Include="dbo\Stored Procedures\GetLatestDailyAggregateWorkTimeTablesForUser.sql" />
+    <Build Include="dbo\Tables\CollectedValueLookup.sql" />
+    <Build Include="dbo\Tables\CollectedKeyLookup.sql" />
+    <Build Include="dbo\Tables\CollectedItems.sql" />
+    <Build Include="dbo\Tables\Issues.sql" />
+    <Build Include="dbo\Stored Procedures\GetCollectedItemsForUser.sql" />
+    <Build Include="dbo\Tables\ClientComputerLocalAddresses.sql" />
+    <Build Include="dbo\Tables\Snippets.sql" />
+    <Build Include="dbo\Stored Procedures\InsertCollectedItems.sql" />
+    <Build Include="dbo\User Defined Types\CollectedItemsDataType.sql" />
+    <Build Include="dbo\Stored Procedures\GetIdForCollectedValueLight.sql" />
+    <Build Include="dbo\Stored Procedures\GetIdForCollectedValueHard.sql" />
+    <Build Include="dbo\Stored Procedures\GetIdForCollectedKeyLight.sql" />
+    <Build Include="dbo\Stored Procedures\GetIdForCollectedKeyHard.sql" />
+    <Build Include="dbo\Tables\ClientUserCloudTokens.sql" />
+    <Build Include="dbo\Stored Procedures\Client_SetCloudToken.sql" />
+    <Build Include="dbo\Stored Procedures\Client_UpdateCloudToken.sql" />
+    <Build Include="dbo\Stored Procedures\Client_GetCloudTokens.sql" />
+    <Build Include="dbo\Stored Procedures\Client_GetCloudTokenByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\Client_DeleteCloudToken.sql" />
+    <Build Include="dbo\Tables\ClientUserCloudEventDates.sql" />
+    <Build Include="dbo\Tables\ScreenShots.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema Comparisons\LocalDb2Project.scmp" />
+    <None Include="Schema Comparisons\Project2LocalDb.scmp" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)Deployment\DeployLocalTest.bat" "$(ProjectDir)$(OutputPath)$(TargetName).dacpac"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- Make PostBuildEvent to run only when output dacpac updated. -->
+  <ItemGroup>
+    <DacpacTarget Include="$(SqlTargetPath)">
+      <Visible>false</Visible>
+    </DacpacTarget>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="RecorderDatabase.refactorlog" />
+  </ItemGroup>
+  <PropertyGroup>
+    <SqlBuildDependsOn>_TimeStampBeforeSqlBuild;$(SqlBuildDependsOn)</SqlBuildDependsOn>
+  </PropertyGroup>
+  <Target Name="PostBuildEvent" DependsOnTargets="_TimeStampAfterSqlBuild;PostBuildEventImpl" />
+  <Target Name="PostBuildEventImpl" Condition="'$(PostBuildEvent)'!='' and ('$(RunPostBuildEvent)'!='OnOutputUpdated' or '$(_DacpacTimestampBeforeSqlBuild)'!='$(_DacpacTimestampAfterSqlBuild)')">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <Target Name="_TimeStampBeforeSqlBuild" Condition="'$(RunPostBuildEvent)'=='OnOutputUpdated'">
+    <PropertyGroup>
+      <_DacpacTimestampBeforeSqlBuild>%(DacpacTarget.ModifiedTime)</_DacpacTimestampBeforeSqlBuild>
+    </PropertyGroup>
+  </Target>
+  <Target Name="_TimeStampAfterSqlBuild" Condition="'$(RunPostBuildEvent)'=='OnOutputUpdated'">
+    <PropertyGroup>
+      <_DacpacTimestampAfterSqlBuild>%(DacpacTarget.ModifiedTime)</_DacpacTimestampAfterSqlBuild>
+    </PropertyGroup>
+  </Target>
+</Project>

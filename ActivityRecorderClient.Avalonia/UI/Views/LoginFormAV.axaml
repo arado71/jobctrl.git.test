@@ -1,0 +1,145 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+        xmlns:dialogs="using:AvaloniaDialogs.Views"
+        mc:Ignorable="d" CanResize="False"
+        x:Class="ActivityRecorderClientAV.LoginFormAV"
+        Title="Login"
+        Topmost="True"
+        Width="420" Height="420"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="0"
+        ExtendClientAreaChromeHints="0"
+        TransparencyLevelHint="AcrylicBlur, Transparent">
+
+<LayoutTransformControl x:Name="LoginWindowLayoutTransformControl">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/> <!-- Title and Settings Button -->
+      <RowDefinition Height="Auto"/> <!-- User ID / Email -->
+      <RowDefinition Height="Auto"/> <!-- Password -->
+      <RowDefinition Height="Auto"/> <!-- Language -->
+      <RowDefinition Height="Auto"/> <!-- Remember Me -->
+      <RowDefinition Height="Auto"/> <!-- Start Automatically -->
+      <RowDefinition Height="Auto"/> <!-- Separator -->
+      <RowDefinition Height="Auto"/> <!-- Login Button -->
+      <RowDefinition Height="Auto"/> <!-- Forgot Password -->
+    </Grid.RowDefinitions>
+
+    <Grid ColumnDefinitions="* Auto 10">
+      <!-- Title on the left -->
+      <TextBlock x:Name="tblTitle" 
+                 Text="JobCTRL - Login" 
+                 FontSize="24" 
+                 VerticalAlignment="Center" 
+                 Margin="20,20,0,0"/>
+
+      <!-- Close button on the right -->
+      <Button Grid.Column="2" 
+              x:Name="CloseButton" 
+              Click="OnCloseClick" 
+              Width="30" 
+              Height="30" 
+              HorizontalAlignment="Right" 
+              VerticalAlignment="Center" 
+              Margin="0,20,20,0" 
+              Cursor="Hand">
+        <Image x:Name="CloseIcon" Width="18" Height="18">
+          <Image.Source>
+            <!--svg:SvgImage Source="icons/close.svg"/-->
+          </Image.Source>
+        </Image>
+      </Button>
+    </Grid>
+
+
+    <TextBlock Grid.Row="1" 
+               x:Name="tblUserID"
+               Text="User ID / E-mail:" 
+               VerticalAlignment="Center" 
+               Margin="30,5,0,0"/>
+    <TextBox Grid.Row="1"
+             x:Name="tbUserID" 
+             HorizontalAlignment="Right" 
+             Margin="10,15,20,10" 
+             Width="200" />
+
+    <TextBlock Grid.Row="2"
+               x:Name="tblPassword" 
+               Text="Password:" 
+               VerticalAlignment="Center" 
+               Margin="30,0,0,0"/>
+    <TextBox Grid.Row="2"
+             x:Name="tbPassword" 
+             HorizontalAlignment="Right" 
+             Margin="10,10,20,10" 
+             Width="200" 
+             PasswordChar="*" />
+
+    <TextBlock Grid.Row="3"
+               x:Name="tblLanguage" 
+               Text="Language:" 
+               VerticalAlignment="Center" 
+               Margin="30,0,0,0"/>
+    <ComboBox Grid.Row="3"
+              x:Name="cbLanguage" 
+              SelectedIndex="0" 
+              HorizontalAlignment="Right" 
+              Margin="10,10,20,7" 
+              Width="200" 
+              Cursor="Hand">
+      <ComboBoxItem Content="English"/>
+      <ComboBoxItem Content="Magyar"/>
+    </ComboBox>
+
+    <CheckBox Grid.Row="4"
+              x:Name="cbRememberMe"
+              HorizontalAlignment="Right" 
+              Margin="10,3,20,0" 
+              Width="200" 
+              Content="Remember me" 
+              Cursor="Hand"/>
+
+    <CheckBox Grid.Row="5"
+              x:Name="cbStartAuto" 
+              HorizontalAlignment="Right" 
+              Margin="10,4,20,0" 
+              Width="200" 
+              Content="Start automatically in work state" 
+              IsChecked="True" 
+              Cursor="Hand"/>
+
+    <Border Grid.Row="6" 
+            BorderBrush="Gray" 
+            BorderThickness="0,2,0,0" 
+            Margin="20,15,20,10"/>
+
+    <Button Grid.Row="7" 
+            x:Name="btnLogin" 
+            Click="OnLoginClick" 
+            HorizontalAlignment="Center" 
+            Margin="10" 
+            FontSize="20" 
+            FontWeight="Bold" 
+            Padding="20,10" 
+            Cursor="Hand"
+            Content="LOGIN"/>
+
+    <TextBlock Grid.Row="8"
+               x:Name="tbForgotPassword"
+               Text="Forgot password?" 
+               HorizontalAlignment="Left" 
+               Margin="25,0,0,0"
+               Classes="TextColor"
+               TextDecorations="Underline"
+               Cursor="Hand"
+               PointerReleased="OnForgotPasswordClick"
+               />
+
+
+  </Grid>
+</LayoutTransformControl>
+</Window>

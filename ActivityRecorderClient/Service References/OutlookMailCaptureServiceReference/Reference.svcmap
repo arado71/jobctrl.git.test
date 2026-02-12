@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e7ea43dd-33ae-4abb-9ebf-b7d4de5330e2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/OutlookMailCaptureService/mex" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="bdfea01a-fa55-429d-b7f7-145e7744d453" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex4.xsd" MetadataType="Schema" ID="6ae8f5c5-d0e5-49fc-a5f0-34ad39dcb377" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex?xsd=xsd4" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="d005f0f7-8696-4243-abef-5ee9b6b1db47" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex?xsd=xsd3" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="2861718e-5b50-406d-acf1-6b28d1d39e86" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex?xsd=xsd1" />
+    <MetadataFile FileName="OutlookMailCaptureService.wsdl" MetadataType="Wsdl" ID="7f068d27-7c0a-4548-b66c-625501e0b618" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex" />
+    <MetadataFile FileName="mex3.xsd" MetadataType="Schema" ID="02b66565-6d4d-4e02-a953-614c78a05954" SourceId="1" SourceUrl="http://localhost:8000/OutlookMailCaptureService/mex?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

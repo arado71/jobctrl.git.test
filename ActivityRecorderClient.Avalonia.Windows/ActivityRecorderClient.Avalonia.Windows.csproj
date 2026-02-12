@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Tct.ActivityRecorderClient.Windows</RootNamespace>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\background.js" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\content.js" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\icon.png" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\inboxsdk.js" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\main.js" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\manifest.json" />
+    <None Remove="Capturing.Plugins.Impl.Chrome\InteropExtension\page.js" />
+    <None Remove="Capturing.Plugins.Impl.Firefox\InteropAddon\background.js" />
+    <None Remove="Capturing.Plugins.Impl.Firefox\InteropAddon\manifest.json" />
+    <None Remove="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\background.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\content.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\icon.png" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\inboxsdk.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\main.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\manifest.json" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\page.js" />
+    <Content Include="Capturing.Plugins.Impl.Firefox\InteropAddon\background.js" />
+    <Content Include="Capturing.Plugins.Impl.Firefox\InteropAddon\manifest.json" />
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityRecorderClient.Avalonia\ActivityRecorderClient.Avalonia.csproj" />
+    <ProjectReference Include="..\winforms-modernui-core\MetroFramework\MetroFrameworkCore.csproj">
+      <Private></Private>
+    </ProjectReference>
+	  <!-->Aliases>CustomTypes</Aliases>
+    </ProjectReference-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="9.0.9" />
+    <PackageReference Include="System.Management" Version="9.0.9" />
+    <PackageReference Include="TaskScheduler" Version="2.12.2" />
+    <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View.Presenters\" />
+    <Folder Include="View\" />
+  </ItemGroup>
+
+</Project>

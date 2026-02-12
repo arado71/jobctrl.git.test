@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="KickDataClassesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClientComputerKicks" Member="ClientComputerKicks">
+    <Type Name="ClientComputerKick">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComputerId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpirationDate" AccessModifier="Internal" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SendDate" AccessModifier="Internal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmDate" AccessModifier="Internal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Result" AccessModifier="Internal" Type="System.Nullable&lt;Tct.ActivityRecorderService.Kicks.KickResult&gt;" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActiveDevices" Member="ActiveDevices">
+    <Type Name="ActiveDevice">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FirstSeen" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastSeen" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ClientComputerKickConfirm" Method="ClientComputerKickConfirm">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deviceId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="confirmDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ClientComputerKickSend" Method="ClientComputerKickSend">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deviceId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="sendDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

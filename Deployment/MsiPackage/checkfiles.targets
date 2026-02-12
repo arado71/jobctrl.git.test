@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="CheckFiles">
+    <CheckFiles Source="$(ProjectDir)..\..\ActivityRecorderClient\bin\$(Configuration)" WxsFile="$(ProjectDir)Product.wxs" />
+  </Target>
+
+  <UsingTask TaskName="CheckFiles" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Source ParameterType="System.String" Required="true" />
+      <WxsFile ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Reference Include="System.Xml.Linq" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="System.Xml.Linq" />
+      <Using Namespace="System.Linq" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+			string[] exclusions = {
+				"Newtonsoft[.]Json[.]xml",
+				"Microsoft[.]Data[.]Edm",
+				".*[.]pdb",
+				".*[.]log",
+				".*[.]vshost",
+				"Mapping.txt",
+				//"~",
+				"(JobCTRL|JC360).*[.]exe",
+				"(JobCTRL|JC360).*[.]application",
+			};
+			var jcExeRegex = new Regex("[\\\\]((JobCTRL[-A-Z]*|JC360.*)[.]exe)$");
+			var exclRegex = exclusions.Select(e => new Regex(e)).ToList();
+			var wxsText = File.ReadAllText(WxsFile);
+			var files = Directory.EnumerateFiles(Source, "*.*", SearchOption.AllDirectories).ToList();
+			var jcExePath = files.First(f => jcExeRegex.IsMatch(f));
+			var jcExeName = Path.GetFileNameWithoutExtension(jcExePath);
+			wxsText = wxsText.Replace("$"+"(var.ActivityRecorderClient.TargetName)", jcExeName);
+			var root = Path.GetDirectoryName(jcExePath);
+			var missingItemExists = false;
+			foreach (var file in files)
+			{
+				var shortPath = file.Replace(root + Path.DirectorySeparatorChar, "");
+				if (exclRegex.Any(e => e.IsMatch(shortPath))) continue;
+				if (wxsText.Contains(shortPath)) continue;
+				Log.LogError("Missing File item in Product.wxs: " + shortPath);
+				missingItemExists = true;
+			}
+			return !missingItemExists;
+      ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

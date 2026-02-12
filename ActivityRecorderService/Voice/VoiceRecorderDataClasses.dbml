@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="recorder" Class="VoiceRecorderDataClassesDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=recorder;Integrated Security=True;Pooling=False" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="recorderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.VoiceRecordings" Member="VoiceRecordings">
+    <Type Name="VoiceRecording">
+      <Column Name="Id" AccessModifier="Internal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Codec" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Extension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FirstReceiveDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastReceiveDate" AccessModifier="Internal" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Offset" Storage="_ChunkCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeleteDate" AccessModifier="Internal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.UpsertVoiceRecordings" Method="UpsertVoiceRecordings">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="clientId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="workId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="duration" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codec" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="extension" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="offset" Type="System.Int32" DbType="Int" />
+    <Parameter Name="length" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteVoiceRecordings" Method="DeleteVoiceRecordings">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="clientId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deleteDate" Type="System.DateTime" DbType="DateTime" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

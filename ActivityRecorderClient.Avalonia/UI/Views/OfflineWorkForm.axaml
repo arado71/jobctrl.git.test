@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		xmlns:local="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.Views"
+		xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+		x:Class="Tct.ActivityRecorderClient.Avalonia.UI.Views.OfflineWorkForm"
+		WindowStartupLocation="CenterScreen"
+		Title="Offline worktime"
+		CanResize="True"
+		Topmost="True"
+		MinHeight="200"
+		MinWidth="600"
+		Closing="Window_Closing"
+		Closed="Window_Closed"
+		>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/> <!-- Title -->
+			<RowDefinition Height="0"/> <!-- Interval Bar - NOT IMPLEMENTED -->
+			<RowDefinition Height="*"/> <!-- OfflineWorkCard Container-->
+			<RowDefinition Height="30"/> <!-- Bottom Area 1 -->
+			<RowDefinition Height="70"/> <!-- Bottom Area 2 -->
+		</Grid.RowDefinitions>
+
+		<Border Grid.Row="0"
+				Background="{DynamicResource BackgroundBrush}"
+				VerticalAlignment="Top"
+				Height="35" />
+		<TextBlock  Grid.Row="0"
+					Text="Offline Worktime"
+					FontSize="18"
+					IsHitTestVisible="False"
+					FontWeight="Medium"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Margin="0,7,0,0"/>
+
+		<ScrollViewer Grid.Row="2" x:Name="OfflineWorkCardScrollViewer">
+			<StackPanel Grid.Row="2" x:Name="OfflineWorkCardContainer" Orientation="Vertical" VerticalAlignment="Top">
+			<StackPanel.Styles>
+				<Style Selector="local|OfflineWorkCard">
+					<Setter Property="Margin" Value="10,3,10,3"/>
+				</Style>
+			</StackPanel.Styles>
+			</StackPanel>
+		</ScrollViewer>
+
+		<!-- Total Row -->
+		<Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ColumnDefinitions="Auto,*">
+			<TextBlock x:Name="TotalLabel" Grid.Column="0" Text="Total:" FontSize="16" VerticalAlignment="Bottom" Margin="10,0,0,0" />
+			<Border Grid.Column="1" Background="Gray" Height="3" VerticalAlignment="Center" Margin="10,10,10,0" />
+		</Grid>
+		<!-- Timer Row -->
+		<Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ColumnDefinitions="Auto,Auto,*,Auto,Auto" Margin="0,0,0,10">
+			<TextBlock x:Name="BigTimerText" Grid.Column="0" Text="00:05'00" FontSize="36" FontWeight="Medium" Width="160" VerticalAlignment="Center" Margin="10,7,10,10" />
+			<Ellipse x:Name="TimerAnimation" Grid.Column="1" Width="20" Height="20" Fill="Red" VerticalAlignment="Center" Margin="0" />
+			<Border Grid.Column="2" /> <!-- Spacer -->
+
+			<Button x:Name="AddButton" Click="OnAddClick" Grid.Column="3" FontSize="18" FontWeight="Medium" Cursor="Hand" Padding="10" Margin="5,0,10,0">
+				<StackPanel Orientation="Horizontal" Spacing="5">
+					<Image x:Name="CheckIcon" Width="25" Height="25" VerticalAlignment="Center"
+						Source="{viewModels:Icon {Binding Source='check.svg'}}"/>
+					<TextBlock x:Name="AddButtonText" Text="Add" VerticalAlignment="Center"/>
+				</StackPanel>
+			</Button>
+
+			<Button x:Name="DeleteButton" Click="OnDeleteClick" Grid.Column="4" FontSize="18" FontWeight="Medium" Cursor="Hand" Padding="10" Margin="5,0,10,0">
+				<StackPanel Orientation="Horizontal" Spacing="5">
+					<Image x:Name="TrashCanIcon" Width="25" Height="25" VerticalAlignment="Center"
+						Source="{viewModels:Icon {Binding Source='trash-can.svg'}}"/>
+					<TextBlock x:Name="DeleteButtonText" Text="Delete" VerticalAlignment="Center"/>
+				</StackPanel>
+			</Button>
+		</Grid>
+
+	</Grid>
+</Window>

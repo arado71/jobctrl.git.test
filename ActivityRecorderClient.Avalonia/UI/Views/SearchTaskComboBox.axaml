@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="200"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+			 x:DataType="viewModels:TaskSearchViewModel"
+			 x:Class="Tct.ActivityRecorderClient.Avalonia.UI.Views.SearchTaskComboBox"
+			 >
+
+	<Design.DataContext>
+		<viewModels:DesignTaskSearchViewModel />
+	</Design.DataContext>
+
+	<UserControl.Resources>
+		<DataTemplate x:Key="ComboItemTemplate" x:DataType="viewModels:TaskFlattenedViewModel">
+			<TextBlock Text="{Binding FullName}" />
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<ComboBox
+	x:Name="SearchCombo"
+	MinWidth="250"
+	IsEditable="True"
+	PlaceholderText="Search..."
+	ItemsSource="{Binding FilteredItems}"
+	SelectedItem="{Binding SelectedItem}"
+	TextSearch.TextBinding="{Binding SearchText, DataType=viewModels:TaskSearchViewModel}"
+	HorizontalAlignment="Stretch"
+	>
+		<ComboBox.ItemTemplate>
+			<DataTemplate  x:DataType="viewModels:TaskFlattenedViewModel">
+				<TextBlock Text="{Binding FullName}" FontFamily="{Binding}" />
+			</DataTemplate>
+		</ComboBox.ItemTemplate>
+	</ComboBox>
+</UserControl>

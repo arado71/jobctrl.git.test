@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">MixedWix</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BC16C0A-CBB3-4BA6-A215-65C5426A0B80}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OutlookMeetingCaptureServiceHost</RootNamespace>
+    <AssemblyName>JC.Meeting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedCo' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedWix' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.15\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Desktop.Windows.ProcessInfo\ProcessNameHelper.cs">
+      <Link>ProcessInfo\ProcessNameHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Desktop.Windows.ProcessInfo\SafeProcessHandle.cs">
+      <Link>ProcessInfo\SafeProcessHandle.cs</Link>
+    </Compile>
+    <Compile Include="OutlookMeetingCaptureHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutlookMeetingCaptureHostForm.designer.cs">
+      <DependentUpon>OutlookMeetingCaptureHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OutlookMeetingCaptureHostForm.resx">
+      <DependentUpon>OutlookMeetingCaptureHostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OutlookMeetingCaptureService\OutlookMeetingCaptureService.csproj">
+      <Project>{B652E483-62D8-4A7D-9A49-9BC1AFBFA3A4}</Project>
+      <Name>OutlookMeetingCaptureService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+"$(ProjectDir)..\..\Utilities\7za.exe" e -y -o"$(TargetDir)" "$(ProjectDir)..\OutlookMeetingCaptureService\Libs\Redemption.zip"
+copy "$(ProjectDir)..\OutlookMeetingCaptureService\$(OutDir)\OutlookMeetingCaptureService.dll.config" "$(TargetPath).config"
+copy "$(TargetPath)" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetPath).config" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\$(TargetName)64$(TargetExt)"
+copy "$(TargetPath).config" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\$(TargetName)64$(TargetExt).config"
+"$(ProjectDir)..\..\Utilities\CorFlags.exe" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\$(TargetName)64$(TargetExt)" /32bit- /nologo
+copy "$(TargetDir)\OutlookMeetingCaptureService.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetDir)\Redemption.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetDir)\Redemption64.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetDir)\Interop.Redemption.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetDir)\ICSharpCode.SharpZipLib.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"
+copy "$(TargetDir)\log4net.dll" "$(ProjectDir)..\..\ActivityRecorderClient\OutlookSync\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

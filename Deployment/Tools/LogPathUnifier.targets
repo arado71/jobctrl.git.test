@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <BuildDependsOn>$(BuildDependsOn);LogPathUnificationAfterBuild</BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="LogPathUnificationAfterBuild">
+    <LogPathUnification RootPath="$(ProjectDir)$(OutputPath)" ClientConfigFileName="$(AssemblyName).exe.config" MsiInstallScope="$(MsiInstallScope)" />
+  </Target>
+
+  <UsingTask TaskName="LogPathUnification" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <RootPath ParameterType="System.String" Required="true" />
+      <ClientConfigFileName ParameterType="System.String" Required="true" />
+	  <MsiInstallScope ParameterType="System.String" Required="false" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Using Namespace="System" />
+      <Using Namespace="System.Xml" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Linq" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+      Log.LogMessage("LogPathUnification", MessageImportance.High);
+      string pathToFileNode = @"//*[local-name()='configuration']/*[local-name()='log4net']/*[local-name()='appender']/*[local-name()='file']";
+	  var PerMachineLogRoot = @"${LOCALAPPDATA}\JobCTRL\";
+			var clientConfig = new XmlDocument();
+			try
+			{
+				clientConfig.Load(Path.Combine(RootPath, ClientConfigFileName));
+			}
+			catch (Exception ex)
+			{
+				Log.LogError("Couldn't find client log file in the path [" + RootPath + "] filename [" + ClientConfigFileName + "]");
+				Log.LogError(ex.Message);
+				return false;
+			}
+      XmlNodeList logPathNodes;
+	  string logPath = null;
+      try
+      {
+			  logPathNodes = clientConfig.SelectNodes(pathToFileNode);
+			  logPath = logPathNodes[0].Attributes["value"].Value;
+      } catch(NullReferenceException ex) {
+				Log.LogError("Couldn't find node [" + pathToFileNode + "]");
+				return false;
+      }
+			if (logPath == null)
+			{
+				Log.LogError("Couldn't find node [" + pathToFileNode + "]");
+				return false;
+			}
+
+			bool shouldNormalizeLogPath = !(logPath.Contains('$') | logPath.Contains(':'));
+			if (shouldNormalizeLogPath && "perMachine".Equals(MsiInstallScope))
+			{
+				logPath = Path.Combine(PerMachineLogRoot, logPath);
+				logPathNodes[0].Attributes["value"].Value = logPath;
+				logPathNodes[1].Attributes["value"].Value = Path.Combine(PerMachineLogRoot, logPathNodes[1].Attributes["value"].Value);
+				clientConfig.Save(Path.Combine(RootPath, ClientConfigFileName));
+				shouldNormalizeLogPath = false;
+			}
+			XmlDocument doc = new XmlDocument();
+      try
+      {
+        foreach (var file in Directory.EnumerateFiles(RootPath, "*.*", SearchOption.AllDirectories))
+        {
+          if (Path.GetExtension(file) == ".config" && Path.GetFileName(file) != ClientConfigFileName)
+          {
+            string filename = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(file));
+            doc.Load(file);
+            XmlAttribute log4netFileElement = null;
+            try {
+              log4netFileElement = doc.SelectSingleNode(pathToFileNode).Attributes["value"];
+            } catch(NullReferenceException ex)
+            {
+              Log.LogWarning("NullReferenceException");
+              continue;
+            }
+            if (log4netFileElement != null)
+            {
+              if (!shouldNormalizeLogPath)
+              {
+                if(file.Contains("OutlookSync"))
+                  filename += ".Outlook";
+                if(file.Contains("LotusNotesSync"))
+                  filename += ".LotusNotes";
+                log4netFileElement.Value = (Path.GetDirectoryName(logPath) + "/" + filename + ".log").Replace("\\", "/");
+                Log.LogMessage("Setting [" + file + "] config file's log4net path to [" + logPath + "]", MessageImportance.High);
+              } else 
+              {
+                Uri fileUri = new Uri(file);
+                Uri rootUri = new Uri(RootPath);
+                Uri relativeUri = fileUri.MakeRelativeUri(rootUri);
+                string relativePath = Uri.UnescapeDataString(relativeUri.ToString());
+                string relativeLogPath = Path.Combine(relativePath, logPath);
+                // TODO: solve otherwise
+                // ugly hax, this should be solved otherwise...
+                if(filename == "JC.FF" || filename == "JC.Chrome" || filename == "MailActivityTracker")
+                  relativeLogPath = Path.Combine("..", relativeLogPath);
+                if(file.Contains("OutlookSync"))
+                  filename += ".Outlook";
+                if(file.Contains("LotusNotesSync"))
+                  filename += ".LotusNotes";
+                relativeLogPath = Path.GetDirectoryName(relativeLogPath) + "/" + filename + ".log";
+                relativeLogPath = relativeLogPath.Replace("\\", "/");
+                Log.LogMessage("Setting [" + file + "] config file's log4net path to [" + relativeLogPath + "]", MessageImportance.High);
+                log4netFileElement.Value = relativeLogPath;
+              }
+              doc.Save(file);
+            }
+          }
+        }
+      } catch(Exception e) 
+      {
+        Log.LogError(e.Message);
+      }
+      return !Log.HasLoggedErrors; 
+      ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="_jobcontrol" Class="JobControlDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=GOLLAM\SQLEXPRESS;Initial Catalog=_jobcontrol;Integrated Security=True" SettingsObjectName="Tct.ActivityRecorderService.Properties.Settings" SettingsPropertyName="_jobcontrolConnectionString" Provider="System.Data.SqlClient" />
+</Database>

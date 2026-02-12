@@ -1,0 +1,254 @@
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Windows.Automation;
+using log4net;
+
+namespace Tct.ActivityRecorderClient.Capturing.Desktop.Windows.Url
+{
+	public static class AutomationHelper
+	{
+		private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+		public static bool TryGetValueFromHandle(IntPtr hWnd, ILog logOvr, out string value)
+		{
+			try
+			{
+				var element = AutomationElement.FromHandle(hWnd);
+				return TryGetValueFromElement(element, logOvr, out value);
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get AutomationElement from handle", ex);
+				Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static bool TryGetValueFromElement(AutomationElement element, ILog logOvr, out string value)
+		{
+			try
+			{
+				object valuePattern;
+				if (element != null
+					&& element.TryGetCurrentPattern(ValuePattern.Pattern, out valuePattern)
+					&& valuePattern != null)
+				{
+					value = ((ValuePattern)valuePattern).Current.Value;
+					// In full screen youtube videos this will return an empty string erronously
+					if (string.IsNullOrEmpty(value)) return false;
+					return true;
+				}
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get value from AutomationElement", ex);
+				Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static bool TryGetSelectionFromElement(AutomationElement element, ILog logOvr, out string value)
+		{
+			try
+			{
+				object pattern;
+				TextPattern textPattern;
+				if (element != null
+					&& element.TryGetCurrentPattern(TextPattern.Pattern, out pattern)
+					&& (textPattern = pattern as TextPattern) != null
+					&& textPattern.SupportedTextSelection != SupportedTextSelection.None)
+				{
+					var range = textPattern.GetSelection();
+					if (range != null)
+					{
+						value = string.Join("", range.Select(x => x.GetText(-1)).ToArray());
+						return true;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get value from AutomationElement", ex);
+				Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static bool TryGetTextFromElement(AutomationElement element, ILog logOvr, out string value)
+		{
+			try
+			{
+				object pattern;
+				TextPattern textPattern;
+				if (element != null
+					&& element.TryGetCurrentPattern(TextPattern.Pattern, out pattern)
+					&& (textPattern = pattern as TextPattern) != null)
+				{
+					var range = textPattern.DocumentRange;
+					if (range != null)
+					{
+						value = range.GetText(-1);
+						return true;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get value from AutomationElement", ex);
+				Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static bool TryGetRadioNameFromElement(AutomationElement element, ILog logOvr, out string value)
+		{
+			try
+			{
+				foreach(AutomationElement child in element.FindAll(TreeScope.Children, Condition.TrueCondition))
+				{
+					SelectionItemPattern selectionItemPattern = child.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern;
+					bool isSelected = selectionItemPattern.Current.IsSelected;
+					if (isSelected)
+					{
+						value = child.Current.Name;
+						return true;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get radio name from AutomationElement", ex);
+				//Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static bool TryGetRadioValueFromElement(AutomationElement element, ILog logOvr, out string value)
+		{
+			try
+			{
+				foreach (AutomationElement child in element.FindAll(TreeScope.Children, Condition.TrueCondition))
+				{
+					SelectionItemPattern selectionItemPattern = child.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern;
+					bool isSelected = selectionItemPattern.Current.IsSelected;
+					if (isSelected)
+					{
+						return TryGetValueFromElement(child, logOvr, out value);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				(logOvr ?? log).Debug("Cannot get radio name from AutomationElement", ex);
+				Debug.Fail(ex.Message);
+			}
+			value = null;
+			return false;
+		}
+
+		public static string GetProperty(AutomationElement element, AutomationProperty property, bool canThrow = false)
+		{
+			try
+			{
+				return element == null
+					? ""
+					: ((element.GetCurrentPropertyValue(property, true) as string) ?? "");
+			}
+			catch (Exception)
+			{
+				if (canThrow)
+					throw;
+				return "";
+			}
+		}
+
+		public static string GetText(AutomationElement element)
+		{
+			string result;
+			TryGetTextFromElement(element, null, out result);
+			return result ?? "";
+		}
+
+		public static string GetValue(AutomationElement element)
+		{
+			string result;
+			TryGetValueFromElement(element, null, out result);
+			return result ?? "";
+		}
+
+		public static string GetSelection(AutomationElement element)
+		{
+			string result;
+			TryGetSelectionFromElement(element, null, out result);
+			return result ?? "";
+		}
+
+		public static string GetName(AutomationElement element, bool canThrow = false)
+		{
+			return GetProperty(element, AutomationElement.NameProperty, canThrow);
+		}
+
+		public static string GetHelpText(AutomationElement element, bool canThrow = false)
+		{
+			return GetProperty(element, AutomationElement.HelpTextProperty, canThrow);
+		}
+
+		public static string GetControlType(AutomationElement element, bool canThrow = false)
+		{
+			return GetProperty(element, AutomationElement.ControlTypeProperty, canThrow);
+		}
+
+		public static AutomationElement GetChildByIndex(this AutomationElement element, int index)
+		{
+			var children = element.FindAll(TreeScope.Children, Condition.TrueCondition);
+			return children.Count < index + 1 ? null : children[index];
+		}
+
+		public static AutomationElement GetFirstChild(this AutomationElement element)
+		{
+			return element.FindFirst(TreeScope.Children, Condition.TrueCondition);
+		}
+
+		public static AutomationElement GetFirstChildByName(this AutomationElement element, string name, ControlType type = null)
+		{
+			var condition = type != null ? new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Tab) : Condition.TrueCondition;
+			return element.FindAll(TreeScope.Children, condition).OfType<AutomationElement>()
+				.Where(n => string.Equals(GetName(n), name, StringComparison.OrdinalIgnoreCase))
+				.FirstOrDefault();
+		}
+
+		public static AutomationElement GetFirstChildByClassName(this AutomationElement element, string className, ControlType type = null)
+		{
+			var condition = type != null ? new PropertyCondition(AutomationElement.ControlTypeProperty, type) : Condition.TrueCondition;
+			return element.FindAll(TreeScope.Children, condition).OfType<AutomationElement>()
+				.Where(n => string.Equals(GetProperty(n, AutomationElement.ClassNameProperty), className, StringComparison.OrdinalIgnoreCase))
+				.FirstOrDefault();
+		}
+
+		public static AutomationElement GetFirstChildByType(this AutomationElement element, ControlType type)
+		{
+			var typeCondition = new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.StatusBar);
+			return element.FindFirst(TreeScope.Children, typeCondition);
+		}
+
+		public static string GetRadioName(AutomationElement element)
+		{
+			string result;
+			TryGetRadioNameFromElement(element, null, out result);
+			return result ?? "";
+		}
+
+		public static string GetRadioValue(AutomationElement element)
+		{
+			string result;
+			TryGetRadioValueFromElement(element, null, out result);
+			return result ?? "";
+		}
+	}
+}

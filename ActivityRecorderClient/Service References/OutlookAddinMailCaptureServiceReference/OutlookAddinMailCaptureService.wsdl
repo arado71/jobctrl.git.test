@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="OutlookAddinMailCaptureService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetNamedPipeBinding_IAddinMailCaptureService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd2" namespace="http://jobctrl.com/mail" />
+      <xsd:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8000/OutlookAddinMailCaptureService/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderClient.Capturing.Mail" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAddinMailCaptureService_GetMailCaptures_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailCaptures" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_GetMailCaptures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailCapturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_StopService_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopService" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_StopService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_FilterMails_InputMessage">
+    <wsdl:part name="parameters" element="tns:FilterMails" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_FilterMails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FilterMailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_TransferMenuData_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferMenuData" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_TransferMenuData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferMenuDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_UpdateMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenu" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_UpdateMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetMailTrackingBehavior_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMailTrackingBehavior" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetMailTrackingBehavior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMailTrackingBehaviorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_Heartbeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Heartbeat" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_Heartbeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HeartbeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetMailTrackingSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMailTrackingSettings" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetMailTrackingSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMailTrackingSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetTaskIdSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskIdSettings" />
+  </wsdl:message>
+  <wsdl:message name="IAddinMailCaptureService_SetTaskIdSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskIdSettingsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAddinMailCaptureService">
+    <wsdl:operation name="GetMailCaptures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailCaptureService/GetMailCaptures" message="tns:IAddinMailCaptureService_GetMailCaptures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailCaptureService/GetMailCapturesResponse" message="tns:IAddinMailCaptureService_GetMailCaptures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailCaptureService/StopService" message="tns:IAddinMailCaptureService_StopService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailCaptureService/StopServiceResponse" message="tns:IAddinMailCaptureService_StopService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterMails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/FilterMails" message="tns:IAddinMailCaptureService_FilterMails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/FilterMailsResponse" message="tns:IAddinMailCaptureService_FilterMails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferMenuData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/TransferMenuData" message="tns:IAddinMailCaptureService_TransferMenuData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/TransferMenuDataResponse" message="tns:IAddinMailCaptureService_TransferMenuData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/UpdateMenu" message="tns:IAddinMailCaptureService_UpdateMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/UpdateMenuResponse" message="tns:IAddinMailCaptureService_UpdateMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/GetVersion" message="tns:IAddinMailCaptureService_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/GetVersionResponse" message="tns:IAddinMailCaptureService_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMailTrackingBehavior">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingBehavior" message="tns:IAddinMailCaptureService_SetMailTrackingBehavior_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingBehaviorResponse" message="tns:IAddinMailCaptureService_SetMailTrackingBehavior_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Heartbeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/Heartbeat" message="tns:IAddinMailCaptureService_Heartbeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/HeartbeatResponse" message="tns:IAddinMailCaptureService_Heartbeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMailTrackingSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingSettings" message="tns:IAddinMailCaptureService_SetMailTrackingSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingSettingsResponse" message="tns:IAddinMailCaptureService_SetMailTrackingSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskIdSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetTaskIdSettings" message="tns:IAddinMailCaptureService_SetTaskIdSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddinMailCaptureService/SetTaskIdSettingsResponse" message="tns:IAddinMailCaptureService_SetTaskIdSettings_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetNamedPipeBinding_IAddinMailCaptureService" type="tns:IAddinMailCaptureService">
+    <wsp:PolicyReference URI="#NetNamedPipeBinding_IAddinMailCaptureService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/named-pipe" />
+    <wsdl:operation name="GetMailCaptures">
+      <soap12:operation soapAction="http://tempuri.org/IMailCaptureService/GetMailCaptures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap12:operation soapAction="http://tempuri.org/IMailCaptureService/StopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterMails">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/FilterMails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferMenuData">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/TransferMenuData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/UpdateMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMailTrackingBehavior">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingBehavior" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Heartbeat">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/Heartbeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMailTrackingSettings">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/SetMailTrackingSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskIdSettings">
+      <soap12:operation soapAction="http://tempuri.org/IAddinMailCaptureService/SetTaskIdSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OutlookAddinMailCaptureService">
+    <wsdl:port name="NetNamedPipeBinding_IAddinMailCaptureService" binding="tns:NetNamedPipeBinding_IAddinMailCaptureService">
+      <soap12:address location="net.pipe://localhost/OutlookAddinMailCaptureService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.pipe://localhost/OutlookAddinMailCaptureService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>TCT\kdobosy</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

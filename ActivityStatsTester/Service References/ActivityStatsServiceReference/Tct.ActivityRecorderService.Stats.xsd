@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Stats" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Stats" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DailyStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DailyStats" nillable="true" type="tns:DailyStats" />
+  <xs:complexType name="ArrayOfUserStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserStats" nillable="true" type="tns:UserStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserStats" nillable="true" type="tns:ArrayOfUserStats" />
+  <xs:complexType name="UserStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentWork" nillable="true" type="tns:UserWorkStats" />
+      <xs:element minOccurs="0" name="GroupId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="LastActiveWindow" nillable="true" type="q1:ActiveWindow" />
+      <xs:element minOccurs="0" name="LastKeyboardActivity" type="xs:int" />
+      <xs:element minOccurs="0" name="LastMouseActivity" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="LastScreenShots" nillable="true" type="q2:ArrayOfScreenShot" />
+      <xs:element minOccurs="0" name="LastUpdateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RecentWorks" nillable="true" type="tns:ArrayOfUserWorkStats" />
+      <xs:element minOccurs="0" name="Status" type="tns:UserStatus" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="AverageKeyboardActivity" type="xs:float" />
+      <xs:element minOccurs="0" name="AverageMouseActivity" type="xs:float" />
+      <xs:element minOccurs="0" name="WorkTimeStats" nillable="true" type="tns:WorkTimeStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserStats" nillable="true" type="tns:UserStats" />
+  <xs:complexType name="UserWorkStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkTime" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserWorkStats" nillable="true" type="tns:UserWorkStats" />
+  <xs:complexType name="ArrayOfUserWorkStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserWorkStats" nillable="true" type="tns:UserWorkStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserWorkStats" nillable="true" type="tns:ArrayOfUserWorkStats" />
+  <xs:simpleType name="UserStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="OnlineIdle" />
+      <xs:enumeration value="OnlineNotWorking" />
+      <xs:enumeration value="Offline" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserStatus" nillable="true" type="tns:UserStatus" />
+  <xs:complexType name="WorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="IvrWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="SumWorkTime" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkTimeStats" nillable="true" type="tns:WorkTimeStats" />
+</xs:schema>

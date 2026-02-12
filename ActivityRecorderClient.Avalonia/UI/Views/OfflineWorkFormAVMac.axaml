@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ActivityRecorderClientAV.OfflineWorkFormAVMac"
+        Topmost="False" Title="Offline worktime"
+        TransparencyLevelHint="AcrylicBlur, Transparent"
+        WindowStartupLocation="CenterScreen"
+        CanResize="True">
+<!--Width="500" Height="260" MinWidth="500" MinHeight="260" MaxWidth="900" MaxHeight="260"-->
+<LayoutTransformControl x:Name="OfflineWorktimeWindowLayoutTransformControl">
+<Grid>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="25"/>
+        <RowDefinition Height="40"/>
+        <RowDefinition Height="135"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border PointerPressed="OnHeaderPointerPressed" Background="#00000000" Grid.Row="0">
+        </Border>
+
+        <Grid Grid.Row="1" Margin="20,0,20,0" x:Name="TopRow">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="12*"/>
+          <ColumnDefinition Width="22*"/>
+          <ColumnDefinition Width="66*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" x:Name="TimeLength" Text="00:06" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TimeInterval" Text="15:25 » 15:31" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" x:Name="ChosenTask" Text="TCT » TCT - PM » General - Meeting"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Grid>      
+
+    <Grid Grid.Row="2" Margin="20,10,20,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Choose Task -->
+            <RowDefinition Height="Auto"/> <!-- Subject -->
+            <RowDefinition Height="Auto"/> <!-- Description -->
+            <RowDefinition Height="Auto"/> <!-- Participants -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Choose Task." VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" x:Name="Tasks" SelectionChanged="Tasks_SelectionChanged" Cursor="Hand" HorizontalAlignment="Stretch"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Subject" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Name="Subject"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Description:" VerticalAlignment="Center" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" Name="Description"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Participants (e-mails):" VerticalAlignment="Center" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" Name="Participants"/>
+    </Grid>
+
+    <Grid Grid.Row="3" Margin="20,0,20,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Time Display -->
+        <TextBlock Grid.Column="0" Text="00:06'03" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="✓ Add" Margin="5,0" Cursor="Hand" Name="AddButton"/>
+            <Button Content="Delete" Margin="5,0" Cursor="Hand" Name="DeleteButton"/>
+        </StackPanel>
+    </Grid>
+
+</Grid>
+</LayoutTransformControl>
+</Window>

@@ -1,0 +1,156 @@
+<Application xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="using:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+			 x:Class="ActivityRecorderClientAV.App"
+			 RequestedThemeVariant="Default"
+			 Name="JobCTRL">
+	<!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+	<Application.Styles>
+
+		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
+
+		<FluentTheme>
+
+			<!-- Window style for light theme -->
+			<Style Selector="Window.light">
+				<Setter Property="Background" Value="{DynamicResource LightBackground}" />
+			</Style>
+
+			<!-- Window style for dark theme -->
+			<Style Selector="Window.dark">
+				<Setter Property="Background" Value="{DynamicResource DarkBackground}" />
+			</Style>
+
+			<!-- Button style for light theme -->
+			<Style Selector="Button.light">
+				<Setter Property="Background" Value="#F2E7E3" />
+				<Setter Property="BorderBrush" Value="Transparent" />
+				<Setter Property="BorderThickness" Value="0" />
+			</Style>
+
+			<!-- Button style for dark theme -->
+			<Style Selector="Button.dark">
+				<Setter Property="Background" Value="#282129" />
+				<Setter Property="BorderBrush" Value="Transparent" />
+				<Setter Property="BorderThickness" Value="0" />
+			</Style>
+
+			<Style Selector="TextBlock.Text">
+				<Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+			</Style>
+
+			<Styles.Resources>
+				<SolidColorBrush x:Key="TextColorLight" Color="CornflowerBlue"/>
+				<SolidColorBrush x:Key="TextColorDark" Color="LightSkyBlue"/>
+			</Styles.Resources>
+
+			<Style Selector="TextBlock#UserNameTextBlock.Light">
+				<Setter Property="Background" Value="#D1D1D2"/>
+			</Style>
+
+			<Style Selector="TextBlock#UserNameTextBlock.Dark">
+				<Setter Property="Background" Value="#282828"/>
+			</Style>
+
+			<Style Selector="Border.Separator">
+				<Setter Property="Background" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+			</Style>
+
+		</FluentTheme>
+
+		<!-- Hover effect style for TaskItem -->
+		<Style Selector="Grid.taskItem:pointerover">
+			<Setter Property="Background" Value="#AF0078D7" />
+		</Style>
+
+		<Style Selector="TextBox">
+			<Setter Property="SelectionBrush" Value="#007AFF"/>
+			<Setter Property="SelectionForegroundBrush" Value="White"/>
+		</Style>
+
+		<Style Selector="Button#SetButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackgroundPointerOver}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button#SetButton:pressed /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackgroundPressed}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button#SetButton">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackground}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+
+		<Style Selector="Button#ResetButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackgroundPointerOver}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button#ResetButton:pressed /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackgroundPressed}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button#ResetButton">
+			<Setter Property="Background" Value="{DynamicResource BlueButtonBackground}" />
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+
+
+
+	</Application.Styles>
+
+	<Application.Resources>
+		<viewmodels:MsToTimeSpanConverter x:Key="MsToTimeSpan"/>
+		<viewmodels:MsToHourMinutesConverter x:Key="MsToHourMinutes"/>
+		<viewmodels:DeltaWorkTimeColorConverter x:Key="DeltaWorkTimeColor"/>
+		<viewmodels:DeltaMsConverter x:Key="DeltaMsConverter"/>
+		<viewmodels:IconPathToImageConverter x:Key="IconPathToImage" />
+		<viewmodels:IsNullConverter x:Key="IsNull" />
+		<viewmodels:IsNotNullConverter x:Key="IsNotNull" />
+
+		<SolidColorBrush x:Key="CustomSnackbarBrush" Color="#428DFF"/>
+
+		<SolidColorBrush x:Key="LightBackground" Color="#D0FFFFFF"/>
+		<SolidColorBrush x:Key="DarkBackground" Color="#99000000"/>
+
+		<Color x:Key="LightTextBackgroundColor">#D1D1D2</Color>
+		<Color x:Key="DarkTextBackgroundColor">#282828</Color>
+
+		<SolidColorBrush x:Key="SeparatorBrush" Color="#30707070"/>
+
+		<SolidColorBrush x:Key="BackgroundBrush" Color="#00505050"/>
+		<SolidColorBrush x:Key="BackgroundBrush2" Color="#50A0A0A0"/>
+
+		<Color x:Key="ToggleSwitchFillOnPressed">#005FC6</Color> <!-- Pressed: RGB (0, 95, 198) -->
+		<Color x:Key="ToggleSwitchFillOffPressed">#7F7F7F</Color> <!-- Pressed: RGB (127, 127, 127) -->
+		<Color x:Key="ToggleSwitchFillOnPointerOver">#4EA3FF</Color> <!-- PointerOver: RGB (78, 163, 255) -->
+		<Color x:Key="ToggleSwitchFillOn">#007AFF</Color> <!-- Checked: RGB (0, 122, 255) -->
+
+		<Color x:Key="TabItemHeaderSelectedPipeFill">#007AFF</Color>
+		<x:Double x:Key="TabItemPipeThickness">3</x:Double> <!-- Increased thickness -->
+
+		<Color x:Key="ComboBoxItemBackgroundSelected">#61AAF9</Color>
+		<Color x:Key="ComboBoxItemBackgroundSelectedPointerOver">#518FD1</Color>
+		<Color x:Key="ComboBoxItemBackgroundSelectedPressed">#2789F2</Color>
+
+		<Color x:Key="CheckBoxCheckBackgroundFillChecked">#007AFF</Color>
+		<Color x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver">#4EA3FF</Color>
+		<Color x:Key="CheckBoxCheckBackgroundFillCheckedPressed">#005FC6</Color>
+
+		<Color x:Key="SliderTrackValueFill">#007AFF</Color>
+		<Color x:Key="SliderTrackValueFillPointerOver">#4EA3FF</Color>
+		<Color x:Key="SliderTrackValueFillPressed">#005FC6</Color>
+		<Color x:Key="SliderThumbBackground">#007AFF</Color>
+		<Color x:Key="SliderThumbBackgroundPointerOver">#4EA3FF</Color>
+		<Color x:Key="SliderThumbBackgroundPressed">#005FC6</Color>
+
+		<!-- Custom Blue Button Colors -->
+		<Color x:Key="BlueButtonBackground">#61AAF9</Color>
+		<Color x:Key="BlueButtonBackgroundPointerOver">#518FD1</Color>
+		<Color x:Key="BlueButtonBackgroundPressed">#2789F2</Color>
+
+		<x:Double x:Key="DatePickerThemeMinWidth">196</x:Double>
+		<x:Double x:Key="DatePickerThemeMaxWidth">356</x:Double>
+
+	</Application.Resources>
+</Application>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jobctrl.com/clientApi" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/clientApi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TargetUserId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Target" type="tns:MessageTargets" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastUpdatedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PCLastSentAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MobileLastSentAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PCLastReadAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MobileLastReadAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeletedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExpiryInHours" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MessageTargets">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PC" />
+          <xs:enumeration value="Mobile" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:complexType name="WorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="TodaysWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisWeeksWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisMonthsWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TodaysTargetNetWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisWeeksTargetNetWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisMonthsTargetNetWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisWeeksTargetUntilTodayNetWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ThisMonthsTargetUntilTodayNetWorkTimeInMs" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastComputerWorkitemEndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfTodayInUtc" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,1961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NotificationActiveOnlyErrorBody" xml:space="preserve">
+    <value>あなたのアカウントは非アクティブです。サービスを利用できません。</value>
+  </data>
+  <data name="NotificationActiveOnlyErrorTitle" xml:space="preserve">
+    <value>あなたのアカウントは非アクティブです。</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelBody" xml:space="preserve">
+    <value>設定に失敗しました</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="NotificationCannotOpenLogBody" xml:space="preserve">
+    <value>ログ ファイルを開けませんでした</value>
+  </data>
+  <data name="NotificationCannotOpenLogTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="NotificationClockSkewErrorBody" xml:space="preserve">
+    <value>あなたの時刻は{0}を示していますが、サーバーの時刻は{1}を示しています。データのアップロードが可能となるよう、時刻を設定してください。</value>
+  </data>
+  <data name="NotificationClockSkewErrorTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="NotificationManualWorkCreatedBody" xml:space="preserve">
+    <value>{0}と　の間のあなたのタスク {1}  {2}</value>
+  </data>
+  <data name="NotificationManualWorkCreatedTitle" xml:space="preserve">
+    <value>{0}、編集されたタスク</value>
+  </data>
+  <data name="NotificationPersistAndSendErrorTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="NotificationPesistAndSendErrorBody" xml:space="preserve">
+    <value>保存に失敗しました。あなたのストレージの空き容量を確認してください。</value>
+  </data>
+  <data name="NotificationWorkIdleBody" xml:space="preserve">
+    <value>非アクティブな状態であるため、作業外ステータスに入りました。</value>
+  </data>
+  <data name="NotificationWorkIdleTitle" xml:space="preserve">
+    <value>あなたのステータスは作業外です</value>
+  </data>
+  <data name="Menu_NoWorkToContinue" xml:space="preserve">
+    <value>(空欄)</value>
+  </data>
+  <data name="NumberOfItemsToUpload" xml:space="preserve">
+    <value>アップロードするデータ: {0} </value>
+  </data>
+  <data name="Menu_RecentWorks" xml:space="preserve">
+    <value>最近のタスク</value>
+  </data>
+  <data name="SumWorkHours" xml:space="preserve">
+    <value>測定された作業時間{0}時間</value>
+  </data>
+  <data name="TodaysLocalWorkTime" xml:space="preserve">
+    <value>このコンピューター上における本日の作業時間</value>
+  </data>
+  <data name="Menu_UploadWorkItemsStop" xml:space="preserve">
+    <value>データのアップロードを一時停止</value>
+  </data>
+  <data name="AutoRuleData_TempStopWork" xml:space="preserve">
+    <value>一時的ログアウト</value>
+  </data>
+  <data name="AutoRules_EmptyRuleError" xml:space="preserve">
+    <value>空のルール</value>
+  </data>
+  <data name="AutoRules_ExampleExe" xml:space="preserve">
+    <value>processname.exe</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCase" xml:space="preserve">
+    <value>文字種 (大文字・小文字) を無視</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCaseLong" xml:space="preserve">
+    <value>文字種 (大文字・小文字) を無視</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabled" xml:space="preserve">
+    <value>アクティブ</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabledLong" xml:space="preserve">
+    <value>アクティブなルール</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegex" xml:space="preserve">
+    <value>常時</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegexLong" xml:space="preserve">
+    <value>正規表現</value>
+  </data>
+  <data name="AutoRules_HeaderName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="AutoRules_HeaderNameLong" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRule" xml:space="preserve">
+    <value>プロセスの条件</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRuleLong" xml:space="preserve">
+    <value>プロセスの条件</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedId" xml:space="preserve">
+    <value>タスクID</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedIdLong" xml:space="preserve">
+    <value>タスクまたはカテゴリーのID</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRule" xml:space="preserve">
+    <value>タイトル バーの条件</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRuleLong" xml:space="preserve">
+    <value>タイトル バーの条件</value>
+  </data>
+  <data name="AutoRules_ModifyRule" xml:space="preserve">
+    <value>ルールの編集</value>
+  </data>
+  <data name="AutoRules_NewRule" xml:space="preserve">
+    <value>新規ルール</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorBody" xml:space="preserve">
+    <value>あなたにはタスクがありません。</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="AutoRules_Title" xml:space="preserve">
+    <value>自動化されたルール</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="DeletedWork" xml:space="preserve">
+    <value>クローズされたタスク</value>
+  </data>
+  <data name="DeletedWorks" xml:space="preserve">
+    <value>クローズされたタスク</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>下へ</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Login_NotificationEnterNumberBody" xml:space="preserve">
+    <value>ユーザーID/電子メールの形式が正しくありません。番号や有効な電子メールアドレスを入力してください.</value>
+  </data>
+  <data name="Login_NotificationEnterNumberTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedBody" xml:space="preserve">
+    <value>ユーザー名またはパスワードが無効です。</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveBody" xml:space="preserve">
+    <value>あなたのアカウントは非アクティブです。</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownBody" xml:space="preserve">
+    <value>パスワードの認証に失敗しました</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownTitle" xml:space="preserve">
+    <value>通信エラー</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="Login_RememeberMe" xml:space="preserve">
+    <value>IDをこのコンピュータに記憶させる</value>
+  </data>
+  <data name="Menu_AcHolSick" xml:space="preserve">
+    <value>休暇の管理</value>
+  </data>
+  <data name="Menu_AcMain" xml:space="preserve">
+    <value>マイ JobCTRL</value>
+  </data>
+  <data name="Menu_AcManual" xml:space="preserve">
+    <value>作業時間の編集</value>
+  </data>
+  <data name="Menu_AcWorks" xml:space="preserve">
+    <value>マイ タスク</value>
+  </data>
+  <data name="Menu_ChangeUser" xml:space="preserve">
+    <value>ユーザーの切替</value>
+  </data>
+  <data name="Menu_DeleteRecentWorks" xml:space="preserve">
+    <value>リストの削除</value>
+  </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="Preference_MenuChange" xml:space="preserve">
+    <value>タスクの変更</value>
+  </data>
+  <data name="Preference_NotWorking" xml:space="preserve">
+    <value>作業外ステータス</value>
+  </data>
+  <data name="Menu_OpenLog" xml:space="preserve">
+    <value>ログ ファイルを開く</value>
+  </data>
+  <data name="Preference_PopupDurations" xml:space="preserve">
+    <value>通知の長さ</value>
+  </data>
+  <data name="Preference_PopupIntervals" xml:space="preserve">
+    <value>通知の頻度</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Menu_TopEndDateWorks" xml:space="preserve">
+    <value>開始日・終了日による</value>
+  </data>
+  <data name="Menu_TopPriorityWorks" xml:space="preserve">
+    <value>優先順位上位タスク</value>
+  </data>
+  <data name="Menu_TopTargetWorkTimeWorks" xml:space="preserve">
+    <value>推定作業時間数上位タスク</value>
+  </data>
+  <data name="Menu_Troubleshooting" xml:space="preserve">
+    <value>トラブルシューティング</value>
+  </data>
+  <data name="Menu_WorkDetectorRules" xml:space="preserve">
+    <value>自動化されたルール</value>
+  </data>
+  <data name="Preference_Working" xml:space="preserve">
+    <value>現在のタスク</value>
+  </data>
+  <data name="NewWork" xml:space="preserve">
+    <value>新規タスク</value>
+  </data>
+  <data name="NewWorks" xml:space="preserve">
+    <value>新規タスク</value>
+  </data>
+  <data name="NotificationCannotResumeWorkBody" xml:space="preserve">
+    <value>最後に選択したタスクはクローズ済みです。タスクを選択してください</value>
+  </data>
+  <data name="NotificationCannotResumeWorkTitle" xml:space="preserve">
+    <value>タスクを選択してください</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkBody" xml:space="preserve">
+    <value>自動化ルールにクローズ済みのタスクがあります:{0}。</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkTitle" xml:space="preserve">
+    <value>自動タスク切替に失敗しました</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkBody" xml:space="preserve">
+    <value>選択したタスク{0}はクローズ済みです。</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkTitle" xml:space="preserve">
+    <value>タスク切替に失敗しました</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkBody" xml:space="preserve">
+    <value>最近選択したタスク{0} (未自動化) はクローズ済みです。</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkTitle" xml:space="preserve">
+    <value>タスクを切り替える</value>
+  </data>
+  <data name="NotificationChangeWorkAutomaticTitle" xml:space="preserve">
+    <value>自動タスク切替</value>
+  </data>
+  <data name="NotificationChangeWorkUserTitle" xml:space="preserve">
+    <value>タスクを切り替えました</value>
+  </data>
+  <data name="NotificationMenuChangedBody" xml:space="preserve">
+    <value>タスクが変更されました。</value>
+  </data>
+  <data name="NotificationMenuChangedTitle" xml:space="preserve">
+    <value>タスクの変更</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticBody" xml:space="preserve">
+    <value>別のウィンドウに切り替えるまで、データの収集が停止されます。</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticTitle" xml:space="preserve">
+    <value>自動ログアウト</value>
+  </data>
+  <data name="NotificationNotWorkingUserBody" xml:space="preserve">
+    <value>タスクを選択するまで、データの収集が停止されます。</value>
+  </data>
+  <data name="NotificationNotWorkingUserTitle" xml:space="preserve">
+    <value>あなたのステータスは作業外です</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkBody" xml:space="preserve">
+    <value>選択したタスク{0}はクローズ済みです。</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkTitle" xml:space="preserve">
+    <value>タスクを切り替える</value>
+  </data>
+  <data name="NotificationWorkingBody" xml:space="preserve">
+    <value>現在のタスク: {0}</value>
+  </data>
+  <data name="NotificationWorkingTitle" xml:space="preserve">
+    <value>あなたのステータスは作業中です</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningBody" xml:space="preserve">
+    <value>このコンピューターでは別のJobCTRLアプリケーションを実行中です。</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartBody" xml:space="preserve">
+    <value>「スタート」メニューからアプリケーションを起動してください。</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="TodaysComputerWorkTime" xml:space="preserve">
+    <value>今日の作業時間 (デスクトップ)</value>
+  </data>
+  <data name="TodaysWorkTime" xml:space="preserve">
+    <value>今日の作業時間</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>上へ</value>
+  </data>
+  <data name="WorkData_EndDate" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="WorkData_Priority" xml:space="preserve">
+    <value>優先順位</value>
+  </data>
+  <data name="WorkData_Project" xml:space="preserve">
+    <value>プロジェクト</value>
+  </data>
+  <data name="WorkData_StartDate" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="WorkData_TargetHours" xml:space="preserve">
+    <value>推定時間</value>
+  </data>
+  <data name="WorkData_WorkedHours" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorBody" xml:space="preserve">
+    <value>無効なパスワード</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorTitle" xml:space="preserve">
+    <value>JobCTRL - 無効なパスワード</value>
+  </data>
+  <data name="Preference_Language" xml:space="preserve">
+    <value>ソフトウェアの言語</value>
+  </data>
+  <data name="NotificationLanguageChangeBody" xml:space="preserve">
+    <value>設定を適用するには、アプリケーションを再起動してください。</value>
+  </data>
+  <data name="NotificationLanguageChangeTitle" xml:space="preserve">
+    <value>アプリケーションを再起動</value>
+  </data>
+  <data name="Menu_MainPage" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="NewFeaturesBody" xml:space="preserve">
+    <value>JobCTRLのデスクトップ アイコンが変更されました。</value>
+  </data>
+  <data name="NewFeaturesTitle" xml:space="preserve">
+    <value>JobCTRL</value>
+  </data>
+  <data name="AutoRuleData_DoNothing" xml:space="preserve">
+    <value>例外管理ルール</value>
+  </data>
+  <data name="AutoRuleData_StartWorkType" xml:space="preserve">
+    <value>タスクを切り替える</value>
+  </data>
+  <data name="AutoRuleData_StartCategoryType" xml:space="preserve">
+    <value>カテゴリーでタスクを切り替える</value>
+  </data>
+  <data name="UnknownCategory" xml:space="preserve">
+    <value>不明なカテゴリー</value>
+  </data>
+  <data name="AutoRules_HeaderRuleType" xml:space="preserve">
+    <value>種類</value>
+  </data>
+  <data name="AutoRules_TempStartWorkTypeShort" xml:space="preserve">
+    <value>タスクへの切り替え</value>
+  </data>
+  <data name="AutoRules_TempStopWorkTypeShort" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="AutoRules_TempStartCategoryTypeShort" xml:space="preserve">
+    <value>カテゴリーの切替</value>
+  </data>
+  <data name="AutoRules_DoNothingTypeShort" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="AutoRules_AdvancedSettings" xml:space="preserve">
+    <value>詳細設定</value>
+  </data>
+  <data name="AutoRules_HeaderRuleTypeLong" xml:space="preserve">
+    <value>ルールの種類</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryTitle" xml:space="preserve">
+    <value>このカテゴリーには様々なタスクがあります</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryBody" xml:space="preserve">
+    <value>自動ルールで選択されたカテゴリーには様々なタスクがあります</value>
+  </data>
+  <data name="AutoRules_CopyToClipboard" xml:space="preserve">
+    <value>クリップボードへ</value>
+  </data>
+  <data name="AutoRules_SelectRuleFirst" xml:space="preserve">
+    <value>まずタスクを選択してください</value>
+  </data>
+  <data name="ChangedWork" xml:space="preserve">
+    <value>変更されたタスク</value>
+  </data>
+  <data name="ChangedWorks" xml:space="preserve">
+    <value>変更されたタスク</value>
+  </data>
+  <data name="WorkData_Name" xml:space="preserve">
+    <value>タスク名</value>
+  </data>
+  <data name="WorkData_Category" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="ConfirmExitStillWorkingBody" xml:space="preserve">
+    <value>あなたは作業中ステータスです。ログアウトします。よろしいですか？</value>
+  </data>
+  <data name="ConfirmExitStillWorkingTitle" xml:space="preserve">
+    <value>ログアウトします。よろしいですか？</value>
+  </data>
+  <data name="Preference_StopResume" xml:space="preserve">
+    <value>開始・停止の設定</value>
+  </data>
+  <data name="IntForm_InvalidNumber" xml:space="preserve">
+    <value>無効な数値</value>
+  </data>
+  <data name="IntForm_PleaseEnterANumber" xml:space="preserve">
+    <value>数字を入力</value>
+  </data>
+  <data name="ThisMonthsWorkTime" xml:space="preserve">
+    <value>今月の作業時間</value>
+  </data>
+  <data name="ThisWeeksWorkTime" xml:space="preserve">
+    <value>週毎の作業時間</value>
+  </data>
+  <data name="TodaysManuallyAddedWorkTime" xml:space="preserve">
+    <value>今日のオフライン時間</value>
+  </data>
+  <data name="TodaysMobileWorkTime" xml:space="preserve">
+    <value>今日の作業時間 (モバイル)</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRule" xml:space="preserve">
+    <value>URLの条件</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRuleLong" xml:space="preserve">
+    <value>URLの条件</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanent" xml:space="preserve">
+    <value>恒久的</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanentLong" xml:space="preserve">
+    <value>恒久的タスク切替</value>
+  </data>
+  <data name="NotificationKickedBody" xml:space="preserve">
+    <value>あなたは{1}リモートでログアウトされました。ログアウト時のコメントは次のとおりです: {0}</value>
+  </data>
+  <data name="NotificationKickedTitle" xml:space="preserve">
+    <value>あなたはリモートでログアウトされました。</value>
+  </data>
+  <data name="CountDown_TimeLeft" xml:space="preserve">
+    <value>残り時間:</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimBody" xml:space="preserve">
+    <value>次のタスクの作業時間として追加します。よろしいですか？:{0}？</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimTitle" xml:space="preserve">
+    <value>作業時間の編集</value>
+  </data>
+  <data name="NotificationManualWorkOverBody" xml:space="preserve">
+    <value>時間切れです。</value>
+  </data>
+  <data name="NotificationManualWorkOverTitle" xml:space="preserve">
+    <value>時間切れです</value>
+  </data>
+  <data name="Preference_FlattenFactor" xml:space="preserve">
+    <value>1段階上に移動可能なタスクの件数</value>
+  </data>
+  <data name="WorkTimeStats_DeltaTime" xml:space="preserve">
+    <value>今日予定されている作業時間 (プラスの値は遅れているもの、マイナスの値は時間外)</value>
+  </data>
+  <data name="WorkTimeStats_SummaTime" xml:space="preserve">
+    <value>予定されている作業時間</value>
+  </data>
+  <data name="Menu_AcOnlineMon" xml:space="preserve">
+    <value>オンライン監視</value>
+  </data>
+  <data name="Preference_ShowThisWeeksStats" xml:space="preserve">
+    <value>週毎の作業時間を表示</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopBody" xml:space="preserve">
+    <value>この時間タスクをクローズします。よろしいですか？</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopTitle" xml:space="preserve">
+    <value>確認 (時間タスク)</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewBody" xml:space="preserve">
+    <value>この時間タスクをクローズします。よろしいですか？</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewTitle" xml:space="preserve">
+    <value>確認 (時間タスク)</value>
+  </data>
+  <data name="Program_Req35SP1Body" xml:space="preserve">
+    <value>アプリケーションを実行するには、.NET framework 3.5 SP1以降が必要です。</value>
+  </data>
+  <data name="Program_Req35SP1Title" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="AutoRules_InvalidRuleTitle" xml:space="preserve">
+    <value>無効なルール</value>
+  </data>
+  <data name="AutoRules_InvalidWorkTitle" xml:space="preserve">
+    <value>そのタスクは存在しません。</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndEndTempEffect" xml:space="preserve">
+    <value>自己学習ルール</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndTempStartWork" xml:space="preserve">
+    <value>自己学習ルールとデフォルトのタスク スイッチ</value>
+  </data>
+  <data name="AutoRuleData_EndTempEffect" xml:space="preserve">
+    <value>前のタスクに切り替える</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndEndTempEffectTypeShort" xml:space="preserve">
+    <value>自己学習ルール</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndTempStartWorkTypeShort" xml:space="preserve">
+    <value>自己学習タスク スイッチ付き</value>
+  </data>
+  <data name="AutoRules_EndTempEffectTypeShort" xml:space="preserve">
+    <value>前のタスクに切り替える</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRule" xml:space="preserve">
+    <value>新規ルール</value>
+  </data>
+  <data name="AutoRuleData_SelectRuleTypeFirst" xml:space="preserve">
+    <value>ルールの種類を選択してください。</value>
+  </data>
+  <data name="AutoRuleData_SelectWorkFirst" xml:space="preserve">
+    <value>タスクを選択してください。</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="AutoRuleData_SelectCategoryFirst" xml:space="preserve">
+    <value>カテゴリーを選択してください。</value>
+  </data>
+  <data name="AutoRules_InvalidCategoryTitle" xml:space="preserve">
+    <value>そのカテゴリーは存在しません</value>
+  </data>
+  <data name="AutoRuleData_CaptureNotMatched" xml:space="preserve">
+    <value>そのルールは現在の設定では適用されません</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRuleSimple" xml:space="preserve">
+    <value>この自己学習ルールにタスクを選択</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDate" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDateLong" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDate" xml:space="preserve">
+    <value>保存済み</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDateLong" xml:space="preserve">
+    <value>保存済み</value>
+  </data>
+  <data name="Preference_MenuTopItemsCount" xml:space="preserve">
+    <value>トップ タスクの件数</value>
+  </data>
+  <data name="ConfirmChangeUserBody" xml:space="preserve">
+    <value>別のユーザーIDでログインするには、このアプリケーションを再起動してください。今すぐ再起動しますか？ </value>
+  </data>
+  <data name="ConfirmChangeUserTitle" xml:space="preserve">
+    <value>確認 (ユーザーIDの変更)</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeBody" xml:space="preserve">
+    <value>タスクを切り替えるには、ご使用のコンピューターの時刻を正しい時刻に合わせて下さい。</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeTitle" xml:space="preserve">
+    <value>タスクの切替に失敗しました</value>
+  </data>
+  <data name="CloseWork" xml:space="preserve">
+    <value>タスクのクローズ</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="Reasons" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="CloseWorkErrorAlreadyClosedBody" xml:space="preserve">
+    <value>このタスクは既にクローズされています。</value>
+  </data>
+  <data name="CloseWorkErrorBody" xml:space="preserve">
+    <value>タスクのクローズに失敗しました。Webアプリケーション上で再試行してください。</value>
+  </data>
+  <data name="CloseWorkErrorReasonRequiredBody" xml:space="preserve">
+    <value>このタスクのクローズの説明を入力してください。</value>
+  </data>
+  <data name="CloseWorkErrorTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="WmsWarnTargetDateOverBody" xml:space="preserve">
+    <value>超過した期限:</value>
+  </data>
+  <data name="WmsWarnTargetTimeOverBody" xml:space="preserve">
+    <value>超過した推定時間数:</value>
+  </data>
+  <data name="WmsWarnTitle" xml:space="preserve">
+    <value>超過した期限</value>
+  </data>
+  <data name="AddReason" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="AddReasonButton" xml:space="preserve">
+    <value>説明してください</value>
+  </data>
+  <data name="AddReasonErrorBody" xml:space="preserve">
+    <value>保存に失敗しました。Webアプリケーション上で再試行してください</value>
+  </data>
+  <data name="AddReasonErrorReasonRequired" xml:space="preserve">
+    <value>説明を入力してください。</value>
+  </data>
+  <data name="AddReasonErrorTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="CloseWorkButton" xml:space="preserve">
+    <value>クローズ</value>
+  </data>
+  <data name="SearchForWork" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="ThisMonthsComputerWorkTime" xml:space="preserve">
+    <value>月毎の作業時間 (デスクトップ)</value>
+  </data>
+  <data name="ThisMonthsManuallyAddedWorkTime" xml:space="preserve">
+    <value>訂正後の月毎の作業時間</value>
+  </data>
+  <data name="ThisMonthsMobileWorkTime" xml:space="preserve">
+    <value>月毎の作業時間 (モバイル)</value>
+  </data>
+  <data name="ThisWeeksComputerWorkTime" xml:space="preserve">
+    <value>週毎の作業時間 (デスクトップ)</value>
+  </data>
+  <data name="ThisWeeksManuallyAddedWorkTime" xml:space="preserve">
+    <value>訂正後の週毎の作業時間</value>
+  </data>
+  <data name="ThisWeeksMobileWorkTime" xml:space="preserve">
+    <value>週毎の作業時間 (モバイル)</value>
+  </data>
+  <data name="Preference_ShowSummaDelta" xml:space="preserve">
+    <value>合計と差分を表示</value>
+  </data>
+  <data name="Preference_MenuRecentItemsCount" xml:space="preserve">
+    <value>最近のタスクの件数</value>
+  </data>
+  <data name="AutoRules_DAAFifteenMinutes" xml:space="preserve">
+    <value>15分</value>
+  </data>
+  <data name="AutoRules_DAANever" xml:space="preserve">
+    <value>実行しない</value>
+  </data>
+  <data name="AutoRules_DAAOneMinute" xml:space="preserve">
+    <value>1分</value>
+  </data>
+  <data name="AutoRules_DAAThirtyMinutes" xml:space="preserve">
+    <value>30分</value>
+  </data>
+  <data name="AutoRules_DontAskAgain" xml:space="preserve">
+    <value>今後このメッセージを表示しない</value>
+  </data>
+  <data name="AutoRules_HelpAdvanced" xml:space="preserve">
+    <value>ルールのプロパティを入力してください。</value>
+  </data>
+  <data name="AutoRules_HelpSimpleLearn" xml:space="preserve">
+    <value>メニューまたはドロップダウン メニューからタスクを選択して自己学習ルールを作成してください。</value>
+  </data>
+  <data name="PluginEditFormId" xml:space="preserve">
+    <value>プラグイン</value>
+  </data>
+  <data name="PluginEditFormIdEmpty" xml:space="preserve">
+    <value>プラグインを入力してください。</value>
+  </data>
+  <data name="PluginEditFormKey" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="PluginEditFormKeyEmpty" xml:space="preserve">
+    <value>名称を入力してください。</value>
+  </data>
+  <data name="PluginEditFormTitle" xml:space="preserve">
+    <value>プラグイン管理</value>
+  </data>
+  <data name="PluginEditFormValue" xml:space="preserve">
+    <value>ルール</value>
+  </data>
+  <data name="Menu_AcMeetings" xml:space="preserve">
+    <value>オフライン時間</value>
+  </data>
+  <data name="NotificationMeetingPendingFormatBody" xml:space="preserve">
+    <value>{0} 開始:{1}({2})</value>
+  </data>
+  <data name="NotificationMeetingPendingTitle" xml:space="preserve">
+    <value>次のオフライン時間を承認する</value>
+  </data>
+  <data name="AutoRules_MatchedTitle" xml:space="preserve">
+    <value>役職</value>
+  </data>
+  <data name="AutoRules_OKVDefault" xml:space="preserve">
+    <value>     - 取り消しまで有効 (デフォルト)</value>
+  </data>
+  <data name="AutoRules_OKVForOneDay" xml:space="preserve">
+    <value>1d - 1日有効</value>
+  </data>
+  <data name="AutoRules_OKVForOneHour" xml:space="preserve">
+    <value>1h - 1時間有効</value>
+  </data>
+  <data name="AutoRules_OKVUntilClosed" xml:space="preserve">
+    <value>Z  - ウィンドウが開くまで有効</value>
+  </data>
+  <data name="Preference_SearchOwnTasks" xml:space="preserve">
+    <value>自分のタスク内のみ検索</value>
+  </data>
+  <data name="Preference_SearchInClosed" xml:space="preserve">
+    <value>クローズ済みタスク内も検索</value>
+  </data>
+  <data name="Preference_SearchAllReload" xml:space="preserve">
+    <value>全タスクを更新する</value>
+  </data>
+  <data name="NotificationAssignMeConfirmBody" xml:space="preserve">
+    <value>「{0}」タスクを自分自身に割り当てます。よろしいですか？</value>
+  </data>
+  <data name="NotificationAssignMeConfirmTitle" xml:space="preserve">
+    <value>承認する</value>
+  </data>
+  <data name="NotificationAssignTaskErrorBody" xml:space="preserve">
+    <value>タスクの割当に失敗しました</value>
+  </data>
+  <data name="NotificationAssignTaskErrorTitle" xml:space="preserve">
+    <value>タスク割当時に障害が発生しました</value>
+  </data>
+  <data name="Menu_AddReasonToCurrentWorkOnClick" xml:space="preserve">
+    <value>コメントを追加する</value>
+  </data>
+  <data name="Preference_HighlightNonReasoned" xml:space="preserve">
+    <value>説明が無いタスクをハイライト表示する</value>
+  </data>
+  <data name="ChooseReasonHint" xml:space="preserve">
+    <value>メニューから説明を選択してください。</value>
+  </data>
+  <data name="Reason_Created" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="Reason_SelectedReason" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Reason_TypedReason" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="TaskInformation" xml:space="preserve">
+    <value>タスク情報</value>
+  </data>
+  <data name="TaskReasons" xml:space="preserve">
+    <value>タスクの説明</value>
+  </data>
+  <data name="AddMeeting_Participiants" xml:space="preserve">
+    <value>参加者 (メールアドレス)</value>
+  </data>
+  <data name="AddMeeting_SelectedWork" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="AddMeeting_Title" xml:space="preserve">
+    <value>オフラインタイム</value>
+  </data>
+  <data name="AddMeeting_DurationInvalid" xml:space="preserve">
+    <value>値は1と非アクティブの分の値の間である必要があります</value>
+  </data>
+  <data name="AddMeeting_EmailFormatError" xml:space="preserve">
+    <value>有効なメールアドレスを1件以上入力してください。</value>
+  </data>
+  <data name="AddMeeting_Subject" xml:space="preserve">
+    <value>件名</value>
+  </data>
+  <data name="AddMeeting_SelectWorkCaption" xml:space="preserve">
+    <value>オフライン時間のタスクを選択してください。</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmation" xml:space="preserve">
+    <value>オフライン時間が登録されました。
+削除しますか。</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationTitle" xml:space="preserve">
+    <value>削除を確認してください。</value>
+  </data>
+  <data name="AddMeeting_ExceedLimit" xml:space="preserve">
+    <value>その期間はオフライン期間の上限を超えています</value>
+  </data>
+  <data name="SplashMessage" xml:space="preserve">
+    <value>クローズ処理を実施中です。お待ち下さい。</value>
+  </data>
+  <data name="AddMeeting_SubjectLengthInvalid" xml:space="preserve">
+    <value>件名が空であるか、長すぎます (上限: 200文字)</value>
+  </data>
+  <data name="AddMeeting_EmailsLengthInvalid" xml:space="preserve">
+    <value>メールアドレスが長すぎます (上限: 2000文字)</value>
+  </data>
+  <data name="CreditRunLowTitle" xml:space="preserve">
+    <value>サービスが制限されています</value>
+  </data>
+  <data name="CreditRunLowBody" xml:space="preserve">
+    <value>サービスが制限されています。管理者に問い合わせてください。</value>
+  </data>
+  <data name="CreditRunOutTitle" xml:space="preserve">
+    <value>サービスが中断されています</value>
+  </data>
+  <data name="CreditRunOutBody" xml:space="preserve">
+    <value>サービスが中断されています。管理者に問い合わせてください。</value>
+  </data>
+  <data name="AddMeeting_Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="AddMeeting_DescriptionLengthInvalid" xml:space="preserve">
+    <value>説明が長すぎます (上限: 1000文字)</value>
+  </data>
+  <data name="AutoRuleData_ActiveType" xml:space="preserve">
+    <value>アクティブ (前景)</value>
+  </data>
+  <data name="AutoRuleData_AnyType" xml:space="preserve">
+    <value>全て</value>
+  </data>
+  <data name="AutoRuleData_SelectWindowScopeFirst" xml:space="preserve">
+    <value>ウィンドウの状態を選択してください。</value>
+  </data>
+  <data name="AutoRuleData_VisibleOrActiveType" xml:space="preserve">
+    <value>表示されているか、アクティブ</value>
+  </data>
+  <data name="AutoRules_HeaderWindowScopeLong" xml:space="preserve">
+    <value>ウィンドウの状態</value>
+  </data>
+  <data name="AddMeeting_AddressBook" xml:space="preserve">
+    <value>アドレス帳</value>
+  </data>
+  <data name="Hotkeys_ActionTypeJobCTRLcom" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="Hotkeys_ActionTypeNewWorkDetectorRule" xml:space="preserve">
+    <value>新規ルール</value>
+  </data>
+  <data name="Hotkeys_ActionTypeResumeOrStopWork" xml:space="preserve">
+    <value>停止・再開</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartManualMeeting" xml:space="preserve">
+    <value>オフライン時間</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartWork" xml:space="preserve">
+    <value>タスクを開始</value>
+  </data>
+  <data name="Hotkeys_EmptyHotkeyError" xml:space="preserve">
+    <value>ホットキーを入力してください。</value>
+  </data>
+  <data name="Hotkeys_HasNotBeenRegisteredError" xml:space="preserve">
+    <value>ホットキーが登録されていません。</value>
+  </data>
+  <data name="Hotkeys_HeaderAction" xml:space="preserve">
+    <value>アクション</value>
+  </data>
+  <data name="Hotkeys_HeaderAlt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="Hotkeys_HeaderCtrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="Hotkeys_HeaderKey" xml:space="preserve">
+    <value>キー</value>
+  </data>
+  <data name="Hotkeys_HeaderShift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="Hotkeys_HeaderWin" xml:space="preserve">
+    <value>Win</value>
+  </data>
+  <data name="Hotkeys_HeaderWork" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="Hotkeys_InvalidKeyValue" xml:space="preserve">
+    <value>ホットキーが無効です。</value>
+  </data>
+  <data name="Hotkeys_MustBeUniqeError" xml:space="preserve">
+    <value>ホットキーは既に使用中です。別のホットキーを選択してください。</value>
+  </data>
+  <data name="Hotkeys_OtherThanFKeysMustContainModifiers" xml:space="preserve">
+    <value>このキーは [Ctrl]、[Alt]、[Win] のいずれかとの組み合わせに限って使用できます。</value>
+  </data>
+  <data name="Hotkeys_UnregisterableError" xml:space="preserve">
+    <value>ホットキーを登録できません。</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdInvalidError" xml:space="preserve">
+    <value>タスクが無効です。アクティブなタスクを選択してください。</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdNeededError" xml:space="preserve">
+    <value>アクティブなタスクを選択してください。</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedBody" xml:space="preserve">
+    <value>ルール「{0}」は現在のプロジェクトの前後関係では許容範囲外です。</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedTitle" xml:space="preserve">
+    <value>禁止されているルール</value>
+  </data>
+  <data name="Menu_RunAsAdmin" xml:space="preserve">
+    <value>管理者として実行</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeBody" xml:space="preserve">
+    <value>管理者権限の変更時のアプリケーション再起動について承諾してください。</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeTitle" xml:space="preserve">
+    <value>再起動を承諾</value>
+  </data>
+  <data name="Preference_NotificationPosition" xml:space="preserve">
+    <value>通知の位置</value>
+  </data>
+  <data name="Preference_NotificationPositionTopLeft" xml:space="preserve">
+    <value>左上</value>
+  </data>
+  <data name="Preference_NotificationPositionTopRight" xml:space="preserve">
+    <value>右上</value>
+  </data>
+  <data name="Preference_NotificationPositionCenter" xml:space="preserve">
+    <value>中央</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomLeft" xml:space="preserve">
+    <value>左下</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomRight" xml:space="preserve">
+    <value>右下</value>
+  </data>
+  <data name="Preference_WorkingWarnDisplayable" xml:space="preserve">
+    <value>現在のタスクの変更を表示</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientTitle" xml:space="preserve">
+    <value>あなたのタスクが停止されました</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientBody" xml:space="preserve">
+    <value>他のデバイス上のアクティビティのため、あなたのタスクが停止されました</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkBody" xml:space="preserve">
+    <value>一部のダイナミック タスクを作成できません。デフォルトのタスクを選択してください。</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkTitle" xml:space="preserve">
+    <value>タスクを選択してください。</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstBody" xml:space="preserve">
+    <value>タスクを選択してください。</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Program_CertInvalidBody" xml:space="preserve">
+    <value>証明書が無効です。承認しますか？</value>
+  </data>
+  <data name="Program_CertInvalidTitle" xml:space="preserve">
+    <value>この証明書を承認します。よろしいですか?</value>
+  </data>
+  <data name="Hotkeys_ActionTypeAddReason" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="AutoRules_MatchedExtensions" xml:space="preserve">
+    <value>プラグイン</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapBody" xml:space="preserve">
+    <value>ブート ファイルがありません。</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecBody" xml:space="preserve">
+    <value>msiexecが見つかりません。</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Preference_ShowDynamicWorks" xml:space="preserve">
+    <value>ダイナミック タスクを表示する</value>
+  </data>
+  <data name="Preference_NotificationPositionHidden" xml:space="preserve">
+    <value>通知が無効に設定されています</value>
+  </data>
+  <data name="Menu_Preferences" xml:space="preserve">
+    <value>基本設定</value>
+  </data>
+  <data name="Preference_Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Preference_DoubleClick" xml:space="preserve">
+    <value>ダブルクリック</value>
+  </data>
+  <data name="Preference_General" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="Preference_Hidden" xml:space="preserve">
+    <value>非表示にする</value>
+  </data>
+  <data name="Preference_HotKey" xml:space="preserve">
+    <value>ホットキー</value>
+  </data>
+  <data name="HourPlural" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="Preference_Navigation" xml:space="preserve">
+    <value>ナビゲーション</value>
+  </data>
+  <data name="Preference_New" xml:space="preserve">
+    <value>新規</value>
+  </data>
+  <data name="Preference_Notification" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Preference_Off" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="Preference_On" xml:space="preserve">
+    <value>オン</value>
+  </data>
+  <data name="Preference_Reset" xml:space="preserve">
+    <value>変更のキャンセル</value>
+  </data>
+  <data name="Preference_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Preference_Second" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="Preference_Shown" xml:space="preserve">
+    <value>表示</value>
+  </data>
+  <data name="Preference_SingleClick" xml:space="preserve">
+    <value>シングルクリック</value>
+  </data>
+  <data name="Preference_Title" xml:space="preserve">
+    <value>{0}の個人設定</value>
+  </data>
+  <data name="Preference_EditText" xml:space="preserve">
+    <value>クローズ後に全ての変更が保存されます。</value>
+  </data>
+  <data name="Preference_NotPositiveInteger" xml:space="preserve">
+    <value>保存に失敗しました。正の整数を入力してください。</value>
+  </data>
+  <data name="Preference_NotPositiveReal" xml:space="preserve">
+    <value>保存に失敗しました。正の実数を入力してください。</value>
+  </data>
+  <data name="NotificationMore" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginBody" xml:space="preserve">
+    <value>会議を同期するには、IBM (Lotus) Notesにログインしてください。JobCTRLを再起動しないと再度ログインできません。</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginTitle" xml:space="preserve">
+    <value>IBM (Lotus) Notesログインを省略する</value>
+  </data>
+  <data name="PluginEditFormParameters" xml:space="preserve">
+    <value>パラメータ</value>
+  </data>
+  <data name="PluginEditFormName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>日数</value>
+  </data>
+  <data name="NavigationAll" xml:space="preserve">
+    <value>全てのタスク</value>
+  </data>
+  <data name="NavigationDeadline" xml:space="preserve">
+    <value>締切</value>
+  </data>
+  <data name="NavigationFavorite" xml:space="preserve">
+    <value>お気に入り</value>
+  </data>
+  <data name="NavigationPriority" xml:space="preserve">
+    <value>優先順位</value>
+  </data>
+  <data name="NavigationProgress" xml:space="preserve">
+    <value>進捗状況</value>
+  </data>
+  <data name="NavigationRoot" xml:space="preserve">
+    <value>ルート</value>
+  </data>
+  <data name="NavigationSuggestion" xml:space="preserve">
+    <value>提案</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserBody" xml:space="preserve">
+    <value>{0}プロセスの実行を許可しなかった場合、メールのルールは無効になります。メールのルールを有効にしますか？</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserTitle" xml:space="preserve">
+    <value>JobCTRLのメールのルールを有効にする</value>
+  </data>
+  <data name="MenuCompleted" xml:space="preserve">
+    <value>経過時間</value>
+  </data>
+  <data name="MenuPriority" xml:space="preserve">
+    <value>優先順位</value>
+  </data>
+  <data name="MenuBack" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="MenuFavorite" xml:space="preserve">
+    <value>お気に入り</value>
+  </data>
+  <data name="MenuMenu" xml:space="preserve">
+    <value>ナビゲーション</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>現在の表示</value>
+  </data>
+  <data name="NavigationRecent" xml:space="preserve">
+    <value>最近のタスク</value>
+  </data>
+  <data name="Hotkeys_ActionTypeToggleMenu" xml:space="preserve">
+    <value>メニューの切替</value>
+  </data>
+  <data name="NavigationRecentProject" xml:space="preserve">
+    <value>最近のプロジェクト</value>
+  </data>
+  <data name="Preference_OldMenu" xml:space="preserve">
+    <value>旧バージョンを使用</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>{0} 左</value>
+    <comment>残り時間</comment>
+  </data>
+  <data name="OverduePlural" xml:space="preserve">
+    <value>{0} 日の期限超過です</value>
+  </data>
+  <data name="OverdueSingular" xml:space="preserve">
+    <value>{0} 日の期限超過です</value>
+  </data>
+  <data name="HourSingular" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="Preference_Menu" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
+  <data name="Menu_Etc" xml:space="preserve">
+    <value>追加オプション</value>
+  </data>
+  <data name="ErrorReporting_ErrorDescription" xml:space="preserve">
+    <value>説明:</value>
+  </data>
+  <data name="ErrorReporting_Send" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="ErrorReporting_Title" xml:space="preserve">
+    <value>ログ ファイルを送信</value>
+  </data>
+  <data name="ErrorReporting_AttachLogs" xml:space="preserve">
+    <value>エラー ログを添付</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmBody" xml:space="preserve">
+    <value>送信しています。キャンセルします。よろしいですか？</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmTitle" xml:space="preserve">
+    <value>ログ ファイルの送信をキャンセル</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Preparing" xml:space="preserve">
+    <value>準備</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Uploading" xml:space="preserve">
+    <value>アップロード</value>
+  </data>
+  <data name="ErrorReporting_ProgressTitle" xml:space="preserve">
+    <value>ログ ファイルを送信</value>
+  </data>
+  <data name="Menu_ErrorReporting" xml:space="preserve">
+    <value>ログ ファイルを送信</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorBody" xml:space="preserve">
+    <value>ログ ファイルを送信中に予期しないエラーが発生しました。</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorTitle" xml:space="preserve">
+    <value>予期しないエラー</value>
+  </data>
+  <data name="ExceptionDialog_ReportError" xml:space="preserve">
+    <value>エラー レポートを送信</value>
+  </data>
+  <data name="ExceptionDialog_Continue" xml:space="preserve">
+    <value>続行</value>
+  </data>
+  <data name="ExceptionDialog_Details" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="ExceptionDialog_DetailsTitle" xml:space="preserve">
+    <value>予期しないエラーの詳細</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescription" xml:space="preserve">
+    <value>JobCTRLで予期しないエラーが発生しました。エラーを無視して作業を続行するには、「続行」をクリックしてください。アプリケーションを閉じるには「終了」をクリックしてください。「エラー レポートを送信」を選択したままにすると、弊社による分析と問題の早期修正に役立ちます。</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescriptionPromptText" xml:space="preserve">
+    <value>エラーの説明 (オプション)</value>
+  </data>
+  <data name="ExceptionDialog_Quit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="ExceptionDialog_SendStatus" xml:space="preserve">
+    <value>終了または続行するまえにエラー レポートが送信されます。</value>
+  </data>
+  <data name="ExceptionDialog_Title" xml:space="preserve">
+    <value>予期しないエラー</value>
+  </data>
+  <data name="AutoRules_CancelConfirmBody" xml:space="preserve">
+    <value>自動化ルールの変更を破棄します。よろしいですか？</value>
+  </data>
+  <data name="AutoRules_CancelConfirmTitle" xml:space="preserve">
+    <value>変更を破棄</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmBody" xml:space="preserve">
+    <value>ログ ファイルの送信を破棄します。よろしいですか？</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmTitle" xml:space="preserve">
+    <value>ログ ファイルの送信を破棄</value>
+  </data>
+  <data name="UserIdMappingChangedBody" xml:space="preserve">
+    <value>現在のウィンドウのユーザーは別のJobCTRLユーザーIDにマッピングされています。アプリケーションを再起動する必要があります。</value>
+  </data>
+  <data name="UserIdMappingChangedTitle" xml:space="preserve">
+    <value>アプリケーションを再起動</value>
+  </data>
+  <data name="Menu_AcDashboard" xml:space="preserve">
+    <value>ダッシュボード</value>
+  </data>
+  <data name="WorkData_Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="NewWork_CantCreate" xml:space="preserve">
+    <value>タスクの作成に失敗しました</value>
+  </data>
+  <data name="NewWork_CantUpdate" xml:space="preserve">
+    <value>タスクの更新に失敗しました</value>
+  </data>
+  <data name="NewWork_Mandatory" xml:space="preserve">
+    <value>必須</value>
+  </data>
+  <data name="NewWork_Creating" xml:space="preserve">
+    <value>作成中...</value>
+  </data>
+  <data name="NewWork_SelectProject" xml:space="preserve">
+    <value>プロジェクトを選択する必要があります</value>
+  </data>
+  <data name="NewWork_State" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="NewWork_Updating" xml:space="preserve">
+    <value>更新中...</value>
+  </data>
+  <data name="NewWork_Create" xml:space="preserve">
+    <value>作成</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>フォーマットが無効です</value>
+  </data>
+  <data name="NewWork_Interval" xml:space="preserve">
+    <value>期間が無効です</value>
+  </data>
+  <data name="NewWork_NoConnection" xml:space="preserve">
+    <value>オフライン モードではタスクの作成・変更を実施できません。接続を確認してから再試行してください。</value>
+  </data>
+  <data name="NewWork_UnknownInterval" xml:space="preserve">
+    <value>デスクトップ アプリケーションではタスクの作成・変更を実施できません。Webサイトを使用してください</value>
+  </data>
+  <data name="Worktime_Computer" xml:space="preserve">
+    <value>コンピュータ {0}</value>
+  </data>
+  <data name="HourMinuteFormat" xml:space="preserve">
+    <value>時間:分</value>
+  </data>
+  <data name="WorkData_Interval" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="Worktime_Ivr" xml:space="preserve">
+    <value>IVR</value>
+  </data>
+  <data name="WorkData_ProjectTooltip" xml:space="preserve">
+    <value>このタスクが割り当てられているプロジェクトまたは顧客。</value>
+  </data>
+  <data name="Worktime_Manual" xml:space="preserve">
+    <value>手動</value>
+  </data>
+  <data name="NewWork_NoPermCreate" xml:space="preserve">
+    <value>あなたには、このプロジェクト内でタスク作成を行う許可がありません。</value>
+  </data>
+  <data name="Worktime_Mobile" xml:space="preserve">
+    <value>モバイル {0}</value>
+  </data>
+  <data name="NewWork_NoPermUpdate" xml:space="preserve">
+    <value>あなたには、このプロジェクト内でタスク更新を行う許可がありません。</value>
+  </data>
+  <data name="Worktime_NoResponse" xml:space="preserve">
+    <value>この機能では、サーバーへの接続が必要です。インターネット接続を確認してから再試行してください。</value>
+  </data>
+  <data name="Worktime_Title" xml:space="preserve">
+    <value>作業時間の概要</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelBody" xml:space="preserve">
+    <value>保留中の操作をキャンセルします。よろしいですか？</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelTitle" xml:space="preserve">
+    <value>保留中の操作をキャンセルします。よろしいですか？</value>
+  </data>
+  <data name="Worktime_ComputerTotal" xml:space="preserve">
+    <value>コンピュータ</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="Worktime_Meeting" xml:space="preserve">
+    <value>会議</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>最小</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Body" xml:space="preserve">
+    <value>あなたが実施中のオフライン作業が中断されました。
+表示されている「オフライン時間の承認」ウィンドウで、このオフライン作業時間を承諾または削除できます。 
+オフライン作業時間の開始日と間隔は、既知の最新データに設定されています。不適ですので、削除してから、Webサイト上にて正しい間隔で作成してください。</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Title" xml:space="preserve">
+    <value>未完了のオフライン作業時間</value>
+  </data>
+  <data name="Menu_LogLevelChangeDebug" xml:space="preserve">
+    <value>詳細なログ記録</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningBody" xml:space="preserve">
+    <value>オフライン作業が無効に設定されています</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningTitle" xml:space="preserve">
+    <value>オフライン作業が無効に設定されています</value>
+  </data>
+  <data name="Worktime_MobileTotal" xml:space="preserve">
+    <value>モバイル</value>
+  </data>
+  <data name="AutoRuleData_DeleteCurrentRule" xml:space="preserve">
+    <value>自動化されたルールを削除</value>
+  </data>
+  <data name="Worktime_Total" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="AutoRules_HelpConfirmDelete" xml:space="preserve">
+    <value>このルールを削除します。よろしいですか?</value>
+  </data>
+  <data name="Worktime_Duration" xml:space="preserve">
+    <value>開始・終了の差</value>
+  </data>
+  <data name="Hotkeys_ActionTypeDeleteCurrentWorkDetectorRule" xml:space="preserve">
+    <value>現在のルールを削除</value>
+  </data>
+  <data name="Worktime_End" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="NavigationRecentClosed" xml:space="preserve">
+    <value>最近クローズしたもの</value>
+  </data>
+  <data name="Worktime_Start" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="Menu_AcDefault" xml:space="preserve">
+    <value>最後に選択したもの</value>
+  </data>
+  <data name="Worktime_ManualComment" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="NewWork_StartWork" xml:space="preserve">
+    <value>作成したタスクへの切り替え</value>
+  </data>
+  <data name="ModifyWork_Comment" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="Hotkeys_HeaderSite" xml:space="preserve">
+    <value>ウェブサイト</value>
+  </data>
+  <data name="ModifyWork_InvalidInterval" xml:space="preserve">
+    <value>無効な間隔</value>
+  </data>
+  <data name="ModifyWork_NoValidInterval" xml:space="preserve">
+    <value>間隔は既存の作業と完全に重複します。</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedBody" xml:space="preserve">
+    <value>アクセスが拒否されました。</value>
+  </data>
+  <data name="ModifyWork_Overlap" xml:space="preserve">
+    <value>間隔が既存の作業と重複しているため、間隔全体の作業を作成できません。{0}ではなく、{1}の作業量のみを{2}の部分に追加できます。</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedTitle" xml:space="preserve">
+    <value>タスク割当時に障害が発生しました</value>
+  </data>
+  <data name="ModifyWork_IntervalTitle" xml:space="preserve">
+    <value>間隔を変更</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Worktime_Tooltip" xml:space="preserve">
+    <value>概要または作業時間の追加</value>
+  </data>
+  <data name="ModifyWork_ModifyTitle" xml:space="preserve">
+    <value>作業時間の変更</value>
+  </data>
+  <data name="ModifyWork_SureDelete" xml:space="preserve">
+    <value>選択された作業を削除します。よろしいですか?</value>
+  </data>
+  <data name="ModifyWork_Create" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="ModifyWork_Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="ModifyWork_Modify" xml:space="preserve">
+    <value>変更する</value>
+  </data>
+  <data name="ModifyWork_NoChange" xml:space="preserve">
+    <value>変わらない</value>
+  </data>
+  <data name="ModifyWork_ConnectionError" xml:space="preserve">
+    <value>サーバーとの通信時にエラーが発生しました。接続を確認してから再試行してください。</value>
+  </data>
+  <data name="ModifyWork_FailDelete" xml:space="preserve">
+    <value>作業時間の削除に失敗しました。</value>
+  </data>
+  <data name="ModifyWork_FailModify" xml:space="preserve">
+    <value>作業時間の変更に失敗しました。</value>
+  </data>
+  <data name="ModifyWork_AddIntervalDescription" xml:space="preserve">
+    <value>それよりも長い作業時間が無い場合、提示された間隔に作業時間を追加します。</value>
+  </data>
+  <data name="ModifyWork_DeleteIntervalDescription" xml:space="preserve">
+    <value>提示された間隔内にある作業時間を削除します。</value>
+  </data>
+  <data name="ModifyWork_DeleteWorkDescription" xml:space="preserve">
+    <value>同種のデバイス上にある選択された作業時間の間隔を削除します。</value>
+  </data>
+  <data name="ModifyWork_ModifyIntervalDescription" xml:space="preserve">
+    <value>提示された間隔内にある作業時間全体のタスクを変更します。</value>
+  </data>
+  <data name="ModifyWork_ModifyWorkDescription" xml:space="preserve">
+    <value>選択された作業時間の間隔を変更し、必要に応じてマニュアル作業の削除と追加を行います。</value>
+  </data>
+  <data name="Worktime_ManualModificationWarn" xml:space="preserve">
+    <value>必要な変更には、マニュアルの作業時間変更が含まれています。この変更は後で取り消せません</value>
+  </data>
+  <data name="Worktime_ValidationExplain" xml:space="preserve">
+    <value>変更には、あなたの承認が必要です。理由は次の通りです:</value>
+  </data>
+  <data name="Worktime_ValidationSure" xml:space="preserve">
+    <value>変更を適用します。よろしいですか？</value>
+  </data>
+  <data name="Worktime_ManualModificationError" xml:space="preserve">
+    <value>要求された変更は実行できません。理由は次の通りです:</value>
+  </data>
+  <data name="Worktime_ApprovalWarn" xml:space="preserve">
+    <value>リクエストされた操作には、マニュアルの作業時間の追加または変更が含まれています。これにはあなたの上司の承認が必要です</value>
+  </data>
+  <data name="Worktime_Deleted" xml:space="preserve">
+    <value>削除済み</value>
+  </data>
+  <data name="Worktime_ShowDeleted" xml:space="preserve">
+    <value>削除済みを表示</value>
+  </data>
+  <data name="Worktime_UndeleteText" xml:space="preserve">
+    <value>作業時間の削除をキャンセルします。よろしいですか？</value>
+  </data>
+  <data name="Worktime_UndeleteTitle" xml:space="preserve">
+    <value>削除を取り消します。よろしいですか？</value>
+  </data>
+  <data name="Worktime_WaitApprove" xml:space="preserve">
+    <value>承認待ち</value>
+  </data>
+  <data name="Worktime_CantEdit" xml:space="preserve">
+    <value>変更できません</value>
+  </data>
+  <data name="Worktime_CantEditError" xml:space="preserve">
+    <value>リクエストした操作には、作業時間の変更が必要です。この変更は編集出来ません。</value>
+  </data>
+  <data name="Worktime_TooMuchAddError" xml:space="preserve">
+    <value>リクエストされた操作に含まれているマニュアルの作業時間の追加が多すぎます。数件の小規模な修正に分割して実行してください。</value>
+  </data>
+  <data name="Worktime_Grouping" xml:space="preserve">
+    <value>色分け基準</value>
+  </data>
+  <data name="Worktime_Work" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="Worktime_NoCategory" xml:space="preserve">
+    <value>カテゴリーなし</value>
+  </data>
+  <data name="Worktime_TooLong" xml:space="preserve">
+    <value>24時間を超える作業を1回で変更することはできません。</value>
+  </data>
+  <data name="Worktime_NoFuture" xml:space="preserve">
+    <value>直近5分間と将来の作業時間を変更することはできません。</value>
+  </data>
+  <data name="AutoRules_WindowRulesTitle" xml:space="preserve">
+    <value>ウィンドウのルールを編集</value>
+  </data>
+  <data name="Worktime_TooOldError" xml:space="preserve">
+    <value>{0}時間以上前の作業時間は変更できません。</value>
+  </data>
+  <data name="AutoRules_RemoveInvalid" xml:space="preserve">
+    <value>無効なものを削除</value>
+  </data>
+  <data name="NotificationInvalidRuleAction" xml:space="preserve">
+    <value>ルールの編集</value>
+  </data>
+  <data name="NotificationInvalidRuleBody" xml:space="preserve">
+    <value>クローズされたタスクが含まれるルールが1件以上あります。</value>
+  </data>
+  <data name="NotificationInvalidRuleTitle" xml:space="preserve">
+    <value>無効なルール</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeBody" xml:space="preserve">
+    <value>設定を適応するには、Outlookを再起動してください。</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeTitle" xml:space="preserve">
+    <value>Outlookを再起動</value>
+  </data>
+  <data name="NotificationUpdateFailedBody" xml:space="preserve">
+    <value>JobCTRLのアップデートに失敗しました。システム管理者に連絡してください。</value>
+  </data>
+  <data name="NotificationDcFreezeBody" xml:space="preserve">
+    <value>他のアプリケーションのせいでJobCTRは再起動しました。</value>
+  </data>
+  <data name="NotificationUpdateFailedTitle" xml:space="preserve">
+    <value>アプリケーションアップデート</value>
+  </data>
+  <data name="NotificationDcFreezeTitle" xml:space="preserve">
+    <value>再起動</value>
+  </data>
+  <data name="Program_FailedRestartBody" xml:space="preserve">
+    <value>JobCTRLは再起動できませんでした。既存のインスタンスを閉じ、手動でJobCTRLを起動してください。</value>
+  </data>
+  <data name="Program_FailedRestartTitle" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="WelcomeDontShow" xml:space="preserve">
+    <value>二度と表示しない</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>{0}へようこそ！</value>
+  </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="WelcomeCommonText" xml:space="preserve">
+    <value>次の{0}つのステップで、プログラムの基本を紹介いたします。</value>
+  </data>
+  <data name="WelcomeDone" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="WelcomeInstructionText1" xml:space="preserve">
+    <value>JobCTRLのアイコンはすでにシステムトレイに表示されています。</value>
+  </data>
+  <data name="WelcomeInstructionText2" xml:space="preserve">
+    <value>そのアイコンにクリックして、プログラムを起動・停止させることができます。</value>
+  </data>
+  <data name="WelcomeInstructionText3" xml:space="preserve">
+    <value>メニューは右クリックで開きます。</value>
+  </data>
+  <data name="WelcomeInstructionText4" xml:space="preserve">
+    <value>作業時間を正しく記録するために、様々なソートオーダーに応じてグループ化されたタスクから優先作業を選択することができます</value>
+  </data>
+  <data name="WelcomeInstructionText5a" xml:space="preserve">
+    <value>その他の設定は、「Preferences」メニューで確認できます。</value>
+  </data>
+  <data name="WelcomeInstructionText5b" xml:space="preserve">
+    <value>新しいタスクを追加することが可能です。</value>
+  </data>
+  <data name="WelcomeNext" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="WelcomeInstructionText1a" xml:space="preserve">
+    <value>ただいま、非作業中です。作業活動は記録されません。</value>
+  </data>
+  <data name="WelcomeInstructionText1b" xml:space="preserve">
+    <value>ただいま、作業中です。作業活動は記録されます。</value>
+  </data>
+  <data name="WelcomeInstructionText1c" xml:space="preserve">
+    <value>ただいま作業中ですが、サーバーへの接続はありません。</value>
+  </data>
+  <data name="Login_ForgottenPassword" xml:space="preserve">
+    <value>パスワードを忘れましたか。</value>
+  </data>
+  <data name="Login_Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Login_LoginButton" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="Login_StartInGreen" xml:space="preserve">
+    <value>起動後、自動的に作業中にする。</value>
+  </data>
+  <data name="Login_UserId" xml:space="preserve">
+    <value>メールアドレス・ユーザーID</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="LoginSettings_Address" xml:space="preserve">
+    <value>住所</value>
+  </data>
+  <data name="LoginSettings_Automatic" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="LoginSettings_Custom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="LoginSettings_InvalidAddress" xml:space="preserve">
+    <value>無効なアドレス形式</value>
+  </data>
+  <data name="LoginSettings_Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="LoginSettings_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="LoginSettings_Title" xml:space="preserve">
+    <value>プロキシ設定</value>
+  </data>
+  <data name="LoginSettings_Username" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
+  <data name="Login_ConnectionSettings" xml:space="preserve">
+    <value>プロキシ設定</value>
+  </data>
+  <data name="AddMeeting_AbortButton" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationInactivity" xml:space="preserve">
+    <value>操作がなかったため、
+オフライン時間が登録されました。非アクティブ期間を削除しますか。</value>
+  </data>
+  <data name="AddMeeting_ConfirmButton" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="AddMeeting_Subtitle" xml:space="preserve">
+    <value>操作がなかったため発生した</value>
+  </data>
+  <data name="AddMeeting_SubtitleHK" xml:space="preserve">
+    <value>手動で開始された</value>
+  </data>
+  <data name="Menu_AcReports" xml:space="preserve">
+    <value>報告書</value>
+  </data>
+  <data name="AutoUpdate_Prompt" xml:space="preserve">
+    <value>新しいバージョンができました。今すぐインストールしますか？</value>
+  </data>
+  <data name="AutoUpdate_UpdateAvailable" xml:space="preserve">
+    <value>新しいバージョンができました。</value>
+  </data>
+  <data name="AddMeeting_ChooseTask" xml:space="preserve">
+    <value>タスクを選択する</value>
+  </data>
+  <data name="AddMeeting_ConfirmButtonTooltip" xml:space="preserve">
+    <value>オフライン労働時間を追加する</value>
+  </data>
+  <data name="AddMeeting_DeletedInfo" xml:space="preserve">
+    <value>削除した</value>
+  </data>
+  <data name="AddMeeting_Merge" xml:space="preserve">
+    <value>合併する</value>
+  </data>
+  <data name="AddMeeting_NotAccText" xml:space="preserve">
+    <value>ブロックしたウェッブサイト、アプリケーション、プライベート内容など</value>
+  </data>
+  <data name="AddMeeting_NotAccTitle" xml:space="preserve">
+    <value>利用不可能</value>
+  </data>
+  <data name="AddMeeting_Split" xml:space="preserve">
+    <value>割る</value>
+  </data>
+  <data name="AddMeeting_UndoDeleted" xml:space="preserve">
+    <value>取り消す</value>
+  </data>
+  <data name="AddReasonDelayedBody" xml:space="preserve">
+    <value>現在はオフラインモードであります。またオンラインになるとコメントは自動的に転送されます。</value>
+  </data>
+  <data name="AddReasonDelayedTitle" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="ConfirmExitBeforeDppAccept" xml:space="preserve">
+    <value>閉じてよろしいでしょうか。</value>
+  </data>
+  <data name="CountDown_TimeElapsed" xml:space="preserve">
+    <value>経った時間：</value>
+  </data>
+  <data name="MenuDetails" xml:space="preserve">
+    <value>明細</value>
+  </data>
+  <data name="NotificationNewMessageTitle" xml:space="preserve">
+    <value>新しいメッセージ</value>
+  </data>
+  <data name="OfflineDataNotUploaded" xml:space="preserve">
+    <value>アップロード出来無いデータがあります。</value>
+  </data>
+  <data name="OfflineReason_EndpointNotFound" xml:space="preserve">
+    <value>サーバーに繋がれません（エンドポイントを見つけませんでした）</value>
+  </data>
+  <data name="OfflineReason_Timeout" xml:space="preserve">
+    <value>サーバーに繋がれません（タイムアウト）</value>
+  </data>
+  <data name="WelcomeAgree" xml:space="preserve">
+    <value>同意します。次へ</value>
+  </data>
+  <data name="WelcomeInstructionText6a" xml:space="preserve">
+    <value>追加の選択肢メニューで自動ルールを作成できます。</value>
+  </data>
+  <data name="WelcomeInstructionText6b" xml:space="preserve">
+    <value>ポップアップウィンドーで編集出来ます。</value>
+  </data>
+  <data name="AutoMode_NotificationText" xml:space="preserve">
+    <value>貴社の設定による、タスクを手動で選択できません。管理者に連絡してください。</value>
+  </data>
+  <data name="AutoMode_QueryDisplaySettings" xml:space="preserve">
+    <value>貴社の設定による、タスクを手動で選択できません。（OKをクリックすると「デフォルトの設定」のメニューに転送されます。）</value>
+  </data>
+  <data name="AutoMode_QuerySwitchOff" xml:space="preserve">
+    <value>貴社の設定による、タスクを手動で選択できません。自動モードをオフにすることができます。「OKをクリックすると自動モードはオフになります。」</value>
+  </data>
+  <data name="AutoMode_Title" xml:space="preserve">
+    <value>自動モード</value>
+  </data>
+  <data name="WorkData_ProjectInstructions" xml:space="preserve">
+    <value>プロジェクトやタスクグループを選択してください。新しい項目は[サイト]で作れます。</value>
+  </data>
+  <data name="NotificationTimeZoneBody" xml:space="preserve">
+    <value>サイトでのプロフィールの時間帯設定はPCの時間帯設定とは異なっています。管理者に連絡してください。</value>
+  </data>
+  <data name="NotificationTimeZoneTitle" xml:space="preserve">
+    <value>時間帯設定</value>
+  </data>
+  <data name="NotificationRulesChangedText" xml:space="preserve">
+    <value>自動モードをサポートする規則は変更しました</value>
+  </data>
+  <data name="NotificationRulesChangedTitle" xml:space="preserve">
+    <value>規則</value>
+  </data>
+  <data name="AcquireLogs_MessageBoxTitle" xml:space="preserve">
+    <value>ログファイルを送信しますか?</value>
+  </data>
+  <data name="AcquireLogs_NotificationMessage" xml:space="preserve">
+    <value>ログファイルを送信するには、ここをクリックしてください。</value>
+  </data>
+  <data name="AcquireLogs_NotificationTitle" xml:space="preserve">
+    <value>JobCTRLサポートチームはあなたのサポートを必要としています</value>
+  </data>
+  <data name="AcquireLogs_Remember" xml:space="preserve">
+    <value>私の決定を覚えてください</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>コンテンツ</value>
+  </data>
+  <data name="ContextMenu_FavoriteReports" xml:space="preserve">
+    <value>お気に入りのレポート</value>
+  </data>
+  <data name="ContextMenu_Overview" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="ContextMenu_Refresh" xml:space="preserve">
+    <value>リフレッシュ</value>
+  </data>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="GoogleAuthenticationForm_FirstRow" xml:space="preserve">
+    <value>Google カレンダーの予定を同期するために、ご同意をお願いいたします。</value>
+  </data>
+  <data name="GoogleAuthenticationForm_PrivacyPolicy" xml:space="preserve">
+    <value>プライバシー・ポリシー</value>
+  </data>
+  <data name="GoogleAuthenticationForm_SecondRow" xml:space="preserve">
+    <value>下のボタンをクリックして認証プロセスを開始します。</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportFailedText" xml:space="preserve">
+    <value>Google リソースへのアクセス権の割り当てに失敗しました</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportSuccessText" xml:space="preserve">
+    <value>Google のリソースへのアクセスに成功しました</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportTitle" xml:space="preserve">
+    <value>グーグルアカウント</value>
+  </data>
+  <data name="Login_NotificationAuthenticationFailed" xml:space="preserve">
+    <value>認証に失敗しました。再試行しますか?</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>{0} - ログイン</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredBody" xml:space="preserve">
+    <value>アプリケーションの更新を実行するには、コンピュータを再起動してください</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredTitle" xml:space="preserve">
+    <value>再起動が必要です</value>
+  </data>
+  <data name="Preference_ShowThisMonthStats" xml:space="preserve">
+    <value>毎月の勤務時間を表示する</value>
+  </data>
+  <data name="Preference_ShowThisQuarterStats" xml:space="preserve">
+    <value>四半期ごとの勤務時間を表示する</value>
+  </data>
+  <data name="Preference_ShowThisYearStats" xml:space="preserve">
+    <value>年間勤務時間を表示する</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="ThisQuarterWorkTime" xml:space="preserve">
+    <value>四半期ごとの勤務時間</value>
+  </data>
+  <data name="ThisYearWorkTime" xml:space="preserve">
+    <value>年間勤務時間</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+</root>

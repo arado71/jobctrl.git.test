@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://jobctrl.com/" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CompositeMapping">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildrenByKey" nillable="true" type="q1:ArrayOfKeyValueOfstringCompositeMappingAizZ7SMt">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorkIdByKey" nillable="true" type="q2:ArrayOfKeyValueOfstringint">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeMapping" nillable="true" type="tns:CompositeMapping" />
+  <xs:complexType name="ArrayOfWorkDetectorRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkDetectorRule" nillable="true" type="tns:WorkDetectorRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkDetectorRule" nillable="true" type="tns:ArrayOfWorkDetectorRule" />
+  <xs:complexType name="WorkDetectorRule">
+    <xs:sequence>
+      <xs:element name="RuleType" type="tns:WorkDetectorRuleType" />
+      <xs:element name="RelatedId" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsRegex" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IgnoreCase" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TitleRule" nillable="true" type="xs:string" />
+      <xs:element name="ProcessRule" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlRule" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsPermanent" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WorkSelector" nillable="true" type="tns:WorkSelector">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="KeySuffix" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ServerId" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionRulesByIdByKey" nillable="true" type="q3:ArrayOfKeyValueOfstringArrayOfKeyValueOfstringstringty7Ep6D1">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WindowScope" type="tns:WindowScopeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsEnabledInNonWorkStatus" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IsEnabledInProjectIds" nillable="true" type="q4:ArrayOfint">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionRuleParametersById" nillable="true" type="q5:ArrayOfKeyValueOfstringArrayOfExtensionRuleParameterAizZ7SMt">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalActions" nillable="true" type="q6:ArrayOfstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FormattedNamedGroups" nillable="true" type="q7:ArrayOfKeyValueOfstringstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfWindowRule">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkDetectorRule" nillable="true" type="tns:WorkDetectorRule" />
+  <xs:simpleType name="WorkDetectorRuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TempStartWork" />
+      <xs:enumeration value="TempStopWork" />
+      <xs:enumeration value="TempStartCategory" />
+      <xs:enumeration value="DoNothing" />
+      <xs:enumeration value="TempStartProjectTemplate" />
+      <xs:enumeration value="TempStartWorkTemplate" />
+      <xs:enumeration value="EndTempEffect" />
+      <xs:enumeration value="CreateNewRuleAndEndTempEffect" />
+      <xs:enumeration value="CreateNewRuleAndTempStartWork" />
+      <xs:enumeration value="TempStartOrAssignWork" />
+      <xs:enumeration value="TempStartOrAssignProject" />
+      <xs:enumeration value="TempStartOrAssignProjectAndWork" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WorkDetectorRuleType" nillable="true" type="tns:WorkDetectorRuleType" />
+  <xs:complexType name="WorkSelector">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsRegex" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IgnoreCase" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Rule" nillable="true" type="xs:string" />
+      <xs:element name="TemplateText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkSelector" nillable="true" type="tns:WorkSelector" />
+  <xs:simpleType name="WindowScopeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="VisibleOrActive" />
+      <xs:enumeration value="Any" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WindowScopeType" nillable="true" type="tns:WindowScopeType" />
+  <xs:complexType name="ArrayOfExtensionRuleParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtensionRuleParameter" nillable="true" type="tns:ExtensionRuleParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtensionRuleParameter" nillable="true" type="tns:ArrayOfExtensionRuleParameter" />
+  <xs:complexType name="ExtensionRuleParameter">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Value" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtensionRuleParameter" nillable="true" type="tns:ExtensionRuleParameter" />
+  <xs:complexType name="ArrayOfWindowRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WindowRule" nillable="true" type="tns:WindowRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWindowRule" nillable="true" type="tns:ArrayOfWindowRule" />
+  <xs:complexType name="WindowRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsRegex" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IgnoreCase" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TitleRule" nillable="true" type="xs:string" />
+      <xs:element name="ProcessRule" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlRule" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionRulesByIdByKey" nillable="true" type="q8:ArrayOfKeyValueOfstringArrayOfKeyValueOfstringstringty7Ep6D1">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WindowScope" type="tns:WindowScopeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WindowRule" nillable="true" type="tns:WindowRule" />
+  <xs:complexType name="ArrayOfCensorRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CensorRule" nillable="true" type="tns:CensorRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCensorRule" nillable="true" type="tns:ArrayOfCensorRule" />
+  <xs:complexType name="CensorRule">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsRegex" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IgnoreCase" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TitleRule" nillable="true" type="xs:string" />
+      <xs:element name="ProcessRule" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlRule" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RuleType" type="tns:CensorRuleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CensorRule" nillable="true" type="tns:CensorRule" />
+  <xs:simpleType name="CensorRuleType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="HideTitle">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="HideScreenShot">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="HideUrl">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="HideWindow">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="CensorRuleType" nillable="true" type="tns:CensorRuleType" />
+  <xs:simpleType name="KickResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="AlreadyOffline" />
+      <xs:enumeration value="UnknownError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KickResult" nillable="true" type="tns:KickResult" />
+  <xs:complexType name="AssignWorkData">
+    <xs:sequence>
+      <xs:element name="WorkKey" nillable="true" type="xs:string" />
+      <xs:element name="ServerRuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssignWorkData" nillable="true" type="tns:AssignWorkData" />
+  <xs:complexType name="ArrayOfRuleGeneratorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleGeneratorData" nillable="true" type="tns:RuleGeneratorData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRuleGeneratorData" nillable="true" type="tns:ArrayOfRuleGeneratorData" />
+  <xs:complexType name="RuleGeneratorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RuleGeneratorData" nillable="true" type="tns:RuleGeneratorData" />
+  <xs:complexType name="CannedCloseReasons">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DefaultReasons" nillable="true" type="q9:ArrayOfstring" />
+      <xs:element minOccurs="0" name="IsReadonly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreeRoot" nillable="true" type="tns:ArrayOfCloseReasonNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CannedCloseReasons" nillable="true" type="tns:CannedCloseReasons" />
+  <xs:complexType name="ArrayOfCloseReasonNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CloseReasonNode" nillable="true" type="tns:CloseReasonNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCloseReasonNode" nillable="true" type="tns:ArrayOfCloseReasonNode" />
+  <xs:complexType name="CloseReasonNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfCloseReasonNode" />
+      <xs:element minOccurs="0" name="NodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReasonPart" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CloseReasonNode" nillable="true" type="tns:CloseReasonNode" />
+  <xs:simpleType name="CloseWorkResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="ReasonRequired" />
+      <xs:enumeration value="AlreadyClosed" />
+      <xs:enumeration value="UnknownError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CloseWorkResult" nillable="true" type="tns:CloseWorkResult" />
+  <xs:complexType name="ReasonStats">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReasonCountByWorkId" nillable="true" type="q10:ArrayOfKeyValueOfintint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonStats" nillable="true" type="tns:ReasonStats" />
+  <xs:complexType name="MeetingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PendingMeetings" nillable="true" type="tns:ArrayOfMeetingEntry" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CalendarEmailAccounts" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element minOccurs="0" name="LastSuccessfulSyncDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MeetingData" nillable="true" type="tns:MeetingData" />
+  <xs:complexType name="ArrayOfMeetingEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MeetingEntry" nillable="true" type="tns:MeetingEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeetingEntry" nillable="true" type="tns:ArrayOfMeetingEntry" />
+  <xs:complexType name="MeetingEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizerEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizerFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizerLastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MeetingEntry" nillable="true" type="tns:MeetingEntry" />
+  <xs:simpleType name="AssignTaskResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="AccessDenied" />
+      <xs:enumeration value="UnknownError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AssignTaskResult" nillable="true" type="tns:AssignTaskResult" />
+  <xs:complexType name="FinishedMeetingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FinishedMeetings" nillable="true" type="tns:ArrayOfFinishedMeetingEntry" />
+      <xs:element minOccurs="0" name="LastQueryIntervalEndDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinishedMeetingData" nillable="true" type="tns:FinishedMeetingData" />
+  <xs:complexType name="ArrayOfFinishedMeetingEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FinishedMeetingEntry" nillable="true" type="tns:FinishedMeetingEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinishedMeetingEntry" nillable="true" type="tns:ArrayOfFinishedMeetingEntry" />
+  <xs:complexType name="FinishedMeetingEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attendees" nillable="true" type="tns:ArrayOfMeetingAttendee" />
+      <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsInFuture" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastmodificationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldStartTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:MeetingCrudStatus" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinishedMeetingEntry" nillable="true" type="tns:FinishedMeetingEntry" />
+  <xs:complexType name="ArrayOfMeetingAttendee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MeetingAttendee" nillable="true" type="tns:MeetingAttendee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeetingAttendee" nillable="true" type="tns:ArrayOfMeetingAttendee" />
+  <xs:complexType name="MeetingAttendee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseStatus" type="tns:MeetingAttendeeResponseStatus" />
+      <xs:element minOccurs="0" name="Type" type="tns:MeetingAttendeeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MeetingAttendee" nillable="true" type="tns:MeetingAttendee" />
+  <xs:simpleType name="MeetingAttendeeResponseStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ResponseNone" />
+      <xs:enumeration value="ResponseOrganized" />
+      <xs:enumeration value="ResponseTentative" />
+      <xs:enumeration value="ResponseAccepted" />
+      <xs:enumeration value="ResponseDeclined" />
+      <xs:enumeration value="ResponseNotResponded" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MeetingAttendeeResponseStatus" nillable="true" type="tns:MeetingAttendeeResponseStatus" />
+  <xs:simpleType name="MeetingAttendeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Organizer" />
+      <xs:enumeration value="Required" />
+      <xs:enumeration value="Optional" />
+      <xs:enumeration value="Resource" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MeetingAttendeeType" nillable="true" type="tns:MeetingAttendeeType" />
+  <xs:simpleType name="MeetingCrudStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Updated" />
+      <xs:enumeration value="Deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MeetingCrudStatus" nillable="true" type="tns:MeetingCrudStatus" />
+  <xs:complexType name="ManualMeetingData">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttendeeEmails" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IncludedIdleMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnGoing" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OriginalStartTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManualMeetingData" nillable="true" type="tns:ManualMeetingData" />
+  <xs:complexType name="AssignProjectData">
+    <xs:sequence>
+      <xs:element name="ProjectKey" nillable="true" type="xs:string" />
+      <xs:element name="ServerRuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssignProjectData" nillable="true" type="tns:AssignProjectData" />
+  <xs:complexType name="AssignCompositeData">
+    <xs:sequence>
+      <xs:element name="WorkKey" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProjectKeys" nillable="true" type="q13:ArrayOfstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ServerRuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssignCompositeData" nillable="true" type="tns:AssignCompositeData" />
+  <xs:complexType name="ArrayOfDailyWorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DailyWorkTimeStats" nillable="true" type="tns:DailyWorkTimeStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDailyWorkTimeStats" nillable="true" type="tns:ArrayOfDailyWorkTimeStats" />
+  <xs:complexType name="DailyWorkTimeStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="Day" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HolidayTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="IvrWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ManuallyAddedWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="MobileWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="NetWorkTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="SickLeaveTime" type="ser:duration" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TotalWorkTimeByWorkId" nillable="true" type="q14:ArrayOfKeyValueOfintduration" />
+      <xs:element minOccurs="0" name="Version" type="xs:long" />
+      <xs:element minOccurs="0" name="PartialInterval" nillable="true" type="ser:duration">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DailyWorkTimeStats" nillable="true" type="tns:DailyWorkTimeStats" />
+  <xs:complexType name="CollectorRules">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfCollectorRule">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectorRules" nillable="true" type="tns:CollectorRules" />
+  <xs:complexType name="ArrayOfCollectorRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CollectorRule" nillable="true" type="tns:CollectorRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCollectorRule" nillable="true" type="tns:ArrayOfCollectorRule" />
+  <xs:complexType name="CollectorRule">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IsRegex" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="IgnoreCase" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TitleRule" nillable="true" type="xs:string" />
+      <xs:element name="ProcessRule" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlRule" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ServerId" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionRulesByIdByKey" nillable="true" type="q15:ArrayOfKeyValueOfstringArrayOfKeyValueOfstringstringty7Ep6D1">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WindowScope" type="tns:WindowScopeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FormattedNamedGroups" nillable="true" type="q16:ArrayOfKeyValueOfstringstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfWindowRule">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="CapturedKeys" nillable="true" type="q17:ArrayOfstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtensionRuleParametersById" nillable="true" type="q18:ArrayOfKeyValueOfstringArrayOfExtensionRuleParameterAizZ7SMt">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectorRule" nillable="true" type="tns:CollectorRule" />
+  <xs:complexType name="CollectedItem">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CapturedValues" nillable="true" type="q19:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectedItem" nillable="true" type="tns:CollectedItem" />
+  <xs:complexType name="AggregateCollectedItems">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfCollectedItemIdOnly" />
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KeyLookup" nillable="true" type="q20:ArrayOfKeyValueOfintstring" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValueLookup" nillable="true" type="q21:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AggregateCollectedItems" nillable="true" type="tns:AggregateCollectedItems" />
+  <xs:complexType name="ArrayOfCollectedItemIdOnly">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CollectedItemIdOnly" nillable="true" type="tns:CollectedItemIdOnly" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCollectedItemIdOnly" nillable="true" type="tns:ArrayOfCollectedItemIdOnly" />
+  <xs:complexType name="CollectedItemIdOnly">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CapturedValues" nillable="true" type="q22:ArrayOfKeyValueOfintNullableOfintU6ho3Bhd" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollectedItemIdOnly" nillable="true" type="tns:CollectedItemIdOnly" />
+  <xs:complexType name="IssueData">
+    <xs:sequence>
+      <xs:element name="IssueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="State" type="xs:int" />
+      <xs:element name="UserId" type="xs:int" />
+      <xs:element name="Modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedByName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedByUserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IssueData" nillable="true" type="tns:IssueData" />
+  <xs:complexType name="ArrayOfIssueData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueData" nillable="true" type="tns:IssueData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIssueData" nillable="true" type="tns:ArrayOfIssueData" />
+  <xs:complexType name="AcceptanceData">
+    <xs:sequence>
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="AcceptedAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AcceptanceData" nillable="true" type="tns:AcceptanceData" />
+</xs:schema>

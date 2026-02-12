@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Svg.Controls.Skia.Avalonia"
+			 xmlns:local="clr-namespace:ActivityRecorderClientAV"
+			 x:Class="ActivityRecorderClientAV.TaskDisplayControlAV"
+			 x:Name="ThisControl">
+	<Grid Name="RootGrid" RowDefinitions="Auto, Auto">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="300" />
+		</Grid.ColumnDefinitions>
+
+		<Grid Grid.Column="0" Width="50" Height="50" Margin="20,-10,10,0">
+			<Ellipse x:Name="TaskCircle" Fill="{Binding #ThisControl.TaskCircleFill}" />
+			<TextBlock x:Name="TaskInitials" Text="{Binding #ThisControl.TaskInitialsText}"
+					   VerticalAlignment="Center" HorizontalAlignment="Center"
+					   Foreground="White" FontSize="20" FontWeight="Bold" />
+		</Grid>
+
+		<StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+			<TextBlock x:Name="TaskFolder"
+					   Text="{Binding #ThisControl.TaskFolderText}"
+					   FontSize="14"
+					   FontFamily="{StaticResource InterTightFont}"
+					   FontWeight="Regular"
+					   Margin="10,20,0,0" />
+			<TextBlock x:Name="TaskName"
+					   Text="{Binding #ThisControl.TaskNameText}"
+					   FontSize="16"
+					   FontFamily="{StaticResource InterTightFont}"
+					   FontWeight="Bold"
+					   Margin="10,0,0,0" />
+
+			<StackPanel x:Name="TaskLargeDetailsPanel" Orientation="Horizontal" Margin="-60,10,0,0" >
+
+				<Grid ColumnDefinitions="Auto,*,Auto" Margin="5,10,0,0">
+					<Path Grid.Column="0" VerticalAlignment="Center" Margin="0,0,5,5" Width="12" Height="12"
+						  Stretch="Uniform"
+						  Fill="{DynamicResource SystemControlForegroundBaseHighBrush}"
+						  Data="M2,2 L2,22 L4,22 L4,2 Z M4,2 L16,6 C17,5 18,6 16,7 L4,11 Z" />
+					<TextBlock x:Name="Priority" Grid.Column="1" Text="{Binding #ThisControl.PriorityText}"
+							   FontSize="12" VerticalAlignment="Center" FontWeight="Regular" />
+				</Grid>
+
+				<Grid Width="240" Margin="0,0,0,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="120"/>
+						<ColumnDefinition Width="120"/>
+					</Grid.ColumnDefinitions>
+
+					<StackPanel Orientation="Vertical" Grid.Column="0" Margin="20,0,10,0" Width="120">
+						<TextBlock x:Name="DaysLeft" Text="{Binding #ThisControl.DaysLeftText}"
+								   HorizontalAlignment="Center" FontSize="10" FontWeight="Regular" Margin="0,0,0,5"/>
+						<ProgressBar x:Name="ProgressDays" Value="{Binding #ThisControl.ProgressDaysValue}" Maximum="1"
+									 Height="5" MinWidth="80" Width="120" Foreground="{Binding #ThisControl.ProgressDaysForeground}"/>
+					</StackPanel>
+
+					<StackPanel Orientation="Vertical" Grid.Column="1" Margin="10,0,0,0" Width="120">
+						<TextBlock x:Name="HoursLeft" Text="{Binding #ThisControl.HoursLeftText}"
+								   HorizontalAlignment="Center" FontSize="10" FontWeight="Regular" Margin="0,0,0,5"/>
+						<ProgressBar x:Name="ProgressHours" Value="{Binding #ThisControl.ProgressHoursValue}" Maximum="1"
+									 Height="5" MinWidth="80" Width="120" Foreground="{Binding #ThisControl.ProgressHoursForeground}"/>
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

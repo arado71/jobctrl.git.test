@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD661EE5-16BE-4AF4-9711-A5AB4873DEDD}</ProjectGuid>
+    <ProjectTypeGuids>{948B3504-5B70-4649-8FE4-BDE1FB46EC69};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Tct.ActivityRecorderClient</RootNamespace>
+    <AssemblyName>JobCTRL</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="cp -R ${TargetDir}/hu-HU ${TargetDir}/JobCTRL.app/Contents/MonoBundle/" />
+      </CustomCommands>
+    </CustomCommands>
+    <EnableCodeSigning>False</EnableCodeSigning>
+    <CreatePackage>False</CreatePackage>
+    <EnablePackageSigning>False</EnablePackageSigning>
+    <IncludeMonoRuntime>False</IncludeMonoRuntime>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="cp -R ${TargetDir}/hu-HU ${TargetDir}/JobCTRL.app/Contents/MonoBundle/" />
+      </CustomCommands>
+    </CustomCommands>
+    <EnableCodeSigning>False</EnableCodeSigning>
+    <CreatePackage>False</CreatePackage>
+    <EnablePackageSigning>False</EnablePackageSigning>
+    <IncludeMonoRuntime>True</IncludeMonoRuntime>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="MonoMac" />
+    <Reference Include="log4net">
+      <HintPath>..\Log4Net\Mono\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Mono\MonoMac\v0.0\Mono.MonoMac.targets" />
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="app.config" />
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Arrays.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\Arrays.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Reference.svcmap">
+      <Link>Service References\ActivityRecorderServiceReference\Reference.svcmap</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AuthData.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AuthData.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.CensorRule.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.CensorRule.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientComputerKick.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientComputerKick.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientMenu.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientMenu.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientSetting.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientSetting.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientWorkTimeStats.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientWorkTimeStats.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TotalWorkTimeStats.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TotalWorkTimeStats.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.WorkDetectorRule.datasource">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.WorkDetectorRule.datasource</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Stats.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Stats.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService1.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService1.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\configuration.svcinfo">
+      <Link>Service References\ActivityRecorderServiceReference\configuration.svcinfo</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\configuration91.svcinfo">
+      <Link>Service References\ActivityRecorderServiceReference\configuration91.svcinfo</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\service.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\service.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\service1.wsdl">
+      <Link>Service References\ActivityRecorderServiceReference\service1.wsdl</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\service2.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\service2.xsd</Link>
+    </None>
+    <None Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\service21.xsd">
+      <Link>Service References\ActivityRecorderServiceReference\service21.xsd</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NSRunLoopSynchronizationContext.cs" />
+    <Compile Include="PlatformMac.cs" />
+    <Compile Include="ProgramMac.cs" />
+    <Compile Include="Capturing.EnvironmentInfo\EnvironmentInfoMacService.cs" />
+    <Compile Include="Capturing.UserActivity\UserActivityMacService.cs" />
+    <Compile Include="Notification\NotificationMacService.cs" />
+    <Compile Include="Sleep\SleepRegulatorMacService.cs" />
+    <Compile Include="SystemEvents\SystemEventsMacService.cs" />
+    <Compile Include="ViewMac\AppDelegate.cs" />
+    <Compile Include="ViewMac\LoginWindow.cs" />
+    <Compile Include="ViewMac\LoginWindow.designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMac\LoginWindowController.cs" />
+    <Compile Include="ViewMac\MainWindow.cs" />
+    <Compile Include="ViewMac\MainWindow.designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMac\MainWindowController.cs" />
+    <Compile Include="..\ActivityRecorderClient\AuthenticationHelper.cs">
+      <Link>AuthenticationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\CachedDictionary.cs">
+      <Link>CachedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\CachedFunc.cs">
+      <Link>CachedFunc.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ClockSkewHelper.cs">
+      <Link>ClockSkewHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ConfigManager.cs">
+      <Link>ConfigManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Extensions.cs">
+      <Link>Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\HotKeyHelper.cs">
+      <Link>HotKeyHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\IPlatformFactory.cs">
+      <Link>IPlatformFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Labels.Designer.cs">
+      <Link>Labels.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\LocalizationHelper.cs">
+      <Link>LocalizationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\PeriodicManager.cs">
+      <Link>PeriodicManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\SingleValueEventArgs.cs">
+      <Link>SingleValueEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\StopwatchLite.cs">
+      <Link>StopwatchLite.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\ActivityRecorderClient.cs">
+      <Link>ActivityRecorderServiceReference\ActivityRecorderClient.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\CensorRule.cs">
+      <Link>ActivityRecorderServiceReference\CensorRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\DesktopCapture.cs">
+      <Link>ActivityRecorderServiceReference\DesktopCapture.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\DesktopWindow.cs">
+      <Link>ActivityRecorderServiceReference\DesktopWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\Extensions.cs">
+      <Link>ActivityRecorderServiceReference\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\ICaptureEquatable.cs">
+      <Link>ActivityRecorderServiceReference\ICaptureEquatable.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\IWorkItem.cs">
+      <Link>ActivityRecorderServiceReference\IWorkItem.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\ManualWorkItem.cs">
+      <Link>ActivityRecorderServiceReference\ManualWorkItem.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\Screen.cs">
+      <Link>ActivityRecorderServiceReference\Screen.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\WorkDetectorRule.cs">
+      <Link>ActivityRecorderServiceReference\WorkDetectorRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\WorkItem.cs">
+      <Link>ActivityRecorderServiceReference\WorkItem.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\WorkSelector.cs">
+      <Link>ActivityRecorderServiceReference\WorkSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\CaptureCoordinator.cs">
+      <Link>Capturing.Core\CaptureCoordinator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\CaptureManager.cs">
+      <Link>Capturing.Core\CaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\Censor.cs">
+      <Link>Capturing.Core\Censor.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\CensorRulesManager.cs">
+      <Link>Capturing.Core\CensorRulesManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\ClientKickCoordinator.cs">
+      <Link>Capturing.Core\ClientKickCoordinator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\ClientKickManager.cs">
+      <Link>Capturing.Core\ClientKickManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\ClientSettingsManager.cs">
+      <Link>Capturing.Core\ClientSettingsManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\MenuManager.cs">
+      <Link>Capturing.Core\MenuManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\SystemEventsCoordinator.cs">
+      <Link>Capturing.Core\SystemEventsCoordinator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\VersionReportManager.cs">
+      <Link>Capturing.Core\VersionReportManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkAndLayoutGuiCoordinator.cs">
+      <Link>Capturing.Core\WorkAndLayoutGuiCoordinator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkDetector.cs">
+      <Link>Capturing.Core\WorkDetector.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkDetectorRulesManager.cs">
+      <Link>Capturing.Core\WorkDetectorRulesManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkItemEventArgs.cs">
+      <Link>Capturing.Core\WorkItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkItemManager.cs">
+      <Link>Capturing.Core\WorkItemManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkStatusChange.cs">
+      <Link>Capturing.Core\WorkStatusChange.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkStatusReporter.cs">
+      <Link>Capturing.Core\WorkStatusReporter.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop\DesktopCaptureManager.cs">
+      <Link>Capturing.Desktop\DesktopCaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop\DesktopCaptureService.cs">
+      <Link>Capturing.Desktop\DesktopCaptureService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop\DesktopCapturedEventArgs.cs">
+      <Link>Capturing.Desktop\DesktopCapturedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop\IDesktopCaptureService.cs">
+      <Link>Capturing.Desktop\IDesktopCaptureService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.EnvironmentInfo\EnvironmentInfoService.cs">
+      <Link>Capturing.EnvironmentInfo\EnvironmentInfoService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.EnvironmentInfo\IEnvironmentInfoService.cs">
+      <Link>Capturing.EnvironmentInfo\IEnvironmentInfoService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.EnvironmentInfo\VirtualMachine.cs">
+      <Link>Capturing.EnvironmentInfo\VirtualMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Extra\IdleDetector.cs">
+      <Link>Capturing.Extra\IdleDetector.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Extra\WorkTimeCounter.cs">
+      <Link>Capturing.Extra\WorkTimeCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Extra\WorkTimeStatsManager.cs">
+      <Link>Capturing.Extra\WorkTimeStatsManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.UserActivity\IUserActivityService.cs">
+      <Link>Capturing.UserActivity\IUserActivityService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\ActivityRecorderClientWrapper.cs">
+      <Link>Communication\ActivityRecorderClientWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>Communication\WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfExceptionLogger.cs">
+      <Link>Communication\WcfExceptionLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Controller\CurrentWorkController.cs">
+      <Link>Controller\CurrentWorkController.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Controller\CurrentWorkControllerBase.cs">
+      <Link>Controller\CurrentWorkControllerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Controller\WorkState.cs">
+      <Link>Controller\WorkState.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Controller\WorkStateChangeReason.cs">
+      <Link>Controller\WorkStateChangeReason.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\ClientMenuLookup.cs">
+      <Link>Menu\ClientMenuLookup.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\MenuBuilderHelper.cs">
+      <Link>Menu\MenuBuilderHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\MenuEventArgs.cs">
+      <Link>Menu\MenuEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\MenuHelper.cs">
+      <Link>Menu\MenuHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\WorkDataEventArgs.cs">
+      <Link>Menu\WorkDataEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Menu\WorkDataWithParentNames.cs">
+      <Link>Menu\WorkDataWithParentNames.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Notification\INotificationService.cs">
+      <Link>Notification\INotificationService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\IRule.cs">
+      <Link>Rules\IRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\IWorkChangingRule.cs">
+      <Link>Rules\IWorkChangingRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\PlaceholderHelper.cs">
+      <Link>Rules\PlaceholderHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\RuleMatcher.cs">
+      <Link>Rules\RuleMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\WorkChangingRule.cs">
+      <Link>Rules\WorkChangingRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\WorkChangingRuleFactory.cs">
+      <Link>Rules\WorkChangingRuleFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Serialization\IsolatedStorageSerializationHelper.cs">
+      <Link>Serialization\IsolatedStorageSerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Serialization\WorkItemSerializationHelper.cs">
+      <Link>Serialization\WorkItemSerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Serialization\XmlSerializationHelper.cs">
+      <Link>Serialization\XmlSerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Service References\ActivityRecorderServiceReference\Reference.cs">
+      <Link>Service References\ActivityRecorderServiceReference\Reference.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Sleep\ISleepRegulatorService.cs">
+      <Link>Sleep\ISleepRegulatorService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\SystemEvents\ISystemEventsService.cs">
+      <Link>SystemEvents\ISystemEventsService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Update\AutoUpdateManager.cs">
+      <Link>Update\AutoUpdateManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Update\IUpdateService.cs">
+      <Link>Update\IUpdateService.cs</Link>
+    </Compile>
+    <Compile Include="Update\UpdateMacService.cs" />
+    <Compile Include="Capturing.Desktop\DesktopCaptureMacService.cs" />
+    <Compile Include="ViewMac\NotificationWindow.cs" />
+    <Compile Include="ViewMac\NotificationWindowController.cs" />
+    <Compile Include="ViewMac\NotificationWindow.designer.cs">
+      <DependentUpon>NotificationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="DebugListener.cs" />
+    <Compile Include="LibraryMac.cs" />
+    <Compile Include="ManagedWrapper.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Url\SafariUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Url\IUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Accessibility\AXObject.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Accessibility\AXAttribute.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Accessibility\AXError.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Accessibility\CFStringHelper.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Url\ChromeUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Accessibility\ActiveWindowHelper.cs" />
+    <Compile Include="PrerequisiteHelper.cs" />
+    <Compile Include="ViewMac\ImageHelper.cs" />
+    <Compile Include="Capturing.Desktop.Mac.Url\UrlResolver.cs" />
+    <Compile Include="ViewMac\NSMenuItemWithWorkData.cs" />
+    <Compile Include="ViewMac\RecentWorksNSMenuItem.cs" />
+    <Compile Include="ViewMac\RecentUrlNSMenuItem.cs" />
+    <Compile Include="ViewMac\TaggableNSMenuItem.cs" />
+    <Compile Include="ViewMac\SetIntWindow.cs" />
+    <Compile Include="ViewMac\SetIntWindowController.cs" />
+    <Compile Include="ViewMac\SetIntWindow.designer.cs">
+      <DependentUpon>SetIntWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMac\ControllerCollection.cs" />
+    <Compile Include="Menu\MenuMacBuilder.cs" />
+    <Compile Include="ViewMac\WorkDetectorRulesWindow.cs" />
+    <Compile Include="ViewMac\WorkDetectorRulesWindowController.cs" />
+    <Compile Include="ViewMac\WorkDetectorRulesWindow.designer.cs">
+      <DependentUpon>WorkDetectorRulesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMac\WorkDetectorRulesDataSource.cs" />
+    <Compile Include="ViewMac\WorkDetectorRuleEditSheet.cs" />
+    <Compile Include="ViewMac\WorkDetectorRuleEditSheetController.cs" />
+    <Compile Include="ViewMac\WorkDetectorRuleEditSheet.designer.cs">
+      <DependentUpon>WorkDetectorRuleEditSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\IRuleManagementService.cs">
+      <Link>Rules\IRuleManagementService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\RuleManagementService.cs">
+      <Link>Rules\RuleManagementService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules\WorkDetectorRuleTypeComparer.cs">
+      <Link>Rules\WorkDetectorRuleTypeComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\GeneratedRule.cs">
+      <Link>Rules.Generation\GeneratedRule.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\IRuleGenerator.cs">
+      <Link>Rules.Generation\IRuleGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\IgnoreRuleGenerator.cs">
+      <Link>Rules.Generation\IgnoreRuleGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\LearningRuleBuilder.cs">
+      <Link>Rules.Generation\LearningRuleBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\ReplaceGroupRuleGenerator.cs">
+      <Link>Rules.Generation\ReplaceGroupRuleGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\RuleGeneratorDataContent.cs">
+      <Link>Rules.Generation\RuleGeneratorDataContent.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\RuleGeneratorFactory.cs">
+      <Link>Rules.Generation\RuleGeneratorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Rules.Generation\SimpleRuleGenerator.cs">
+      <Link>Rules.Generation\SimpleRuleGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\LearningRuleManager.cs">
+      <Link>Capturing.Core\LearningRuleManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Core\WorkAssigner.cs">
+      <Link>Capturing.Core\WorkAssigner.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Extra\TimeManager.cs">
+      <Link>Capturing.Extra\TimeManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\PreferredEndpointManager.cs">
+      <Link>Communication\PreferredEndpointManager.cs</Link>
+    </Compile>
+    <Compile Include="Rules\RuleManagementMacService.cs" />
+    <Compile Include="..\ActivityRecorderClient\ActivityRecorderServiceReference\AssignWorkData.cs">
+      <Link>ActivityRecorderServiceReference\AssignWorkData.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="ViewMac\LoginWindow.xib" />
+    <InterfaceDefinition Include="ViewMac\MainMenu.xib" />
+    <InterfaceDefinition Include="ViewMac\MainWindow.xib" />
+    <InterfaceDefinition Include="ViewMac\NotificationWindow.xib" />
+    <InterfaceDefinition Include="ViewMac\SetIntWindow.xib" />
+    <InterfaceDefinition Include="ViewMac\WorkDetectorRulesWindow.xib" />
+    <InterfaceDefinition Include="ViewMac\WorkDetectorRuleEditSheet.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JobCTRL-icon.icns" />
+    <Content Include="NotWorking.png" />
+    <Content Include="WorkingOffline.png" />
+    <Content Include="WorkingOnline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\ActivityRecorderClient\Labels.hu-HU.resx">
+      <Link>Labels.hu-HU.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\ActivityRecorderClient\Labels.resx">
+      <Link>Labels.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Capturing.Desktop.Mac.Url\" />
+    <Folder Include="Capturing.Desktop.Mac.Accessibility\" />
+    <Folder Include="Rules.Generation\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WebsiteServiceReference" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WebsiteServiceReference" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q1:PropertyChangedEventHandler" />
+      <xs:element name="contentField" nillable="true" type="xs:string" />
+      <xs:element name="createdAtField" type="xs:dateTime" />
+      <xs:element name="idField" type="xs:int" />
+      <xs:element name="mobileReadAtField" nillable="true" type="xs:dateTime" />
+      <xs:element name="mobileSentAtField" nillable="true" type="xs:dateTime" />
+      <xs:element name="pCReadAtField" nillable="true" type="xs:dateTime" />
+      <xs:element name="pCSentAtField" nillable="true" type="xs:dateTime" />
+      <xs:element name="targetField" type="tns:MessageTargets" />
+      <xs:element name="targetUserIdField" type="xs:int" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:simpleType name="MessageTargets">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PC" />
+          <xs:enumeration value="Mobile" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="MessageTargets" nillable="true" type="tns:MessageTargets" />
+</xs:schema>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A01FC4B-674A-4930-8D32-A900E3C6CC76}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TelemetryConverter</RootNamespace>
+    <AssemblyName>TelemetryConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregators\ErrorTableAggregator.cs" />
+    <Compile Include="Aggregators\EventTableAggregator.cs" />
+    <Compile Include="Aggregators\FeatureEventTableAggregator.cs" />
+    <Compile Include="Aggregators\GenericSeriesAggregator.cs" />
+    <Compile Include="Aggregators\ISeriesAggregator.cs" />
+    <Compile Include="Aggregators\EventCount.cs" />
+    <Compile Include="Aggregators\ITableAggregator.cs" />
+    <Compile Include="Aggregators\ServerErrorCount.cs" />
+    <Compile Include="Aggregators\TableColumn.cs" />
+    <Compile Include="Aggregators\TelemetryUploadCount.cs" />
+    <Compile Include="Aggregators\VersionDataAggregator.cs" />
+    <Compile Include="Database\IntervalOrderedList.cs" />
+    <Compile Include="Database\IntervalTable.cs" />
+    <Compile Include="Database\IEvent.cs" />
+    <Compile Include="Database\IInterval.cs" />
+    <Compile Include="Database\Interval.cs" />
+    <Compile Include="Database\ITimeBased.cs" />
+    <Compile Include="Database\SeriesDatabase.cs" />
+    <Compile Include="Database\CalculationHelper.cs" />
+    <Compile Include="Database\EventTable.cs" />
+    <Compile Include="DataProcessor.cs" />
+    <Compile Include="DataSources\ConverterDataSource.cs" />
+    <Compile Include="DataSources\PeriodicFileSystemWatcher.cs" />
+    <Compile Include="DataSources\TextAppendDatasource.cs" />
+    <Compile Include="DataSources\IDataSource.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Grafana\GrafanaHelper.cs" />
+    <Compile Include="Grafana\GrafanaHttpServer.cs" />
+    <Compile Include="Grafana\TableResult.cs" />
+    <Compile Include="HttpServer.cs" />
+    <Compile Include="PeriodicManager.cs" />
+    <Compile Include="ServerLog\LogEvent.cs" />
+    <Compile Include="ServerLog\LogEvents.cs" />
+    <Compile Include="Database\DateOrderedList.cs" />
+    <Compile Include="OrderedList.cs" />
+    <Compile Include="Grafana\QueryResult.cs" />
+    <Compile Include="ServerLog\ServerLogDataSource.cs" />
+    <Compile Include="SingleValueEventArgs.cs" />
+    <Compile Include="Telemetry\TelemetryEvent.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataSources\FileListDatasource.cs" />
+    <Compile Include="Telemetry\TelemetryEventDataSource.cs" />
+    <Compile Include="Telemetry\TelemetryItem.cs" />
+    <Compile Include="Telemetry\TelemetryItemDataSource.cs" />
+    <Compile Include="TimeSeriesElement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityRecorderService\ActivityRecorderService.csproj">
+      <Project>{95bf4851-77a1-4738-9377-0c2ba92cf256}</Project>
+      <Name>ActivityRecorderService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4761CE46-2DFD-4640-BD52-6B5BAF6475CD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ProxyDataRouter</RootNamespace>
+    <AssemblyName>ProxyDataRouter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient\CachedDictionary.cs">
+      <Link>CachedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\PeriodicManager.cs">
+      <Link>PeriodicManager.cs</Link>
+    </Compile>
+    <Compile Include="ActivityRecorderServiceClientWrapper.cs" />
+    <Compile Include="CallRouter.cs" />
+    <Compile Include="Connected Services\ActivityRecorderServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DataMapper.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyClientWrapper.cs" />
+    <Compile Include="DataRouterRunner.cs" />
+    <Compile Include="RouterManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\ActivityRecorderServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Authentication.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\clientApi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\jobctrl.com.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Notifications.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.AcceptanceData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.AcquireTodoListLockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.AllWorkItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ApplicationUpdateInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ArrayOfMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.AssignTaskResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.AuthData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CannedCloseReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CensorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientComputerKick.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientLoginTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientWorkTimeHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ClientWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CloseWorkResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CloudTokenData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CollectorRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.CreateOrUpdateTodoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.DailyWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetClientCensorRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetClientCollectorRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetClientMenuResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetClientRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetClientSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetLearningRuleGeneratorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetMostRecentTodoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetTodoListItemStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetTodoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.GetWorkTimeStatsForUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.IssueData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.MeetingData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.NotificationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ProjectManagementConstraints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.ReasonStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.RuleGeneratorData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.SimpleWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.TaskReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.TodoListDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.TodoListItemStatusDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.TodoListToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.WorkDetectorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.WorkNames.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\ProxyDataRouter.ActivityRecorderServiceReference.WorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\service.wsdl" />
+    <None Include="Connected Services\ActivityRecorderServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.ClientComputerData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Telemetry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Tct.ActivityRecorderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActivityRecorderServiceReference\WorkTimeHistory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\item9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.AcceptanceData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.AcquireTodoListLockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.AllWorkItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ApplicationUpdateInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ArrayOfMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.AssignTaskResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.AuthData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CannedCloseReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CensorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ClientComputerKick.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ClientMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ClientSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ClientWorkTimeHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ClientWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CloseWorkResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CloudTokenData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CollectorRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.CreateOrUpdateTodoListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.DailyWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetClientCensorRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetClientCollectorRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetClientMenuResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetClientRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetClientSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetLearningRuleGeneratorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetMessagesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetMostRecentTodoListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetTodoListItemStatusesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetTodoListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.GetWorkTimeStatsForUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.IssueData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.MeetingData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.NotificationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ProjectManagementConstraints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.ReasonStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.RuleGeneratorData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.SimpleWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.TaskReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.TodoListDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.TodoListItemStatusDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.TodoListToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.WorkDetectorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.WorkNames.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyDataRouter.ProxyServiceReference.WorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyServiceReference\ProxyService.wsdl" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ActivityRecorderServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ActivityRecorderServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ActivityRecorderServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ActivityRecorderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

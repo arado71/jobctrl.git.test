@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{860ADFC9-4C61-4A21-BBB6-BFDB843A17ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VoxCTRL</RootNamespace>
+    <AssemblyName>VoxCTRL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.9.5.%2a</ApplicationVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>0628</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedWix' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\VoxCTRL.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dependencies\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfClientDisposeHelper.cs">
+      <Link>Communication\WcfClientDisposeHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Communication\WcfExceptionLogger.cs">
+      <Link>Communication\WcfExceptionLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\PeriodicManager.cs">
+      <Link>PeriodicManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\View\WinFormsExtensions.cs">
+      <Link>View\WinFormsExtensions.cs</Link>
+    </Compile>
+    <Compile Include="ActiveDirectoryAuthenticationManager.cs" />
+    <Compile Include="ActiveDirectoryLoginServiceClientWrapper.cs" />
+    <Compile Include="ActivityRecorderServiceReference\VoiceRecording.cs" />
+    <Compile Include="AutoStartHelper.cs" />
+    <Compile Include="Communication\ActivityRecorderClientWrapper.cs" />
+    <Compile Include="Communication\AuthenticationHelper.cs" />
+    <Compile Include="Communication\ClientSettingsManager.cs" />
+    <Compile Include="Communication\VoiceRecorderClient.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="Controller\ComponentWrapper.cs" />
+    <Compile Include="Controller\RecorderFormController.cs" />
+    <Compile Include="Controller\RecordingNameParser.cs" />
+    <Compile Include="Controller\UniqueIdentityGenerator.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="InteropService\IVoiceRecorderControllerService.cs" />
+    <Compile Include="InteropService\VoiceRecorderControllerService.cs" />
+    <Compile Include="LoginData.cs" />
+    <Compile Include="Serialization\IsolatedStorageSerializationHelper.cs" />
+    <Compile Include="Serialization\StorageService.cs" />
+    <Compile Include="Serialization\XmlSerializationHelper.cs" />
+    <Compile Include="Service References\ActivityRecorderServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SingleValueEventArgs.cs" />
+    <Compile Include="Update\UpdateManager.cs" />
+    <Compile Include="Update\UpdateService.cs" />
+    <Compile Include="VersionReporting\ComputerIdGenerator.cs" />
+    <Compile Include="VersionReporting\VersionReportManager.cs" />
+    <Compile Include="View\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BindableToolStripMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\FormDragger.cs" />
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SmallRecorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SmallRecorderForm.Designer.cs">
+      <DependentUpon>SmallRecorderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RecorderForm.Designer.cs">
+      <DependentUpon>RecorderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Voice.Codecs\GsmWaveFormatData.cs" />
+    <Compile Include="Voice.Codecs\IEncoder.cs" />
+    <Compile Include="Voice.Codecs\HighStereoWaveFormatData.cs" />
+    <Compile Include="Voice.Codecs\LowStereoWaveFormatData.cs" />
+    <Compile Include="Voice.Codecs\Mp3Encoder.cs" />
+    <Compile Include="Voice.Codecs\Mp3WaveFormatData.cs" />
+    <Compile Include="Voice.Codecs\WaveFormatData.cs" />
+    <Compile Include="Voice\AudioService.cs" />
+    <Compile Include="View\VolumeMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\VolumeMeter.Designer.cs">
+      <DependentUpon>VolumeMeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WaveformPainter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\WaveformPainter.Designer.cs">
+      <DependentUpon>WaveformPainter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Voice.Codecs\LibMp3Lame.cs" />
+    <Compile Include="Voice\AutoGainController.cs" />
+    <Compile Include="Voice\RecordingDevice.cs" />
+    <Compile Include="Voice\RecordingDeviceEventArgs.cs" />
+    <Compile Include="Voice\RecordingEventArgs.cs" />
+    <Compile Include="Voice\RecordingState.cs" />
+    <Compile Include="Voice\RecordingStateEventArgs.cs" />
+    <Compile Include="Voice\SampleAggregator.cs" />
+    <Compile Include="Voice\SampleEventArgs.cs" />
+    <Compile Include="Controller\VoiceRecordingGenerator.cs" />
+    <Compile Include="Controller\VoiceRecordingUploadController.cs" />
+    <EmbeddedResource Include="View\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SmallRecorderForm.resx">
+      <DependentUpon>SmallRecorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RecorderForm.resx">
+      <DependentUpon>RecorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\VoxCTRL.ActivityRecorderServiceReference.VoiceRecording.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ActivityRecorderServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Arrays1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Authentication.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Authentication1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Authentication2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\clientApi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\clientApi1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\jobctrl.com.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\jobctrl.com1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Notifications.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Notifications1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\System.Data.Linq.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\System.Data.Linq1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.ClientComputerData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.ClientComputerData1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile1.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IVoiceRecorder.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IVoiceRecorder.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Telemetry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Telemetry1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Voice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.WorkManagement1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\VoxCTRL.ActivityRecorderServiceReference.ApplicationUpdateInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\VoxCTRL.ActivityRecorderServiceReference.AuthData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\VoxCTRL.ActivityRecorderServiceReference.ClientLoginTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkManagement1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkTimeHistory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkTimeHistory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dependencies\libmp3lame.dll" />
+    <Content Include="dependencies\NAudio.dll" />
+    <Content Include="dependencies\NAudio.WindowsMediaFormat.dll" />
+    <Content Include="dependencies\NAudio.xml" />
+    <None Include="Images\AgcOn.png" />
+    <None Include="Images\AgcOff.png" />
+    <None Include="Images\Pause_small.png" />
+    <None Include="Images\Record_small.png" />
+    <None Include="Images\Stop_small.png" />
+    <None Include="Images\VoxCTRL_icon64.png" />
+    <None Include="Images\VoxCTRL.ico" />
+    <None Include="Images\Stop.png" />
+    <None Include="Images\Record.png" />
+    <None Include="Images\Pause.png" />
+    <None Include="Images\BackgroundImg.png" />
+    <None Include="Images\TooSilent.png" />
+    <None Include="Images\TooSilent_small.png" />
+    <None Include="Service References\ActivityRecorderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ActivityRecorderServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ActivityRecorderServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Deployment\bootstrap\bootstrap.csproj">
+      <Project>{737bf24a-5745-472d-9d5f-61dac8c81404}</Project>
+      <Name>bootstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TctEncoder\TctEncoder.csproj">
+      <Project>{3EB736C4-62EA-4887-B040-948B13EF29B9}</Project>
+      <Name>TctEncoder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)dependencies\libmp3lame.dll" "$(TargetDir)" /y</PostBuildEvent>
+  </PropertyGroup>
+  <!--Version Change-->
+  <PropertyGroup>
+    <!--Inject custom targets when building-->
+    <PublishDependsOn>TransfromConfigExec;SetVersionInfo;$(PublishDependsOn);BuildWix;ResetVersionInfo;ResetTransfromConfig</PublishDependsOn>
+    <!--If ApplicationVersion contains * replace it with Revision-->
+    <ApplicationVersion Condition=" '$(ApplicationVersion)' == '' ">0.0.0.0</ApplicationVersion>
+    <ApplicationBaseVersion>$(ApplicationVersion.Replace('%2a','$(ApplicationRevision)'))</ApplicationBaseVersion>
+    <Major>$([System.Version]::new('$(ApplicationBaseVersion)').Major)</Major>
+    <Minor>$([System.Version]::new('$(ApplicationBaseVersion)').Minor)</Minor>
+    <Build>$([System.Version]::new('$(ApplicationBaseVersion)').Build)</Build>
+    <Revision>$([System.Version]::new('$(ApplicationBaseVersion)').Revision)</Revision>
+    <ApplicationNewAsmVersion>$(Major).$(Minor).$(Build).*</ApplicationNewAsmVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <SetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+      <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+      <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationBaseVersion)")</ReplaceWith>
+      <InProject>false</InProject>
+    </SetRegexTransform>
+    <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+      <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+      <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationNewAsmVersion)")</ReplaceWith>
+      <InProject>false</InProject>
+    </ResetRegexTransform>
+  </ItemGroup>
+  <Target Name="SetVersionInfo" Condition="'$(Configuration)' == 'Release' AND '$(ApplicationVersion)' != '0.0.0.0'">
+    <!--Update AssemblyInfo with specific version-->
+    <RegexTransform Items="@(SetRegexTransform)" />
+  </Target>
+  <Target Name="ResetVersionInfo" Condition="'$(Configuration)' == 'Release' AND '$(ApplicationVersion)' != '0.0.0.0'">
+    <!--Reset version in AssemblyInfo, don't leave specific revision in code-->
+    <RegexTransform Items="@(ResetRegexTransform)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--Generate .msi package-->
+  <Target Name="BuildWix" Condition="'$(Configuration)' == 'Release'">
+    <MSBuild Projects="$(ProjectDir)..\Deployment\MsiVoxCTRL\MsiVoxCTRL.wixproj" Targets="Clean;Build" Properties="ClientAssemblyName=$(AssemblyName);UpgradeCode=$(UpgradeCode);MsiInstallScope=$(MsiInstallScope);IncludeService=$(IncludeService);Configuration=Release;Platform=MixedWix" />
+    <Copy SourceFiles="$(ProjectDir)..\Deployment\MsiVoxCTRL\bin\$(Configuration)\VoxCTRL.msi" DestinationFiles="$(PublishDir)\VoxCTRL.msi" />
+  </Target>
+  <!--Config Transformation-->
+  <Target Name="TransfromConfig" Condition="'$(Configuration)' == 'Release'">
+    <TransformXml Source="app.$(Configuration).config" Transform="app.$(Configuration).$(PublishProfile).config" Destination="app.config" />
+  </Target>
+  <!--hax to treat TransformXml warnings as errors-->
+  <Target Name="TransfromConfigExec" Condition="'$(Configuration)' == 'Release' AND $(PublishProfile)!=''">
+    <Error Condition="!Exists('app.$(Configuration).$(PublishProfile).config')" Text="app.$(Configuration).$(PublishProfile).config file is missing" />
+    <Copy SourceFiles="app.config" DestinationFiles="app.config.bak" Condition="!Exists('app.config.bak')" />
+    <Exec CustomErrorRegularExpression="[1-9]+\d* (Warning|Error)\(s\)" Command="&quot;$(MSBuildBinPath)\msbuild&quot; &quot;$(ProjectDir)VoxCTRL.csproj&quot; /t:TransfromConfig /p:Configuration=Release;PublishProfile=&quot;$(PublishProfile)&quot;" />
+    <OnError ExecuteTargets="ResetTransfromConfig" />
+  </Target>
+  <Target Name="ResetTransfromConfig" Condition="'$(Configuration)' == 'Release' AND Exists('app.config.bak')">
+    <Move SourceFiles="app.config.bak" DestinationFiles="app.config" />
+  </Target>
+  <!--Tasks-->
+  <UsingTask TaskName="TransformXml" AssemblyFile="..\Utilities\Microsoft.Web.Publishing.Tasks.dll" />
+  <!--Inline Tasks-->
+  <UsingTask TaskName="RegexTransform" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <Items ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="Microsoft.Build.Framework" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+          foreach(ITaskItem item in Items) {
+            string fileName = item.GetMetadata("FullPath");
+            string find = item.GetMetadata("Find");
+            string replaceWith = item.GetMetadata("ReplaceWith");
+
+            if(!File.Exists(fileName)) {
+              Log.LogError(null, null, null, null, 0, 0, 0, 0, String.Format("Could not find file: {0}", fileName), new object[0]);
+            }
+            string content = File.ReadAllText(fileName);
+            File.WriteAllText(
+              fileName,
+              Regex.Replace(
+                content,
+                find,
+                replaceWith,
+                RegexOptions.Multiline
+              ),
+              System.Text.Encoding.UTF8
+            );
+            Log.LogMessage("Updated file " + fileName, MessageImportance.High);
+          }
+        ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">MixedWix</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5308DD77-3C75-4D0B-B1F5-B725DC1BC273}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OutlookInteropService</RootNamespace>
+    <AssemblyName>OutlookInteropService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedCo' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedWix' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">
+    <DefineConstants>$(DefineConstants);NET4</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.Redemption">
+      <HintPath>..\..\OutlookSync\OutlookMeetingCaptureService\Libs\Interop.Redemption.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.15\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\OutlookAddin\MailActivityTracker\dependencies\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" Condition="'$(TargetFrameworkVersion.Substring(1))'&gt;='4.5'" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ActivityRecorderClient\CachedDictionary.cs">
+      <Link>CachedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Desktop.Windows.ProcessInfo\ProcessElevationHelper.cs">
+      <Link>ProcessInfo\ProcessElevationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Desktop.Windows.ProcessInfo\ProcessNameHelper.cs">
+      <Link>ProcessInfo\ProcessNameHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Desktop.Windows.ProcessInfo\SafeProcessHandle.cs">
+      <Link>ProcessInfo\SafeProcessHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Capturing.Mail\MailTrackingType.cs">
+      <Link>MailTrackingType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\Murmur3.cs">
+      <Link>Murmur3.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ActivityRecorderClient\RegistryHelper.cs">
+      <Link>RegistryHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\OutlookSync\OutlookMeetingCaptureService\RedemptionLoader.cs">
+      <Link>RedemptionLoader.cs</Link>
+    </Compile>
+    <Compile Include="IOutlookMailCaptureService.cs" />
+    <Compile Include="MailItemExtensions.cs" />
+    <Compile Include="OutlookCaptureLib.cs" />
+    <Compile Include="OutlookExplorer.cs" />
+    <Compile Include="OutlookInspector.cs" />
+    <Compile Include="OutlookItem.cs" />
+    <Compile Include="OutlookMailItemWrapper.cs" />
+    <Compile Include="OutlookWindowWrapper.cs" />
+    <Compile Include="ProcessInfo.cs" />
+    <Compile Include="SafeHandlerExtension.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IMailCaptureService.cs" />
+    <Compile Include="OlMailRecipientType.cs" />
+    <Compile Include="OutlookSettingsHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OutlookMailCaptureService.cs" />
+    <Compile Include="RunningObjectTableHelper.cs" />
+    <Compile Include="StaSynchronizationContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>False</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CE5D8CB-3C35-4D4C-A456-4852F967735C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>JCmon</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;JcMon</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;JCMon</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Tct.JcMon</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CustomMarshalers" />
+    <Reference Include="ICSharpCode.TextEditor, Version=3.2.1.6466, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.TextEditor.3.2.1.6466\lib\Net20\ICSharpCode.TextEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop.Windows\AccessibilityHelper.cs">
+      <Link>Common\AccessibilityHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Capturing.Desktop.Windows\AccessibleItem.cs">
+      <Link>JC.IAccessibility\AccessibleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Extensions.cs">
+      <Link>JavaAccessibility\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\Hotkeys\HotkeyWinService.cs">
+      <Link>Tct\ActivityRecorderClient\Hotkeys\HotkeyWinService.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\PeriodicManager.cs">
+      <Link>Common\PeriodicManager.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderClient\WinApi.cs">
+      <Link>Common\WinApi.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\CapturePresenter.cs">
+      <Link>JavaAccessibility\CapturePresenter.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\CaptureManager.cs">
+      <Link>Common\CaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\CaptureResult.cs">
+      <Link>Common\CaptureResult.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\Configuration.cs">
+      <Link>Common\Configuration.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\ICaptureManager.cs">
+      <Link>Common\ICaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\JavaAccessibilityForm.cs">
+      <Link>JavaAccessibility\JavaAccessibilityForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\JavaMon\JavaAccessibilityForm.Designer.cs">
+      <Link>JavaAccessibility\JavaAccessibilityForm.Designer.cs</Link>
+      <DependentUpon>JavaAccessibilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\JavaMon\Plugin\PluginController.cs">
+      <Link>JavaAccessibility\Plugin\PluginController.cs</Link>
+    </Compile>
+    <Compile Include="IAccessibility\IAccessibilityCapturePresenter.cs" />
+    <Compile Include="IAccessibility\JCIAccessibilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IAccessibility\JCIAccessibilityForm.Designer.cs">
+      <DependentUpon>JCIAccessibilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IAccessibility\Plugin\PluginController.cs" />
+    <Compile Include="IAccessibility\WindowObject.cs" />
+    <Compile Include="JCAutomation\Data\CaptureInfo.cs" />
+    <Compile Include="JCAutomation\Data\ControlInfo.cs" />
+    <Compile Include="JCAutomation\Data\ControlInfoFactory.cs" />
+    <Compile Include="JCAutomation\Data\WindowInfo.cs" />
+    <Compile Include="JCAutomation\Extensions.cs" />
+    <Compile Include="JCAutomation\Managers\CaptureManager.cs" />
+    <Compile Include="JCAutomation\Managers\RecordManager.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\BitmapHelper.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\HierarchyHelper.cs" />
+    <Compile Include="JCAutomation\View\AddNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\AddNote.Designer.cs">
+      <DependentUpon>AddNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCAutomation\View\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCAutomation\View\TouchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\TouchForm.Designer.cs">
+      <DependentUpon>TouchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCAutomation\View\MainForm_old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\MainForm_old.Designer.cs">
+      <DependentUpon>MainForm_old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCAutomation\View\SpyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\SpyForm.Designer.cs">
+      <DependentUpon>SpyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Platform.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="JCAutomation\AutomationElementInfo.cs" />
+    <Compile Include="JCAutomation\Data\ScriptCapture.cs" />
+    <Compile Include="JCAutomation\Data\CapturedValue.cs" />
+    <Compile Include="JCAutomation\CaptureEventArgs.cs" />
+    <Compile Include="JCAutomation\Configuration.cs" />
+    <Compile Include="JCAutomation\Extraction\AutomationCapture.cs" />
+    <Compile Include="JCAutomation\Extraction\AutomationScriptHelper.cs" />
+    <Compile Include="JCAutomation\Extraction\ChildSelectOperation.cs" />
+    <Compile Include="JCAutomation\Extraction\ControlCapturePath.cs" />
+    <Compile Include="JCAutomation\View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCAutomation\Managers\ScriptCaptureManager.cs" />
+    <Compile Include="JCAutomation\Managers\PeriodicManager.cs" />
+    <Compile Include="JCAutomation\RunningPluginInfo.cs" />
+    <Compile Include="JCAutomation\View\PluginRunnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\CSharpCodeGenerator.cs" />
+    <Compile Include="JCAutomation\View\CodeEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCAutomation\SystemAdapter\AutomationElementHelper.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\AutomationHelper.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\ComReflectionHelper.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\ProcessNameHelper.cs" />
+    <Compile Include="JCAutomation\SystemAdapter\WindowHelper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tct\ActivityRecorderClient\Capturing\Desktop\Windows\ProcessInfo\ProcessNameHelper.cs" />
+    <Compile Include="JCAutomation\Capturing\ProcessNameResolver.cs" />
+    <Compile Include="JCAutomation\TreeViewItem.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\Hotkeys\IHotkeyService.cs" />
+    <Compile Include="JCAutomation\Capturing\EnumWindowsHelper.cs" />
+    <Compile Include="JCAutomation\Capturing\DesktopWindow.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\ICachedFunc!2.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\CachedFunc!2.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\CachedFunc.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\CachedFuncThreadSafe!2.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\Capturing\Desktop\Windows\ProcessInfo\SafeProcessHandle.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\SingleValueEventArgs!1.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\SingleValueEventArgs.cs" />
+    <Compile Include="JCAutomation\AutomationElementTree.cs" />
+    <Compile Include="Common\HighlightRectangle.cs" />
+    <Compile Include="JCAutomation\ComponentWrapper.cs" />
+    <Compile Include="Tct\ActivityRecorderClient\Hotkeys\Hotkey.cs" />
+    <Compile Include="JCAutomation\CustomPlugin.cs" />
+    <Compile Include="JCAutomation\TreeDumper.cs" />
+    <Compile Include="JCAutomation\WaitCursor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="JavaAccessibility\x64\JavaMon.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\JavaMon\JavaAccessibilityForm.resx">
+      <DependentUpon>JavaAccessibilityForm.cs</DependentUpon>
+      <Link>JavaAccessibility\JavaAccessibilityForm.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IAccessibility\JCIAccessibilityForm.resx">
+      <DependentUpon>JCIAccessibilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\AddNote.resx">
+      <DependentUpon>AddNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\CodeEditorForm.resx">
+      <DependentUpon>CodeEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\TouchForm.resx">
+      <DependentUpon>TouchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\MainForm_old.resx">
+      <DependentUpon>MainForm_old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\SpyForm.resx">
+      <DependentUpon>SpyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCAutomation\View\PluginRunnerForm.resx">
+      <DependentUpon>PluginRunnerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\JC.IAccessibility.WindowObject.datasource" />
+    <None Include="Resources\ocr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocrd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JabApiLib\JabApiLib.csproj">
+      <Project>{2aaa4f8a-58f7-4632-9a35-07f01aa6e171}</Project>
+      <Name>JabApiLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JavaAccessibility\x64\JabApiLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JavaAccessibility\x64\JavaMon.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JavaAccessibility\x64\log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <MSBuild Projects="$(ProjectDir)..\JavaMon\JavaMon.csproj" Targets="Clean;Build" Properties="Configuration=Release;Platform=x64" />
+  </Target>
+</Project>

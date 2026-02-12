@@ -1,0 +1,47 @@
+﻿// TODO: mac
+namespace Tct.ActivityRecorderClient.ChromeCaptureServiceReference
+{
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName = "ChromeCaptureServiceReference.IChromeCaptureService")]
+    public interface IChromeCaptureService
+    {
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IChromeCaptureService/SendCommand", ReplyAction = "http://tempuri.org/IChromeCaptureService/SendCommandResponse")]
+        string SendCommand(string command);
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IChromeCaptureService/StopService", ReplyAction = "http://tempuri.org/IChromeCaptureService/StopServiceResponse")]
+        void StopService();
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IChromeCaptureServiceChannel : Tct.ActivityRecorderClient.ChromeCaptureServiceReference.IChromeCaptureService, System.ServiceModel.IClientChannel
+    {
+    }
+
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ChromeCaptureServiceClient : System.ServiceModel.ClientBase<Tct.ActivityRecorderClient.ChromeCaptureServiceReference.IChromeCaptureService>, Tct.ActivityRecorderClient.ChromeCaptureServiceReference.IChromeCaptureService
+    {
+
+        public ChromeCaptureServiceClient()
+        {
+        }
+
+        public ChromeCaptureServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
+                base(binding, remoteAddress)
+        {
+        }
+
+        public string SendCommand(string command)
+        {
+            return base.Channel.SendCommand(command);
+        }
+
+        public void StopService()
+        {
+            base.Channel.StopService();
+        }
+    }
+}

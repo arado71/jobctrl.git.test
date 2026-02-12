@@ -1,0 +1,3200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Obfuscar.2.2.19\build\obfuscar.props" Condition="Exists('..\packages\Obfuscar.2.2.19\build\obfuscar.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8C067F6-C35E-4A9D-9414-86D68D650D8A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tct.ActivityRecorderClient</RootNamespace>
+    <AssemblyName>JobCTRL</AssemblyName>
+    <AssemblyName Condition=" '$(ClientAssemblyName)' != '' ">$(ClientAssemblyName)</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(ClientTargetFrameworkVersion)' != ''">$(ClientTargetFrameworkVersion)</TargetFrameworkVersion>
+    <IsNet4>false</IsNet4>
+    <IsNet4 Condition="'$(TargetFrameworkVersion.Substring(1))'&gt;='4.5'">true</IsNet4>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SignManifests>false</SignManifests>
+    <ManifestCertificateThumbprint>390F5F92706963212C6AB309924FC94473DD8B67</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SignAssembly>false</SignAssembly>
+    <ManifestTimestampUrl>
+    </ManifestTimestampUrl>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>c:\Z\ProjectsInstall\ActivityRecorder\ClickOnce\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://jobctrl.com/Install/</InstallUrl>
+    <UpdateUrl>http://jobctrl.com/Install/</UpdateUrl>
+    <ProductName>JobCTRL</ProductName>
+    <PublisherName>JobCTRL</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.4.473.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EncodeTransmissionScreen;WELCOME_ENABLED</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;EncodeTransmissionScreen;AppConfig$(PublishProfile)</DefineConstants>
+    <DefineConstants Condition="$(ClientAssemblyName.EndsWith('-DEV'))">$(DefineConstants);DEV</DefineConstants>
+    <DefineConstants Condition="$(EnableWelcome)!=''">$(DefineConstants);WELCOME_ENABLED</DefineConstants>
+    <DefineConstants Condition="$(ProjectSync)!=''">$(DefineConstants);ProjectSync</DefineConstants>
+    <DefineConstants Condition="$(OcrPlugin)!=''">$(DefineConstants);OcrPlugin</DefineConstants>
+    <DefineConstants Condition="$(MsiInstallScope)=='perMachine'">$(DefineConstants);InstallScopePerMachine</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>0628</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedCo' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'MixedWix' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">
+    <DefineConstants>$(DefineConstants);NET4</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OcrPlugin)'!=''">
+    <OcrPlugin>1</OcrPlugin>
+    <DefineConstants>$(DefineConstants);OcrPlugin</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(ProjectSync)'!=''">
+    <ProjectSync>1</ProjectSync>
+    <DefineConstants>$(DefineConstants);ProjectSync</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(ClientAssemblyName)=='JobCTRL-DEV' OR $(ClientAssemblyName)=='JobCTRL-UAT'">
+    <PackageName>JobCTRL</PackageName>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(ClientAssemblyName)!='JobCTRL-DEV' AND $(ClientAssemblyName)!='JobCTRL-UAT'">
+    <PackageName>$(ClientAssemblyName)</PackageName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\JobCtrl.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|MixedWix'">
+    <DefineConstants>TRACE;DEBUG;EncodeTransmissionScreen;WELCOME_ENABLED;NET4;OcrPlugin</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|MixedWix'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Google.Apis, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.36.1\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.36.1\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.36.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.36.1.1412, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.36.1.1412\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.36.1\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.36.1.1390, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.36.1.1390\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.36.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.36.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AcrobatAccessLib, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Dependencies\Interop.AcrobatAccessLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Policy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.Office.Client.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.TranslationServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.Office.Client.TranslationServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.SharePoint.Tools, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.Office.SharePoint.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Online.SharePoint.Client.Tenant, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ProjectServer.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.ProjectServer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime.Windows, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.8210.1200\lib\net45\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.8.21.0, Culture=neutral, PublicKeyToken=c416bc1b32d97233, processorArchitecture=MSIL" Condition="'$(Configuration)' == 'Release'">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TaskSchedLib\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.TaskScheduler" Condition="'$(Configuration)' != 'Release'">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TaskSchedLib\Microsoft.Win32.TaskScheduler.debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="sapfewse, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\SAP.GUI.Scripting.net.1.0.0\lib\net\sapfewse.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="saprotwr.net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SAP.GUI.Scripting.net.1.0.0\lib\net\saprotwr.net.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.5.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.5.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.5.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.5.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperWebSocket, Version=0.8.0.0, Culture=neutral, PublicKeyToken=7ba53b9a7cef5d1c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperWebSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Management.Automation.6.1.7601.17515\lib\net40\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.3.0\lib\net45\Tesseract.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="System.Windows.Forms.DataVisualization" Condition="'$(TargetFrameworkVersion.Substring(1))'&gt;='4.5'" />
+    <Reference Include="Microsoft.CSharp" Condition="'$(TargetFrameworkVersion.Substring(1))'&gt;='4.5'" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JavaCapture\JC.JavaCapture.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\search-blue.png" />
+    <None Include="Resources\messages_picto.png" />
+    <None Include="Resources\stats_grey.png" />
+    <None Include="Resources\stats_blue.png" />
+    <None Include="Resources\devices.png" />
+    <None Include="Resources\productivity.png" />
+    <None Include="Service References\ActivityRecorderServiceReference\jobctrl.com1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\mex4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\mex41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\JavaCaptureServiceReference\configuration91.svcinfo" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.config.dev" />
+    <None Include="Service References\ActivityRecorderServiceReference\clientApi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ActivityRecorderServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ActivityRecorderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\trash1.bmp" />
+    <None Include="Resources\split_disabled.png" />
+    <None Include="Resources\merge_disabled.png" />
+    <Content Include="JavaCapture\JabApiLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JavaCapture\JC.JavaCapture.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JavaCapture\log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="obfuscar.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="..\ActivityRecorderService\IntervalConcatenator.cs">
+      <Link>Common\IntervalConcatenator.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\StartEndDate.cs">
+      <Link>Common\StartEndDate.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\WorkDetectorRuleActions.cs">
+      <Link>Rules.Actions\WorkDetectorRuleActions.cs</Link>
+    </Compile>
+    <Compile Include="..\ActivityRecorderService\WorkManagement\WorkManagementCommon.cs">
+      <Link>Menu.Management\WorkManagementCommon.cs</Link>
+    </Compile>
+    <Compile Include="..\ChromeNativeMessagingHost\ParentProcessUtilities.cs">
+      <Link>Capturing.Plugins.Impl.Chrome\ParentProcessUtilities.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\CaptureManager.cs">
+      <Link>JcMon\Common\CaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\CaptureResult.cs">
+      <Link>JcMon\Common\CaptureResult.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\Configuration.cs">
+      <Link>JcMon\Common\Configuration.cs</Link>
+    </Compile>
+    <Compile Include="..\JavaMon\Common\ICaptureManager.cs">
+      <Link>JcMon\Common\ICaptureManager.cs</Link>
+    </Compile>
+    <Compile Include="..\JcMon\Common\HighlightRectangle.cs">
+      <Link>JcMon\Common\HighlightRectangle.cs</Link>
+    </Compile>
+    <Compile Include="..\JcMon\IAccessibility\IAccessibilityCapturePresenter.cs">
+      <Link>JcMon\IAccessibility\IAccessibilityCapturePresenter.cs</Link>
+    </Compile>
+    <Compile Include="..\JcMon\IAccessibility\JCIAccessibilityForm.cs">
+      <Link>JcMon\IAccessibility\JCIAccessibilityForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\JcMon\IAccessibility\JCIAccessibilityForm.designer.cs">
+      <Link>JcMon\IAccessibility\JCIAccessibilityForm.designer.cs</Link>
+      <DependentUpon>JCIAccessibilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\JcMon\IAccessibility\Plugin\PluginController.cs">
+      <Link>JcMon\IAccessibility\Plugin\PluginController.cs</Link>
+    </Compile>
+    <Compile Include="..\JcMon\IAccessibility\WindowObject.cs">
+      <Link>JcMon\IAccessibility\WindowObject.cs</Link>
+    </Compile>
+    <Compile Include="..\LotusNotesSync\LotusNotesMeetingCaptureService\LotusNotesSettingsHelper.cs">
+      <Link>Capturing.Meeting.LotusNotes\LotusNotesSettingsHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OutlookAddin\MailActivityTracker\Model\MeetingPluginTaskIdSettings.cs">
+      <Link>Capturing.Mail\MeetingPluginTaskIdSettings.cs</Link>
+    </Compile>
+    <Compile Include="ActivityRecorderServiceReference\AuthData.cs" />
+    <Compile Include="Capturing.Core\AssignCommonData.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\BraveUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\BrowserData.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\ChromiumBrowserInstallHelper.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\ChromiumUrlResolverBase.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\DragonUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\EdgeBlinkUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\ElementIndexPathForWindow.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\OperaUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\VivaldiUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows\AccessibleItem.cs" />
+    <Compile Include="Capturing.Extra\CalendarManager.cs" />
+    <Compile Include="Capturing.Extra\UsbDevices.cs" />
+    <Compile Include="Capturing.Extra\WorkTimeStatsFromWebsiteManager.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\EdgeBlinkInstallHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\EdgeBlinkProxy.cs" />
+    <Compile Include="Capturing.Plugins.Impl\IAccessibilityCapture.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginBraveUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginChromiumUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginConference.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginConferenceDomCaptureBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDesktopMsTeams.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDragonUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginEdgeBlink.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginEdgeBlinkUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginIAccessibility.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternalHStat.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginJavaAccessibility.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMeet.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMsTeams.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginOperaUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginScreenAnalyst.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginVivaldiUrl.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\ImageStorageCleaner.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\System\EnumWindowsHelper.cs" />
+    <Compile Include="..\OutlookInterop\OutlookInteropService\OutlookSettingsHelper.cs">
+      <Link>Capturing.Mail\OutlookSettingsHelper.cs</Link>
+    </Compile>
+    <Compile Include="Capturing.Plugins.Ocr\System\DeviceInfo.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\System\MonitorHelper.cs" />
+    <Compile Include="ActiveDirectoryIntegration\ActiveDirectoryAuthenticationManager.cs" />
+    <Compile Include="ActivityRecorderServiceReference\AggregateCollectedItems.cs" />
+    <Compile Include="ActivityRecorderServiceReference\AssignCompositeData.cs" />
+    <Compile Include="ActivityRecorderServiceReference\AssignProjectData.cs" />
+    <Compile Include="ActivityRecorderServiceReference\AssignWorkData.cs" />
+    <Compile Include="ActivityRecorderServiceReference\CollectorRule.cs" />
+    <Compile Include="ActivityRecorderServiceReference\CollectedItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ClientComputerError.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ExtensionRuleParameter.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Interval.cs" />
+    <Compile Include="ActivityRecorderServiceReference\IUploadItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Message.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ParallelWorkItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ReasonItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WindowRule.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkData.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkOrProjectName.cs" />
+    <Compile Include="BlockingQueue.cs" />
+    <Compile Include="Capturing.Core\AppControlServiceHelper.cs" />
+    <Compile Include="Capturing.Core\AssignData.cs" />
+    <Compile Include="Capturing.Core\AsyncWorkQueue.cs" />
+    <Compile Include="Capturing.Core\IpDetector.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\EdgeUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows\AccessibilityHelper.cs" />
+    <Compile Include="Capturing.EnvironmentInfo\RemoteDesktop.cs" />
+    <Compile Include="Capturing.Mail\MailTrackingType.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Edge\EdgeInstallHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Edge\EdgeProxy.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Firefox\IFirefoxProxy.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Firefox\IniFile.cs" />
+    <Compile Include="Capturing.Plugins.Impl\IssueManager.cs" />
+    <Compile Include="Capturing.Core\StaTask.cs" />
+    <Compile Include="Capturing.Core\ParallelCollection.cs" />
+    <Compile Include="Capturing.Desktop.Windows\WindowTextHelper.cs" />
+    <Compile Include="Capturing.Mail\DomCaptureHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl\AutomationCapture.cs" />
+    <Compile Include="Capturing.Plugins.Impl\AutomationScriptHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl\FileHandleHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAlterdataPessoal.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAlterdataFiscal.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAlterdataContabil.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAutoCad.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAutomationCapture.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginBurOffice.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginEdge.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginChromeUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginEdgeUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginFirefoxUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginGoogleDrive.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginGmail.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternetExplorerUrl.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMailWithIssueSupport.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginSAP.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginSoftphonePro.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginTelekomJazz2.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginCef.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDomCapture.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDomCaptureBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDominio.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginFileHandles.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginFocus.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternalWorkState.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginKeszJD.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginKeszTherefore.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginTelekomJazz.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginKeszUreq.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginKontakt.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMail.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\ContributionController.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\ContributionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Capturing.Plugins.Ocr\ContributionForm.Designer.cs">
+      <DependentUpon>ContributionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capturing.Plugins.Ocr\IsolatedStorageHelper.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Snippet.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\SnippingDataUploadManager.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\System\Taskbar.cs" />
+    <Compile Include="Capturing.Plugins\PluginCompositionBase.cs" />
+    <Compile Include="Capturing.Plugins\PluginStartInfoDetails.cs" />
+    <Compile Include="Capturing.Plugins\AppVersionInfo.cs" />
+    <Compile Include="Capturing.Plugins\AppVersionLogger.cs" />
+    <Compile Include="Capturing.SoftphonePro\ISoftphoneService.cs" />
+    <Compile Include="Capturing.SoftphonePro\SoftphoneConfigInjector.cs" />
+    <Compile Include="Capturing.SoftphonePro\SoftphoneService.cs" />
+    <Compile Include="Capturing.UserActivity\MachineInputDetector.cs" />
+    <Compile Include="ClientErrorReporting\AcquireLogsManager.cs" />
+    <Compile Include="ClientErrorReporting\ClientErrorWinReporter.cs" />
+    <Compile Include="ClientErrorReporting\IErrorReporter.cs" />
+    <Compile Include="ClientErrorReporting\ReportingProgress.cs" />
+    <Compile Include="Common\DiagnosticOperationMode.cs" />
+    <Compile Include="Communication\AppControlServiceClientWrapper.cs" />
+    <Compile Include="Communication\DppHelper.cs" />
+    <Compile Include="Communication\EdgeBlinkCaptureClientWrapper.cs" />
+    <Compile Include="Communication\FirefoxCaptureClientWrapper.cs" />
+    <Compile Include="Communication\EdgeCaptureClientWrapper.cs" />
+    <Compile Include="Communication\GeneralLongIntervalQueryManager.cs" />
+    <Compile Include="Communication\GoogleAuthLongIntervalQuery.cs" />
+    <Compile Include="Communication\ILongIntervalQuery.cs" />
+    <Compile Include="Communication\JavaCaptureClientWrapper.cs" />
+    <Compile Include="Communication\OutlookAddinMailCaptureClientWrapper.cs" />
+    <Compile Include="Configuration\AppConfigBrasilInvisible.cs" />
+    <Compile Include="Configuration\AppConfig.cs" />
+    <Compile Include="Configuration\AppConfig3dHistech.cs" />
+    <Compile Include="Configuration\AppConfigAldi.cs" />
+    <Compile Include="Configuration\AppConfigAllianz.cs" />
+    <Compile Include="Configuration\AppConfigASZ.cs" />
+    <Compile Include="Configuration\AppConfigBACSVIZ.cs" />
+    <Compile Include="Configuration\AppConfigBekomold.cs" />
+    <Compile Include="Configuration\AppConfigBme.cs" />
+    <Compile Include="Configuration\AppConfigBradesco.cs" />
+    <Compile Include="Configuration\AppConfigBrasil.cs" />
+    <Compile Include="Configuration\AppConfigCHS.cs" />
+    <Compile Include="Configuration\AppConfigCig.cs" />
+    <Compile Include="Configuration\AppConfigCivil.cs" />
+    <Compile Include="Configuration\AppConfigCpSol.cs" />
+    <Compile Include="Configuration\AppConfigDefault.cs" />
+    <Compile Include="Configuration\AppConfigDelta.cs" />
+    <Compile Include="Configuration\AppConfigDev.cs" />
+    <Compile Include="Configuration\AppConfigElmu.cs" />
+    <Compile Include="Configuration\AppConfigDijbeszedo.cs" />
+    <Compile Include="Configuration\AppConfigElmuNkmMvm.cs" />
+    <Compile Include="Configuration\AppConfigEon.cs" />
+    <Compile Include="Configuration\AppConfigFCA.cs" />
+    <Compile Include="Configuration\AppConfigFundamenta.cs" />
+    <Compile Include="Configuration\AppConfigHungaroControl.cs" />
+    <Compile Include="Configuration\AppConfigIbm.cs" />
+    <Compile Include="Configuration\AppConfigInfinx.cs" />
+    <Compile Include="Configuration\AppConfigJapan.cs" />
+    <Compile Include="Configuration\AppConfigJapanDeloitte.cs" />
+    <Compile Include="Configuration\AppConfigJapanPM.cs" />
+    <Compile Include="Configuration\AppConfigJC360Lite.cs" />
+    <Compile Include="Configuration\AppConfigKESZ.cs" />
+    <Compile Include="Configuration\AppConfigKorea.cs" />
+    <Compile Include="Configuration\AppConfigLiveAbstract.cs" />
+    <Compile Include="Configuration\AppConfigLocal.cs" />
+    <Compile Include="Configuration\AppConfigMAK.cs" />
+    <Compile Include="Configuration\AppConfigMAV.cs" />
+    <Compile Include="Configuration\AppConfigMAVTest.cs" />
+    <Compile Include="Configuration\AppConfigMBH.cs" />
+    <Compile Include="Configuration\AppConfigMVMH.cs" />
+    <Compile Include="Configuration\AppConfigNISZProd.cs" />
+    <Compile Include="Configuration\AppConfigNISZTest.cs" />
+    <Compile Include="Configuration\AppConfigOfsz.cs" />
+    <Compile Include="Configuration\AppConfigORFK.cs" />
+    <Compile Include="Configuration\AppConfigOsource.cs" />
+    <Compile Include="Configuration\AppConfigOTIndustries.cs" />
+    <Compile Include="Configuration\AppConfigOTP.cs" />
+    <Compile Include="Configuration\AppConfigPolifarbe.cs" />
+    <Compile Include="Configuration\AppConfigPosta.cs" />
+    <Compile Include="Configuration\AppConfigPostaTest.cs" />
+    <Compile Include="Configuration\AppConfigPublicis.cs" />
+    <Compile Include="Configuration\AppConfigRaiffeisen.cs" />
+    <Compile Include="Configuration\AppConfigSandbox.cs" />
+    <Compile Include="Configuration\AppConfigSemilab.cs" />
+    <Compile Include="Configuration\AppConfigTakinfo.cs" />
+    <Compile Include="Configuration\AppConfigTelekom.cs" />
+    <Compile Include="Configuration\AppConfigTsystems.cs" />
+    <Compile Include="Configuration\AppConfigUly.cs" />
+    <Compile Include="Configuration\AppConfigVizmu.cs" />
+    <Compile Include="Configuration\AppConfigVizmuTS2.cs" />
+    <Compile Include="Configuration\AppConfigWaberers.cs" />
+    <Compile Include="Configuration\AppConfigZalaMRFK.cs" />
+    <Compile Include="Configuration\EndpointConfiguration.cs" />
+    <Compile Include="Configuration\ReaderQuotaExtension.cs" />
+    <Compile Include="Configuration\AppConfigVizmuTS.cs" />
+    <Compile Include="FeatureSwitches.cs" />
+    <Compile Include="GetReferencedAssemblies.cs" />
+    <Compile Include="Google\GoogleCredentialManager.cs" />
+    <Compile Include="Google\GoogleCredentialWcfDataStore.cs" />
+    <Compile Include="Google\GoogleDrive.cs" />
+    <Compile Include="Capturing.Plugins.Impl\IAccessibilityScriptHelper.cs" />
+    <Compile Include="InstallNotifyHelper.cs" />
+    <Compile Include="InterProcess\IInterProcessManager.cs" />
+    <Compile Include="InterProcess\InterProcessWinManager.cs" />
+    <Compile Include="Labels.ja-JP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.ja-JP.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\CustomRollingDebugLogFileAppender.cs" />
+    <Compile Include="Logging\IsolatedStorageLogHelper.cs" />
+    <Compile Include="Meeting.CountDown\UnfinishedTimedTaskItem.cs" />
+    <Compile Include="Meeting\PostponedMeetingItem.cs" />
+    <Compile Include="Menu\IMenuPublisher.cs" />
+    <Compile Include="Meeting\IsolatedStoragePostponedMeetingsHelper.cs" />
+    <Compile Include="Menu\MenuReportHelper.cs" />
+    <Compile Include="Menu\MenuTabHelper.cs" />
+    <Compile Include="Menu\MenuTabRow.cs" />
+    <Compile Include="MessageNotifier\DisplayedMessage.cs" />
+    <Compile Include="MessageNotifier\IMessageService.cs" />
+    <Compile Include="MessageNotifier\IsolatedStorageMessagesHelper.cs" />
+    <Compile Include="MessageNotifier\MessageManager.cs" />
+    <Compile Include="MessageNotifier\MessageService.cs" />
+    <Compile Include="MsiInterop.cs" />
+    <Compile Include="Murmur3.cs" />
+    <Compile Include="ProjectSync\IProjectSyncService.cs" />
+    <Compile Include="ProjectSync\ProjectCredentials.cs" />
+    <Compile Include="ProjectSync\ProjectSyncDummyService.cs" />
+    <Compile Include="ProjectSync\ProjectSyncService.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'" />
+    <Compile Include="ProjectSync\ProjectSyncUpdateManager.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'" />
+    <Compile Include="ProjectSync\ProjectSyncWinService.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'" />
+    <Compile Include="ProjectSync\SyncContext.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'" />
+    <Compile Include="Rules.Actions\IRuleActionCoordinator.cs" />
+    <Compile Include="Rules.Collector\CollectedItemManager.cs" />
+    <Compile Include="Rules.Collector\CollectedItemCreator.cs" />
+    <Compile Include="Rules.Collector\CollectorCoordinator.cs" />
+    <Compile Include="Rules.Collector\CollectorRuleDetector.cs" />
+    <Compile Include="Capturing.Core\CreditRunOutManager.cs" />
+    <Compile Include="Capturing.Core\MenuCoordinator.cs" />
+    <Compile Include="Communication\ValidationException.cs" />
+    <Compile Include="Communication\ValidationResult.cs" />
+    <Compile Include="Rules.Collector\CollectorRuleDetectorResult.cs" />
+    <Compile Include="Rules.Collector\CollectorRulesManager.cs" />
+    <Compile Include="Rules.Collector\ThrottledStore.cs" />
+    <Compile Include="Rules.Collector\ThrottledValue.cs" />
+    <Compile Include="Rules\IFormattedRule.cs" />
+    <Compile Include="Rules\IPluginRule.cs" />
+    <Compile Include="Rules\RegexOrContains.cs" />
+    <Compile Include="Screenshots\ScreenshotAnalystManager.cs" />
+    <Compile Include="Serialization\FolderStore.cs" />
+    <Compile Include="Service References\ActivityRecorderServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AppControlServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\JavaCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OutlookAddinMailCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Stability\FreezeHandlingService.cs" />
+    <Compile Include="Stability\FreezeHandlingWinService.cs" />
+    <Compile Include="Stability\NetworkStabilityManager.cs" />
+    <Compile Include="ApplicationStartType.cs" />
+    <Compile Include="Stability\NetworkStabilityWinManager.cs" />
+    <Compile Include="Telemetry\Data\ExceptionData.cs" />
+    <Compile Include="Telemetry\Data\FeatureData.cs" />
+    <Compile Include="ThreadFrozenEventArgs.cs" />
+    <Compile Include="Telemetry\Event.cs" />
+    <Compile Include="Telemetry\ITelemetryEvent.cs" />
+    <Compile Include="Telemetry\Measurement.cs" />
+    <Compile Include="Telemetry\Observation.cs" />
+    <Compile Include="Telemetry\TelemetryContainer.cs" />
+    <Compile Include="ActivityRecorderServiceReference\StatsItem.cs" />
+    <Compile Include="Telemetry\TelemetryHelper.cs" />
+    <Compile Include="Telemetry\TelemetryManager.cs" />
+    <Compile Include="Telemetry\TelemetryCoordinator.cs" />
+    <Compile Include="TodoLists\CallSequenceInconsistencyException.cs" />
+    <Compile Include="TodoLists\IsolatedStorageTodoListHelper.cs" />
+    <Compile Include="TodoLists\TodoListItemState.cs" />
+    <Compile Include="TodoLists\TodoListsManager.cs" />
+    <Compile Include="TodoLists\TodoListsService.cs" />
+    <Compile Include="TodoLists\TodoListToken.cs" />
+    <Compile Include="TodoLists\TodoListViewObject.cs" />
+    <Compile Include="UninstallHelper.cs" />
+    <Compile Include="Update\IAutoStartHelper.cs" />
+    <Compile Include="Update\SimpleEncoder.cs" />
+    <Compile Include="View.Controls\CustomMetroTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Controls\FavoriteReportBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\FavoriteReportBox.Designer.cs">
+      <DependentUpon>FavoriteReportBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\GraphicsExtension.cs" />
+    <Compile Include="View.Controls\ImageTransformations.cs" />
+    <Compile Include="View.Controls\LinkWithIconUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\LinkWithIconUserControl.Designer.cs">
+      <DependentUpon>LinkWithIconUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\OfflineWorkCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\OfflineWorkCard.Designer.cs">
+      <DependentUpon>OfflineWorkCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\SPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Controls\StatText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\StatText.Designer.cs">
+      <DependentUpon>StatText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\WorkTimeChart.cs" Condition="$(IsNet4)">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Presenters\OfflineWorkPresenter.cs" />
+    <Compile Include="View\AcquireLogsMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AcquireLogsMessageBox.Designer.cs">
+      <DependentUpon>AcquireLogsMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DebugCaptureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DebugCaptureForm.Designer.cs">
+      <DependentUpon>DebugCaptureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FirstTimeWelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FirstTimeWelcomeForm.Designer.cs">
+      <DependentUpon>FirstTimeWelcomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormWithoutActivation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormWithoutActivation.Designer.cs">
+      <DependentUpon>FormWithoutActivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FullScreenBorderAlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FullScreenBorderAlertForm.Designer.cs">
+      <DependentUpon>FullScreenBorderAlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GoogleAuthenticationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GoogleAuthenticationForm.Designer.cs">
+      <DependentUpon>GoogleAuthenticationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ILocalizableControl.cs" />
+    <Compile Include="View\IOfflineWorkView.cs" />
+    <Compile Include="View\IssueFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\IssueFilterForm.Designer.cs">
+      <DependentUpon>IssueFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\IssuePropsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\IssuePropsForm.Designer.cs">
+      <DependentUpon>IssuePropsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginSettings.Designer.cs">
+      <DependentUpon>LoginSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MeetingInfo.cs" />
+    <Compile Include="View\MessageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MessageView.Designer.cs">
+      <DependentUpon>MessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifyWorkForm.cs" Condition="$(IsNet4)">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModifyWorkForm.Designer.cs" Condition="$(IsNet4)">
+      <DependentUpon>ModifyWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifyIntervalForm.cs" Condition="$(IsNet4)">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModifyIntervalForm.Designer.cs" Condition="$(IsNet4)">
+      <DependentUpon>ModifyIntervalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stability\WatchdogManager.cs" />
+    <None Include="Resources\split.png" />
+    <None Include="Resources\split_hover.png" />
+    <None Include="Resources\merge.png" />
+    <None Include="Resources\merge_hover.png" />
+    <None Include="Resources\locked_end.png" />
+    <None Include="Resources\drag_end.png" />
+    <None Include="Resources\drag_end_hover.png" />
+    <None Include="Resources\timer.gif" />
+    <None Include="Resources\undo_hover.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\idle.png" />
+    <None Include="Resources\manual.png" />
+    <Content Include="ChromeInterop\JC.Chrome.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FirefoxInterop\JC.FF.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EdgeInterop\edgeExtension.appx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChromeInterop\com.tct.jobctrl.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ChromeInterop\JC.Chrome.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="LabelsArchive.xlsx" />
+    <None Include="Properties\DataSources\Tct.ActivityRecorderService.ClientMenu3.datasource" />
+    <None Include="Service References\ActivityRecorderServiceReference\jobctrl.com.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ActivityRecorderServiceReference\configuration91.svcinfo" />
+    <None Include="Properties\DataSources\Tct.ActivityRecorderService.ClientMenu2.datasource" />
+    <None Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\generationInfo.json" />
+    <None Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\manifest.json" />
+    <None Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\resources.pri" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\inboxsdk.js" />
+    <Content Include="FirefoxInterop\com.tct.jobctrl.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Capturing.Plugins.Impl.Firefox\InteropAddon\manifest.json" />
+    <Content Include="FirefoxInterop\ffinterop%40jobctrl.com_legacy.xpi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Capturing.Plugins.Ocr\tessdata\eng.traineddata" />
+    <Content Include="Capturing.Plugins.Ocr\tessdata\t3.traineddata" />
+    <Content Include="Capturing.Plugins.Ocr\tessdata\train.traineddata" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\ambigs.train" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\api_config" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\bigram" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\box.train" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\box.train.stderr" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\config.cfg" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\digits" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\hocr" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\inter" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\kannada" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\linebox" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\logfile" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\makebox" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\quiet" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\rebox" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\strokewidth" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\configs\unlv" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\batch" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\batch.nochop" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\matdemo" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\msdemo" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\nobatch" />
+    <None Include="Capturing.Plugins.Ocr\tessdata\tessconfigs\segdemo" />
+    <None Include="packages.config" />
+    <None Include="Resources\notification.png" />
+    <None Include="Resources\btn_adress_book.png" />
+    <None Include="Resources\btn_delete.png" />
+    <None Include="Resources\btn_ok.png" />
+    <EmbeddedResource Include="..\JcMon\IAccessibility\JCIAccessibilityForm.resx">
+      <Link>JcMon\IAccessibility\JCIAccessibilityForm.resx</Link>
+      <DependentUpon>JCIAccessibilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Capturing.Mail\Scripts\GmailJcId.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\content.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\main.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\appxmanifest.xml" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Assets\Square150x150Logo.png" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Assets\Square44x44Logo.png" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Assets\StoreLogo.png" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\background.html" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\background.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\backgroundScriptsAPIBridge.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\content.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\contentScriptsAPIBridge.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\gmail.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\icon.png" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\jquery-1.10.2.min.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\main.js" />
+    <Content Include="Capturing.Plugins.Impl.Edge\JobCTRLExtension\edgeextension\manifest\Extension\page.js" />
+    <Content Include="Capturing.Plugins.Impl.Firefox\InteropAddon\background.js" />
+    <Content Include="FirefoxInterop\JC.FF.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\hu-HU\MailActivityTracker.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\delete_hover.png" />
+    <None Include="Resources\delete.png" />
+    <Content Include="OutlookAddin\Microsoft.Office.Tools.v4.0.Framework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\OutlookInteropService.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\Interop.Redemption.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\Redemption.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\Redemption64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\arrow_blue.png" />
+    <None Include="Resources\arrow_grey.png" />
+    <None Include="Resources\arrow_blue_right.png" />
+    <None Include="Resources\badge.png" />
+    <None Include="Resources\barchart.png" />
+    <None Include="Resources\Button-Blank-Gray.ico" />
+    <None Include="Resources\Button-Blank-Blue.ico" />
+    <None Include="Resources\Button-Blank-Red.ico" />
+    <Content Include="Resources\demo_0.gif" />
+    <Content Include="Resources\demo_6.gif" />
+    <Content Include="FirefoxInterop\ffinterop%40jobctrl.com_signed.xpi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\details_hover.png" />
+    <None Include="Resources\details.png" />
+    <None Include="Service References\ActivityRecorderServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Authentication.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Notifications.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service1.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AcceptanceData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AllWorkItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\System.Data.Linq1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ArrayOfMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AssignTaskResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\System.Data.Linq2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\System.Data.Linq7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.AllWorkItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientLoginTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientWorkTimeHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ClientWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.CloseWorkResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.CloudTokenData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.CollectorRules.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.DailyWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.DetailedUserStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.IssueData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.KickResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.MeetingData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.NotificationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ProjectManagementConstraints.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.ReasonStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.RuleGeneratorData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.SimpleWorkTimeStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TaskReasons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TodoListDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TodoListItemStatusDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.TodoListToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.WorkDetectorRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderClient.ActivityRecorderServiceReference.WorkNames.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.ClientComputerData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile1.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile2.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile6.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMobile6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring1.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring2.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring6.wsdl" />
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.IActivityMonitoring6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Kicks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.OnlineStats.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Telemetry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.Telemetry1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.WebsiteServiceReference11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService.WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\Tct.ActivityRecorderService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkManagement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ActivityRecorderServiceReference\WorkTimeHistory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppControlServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AppControlServiceReference\configuration.svcinfo" />
+    <None Include="Service References\AppControlServiceReference\configuration91.svcinfo" />
+    <None Include="Resources\dot_selected.png" />
+    <None Include="Resources\dot.png" />
+    <None Include="Resources\demo_5.gif" />
+    <None Include="Resources\demo_4.gif" />
+    <None Include="Resources\demo_3.gif" />
+    <None Include="Resources\demo_2.gif" />
+    <None Include="Resources\demo_1.gif" />
+    <None Include="Service References\AppControlServiceReference\AppControlServiceService.wsdl" />
+    <None Include="Service References\AppControlServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppControlServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\JavaCaptureService.wsdl" />
+    <None Include="Service References\JavaCaptureServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JavaCaptureServiceReference\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\mex42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\configuration91.svcinfo" />
+    <None Include="Resources\welcm_snap.png" />
+    <None Include="Capturing.Plugins.Impl.Chrome\InteropExtension\manifest.json" />
+    <None Include="Properties\DataSources\OutlookInteropService.MailCaptures.datasource" />
+    <None Include="Service References\ChromeCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ChromeCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ChromeCaptureServiceReference\configuration91.svcinfo" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\ChromeProxy.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\ChromeInstallHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\ChromiumProxyBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Chrome\ChromiumInstallHelperBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Firefox\FirefoxException.cs" />
+    <Compile Include="Capturing.Plugins.Impl\DomCaptureException.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDateTime.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginChrome.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginPopupInfo.cs" />
+    <Compile Include="ChromeCaptureServiceReference\ChromeCaptureServiceClient.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\System\ImageHelper.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\OcrConfig.cs" />
+    <Compile Include="Capturing.Plugins.Ocr\PluginOcr.cs" />
+    <Compile Include="Capturing.Mail\OutlookAddinInstallHelper.cs" />
+    <Compile Include="View\OfflineWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OfflineWorkForm.Designer.cs">
+      <DependentUpon>OfflineWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordExpiredMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PasswordExpiredMessageBox.Designer.cs">
+      <DependentUpon>PasswordExpiredMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectSyncForm.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProjectSyncForm.Designer.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'">
+      <DependentUpon>ProjectSyncForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectSyncPeriodForm.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProjectSyncPeriodForm.Designer.cs" Condition="'$(ProjectSync)'!='' OR '$(TargetFrameworkVersion)' == 'v4.5'">
+      <DependentUpon>ProjectSyncPeriodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScreenshotAnalyzerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ScreenshotAnalyzerSettingsForm.Designer.cs">
+      <DependentUpon>ScreenshotAnalyzerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SortableBindingList.cs" />
+    <Compile Include="View\TodoListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TodoListForm.Designer.cs">
+      <DependentUpon>TodoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TodoListItemUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TodoListItemUserControl.Designer.cs">
+      <DependentUpon>TodoListItemUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TodoListStateSelectorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TodoListStateSelectorUserControl.Designer.cs">
+      <DependentUpon>TodoListStateSelectorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrayStateChanger.cs" />
+    <Compile Include="WorktimeHistory\DateTimeEx.cs" />
+    <Compile Include="WorktimeHistory\DeviceWorkInterval.cs" />
+    <Compile Include="WorktimeHistory\DeviceWorkIntervalLookup.cs" />
+    <Compile Include="WorktimeHistory\IWorkTimeService.cs" />
+    <Compile Include="WorktimeHistory\WcfWorkTimeQuery.cs" />
+    <Compile Include="ClientErrorReporting\ClientErrorRiporter.cs" />
+    <Compile Include="Communication\ActiveDirectoryLoginServiceClientWrapper.cs" />
+    <Compile Include="Communication\BlockingClientPool.cs" />
+    <Compile Include="Communication\GeneralResult.cs" />
+    <Compile Include="Communication\ChromeCaptureClientWrapper.cs" />
+    <Compile Include="Communication\ChromiumCaptureClientWrapperBase.cs" />
+    <Compile Include="Meeting.Adhoc\AdhocMeetingService.cs" />
+    <Compile Include="Meeting.Adhoc\AdhocMeetingWinService.cs" />
+    <Compile Include="Meeting.Adhoc\IAdhocMeetingService.cs" />
+    <Compile Include="Meeting.Adhoc\MeetingWorkTimeCounter.cs" />
+    <Compile Include="Labels.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Labels.ko-KR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.ko-KR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.Management\WorkDetailsFormState.cs" />
+    <Compile Include="Menu\MenuDifference.cs" />
+    <Compile Include="Menu\NewWorkHelper.cs" />
+    <Compile Include="Menu\NewWorkStatistic.cs" />
+    <Compile Include="Menu\RecentClosedHelper.cs" />
+    <Compile Include="Menu\RootMenuHelper.cs" />
+    <Compile Include="ClientErrorReporting\CompressHelper.cs" />
+    <Compile Include="Menu\RecentUrlQuery.cs" />
+    <Compile Include="Menu\LearnedUserWorkSwitch.cs" />
+    <Compile Include="Menu\RecentHelper.cs" />
+    <Compile Include="Menu\IntelligentSuggestionQuery.cs" />
+    <Compile Include="Menu\MenuQuery.cs" />
+    <Compile Include="Capturing.Desktop.Windows.ProcessInfo\ProcessElevationHelper.cs" />
+    <Compile Include="Capturing.Mail\IMailCaptureService.cs" />
+    <Compile Include="Capturing.Mail\MailCaptureCachedWinManager.cs" />
+    <Compile Include="Capturing.Mail\LotusNotesMailCaptureWinService.cs" />
+    <Compile Include="Capturing.Mail\OutlookMailCaptureWinService.cs" />
+    <Compile Include="Capturing.Mail\ProcessCoordinator.cs" />
+    <Compile Include="Capturing.Meeting.LotusNotes\LotusNotesMeetingCaptureService.cs" />
+    <Compile Include="Capturing.Meeting.LotusNotes\MeetingDataMapper.cs" />
+    <Compile Include="Capturing.Meeting\IAddressBookService.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Firefox\FirefoxInstallHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl.Firefox\FirefoxProxy.cs" />
+    <Compile Include="Capturing.Plugins.Impl.InternetExplorer\IEController.cs" />
+    <Compile Include="Capturing.Plugins.Impl\ComHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl\DomSettings.cs" />
+    <Compile Include="Capturing.Plugins.Impl\IWindowExternalTextHelper.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginClipboard.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternetExplorerBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternetExplorerEmbedded.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginExternalText.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginFirefox.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginInternetExplorer.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginOffice.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMailBase.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginLotusNotes.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginOutlook.cs" />
+    <Compile Include="Capturing.Plugins.Impl\WindowExternalTextHelper.cs" />
+    <Compile Include="Capturing.Plugins\CachingCaptureExtensionWrapper.cs" />
+    <Compile Include="Capturing.Plugins\PluginStartInfo.cs" />
+    <Compile Include="Capturing.Plugins\StaCaptureExtensionWrapper.cs" />
+    <Compile Include="Capturing.Plugins\StaSharedCaptureExtensionWrapper.cs" />
+    <Compile Include="Capturing.UserActivity\LastInputInfo.cs" />
+    <Compile Include="Communication\LotusNotesMeetingCaptureClientWrapper.cs" />
+    <Compile Include="Communication\OutlookMailCaptureClientWrapper.cs" />
+    <Compile Include="Communication\VoiceRecorderControllerClientWrapper.cs" />
+    <Compile Include="DebugEx.cs" />
+    <Compile Include="Capturing.Core\WorkIdAssigner.cs" />
+    <Compile Include="Menu\Suggestion.cs" />
+    <Compile Include="Menu\Versionable.cs" />
+    <Compile Include="Notification\MessageWithActions.cs" />
+    <Compile Include="Notification\NotificationWinServiceHelper.cs" />
+    <Compile Include="Notification\PendingNotificationCoordinator.cs" />
+    <Compile Include="Labels.hu-HU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.hu-HU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Labels.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\FavoritesHelper.cs" />
+    <Compile Include="Notification\NotificationKeys.cs" />
+    <Compile Include="Notification\NotificationManager.cs" />
+    <Compile Include="Notification\NotificationSerializationHelper.cs" />
+    <Compile Include="Notification\PendingNotification.cs" />
+    <Compile Include="RegistryHelper.cs" />
+    <Compile Include="Rules.Actions\RuleActionCoordinator.cs" />
+    <Compile Include="Rules.Actions\VoxCtrlController.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\FormatterExpression.cs" />
+    <Compile Include="Rules\ITemplateRule.cs" />
+    <Compile Include="Rules\RuleMatcherFormatter.cs" />
+    <Compile Include="Search\ProjectNameMatcher.cs" />
+    <Compile Include="Serialization\CloneHelper.cs" />
+    <Compile Include="Serialization\GuidHelper.cs" />
+    <Compile Include="Serialization\ProtectedDataSerializationHelper.cs" />
+    <Compile Include="Service References\ChromeCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LotusNotesMeetingCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoiceRecorderControllerServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StartEndDateTime.cs" />
+    <Compile Include="Update\ClickOnceHelper.cs" />
+    <Compile Include="Stats\DailyWorkTimeStatsData.cs" />
+    <Compile Include="Stats\DailyWorkTimeStatsManager.cs" />
+    <Compile Include="Stats\Interval.cs" />
+    <Compile Include="Stats\IntervalWithType.cs" />
+    <Compile Include="Stats\LocalWorkStats.cs" />
+    <Compile Include="Stats\SimpleWorkTimeStatsBuilder.cs" />
+    <Compile Include="Stats\SimpleWorkTimeStatsBuilderState.cs" />
+    <Compile Include="Stats\StatsCoordinator.cs" />
+    <Compile Include="Stats\WorkInterval.cs" />
+    <Compile Include="Stats\WorkType.cs" />
+    <Compile Include="Update\ElevatedPrivilegesHelper.cs" />
+    <Compile Include="Hotkeys\HotkeyRegistrar.cs" />
+    <Compile Include="Hotkeys\HotkeySetting.cs" />
+    <Compile Include="Hotkeys\HotkeyWinService.cs" />
+    <Compile Include="Hotkeys\IHotkeyService.cs" />
+    <Compile Include="InterProcess\IInterProcessService.cs" />
+    <Compile Include="InterProcess\InterProcessService.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="Meeting.CountDown\IMeetingCountDownService.cs" />
+    <Compile Include="Controller\IMutualWorkTypeService.cs" />
+    <Compile Include="Meeting.CountDown\MeetingCountDownService.cs" />
+    <Compile Include="Meeting.CountDown\MeetingCountDownWinService.cs" />
+    <Compile Include="Controller\MutualWorkTypeCoordinator.cs" />
+    <Compile Include="Controller\MutualWorkTypeInfo.cs" />
+    <Compile Include="Meeting\AddMeetingHistory.cs" />
+    <Compile Include="Meeting\ManualMeetingItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\MeetingData.cs" />
+    <Compile Include="Capturing.Core\AllWorksManager.cs" />
+    <Compile Include="Capturing.Core\LearningRuleManager.cs" />
+    <Compile Include="Capturing.Meeting\DataMappingException.cs" />
+    <Compile Include="Capturing.Meeting.Outlook\MeetingDataMapper.cs" />
+    <Compile Include="Capturing.Meeting.Outlook\OutlookMeetingCaptureService.cs" />
+    <Compile Include="Capturing.Meeting\IMeetingCaptureService.cs" />
+    <Compile Include="Capturing.Meeting\MeetingCaptureWinService.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginAcrobat.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginWindowHandle.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginDocumentInfo.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginExcel.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginPowerPoint.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginWord.cs" />
+    <Compile Include="Communication\OutlookMeetingCaptureClientWrapper.cs" />
+    <Compile Include="Meeting\MeetingManager.cs" />
+    <Compile Include="Capturing.Extra\CloseReasonsManager.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginIkr.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginOfficeBase.cs" />
+    <Compile Include="Capturing.Plugins\CaptureExtensionKey.cs" />
+    <Compile Include="Capturing.Plugins\CaptureExtensionWinAdapter.cs" />
+    <Compile Include="Capturing.Plugins\ICaptureExtension.cs" />
+    <Compile Include="Capturing.Plugins\ICaptureExtensionAdapter.cs" />
+    <Compile Include="Capturing.Plugins\IPluginCaptureService.cs" />
+    <Compile Include="Capturing.Plugins\PluginCaptureService.cs" />
+    <Compile Include="Capturing.Plugins\PluginCaptureWinService.cs" />
+    <Compile Include="Capturing.Plugins.Impl\PluginMdiClient.cs" />
+    <Compile Include="Meeting\MeetingNotifier.cs" />
+    <Compile Include="Menu.Management\CoordinatedTaskReasonsManager.cs" />
+    <Compile Include="Menu.Management\TaskReasonsManager.cs" />
+    <Compile Include="Capturing.Core\TimeManager.cs" />
+    <Compile Include="Capturing.Desktop.Windows.ProcessInfo\SafeProcessHandle.cs" />
+    <Compile Include="Capturing.Desktop.Windows.ProcessInfo\ProcessNameHelper.cs" />
+    <Compile Include="Communication\ActivityRecorderClientWrapper.cs" />
+    <Compile Include="Communication\PreferredEndpointManager.cs" />
+    <Compile Include="IPlatformFactory.cs" />
+    <Compile Include="Menu.Management\IWorkManagementService.cs" />
+    <Compile Include="Menu.Management\WorkManagementService.cs" />
+    <Compile Include="Menu.Management\WorkManagementWinService.cs" />
+    <Compile Include="Menu.Selector\IWorkSelectorService.cs" />
+    <Compile Include="Menu.Selector\DefaultWorkIdSelector.cs" />
+    <Compile Include="Menu.Selector\WorkSelectorWinService.cs" />
+    <Compile Include="Menu\ClientMenuEditLookup.cs" />
+    <Compile Include="Notification\INotificationService.cs" />
+    <Compile Include="Capturing.UserActivity\IUserActivityService.cs" />
+    <Compile Include="Capturing.UserActivity\UserActivityWinService.cs" />
+    <Compile Include="Notification\NotificationPosition.cs" />
+    <Compile Include="OutlookMailCaptureServiceReference\MailAddress.cs" />
+    <Compile Include="OutlookMailCaptureServiceReference\MailCapture.cs" />
+    <Compile Include="OutlookMeetingCaptureServiceReference\FinishedMeetingEntry.cs" />
+    <Compile Include="OutlookMeetingCaptureServiceReference\MeetingAttendee.cs" />
+    <Compile Include="OutlookMeetingCaptureServiceReference\MeetingCaptureServiceClient.cs" />
+    <Compile Include="Rules.Generation\GeneratedRule.cs" />
+    <Compile Include="Rules.Generation\IgnoreRuleGenerator.cs" />
+    <Compile Include="Rules.Generation\IRuleGenerator.cs" />
+    <Compile Include="Rules.Generation\LearningRuleBuilder.cs" />
+    <Compile Include="Rules.Generation\ReplaceGroupRuleGenerator.cs" />
+    <Compile Include="Rules.Generation\RuleGeneratorDataContent.cs" />
+    <Compile Include="Rules.Generation\RuleGeneratorFactory.cs" />
+    <Compile Include="Rules.Generation\SimpleRuleGenerator.cs" />
+    <Compile Include="Rules\IRuleManagementService.cs" />
+    <Compile Include="Rules\RuleManagementService.cs" />
+    <Compile Include="Rules\RuleManagementWinService.cs" />
+    <Compile Include="Capturing.Core\WorkAssigner.cs" />
+    <Compile Include="Rules\RuleRestrictions.cs" />
+    <Compile Include="Rules\WatchedWindowsManager.cs" />
+    <Compile Include="Rules\WorkDetectorRuleTypeComparer.cs" />
+    <Compile Include="Screenshots\ScreenshotEncoderHelper.cs" />
+    <Compile Include="Search\StringMatcher.cs" />
+    <Compile Include="Search\WorkNameMatcher.cs" />
+    <Compile Include="Service References\OutlookMailCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OutlookMeetingCaptureServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StaPeriodicManager.cs" />
+    <Compile Include="Update\ClickOnceMigrator.cs" />
+    <Compile Include="Update\TaskSchedulerHelper.cs" />
+    <Compile Include="Update\IUpdateService.cs" />
+    <Compile Include="Update\UpdateClickOnceWinService.cs" />
+    <Compile Include="Update\UpdateWinService.cs" />
+    <Compile Include="Update\UpdateWixWinService.cs" />
+    <Compile Include="View.Controls\FilteredTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Controls\DropdownElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\DropdownCheckElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\CursorHelper.cs" />
+    <Compile Include="View.Controls\Dragger.cs" />
+    <Compile Include="View.Controls\DragContainer.cs" />
+    <Compile Include="View.Controls\DropdownElementBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\FavoriteButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\FavoriteButton.Designer.cs">
+      <DependentUpon>FavoriteButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\IDropdown.cs" />
+    <Compile Include="View.Controls\IDropdownContainer.cs" />
+    <Compile Include="View.Controls\SelectableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\INavigationWithWork.cs" />
+    <Compile Include="View.Navigation\LocationKey.cs" />
+    <Compile Include="View.Navigation\NavigationClosedWork.cs" />
+    <Compile Include="View.Navigation\NavigationRecentClosedView.cs" />
+    <Compile Include="View.Navigation\WorkRowLong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowLong.Designer.cs">
+      <DependentUpon>WorkRowLong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Navigation\NavigationRecentProjectView.cs" />
+    <Compile Include="View.Navigation\WorkRowBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ComponentWrapper.cs" />
+    <Compile Include="View\HourMinutePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ProjectSelectorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ErrorReportingBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ErrorReportingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ErrorReportingForm.Designer.cs">
+      <DependentUpon>ErrorReportingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExceptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ExceptionDialog.Designer.cs">
+      <DependentUpon>ExceptionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FixedMetroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Controls\ISelectionProvider.cs" />
+    <Compile Include="View.Controls\LineStack.cs" />
+    <Compile Include="View.Navigation\NavigationRecentView.cs" />
+    <Compile Include="View.Navigation\NavigationSuggestionView.cs" />
+    <Compile Include="View.Controls\ISelectable.cs" />
+    <Compile Include="View.Navigation\CustomDropdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\CustomDropdown.Designer.cs">
+      <DependentUpon>CustomDropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowDetailed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowDetailed.Designer.cs">
+      <DependentUpon>WorkRowDetailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\CustomTableLayoutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\CustomTableLayoutPanel.Designer.cs">
+      <DependentUpon>CustomTableLayoutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Navigation\NavigationFactory.cs" />
+    <Compile Include="View.Navigation\NavigationFavoriteView.cs" />
+    <Compile Include="View.Navigation\NavigationProject.cs" />
+    <Compile Include="View.Navigation\NavigationAllView.cs" />
+    <Compile Include="View.Navigation\NavigationProgressView.cs" />
+    <Compile Include="View.Navigation\NavigationRootView.cs" />
+    <Compile Include="View.Navigation\NavigationDeadlineView.cs" />
+    <Compile Include="View.Controls\FastTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\INavigator.cs" />
+    <Compile Include="View.Navigation\NavigationBase.cs" />
+    <Compile Include="View.Navigation\NavigationPriorityView.cs" />
+    <Compile Include="View.Navigation\NavigationWork.cs" />
+    <Compile Include="View.Controls\FixedStack.cs" />
+    <Compile Include="View.ToolStrip\ToolStripButtonColorTable.cs" />
+    <Compile Include="View.ToolStrip\SearchWorksMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.ToolStrip\ToolStripButtonRenderer.cs" />
+    <Compile Include="View.ToolStrip\ToolStripMenuItemWithButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.ToolStrip\ToolStripLabelWithButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.ToolStrip\WorkTimeStatsMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ActivityRecorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ActivityRecorderForm.Designer.cs">
+      <DependentUpon>ActivityRecorderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityRecorderServiceReference\ActivityRecorderClient.cs" />
+    <Compile Include="ActivityRecorderServiceReference\CensorRule.cs" />
+    <Compile Include="ActivityRecorderServiceReference\DesktopCapture.cs" />
+    <Compile Include="ActivityRecorderServiceReference\DesktopWindow.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Extensions.cs" />
+    <Compile Include="ActivityRecorderServiceReference\IWorkItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ManualWorkItem.cs" />
+    <Compile Include="ActivityRecorderServiceReference\Screen.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkDetectorRule.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkSelector.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
+    <Compile Include="Update\AutoStartHelper.cs" />
+    <Compile Include="Update\AutoUpdateManager.cs" />
+    <Compile Include="CachedDictionary.cs" />
+    <Compile Include="Capturing.Core\CaptureCoordinator.cs" />
+    <Compile Include="Capturing.Core\ClientKickCoordinator.cs" />
+    <Compile Include="Capturing.Core\SystemEventsCoordinator.cs" />
+    <Compile Include="Capturing.Core\WorkAndLayoutGuiCoordinator.cs" />
+    <Compile Include="Capturing.Core\Censor.cs" />
+    <Compile Include="Capturing.Core\CensorRulesManager.cs" />
+    <Compile Include="Capturing.Core\ClientKickManager.cs" />
+    <Compile Include="ActivityRecorderServiceReference\ICaptureEquatable.cs" />
+    <Compile Include="Capturing.Desktop\DesktopCapturedEventArgs.cs" />
+    <Compile Include="Capturing.Desktop.Windows.EnumWindows\ChildWindowInfo.cs" />
+    <Compile Include="Capturing.Desktop\DesktopCaptureService.cs" />
+    <Compile Include="Capturing.Desktop\DesktopCaptureWinService.cs" />
+    <Compile Include="Capturing.Desktop.Windows.EnumWindows\EnumChildWindowsHelper.cs" />
+    <Compile Include="Capturing.Desktop.Windows.EnumWindows\EnumWindowsHelper.cs" />
+    <Compile Include="Capturing.Desktop\DesktopCaptureManager.cs" />
+    <Compile Include="Capturing.Desktop\IDesktopCaptureService.cs" />
+    <Compile Include="Menu\MenuHelper.cs" />
+    <Compile Include="PlatformWin.cs" />
+    <Compile Include="View\ContextMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ContextMenu.Designer.cs">
+      <DependentUpon>ContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\BigSplitter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\BigSplitter.Designer.cs">
+      <DependentUpon>BigSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\CurrentWork.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\CurrentWork.Designer.cs">
+      <DependentUpon>CurrentWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\ProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\ProgressBar.Designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\ScrollBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\ScrollBar.Designer.cs">
+      <DependentUpon>ScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\SearchBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\SearchBox.Designer.cs">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\SearchResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Controls\SearchResult.Designer.cs">
+      <DependentUpon>SearchResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowCompact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowCompact.Designer.cs">
+      <DependentUpon>WorkRowCompact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\SmallSplitter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\SmallSplitter.Designer.cs">
+      <DependentUpon>SmallSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\SmartLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Controls\StatGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\StatGrid.Designer.cs">
+      <DependentUpon>StatGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\StatRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\StatRow.Designer.cs">
+      <DependentUpon>StatRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\WorkGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\WorkGrid.Designer.cs">
+      <DependentUpon>WorkGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\WorkIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowShort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Navigation\WorkRowShort.Designer.cs">
+      <DependentUpon>WorkRowShort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\UserDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\UserDisplay.Designer.cs">
+      <DependentUpon>UserDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FadeAnimation.cs" />
+    <Compile Include="View\ClipboardHelper.cs" />
+    <Compile Include="View\ComboBoxElement.cs" />
+    <Compile Include="View\ComboBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\DomCaptureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DomCaptureForm.Designer.cs">
+      <DependentUpon>DomCaptureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DomCaptureLoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DomCaptureLoadForm.Designer.cs">
+      <DependentUpon>DomCaptureLoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormatHelper.cs" />
+    <Compile Include="View\HighlightPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\LotusNotesLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LotusNotesLoginForm.Designer.cs">
+      <DependentUpon>LotusNotesLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MeetingCaptureTestTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MeetingCaptureTestTool.designer.cs">
+      <DependentUpon>MeetingCaptureTestTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MetroMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MetroMessageBox.Designer.cs">
+      <DependentUpon>MetroMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NativeMethods.cs" />
+    <Compile Include="View\PluginEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PluginEditForm.Designer.cs">
+      <DependentUpon>PluginEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PluginParameterEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PluginParameterEditForm.Designer.cs">
+      <DependentUpon>PluginParameterEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PreferencesForm.Designer.cs">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProgressBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProgressBarForm.Designer.cs">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SimplePluginData.cs" />
+    <Compile Include="View\SimplePluginParameterData.cs" />
+    <Compile Include="View.Controls\SmartTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Controls\SmartTextBox.Designer.cs">
+      <DependentUpon>SmartTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SmartToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\SmartToolStrip.Designer.cs">
+      <DependentUpon>SmartToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.Controls\StyleUtils.cs" />
+    <Compile Include="View\TextBoxWithTagSuggestion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\TimeSplitterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TimeSplitterControl.Designer.cs">
+      <DependentUpon>TimeSplitterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ToggleGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ToggleGroup.Designer.cs">
+      <DependentUpon>ToggleGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WelcomeForm.Designer.cs">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinApi.cs" />
+    <Compile Include="View\WindowRuleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WindowRuleEditForm.Designer.cs">
+      <DependentUpon>WindowRuleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WinFormsExtensions.cs" />
+    <Compile Include="View\DataGridViewFilterColumnHeaderCell.cs" />
+    <Compile Include="View\DataGridViewFilterTextBoxColumn.cs" />
+    <Compile Include="View\IFilterColumn.cs" />
+    <Compile Include="View.ToolStrip\RecentUrlMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sleep\ISleepRegulatorService.cs" />
+    <Compile Include="Sleep\SleepRegulatorWinService.cs" />
+    <Compile Include="SystemEvents\ISystemEventsService.cs" />
+    <Compile Include="SystemEvents\SystemEventsWinService.cs" />
+    <Compile Include="Taskbar\TaskbarWin7Service.cs" />
+    <Compile Include="Notification\TopMostMessageBox.cs" />
+    <Compile Include="Capturing.Core\VersionReportManager.cs" />
+    <Compile Include="Rules\IWorkChangingRule.cs" />
+    <Compile Include="Rules\PlaceholderHelper.cs" />
+    <Compile Include="Rules\RuleMatcher.cs" />
+    <Compile Include="Menu\ClientMenuLookup.cs" />
+    <Compile Include="Capturing.Core\ClientSettingsManager.cs" />
+    <Compile Include="ClockSkewHelper.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="Controller\CurrentWorkController.cs" />
+    <Compile Include="CachedFunc.cs" />
+    <Compile Include="Controller\CurrentWorkControllerBase.cs" />
+    <Compile Include="Controller\WorkStateChangeReason.cs" />
+    <Compile Include="Controller\WorkState.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="View\GrowLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Capturing.Extra\IdleDetector.cs" />
+    <Compile Include="Rules\IRule.cs" />
+    <Compile Include="Serialization\IsolatedStorageSerializationHelper.cs" />
+    <Compile Include="Labels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizationHelper.cs" />
+    <Compile Include="Menu\MenuBuilderHelper.cs" />
+    <Compile Include="View\ClipboardCopyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rules\WorkChangingRule.cs" />
+    <Compile Include="Rules\WorkChangingRuleFactory.cs" />
+    <Compile Include="View.ToolStrip\ScrollableContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SingleValueEventArgs.cs" />
+    <Compile Include="StopwatchLite.cs" />
+    <Compile Include="View.ToolStrip\ToolStripMenuItemForWorkData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View.ToolStrip\ToolStripMenuItemWithProgressbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Capturing.Desktop.Windows\AutomationHelper.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\Browser.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\ChromeUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\FirefoxUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\InternetExplorerUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\IUrlResolver.cs" />
+    <Compile Include="Capturing.Desktop.Windows.Url\UrlHelper.cs" />
+    <Compile Include="View\CountDownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CountDownForm.Designer.cs">
+      <DependentUpon>CountDownForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capturing.EnvironmentInfo\EnvironmentInfoService.cs" />
+    <Compile Include="Capturing.EnvironmentInfo\EnvironmentInfoWinService.cs" />
+    <Compile Include="Capturing.EnvironmentInfo\IEnvironmentInfoService.cs" />
+    <Compile Include="Capturing.EnvironmentInfo\VirtualMachine.cs" />
+    <Compile Include="Communication\WcfExceptionLogger.cs" />
+    <Compile Include="Menu\WorkDataWithParentNames.cs" />
+    <Compile Include="Capturing.Core\WorkDetector.cs" />
+    <Compile Include="WorktimeHistory\IWorkTimeQuery.cs" />
+    <Compile Include="WorktimeHistory\WorkNameProvider.cs" />
+    <Compile Include="WorktimeHistory\WorkOrProjectWithParentNames.cs" />
+    <Compile Include="WorktimeHistory\WorkTimeDummyService.cs" />
+    <Compile Include="WorktimeHistory\WorkTimeModificationHelper.cs" />
+    <Compile Include="WorktimeHistory\WorkTimeService.cs" />
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuBuilder.cs" />
+    <Compile Include="Menu\MenuEventArgs.cs" />
+    <Compile Include="Capturing.Core\MenuManager.cs" />
+    <Compile Include="View\NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\NotificationWinService.cs" />
+    <Compile Include="PeriodicManager.cs" />
+    <Compile Include="ProgramWin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View.ToolStrip\WorkTimeStatsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.ToolStrip\WorkTimeStatsControl.Designer.cs">
+      <DependentUpon>WorkTimeStatsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkSelectorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\WorkSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkSelectorForm.Designer.cs">
+      <DependentUpon>WorkSelectorForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Capturing.Mail\Scripts\GmailFrom.js" />
+    <EmbeddedResource Include="Capturing.Mail\Scripts\GmailId.js" />
+    <EmbeddedResource Include="Capturing.Mail\Scripts\GmailSubject.js" />
+    <EmbeddedResource Include="Capturing.Mail\Scripts\GmailTo.js" />
+    <Content Include="Resources\closed_task.png" />
+    <Compile Include="View\WorkTimeHistoryForm.cs" Condition="$(IsNet4)">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkTimeHistoryForm.Designer.cs" Condition="$(IsNet4)">
+      <DependentUpon>WorkTimeHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorktimeHistory\WorkTimeWinService.cs" Condition="$(IsNet4)" />
+    <None Include="Resources\stats.png" />
+    <EmbeddedResource Include="Capturing.Plugins.Ocr\ContributionForm.resx">
+      <DependentUpon>ContributionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels.ja-JP.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.ja-JP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\FavoriteReportBox.resx">
+      <DependentUpon>FavoriteReportBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\LinkWithIconUserControl.resx">
+      <DependentUpon>LinkWithIconUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\OfflineWorkCard.resx">
+      <DependentUpon>OfflineWorkCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\StatText.resx">
+      <DependentUpon>StatText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AcquireLogsMessageBox.resx">
+      <DependentUpon>AcquireLogsMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DebugCaptureForm.resx">
+      <DependentUpon>DebugCaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FirstTimeWelcomeForm.resx">
+      <DependentUpon>FirstTimeWelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormWithoutActivation.resx">
+      <DependentUpon>FormWithoutActivation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FullScreenBorderAlertForm.resx">
+      <DependentUpon>FullScreenBorderAlertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GoogleAuthenticationForm.resx">
+      <DependentUpon>GoogleAuthenticationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\IssueFilterForm.resx">
+      <DependentUpon>IssueFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\IssuePropsForm.resx">
+      <DependentUpon>IssuePropsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginSettings.resx">
+      <DependentUpon>LoginSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MessageView.resx">
+      <DependentUpon>MessageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ModifyWorkForm.resx">
+      <DependentUpon>ModifyWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ModifyIntervalForm.resx">
+      <DependentUpon>ModifyIntervalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OfflineWorkForm.resx">
+      <DependentUpon>OfflineWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PasswordExpiredMessageBox.resx">
+      <DependentUpon>PasswordExpiredMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProjectSyncForm.resx">
+      <DependentUpon>ProjectSyncForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProjectSyncPeriodForm.resx">
+      <DependentUpon>ProjectSyncPeriodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ScreenshotAnalyzerSettingsForm.resx">
+      <DependentUpon>ScreenshotAnalyzerSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TodoListForm.resx">
+      <DependentUpon>TodoListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TodoListItemUserControl.resx">
+      <DependentUpon>TodoListItemUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TodoListStateSelectorUserControl.resx">
+      <DependentUpon>TodoListStateSelectorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkTimeHistoryForm.resx" Condition="$(IsNet4)">
+      <DependentUpon>WorkTimeHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="OutlookAddin\MailActivityTracker.dll.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\MailActivityTracker.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\MailActivityTracker.vsto">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\MailActivityTracker.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookAddin\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\new_task.png" />
+    <None Include="Resources\further_menu.png" />
+    <None Include="Resources\favorite.png" />
+    <None Include="Resources\selection.png" />
+    <None Include="Resources\parent_inactive.png" />
+    <None Include="Resources\home_inactive.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\edit_hover.png" />
+    <None Include="Resources\recent_projects.png" />
+    <None Include="Resources\priority_small.png" />
+    <None Include="Resources\search_bg.jpg" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\suggested.png" />
+    <None Include="Resources\recent.png" />
+    <None Include="Resources\progress.png" />
+    <None Include="Resources\priority.png" />
+    <None Include="Resources\hierarchy.png" />
+    <None Include="Resources\favorites.png" />
+    <None Include="Resources\deadline.png" />
+    <None Include="Resources\pin.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\web.png" />
+    <None Include="Resources\parent.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\favorite_on.png" />
+    <None Include="Resources\favorite_off.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\close_project.png" />
+    <None Include="Resources\icon_settings.png" />
+    <None Include="Resources\icon_logout.png" />
+    <None Include="Resources\searchFrame.png" />
+    <None Include="Resources\cancel.png" />
+    <EmbeddedResource Include="Labels.es-MX.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels.ko-KR.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.ko-KR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Opensans_Bold.TTF" />
+    <EmbeddedResource Include="Resources\Opensans_Light.TTF" />
+    <EmbeddedResource Include="Resources\Opensans_Regular.TTF" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\pencil.png" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\background.js" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\icon.png" />
+    <Content Include="Capturing.Plugins.Impl.Chrome\InteropExtension\page.js" />
+    <Content Include="LotusNotesSync\JC.Meeting.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\ChromeCaptureServiceReference\ChromeCaptureService.wsdl" />
+    <None Include="Service References\ChromeCaptureServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChromeCaptureServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\OutlookAddinMailCaptureService.wsdl" />
+    <None Include="Service References\OutlookAddinMailCaptureServiceReference\Tct.ActivityRecorderClient.OutlookAddinMailCaptureServiceReference.MailCaptures3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\mex4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoiceRecorderControllerServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VoiceRecorderControllerServiceReference\configuration.svcinfo" />
+    <None Include="Service References\VoiceRecorderControllerServiceReference\configuration91.svcinfo" />
+    <None Include="Properties\DataSources\Tct.ActivityRecorderClient.View.SimplePluginParameterData.datasource" />
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\mex4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\configuration91.svcinfo" />
+    <Content Include="LotusNotesSync\Interop.Domino.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LotusNotesSync\JC.Meeting.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LotusNotesSync\log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LotusNotesSync\LotusNotesMeetingCaptureService.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\ICSharpCode.SharpZipLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Mail.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Mail64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Meeting.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Meeting64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\OutlookInteropService.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Meeting.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Meeting64.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Mail.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OutlookSync\JC.Mail64.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\LotusNotesMeetingCaptureService.wsdl" />
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\Tct.ActivityRecorderClient.LotusNotesMeetingCaptureServiceReference.FinishedMeetingEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LotusNotesMeetingCaptureServiceReference\Tct.ActivityRecorderClient.LotusNotesMeetingCaptureServiceReference.MailCaptures.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\OutlookMailCaptureServiceReference\configuration91.svcinfo" />
+    <EmbeddedResource Include="View.Controls\DropdownElement.resx">
+      <DependentUpon>DropdownElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\DropdownCheckElement.resx">
+      <DependentUpon>DropdownCheckElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\FavoriteButton.resx">
+      <DependentUpon>FavoriteButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Navigation\WorkRowLong.resx">
+      <DependentUpon>WorkRowLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Navigation\CustomDropdown.resx">
+      <DependentUpon>CustomDropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Navigation\WorkRowDetailed.resx">
+      <DependentUpon>WorkRowDetailed.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\CustomTableLayoutPanel.resx">
+      <DependentUpon>CustomTableLayoutPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ContextMenu.resx">
+      <DependentUpon>ContextMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\BigSplitter.resx">
+      <DependentUpon>BigSplitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\CurrentWork.resx">
+      <DependentUpon>CurrentWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\ScrollBar.resx">
+      <DependentUpon>ScrollBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\SearchBox.resx">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\SearchResult.resx">
+      <DependentUpon>SearchResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Navigation\WorkRowCompact.resx">
+      <DependentUpon>WorkRowCompact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\SmallSplitter.resx">
+      <DependentUpon>SmallSplitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\StatGrid.resx">
+      <DependentUpon>StatGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\StatRow.resx">
+      <DependentUpon>StatRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\WorkGrid.resx">
+      <DependentUpon>WorkGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Navigation\WorkRowShort.resx">
+      <DependentUpon>WorkRowShort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\UserDisplay.resx">
+      <DependentUpon>UserDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ErrorReportingForm.resx">
+      <DependentUpon>ErrorReportingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ExceptionDialog.resx">
+      <DependentUpon>ExceptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LotusNotesLoginForm.resx">
+      <DependentUpon>LotusNotesLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels.pt-BR.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MetroMessageBox.resx">
+      <DependentUpon>MetroMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PreferencesForm.resx">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.Controls\SmartTextBox.resx">
+      <DependentUpon>SmartTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PluginParameterEditForm.resx">
+      <DependentUpon>PluginParameterEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProgressBarForm.resx">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TimeSplitterControl.resx">
+      <DependentUpon>TimeSplitterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ToggleGroup.resx">
+      <DependentUpon>ToggleGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WindowRuleEditForm.resx">
+      <DependentUpon>WindowRuleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkSelectorForm.resx">
+      <DependentUpon>WorkSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\WorkingLockOnline.ico" />
+    <None Include="Resources\WorkingLockOffline.ico" />
+    <None Include="Service References\OutlookMailCaptureServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMailCaptureServiceReference\OutlookMailCaptureService.wsdl" />
+    <None Include="Service References\OutlookMailCaptureServiceReference\Tct.ActivityRecorderClient.OutlookMailCaptureServiceReference.MailCaptures.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\configuration.svcinfo" />
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\configuration91.svcinfo" />
+    <EmbeddedResource Include="View\ActivityRecorderForm.resx">
+      <DependentUpon>ActivityRecorderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels.hu-HU.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.hu-HU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DomCaptureForm.resx">
+      <DependentUpon>DomCaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DomCaptureLoadForm.resx">
+      <DependentUpon>DomCaptureLoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MeetingCaptureTestTool.resx">
+      <DependentUpon>MeetingCaptureTestTool.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PluginEditForm.resx">
+      <DependentUpon>PluginEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SetIntForm.resx">
+      <DependentUpon>SetIntForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CountDownForm.resx">
+      <DependentUpon>CountDownForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkDetailsForm.resx">
+      <DependentUpon>WorkDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkDetectorRuleEditForm.resx">
+      <DependentUpon>WorkDetectorRuleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkDetectorRulesForm.resx">
+      <DependentUpon>WorkDetectorRulesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.ToolStrip\WorkTimeStatsControl.resx">
+      <DependentUpon>WorkTimeStatsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Tct.ActivityRecorderClient.View.SimplePluginData.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Capturing.Core\CaptureManager.cs" />
+    <Compile Include="View.ToolStrip\RecentWorksMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\SetIntForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SetIntForm.Designer.cs">
+      <DependentUpon>SetIntForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SameAppNotifyHelper.cs" />
+    <Compile Include="Capturing.UserActivity\UserActivityHook.cs" />
+    <Compile Include="Communication\WcfClientDisposeHelper.cs" />
+    <Compile Include="Menu\WorkDataEventArgs.cs" />
+    <Compile Include="ActivityRecorderServiceReference\WorkItem.cs" />
+    <Compile Include="View\WorkDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkDetailsForm.Designer.cs">
+      <DependentUpon>WorkDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkDetectorRuleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkDetectorRuleEditForm.Designer.cs">
+      <DependentUpon>WorkDetectorRuleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkDetectorRulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkDetectorRulesForm.Designer.cs">
+      <DependentUpon>WorkDetectorRulesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capturing.Core\WorkDetectorRulesManager.cs" />
+    <Compile Include="Capturing.Core\WorkItemEventArgs.cs" />
+    <Compile Include="Capturing.Core\WorkItemManager.cs" />
+    <Compile Include="Serialization\WorkItemSerializationHelper.cs" />
+    <Compile Include="Capturing.Core\WorkStatusChange.cs" />
+    <Compile Include="Capturing.Core\WorkStatusReporter.cs" />
+    <Compile Include="Capturing.Extra\WorkTimeCounter.cs" />
+    <Compile Include="Capturing.Extra\WorkTimeStatsManager.cs" />
+    <Compile Include="Serialization\XmlSerializationHelper.cs" />
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\service.wsdl" />
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\Tct.ActivityRecorderClient.OutlookMeetingCaptureServiceReference.FinishedMeetingEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutlookMeetingCaptureServiceReference\Tct.ActivityRecorderClient.OutlookMeetingCaptureServiceReference.MeetingAttendee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoiceRecorderControllerServiceReference\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoiceRecorderControllerServiceReference\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoiceRecorderControllerServiceReference\VoiceRecorderControllerService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ActivityRecorderServiceReference\" />
+    <WCFMetadataStorage Include="Service References\AppControlServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ChromeCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\JavaCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\LotusNotesMeetingCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\OutlookAddinMailCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\OutlookMailCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\OutlookMeetingCaptureServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VoiceRecorderControllerServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jobctrl_client_cert.pfx" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JobCtrl.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\NotWorking.ico" />
+    <None Include="Resources\WorkingOffline.ico" />
+    <None Include="Resources\WorkingOnline.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OutlookSync\OutlookMeetingCaptureService.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitmapManipulation\BitmapManipulation.csproj">
+      <Project>{E6D3F875-B52C-447A-9D95-52158DAC9B16}</Project>
+      <Name>BitmapManipulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChromeNativeMessagingHost\ChromeNativeMessagingHost.csproj">
+      <Project>{e35f07a4-88f2-451a-84a7-f486de3a19c1}</Project>
+      <Name>ChromeNativeMessagingHost</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Deployment\bootstrap\bootstrap.csproj">
+      <Project>{737BF24A-5745-472D-9D5F-61DAC8C81404}</Project>
+      <Name>bootstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JabApiLib\JabApiLib.csproj">
+      <Project>{2aaa4f8a-58f7-4632-9a35-07f01aa6e171}</Project>
+      <Name>JabApiLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JavaCaptureServiceHost\JavaCaptureServiceHost.csproj">
+      <Project>{e583a79d-2ae5-4308-9539-0d8a906527b3}</Project>
+      <Name>JavaCaptureServiceHost</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\JcSend\JcSend.csproj">
+      <Project>{e1128ab4-90cf-403d-9cf2-3bc63fd6ccc3}</Project>
+      <Name>JcSend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LotusNotesSync\LotusNotesMeetingCaptureServiceHost\LotusNotesMeetingCaptureServiceHost.csproj">
+      <Project>{b63d07c8-3544-4cc7-a90a-3595d2b64519}</Project>
+      <Name>LotusNotesMeetingCaptureServiceHost</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\OutlookAddin\MailActivityTracker\MailActivityTracker.csproj">
+      <Project>{1fb95233-ba3d-4c1a-9868-79980a8344d9}</Project>
+      <Name>MailActivityTracker</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\TctEncoder\TctEncoder.csproj">
+      <Project>{3EB736C4-62EA-4887-B040-948B13EF29B9}</Project>
+      <Name>TctEncoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OutlookSync\OutlookMeetingCaptureServiceHost\OutlookMeetingCaptureServiceHost.csproj">
+      <Project>{6bc16c0a-cbb3-4ba6-a215-65c5426a0b80}</Project>
+      <Name>OutlookMeetingCaptureServiceHost</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\OutlookInterop\OutlookInteropServiceHost\OutlookInteropServiceHost.csproj">
+      <Project>{FFD01671-8818-431B-805C-581B0281C694}</Project>
+      <Name>OutlookInteropServiceHost</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\winforms-modernui\MetroFramework.Design\MetroFramework.Design.csproj">
+      <Project>{7316584d-9a16-4280-a8ab-6d45198c6e4d}</Project>
+      <Name>MetroFramework.Design</Name>
+      <Private>False</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\winforms-modernui\MetroFramework\MetroFramework.csproj">
+      <Project>{bb41ac8b-cbed-4387-a7e0-4567edb3f57f}</Project>
+      <Name>MetroFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="bootstrap">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\ResxCheck\ResxCheck.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\Tools\WcfOrderCheck.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\Tools\LogPathUnifier.targets" />
+  <Import Project="$(ProjectDir)\..\Deployment\Tools\QueryReleaseVersion.targets" />
+  <Import Project="$(ProjectDir)\Deployment\AppClassifierGen.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>del "$(ProjectDir)Capturing.Plugins.Impl.Firefox\ffinterop@jobctrl.com.xpi*"
+"$(ProjectDir)\..\Utilities\7za.exe" a -tzip "$(ProjectDir)Capturing.Plugins.Impl.Firefox\ffinterop@jobctrl.com.xpi" "$(ProjectDir)Capturing.Plugins.Impl.Firefox\InteropAddon\*" "$(ProjectDir)Capturing.Plugins.Impl.Chrome\InteropExtension\page.js" "$(ProjectDir)Capturing.Plugins.Impl.Chrome\InteropExtension\main.js" "$(ProjectDir)Capturing.Plugins.Impl.Chrome\InteropExtension\content.js" "$(ProjectDir)Capturing.Plugins.Impl.Chrome\InteropExtension\icon.png" "$(ProjectDir)Capturing.Plugins.Impl.Chrome\InteropExtension\inboxsdk.js"</PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <MSBuild Projects="$(ProjectDir)..\ChromeNativeMessagingHost\ChromeNativeMessagingHost.csproj" Targets="Clean;Build" Properties="Configuration=$(Configuration);Platform=$(Platform);TargetFrameworkVersion=v4.5;FirefoxMode=1" />
+    <MSBuild Projects="$(ProjectDir)..\ImageTools\ImageTools.vcxproj" Properties="Platform=Win32" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--Publish guard-->
+  <Target Name="BeforePublish">
+    <Error Condition="'$(Configuration)' != 'Release'" Text="You can only publish a Release build!" />
+  </Target>
+  <PropertyGroup>
+    <PublishDependsOn>InitVersionNumbers;TransfromConfigExec;EncodePublishProfile;SetVersionInfo4;BuildTasks;CleanUpTempFiles;ResetVersionInfo;ResetTransfromConfig</PublishDependsOn>
+  </PropertyGroup>
+  <!--Version Change-->
+  <Target Name="InitVersionNumbers">
+    <QueryReleaseVersion DayOffset="-6" Condition="'$(PublishNewRelease)'!=''">
+      <Output PropertyName="ReleaseName" TaskParameter="ReleaseName" />
+    </QueryReleaseVersion>
+    <PropertyGroup>
+      <!--Inject TransfromConfigExec,SetVersionInfo target before everything when publishing-->
+      <!--If ApplicationVersion contains * replace it with Revision-->
+      <!--ApplicationVersion Condition="'$(Configuration)' == 'Release'" >$(ApplicationVersion.Replace('%2a','$(ApplicationRevision)'))</ApplicationVersion-->
+      <!--The former is removed by VS so use ApplicationBaseVersion-->
+      <ApplicationBaseVersion>$(ApplicationVersion.Replace('%2a','$(ApplicationRevision)'))</ApplicationBaseVersion>
+      <!--this doesn't work... CreateProperty Value="$(ApplicationBaseVersion)">
+        <Output PropertyName="ApplicationVersion" TaskParameter="Value" />
+      </CreateProperty-->
+      <BuildOrig>$([System.Version]::new('$(ApplicationBaseVersion)').Build)</BuildOrig>
+      <Major>$([System.Version]::new('$(ApplicationBaseVersion)').Major)</Major>
+      <Minor>$([System.Version]::new('$(ApplicationBaseVersion)').Minor)</Minor>
+      <Build Condition="'$(PublishNewRelease)'==''">$(BuildOrig)</Build>
+      <Build Condition="'$(PublishNewRelease)'!=''">$(ReleaseName)</Build>
+      <RevisionWix4 Condition="'$(PublishNewRelease)'=='' OR '$(BuildOrig)'=='$(ReleaseName)'">$([System.Version]::new('$(ApplicationBaseVersion)').Revision)</RevisionWix4>
+      <RevisionWix4 Condition="'$(PublishNewRelease)'!='' AND '$(BuildOrig)'!='$(ReleaseName)'">$([MSBuild]::Add($([System.Version]::new('$(ApplicationBaseVersion)').Revision), 1))</RevisionWix4>
+      <!--WiX revision for .Net 4.0 is incremented by 10 again -->
+      <ApplicationWix4Version>$(Major).$(Minor).$(Build).$(RevisionWix4)</ApplicationWix4Version>
+      <!--Don't leave WiX revision in code-->
+      <ApplicationNewAsmVersion>$(Major).$(Minor).$(Build).*</ApplicationNewAsmVersion>
+      <!--Get Original version from AssemblyInfo, so we can restore it later (for UAT builds)-->
+      <ApplicationOriginalAsmVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalAsmVersion>
+      <ApplicationOriginalAddinVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalAddinVersion>
+      <ApplicationOriginalAddinFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalAddinFileVersion>
+      <ApplicationOriginalOutlookInteropVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalOutlookInteropVersion>
+      <ApplicationOriginalOutlookInteropFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalOutlookInteropFileVersion>
+      <ApplicationOriginalOutlookInteropHostVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalOutlookInteropHostVersion>
+      <ApplicationOriginalOutlookInteropHostFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalOutlookInteropHostFileVersion>
+      <ApplicationOriginalMeetingCaptureServiceVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalMeetingCaptureServiceVersion>
+      <ApplicationOriginalMeetingCaptureServiceFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalMeetingCaptureServiceFileVersion>
+      <ApplicationOriginalMeetingCaptureHostVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalMeetingCaptureHostVersion>
+      <ApplicationOriginalMeetingCaptureHostFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalMeetingCaptureHostFileVersion>
+      <ApplicationOriginalMetroFrameworkVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\winforms-modernui\MetroFramework\Properties\AssemblyInfo.cs')),'internal const string Version = "([^"]*)"', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalMetroFrameworkVersion>
+      <ApplicationOriginalTctEncoderVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalTctEncoderVersion>
+      <ApplicationOriginalTctEncoderFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalTctEncoderFileVersion>
+      <ApplicationOriginalBitmapManipulationVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalBitmapManipulationVersion>
+      <ApplicationOriginalBitmapManipulationFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalBitmapManipulationFileVersion>
+      <ApplicationOriginalJcSendVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalJcSendVersion>
+      <ApplicationOriginalJcSendFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalJcSendFileVersion>
+      <ApplicationOriginalJabApiLibVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalJabApiLibVersion>
+      <ApplicationOriginalJabApiLibFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalJabApiLibFileVersion>
+      <ApplicationOriginalBootstrapVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalBootstrapVersion>
+      <ApplicationOriginalBootstrapFileVersion>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs')),'^\[assembly: AssemblyFileVersion\("([^"]*)"\)', System.Text.RegularExpressions.RegexOptions.Multiline).Groups[1].Value)</ApplicationOriginalBootstrapFileVersion>
+      <!--UpgradeCode Condition=" '$(UpgradeCode)' == '' ">d657476f-cebc-4d8e-b408-72742cf6fa85</UpgradeCode-->
+      <!--PublishProfile Condition=" '$(PublishProfile)' == '' ">Default</PublishProfile-->
+      <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <SetRegexTransform4 Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyTitle\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyTitle("$(AssemblyName)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyCompany\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyCompany("$(AssemblyName)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyProduct\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyProduct("$(AssemblyName)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\winforms-modernui\MetroFramework\Properties\AssemblyInfo.cs">
+        <Find>internal const string Version = "[^"]*"</Find>
+        <ReplaceWith>internal const string Version = "$(ApplicationWix4Version)"</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <SetRegexTransform4 Include="$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationWix4Version)")</ReplaceWith>
+        <InProject>false</InProject>
+      </SetRegexTransform4>
+      <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyTitle\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyTitle("JobCTRL")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyCompany\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyCompany("JobCTRL")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyProduct\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyProduct("JobCTRL")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs" Condition="'$(PublishNewRelease)'==''">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalAsmVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)Properties\AssemblyInfo.cs" Condition="'$(PublishNewRelease)'!=''">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(Major).$(Minor).$(Build).*")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)ActivityRecorderClient.csproj" Condition="'$(PublishNewRelease)'!=''">
+        <Find>&lt;ApplicationVersion&gt;[^&lt;]*&lt;/ApplicationVersion&gt;</Find>
+        <ReplaceWith>&lt;ApplicationVersion&gt;$(Major).$(Minor).$(Build).%252a&lt;/ApplicationVersion&gt;</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\ActivityRecorderService\Properties\AssemblyInfo.cs" Condition="'$(PublishNewRelease)'!=''">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(Major).$(Minor).$(Build)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalAddinVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookAddin\MailActivityTracker\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalAddinFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalOutlookInteropVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookInterop\OutlookInteropService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalOutlookInteropFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalOutlookInteropHostVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookInterop\OutlookInteropServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalOutlookInteropHostFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalMeetingCaptureServiceVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureService\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalMeetingCaptureServiceFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalMeetingCaptureHostVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\OutlookSync\OutlookMeetingCaptureServiceHost\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalMeetingCaptureHostFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\winforms-modernui\MetroFramework\Properties\AssemblyInfo.cs">
+        <Find>internal const string Version = "[^"]*"</Find>
+        <ReplaceWith>internal const string Version = "$(ApplicationOriginalMetroFrameworkVersion)"</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalTctEncoderVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\TctEncoder\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalTctEncoderFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalBitmapManipulationVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\BitmapManipulation\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalBitmapManipulationFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalJcSendVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\JcSend\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalJcSendFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalJabApiLibVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\JabApiLib\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalJabApiLibFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyVersion("$(ApplicationOriginalBootstrapVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+      <ResetRegexTransform Include="$(ProjectDir)..\Deployment\bootstrap\Properties\AssemblyInfo.cs">
+        <Find>^\[assembly: AssemblyFileVersion\("[^"]*"\)</Find>
+        <ReplaceWith>[assembly: AssemblyFileVersion("$(ApplicationOriginalBootstrapFileVersion)")</ReplaceWith>
+        <InProject>false</InProject>
+      </ResetRegexTransform>
+    </ItemGroup>
+  </Target>
+  <Target Name="BuildTasks" DependsOnTargets="BuildWix4;BuildZip;CheckMsiResources">
+    <OnError ExecuteTargets="CleanUpTempFiles;ResetVersionInfo;ResetTransfromConfig" />
+  </Target>
+  <Target Name="SetVersionInfo4" Condition="'$(Configuration)' == 'Release'">
+    <!--Update AssemblyInfo with WiX version for .Net 4.0 -->
+    <RegexTransform Items="@(SetRegexTransform4)" />
+  </Target>
+  <Target Name="ResetVersionInfo" Condition="'$(Configuration)' == 'Release'">
+    <!--Reset version in AssemblyInfo, don't leave WiX revision in code-->
+    <RegexTransform Items="@(ResetRegexTransform)" />
+  </Target>
+  <!--Generate .msi package for .Net 4.0 -->
+  <Target Name="BuildWix4" Condition="'$(Configuration)' == 'Release'">
+    <MSBuild Projects="$(ProjectDir)..\Deployment\MsiPackage\MsiPackage.wixproj" Targets="Clean;Build" Properties="ClientAssemblyName=$(AssemblyName);UpgradeCode=$(UpgradeCode);MsiInstallScope=$(MsiInstallScope);IncludeService=$(IncludeService);Configuration=Release;Platform=MixedWix;TargetFrameworkVersion=v4.5;ProjectSync=$(ProjectSync);OcrPlugin=$(OcrPlugin);TesseractDir=$(TesseractDir)" />
+    <Copy SourceFiles="$(ProjectDir)..\Deployment\MsiPackage\bin\$(Configuration)\JobCTRL4.msi" DestinationFiles="$(PublishDir)\$(PackageName).msi" />
+  </Target>
+  <!--Generate .zip package -->
+  <Target Name="BuildZip" Condition="'$(Configuration)' == 'Release' AND '$(ZipPackage)' != ''">
+    <Delete Files="$(PublishDir)\$(PackageName).zip" />
+    <Copy SourceFiles="$(OutputPath)\log4net.dll;$(OutputPath)\log4net.dll" DestinationFiles="$(OutputPath)\ChromeInterop\log4net.dll;$(OutputPath)\FirefoxInterop\log4net.dll" />
+    <Exec WorkingDirectory="$(OutputPath)" Command="&quot;$(ProjectDir)\..\Utilities\7za.exe&quot; a &quot;$(PublishDir)\$(PackageName).zip&quot; -r -x!Newtonsoft.Json.xml -x!*.pdb -x!logs -x!*.vshost* -x!JobCTRL*.application -x!app.publish -x!resources -x!jobctrl*.manifest" />
+    <Exec WorkingDirectory="$(OutputPath)" Command="&quot;$(ProjectDir)\..\Utilities\7za.exe&quot; rn &quot;$(PublishDir)\$(PackageName).zip&quot; ChromeInterop v$(ApplicationBaseVersion)\ChromeInterop EdgeInterop v$(ApplicationBaseVersion)\EdgeInterop FirefoxInterop v$(ApplicationBaseVersion)\FirefoxInterop OutlookAddin v$(ApplicationBaseVersion)\OutlookAddin" />
+  </Target>
+  <!--Publish.htm Generation-->
+  <ItemGroup>
+    <PublishHtmlReplace Include="[PublisherName]">
+      <ReplaceWith>$(PublisherName)</ReplaceWith>
+      <InProject>false</InProject>
+    </PublishHtmlReplace>
+    <PublishHtmlReplace Include="[ProductName]">
+      <ReplaceWith>$(ProductName)</ReplaceWith>
+      <InProject>false</InProject>
+    </PublishHtmlReplace>
+    <PublishHtmlReplace Include="[Version]">
+      <ReplaceWith>$(ApplicationBaseVersion)</ReplaceWith>
+      <InProject>false</InProject>
+    </PublishHtmlReplace>
+  </ItemGroup>
+  <Target Name="AfterPublish">
+    <TokenReplace SrcPath="$(ProjectDir)Deployment\publishTemplate.htm" DstPath="$(PublishDir)$(WebPage)" ReplacementMap="@(PublishHtmlReplace)" />
+  </Target>
+  <!--hax to treat TransformXml warnings as errors-->
+  <Target Name="TransfromConfigExec" Condition="'$(Configuration)' == 'Release' AND $(PublishProfile)!=''">
+    <Error Condition="!Exists('Configuration\AppConfig$(PublishProfile).cs')" Text="AppConfig$(PublishProfile).cs file is missing" />
+    <Copy SourceFiles="app.config" DestinationFiles="app.config.bak" Condition="!Exists('app.config.bak')" />
+    <Copy SourceFiles="Configuration\AppConfig$(PublishProfile).cs" DestinationFiles="Configuration\AppConfig$(PublishProfile).cs.bak" Condition="!Exists('Configuration\AppConfig$(PublishProfile).cs.bak')" />
+    <Copy SourceFiles="app.$(Configuration).config" DestinationFiles="app.config" />
+    <OnError ExecuteTargets="ResetTransfromConfig" />
+  </Target>
+  <Target Name="EncodePublishProfile" Condition="'$(Configuration)' == 'Release' AND $(PublishProfile)!=''">
+    <EncodeTask filePath="Configuration\AppConfig$(PublishProfile).cs" />
+  </Target>
+  <Target Name="ResetTransfromConfig" Condition="'$(Configuration)' == 'Release'">
+    <Move SourceFiles="app.config.bak" DestinationFiles="app.config" Condition="Exists('app.config.bak')" />
+    <Move SourceFiles="Configuration\AppConfig$(PublishProfile).cs.bak" DestinationFiles="Configuration\AppConfig$(PublishProfile).cs" Condition="Exists('Configuration\AppConfig$(PublishProfile).cs.bak')" />
+  </Target>
+  <Target Name="CleanUpTempFiles" Condition="'$(Configuration)' == 'Release'">
+    <Delete Files="$(ProjectDir)\JavaCapture\JabApiLib.dll" TreatErrorsAsWarnings="true" />
+    <Delete Files="$(ProjectDir)\JavaCapture\JC.JavaCapture.exe.config" TreatErrorsAsWarnings="true" />
+    <Delete Files="$(ProjectDir)\JavaCapture\JC.JavaCapture.exe" TreatErrorsAsWarnings="true" />
+    <Delete Files="$(ProjectDir)\JavaCapture\log4net.dll" TreatErrorsAsWarnings="true" />
+  </Target>
+  <Target Name="CheckMsiResources" Condition="'$(Configuration)' == 'Release'">
+    <CheckResources wxs="$(ProjectDir)..\Deployment\MsiPackage\Product.wxs" binDir="$(ProjectDir)bin\$(Configuration)\" clientName="$(AssemblyName)" />
+  </Target>
+  <!--Tasks-->
+  <UsingTask TaskName="TransformXml" AssemblyFile="..\Utilities\Microsoft.Web.Publishing.Tasks.dll" />
+  <!--Inline Tasks-->
+  <UsingTask TaskName="CheckResources" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Wxs ParameterType="System.String" Required="true" />
+      <BinDir ParameterType="System.String" Required="true" />
+      <ClientName ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.Collections.Generic" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="Microsoft.Build.Framework" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+			Log.LogMessage("Checking resources inside Wxs: "+Wxs, MessageImportance.High);
+			var lines = File.ReadLines(Wxs);
+			var installedRes = new List<String>();
+			foreach(var line in lines)
+			{
+				var result = Regex.Match(line, @"<File.*Source=""\$\(var\.ActivityRecorderClient\.TargetDir\)\\(.+)\\\$\(var\.ActivityRecorderClient\.TargetName\)\.resources\.dll""");
+				if (result.Success)
+				{
+					installedRes.Add(result.Groups[1].Value);
+					Log.LogMessage("Found resource: " + result.Groups[1].Value, MessageImportance.High);
+				}
+			}
+			
+			Log.LogMessage("Checking resources inside directory: "+BinDir, MessageImportance.High);
+			var generatedRes = new List<String>();
+			foreach(var dir in Directory.GetDirectories(BinDir))
+			{
+				foreach(var file in Directory.GetFiles(dir))
+				{
+					if(file.Contains(ClientName + ".resources.dll"))
+					{
+						Log.LogMessage("Found resource: " + file, MessageImportance.High);
+						generatedRes.Add(Path.GetFileName(dir));
+					}
+				}
+			}
+			
+			foreach(var res in generatedRes)
+			{
+				if(!installedRes.Contains(res)) {
+					Log.LogMessage("Found mismatch: " + res, MessageImportance.High);
+					Log.LogError(null, null, null, null, 0, 0, 0, 0, String.Format("Localization {0} is missing from {1}!", res, Wxs), new object[0]); 
+				}
+			}
+		]]></Code>
+    </Task>
+  </UsingTask>
+  <UsingTask TaskName="RegexTransform" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Items ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="Microsoft.Build.Framework" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+          foreach(ITaskItem item in Items) {
+            string fileName = item.GetMetadata("FullPath");
+            string find = item.GetMetadata("Find");
+            string replaceWith = item.GetMetadata("ReplaceWith");
+
+            if(!File.Exists(fileName)) {
+              Log.LogError(null, null, null, null, 0, 0, 0, 0, String.Format("Could not find file: {0}", fileName), new object[0]);
+            }
+            string content = File.ReadAllText(fileName);
+            File.WriteAllText(
+              fileName,
+              Regex.Replace(
+                content,
+                find,
+                replaceWith,
+                RegexOptions.Multiline
+              ),
+              System.Text.Encoding.UTF8
+            );
+            Log.LogMessage("Updated file " + fileName, MessageImportance.High);
+          }
+        ]]></Code>
+    </Task>
+  </UsingTask>
+  <UsingTask TaskName="TokenReplace" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <SrcPath ParameterType="System.String" Required="true" />
+      <DstPath ParameterType="System.String" Required="true" />
+      <ReplacementMap ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Code Type="Fragment" Language="cs"><![CDATA[
+      string content = File.ReadAllText(SrcPath);
+      foreach(var item in ReplacementMap)
+      {
+        content = content.Replace(item.GetMetadata("Identity"), item.GetMetadata("ReplaceWith"));
+      }
+      File.WriteAllText(DstPath, content);
+      Log.LogMessage("Generated file " + DstPath, MessageImportance.High);
+      ]]></Code>
+    </Task>
+  </UsingTask>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Obfuscar.2.2.19\build\obfuscar.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Obfuscar.2.2.19\build\obfuscar.props'))" />
+    <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent Condition="'$(GoObfuscation)'==''">xcopy "$(ProjectDir)tessdata" "$(TargetDir)tessdata" /E /I /Y
+</PostBuildEvent>
+    <PostBuildEvent Condition="'$(GoObfuscation)'!=''">xcopy "$(ProjectDir)tessdata" "$(TargetDir)tessdata" /E /I /Y
+	copy "$(ProjectDir)obfuscar.xml" "$(ProjectDir)obfuscar.xml.save"
+	if "%AsmSnkAndSign%"=="1" call "$(ProjectDir)..\Deployment\MsiPackage\snksign.bat" "$(ProjectDir)..\Deployment\MsiPackage\" $(Configuration) 0 0 || exit /b 255
+	powershell -Command "(gc \"$(ProjectDir)obfuscar.xml\") -replace '\$\(InPath\)\\JobCTRL\.exe', -join('$','(InPath)\$(ProductName).exe') | Out-File -encoding UTF8 \"$(ProjectDir)obfuscar.xml\""  || exit /b 255
+	if "%AsmSnkAndSign%"=="1" powershell -Command "(gc \"$(ProjectDir)obfuscar.xml\") -replace '&lt;Obfuscator&gt;', '&lt;Obfuscator&gt; &lt;Var name=\"KeyFile\" value=\"$(ProjectDir)..\Keys\JobCTRL.snk\" /&gt;' | Out-File -encoding UTF8 \"$(ProjectDir)obfuscar.xml\""  || exit /b 255
+    "$(Obfuscar)" "$(ProjectDir)obfuscar.xml" || exit /b 255
+	del "$(ProjectDir)obfuscar.xml"
+	ren "$(ProjectDir)obfuscar.xml.save" obfuscar.xml
+    xcopy "$(TargetDir)Obfuscator_Output\*" "$(TargetDir)" /Y || exit /b 255
+    rmdir "$(TargetDir)Obfuscator_Output" /S /Q
+</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets') AND ('$(OcrPlugin)'!='' OR '$(Configuration)' == 'Debug')" />
+</Project>

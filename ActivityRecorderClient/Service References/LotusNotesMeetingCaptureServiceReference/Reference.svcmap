@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4215d59e-cfb1-4b24-a770-6112fc9b03fc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/LotusNotesMeetingCaptureService/mex" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="a15cc6eb-8e7d-4c1d-a33f-9aa523fb311a" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex?xsd=xsd2" />
+    <MetadataFile FileName="LotusNotesMeetingCaptureService.wsdl" MetadataType="Wsdl" ID="a1ed1906-8049-4263-b30d-29c3fd10ece5" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex" />
+    <MetadataFile FileName="mex4.xsd" MetadataType="Schema" ID="451c175c-9fb9-433f-9b6b-c4df0e82b678" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex?xsd=xsd4" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="80fc50a4-994f-41ea-a972-1a7b2ec98cfa" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex?xsd=xsd1" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="548a26da-1361-4262-a643-ae7e63f519b9" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex3.xsd" MetadataType="Schema" ID="2e51679d-acf8-4d3a-a869-ac12251254e8" SourceId="1" SourceUrl="http://localhost:8000/LotusNotesMeetingCaptureService/mex?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

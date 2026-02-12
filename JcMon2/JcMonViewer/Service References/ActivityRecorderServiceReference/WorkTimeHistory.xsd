@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://jobctrl.com/WorkTimeHistory" elementFormDefault="qualified" targetNamespace="http://jobctrl.com/WorkTimeHistory" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+  <xs:complexType name="ClientWorkTimeHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerIntervals" nillable="true" type="tns:ArrayOfComputerInterval" />
+      <xs:element minOccurs="0" name="IsModificationApprovalNeeded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IvrIntervals" nillable="true" type="tns:ArrayOfIvrInterval" />
+      <xs:element minOccurs="0" name="ManualIntervals" nillable="true" type="tns:ArrayOfManualInterval" />
+      <xs:element minOccurs="0" name="MobileIntervals" nillable="true" type="tns:ArrayOfMobileInterval" />
+      <xs:element minOccurs="0" name="ModificationAgeLimit" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientWorkTimeHistory" nillable="true" type="tns:ClientWorkTimeHistory" />
+  <xs:complexType name="ArrayOfComputerInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComputerInterval" nillable="true" type="tns:ComputerInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComputerInterval" nillable="true" type="tns:ArrayOfComputerInterval" />
+  <xs:complexType name="ComputerInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerId" type="xs:int" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComputerInterval" nillable="true" type="tns:ComputerInterval" />
+  <xs:complexType name="ArrayOfIvrInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IvrInterval" nillable="true" type="tns:IvrInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIvrInterval" nillable="true" type="tns:ArrayOfIvrInterval" />
+  <xs:complexType name="IvrInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsOngoing" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IvrInterval" nillable="true" type="tns:IvrInterval" />
+  <xs:complexType name="ArrayOfManualInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ManualInterval" nillable="true" type="tns:ManualInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfManualInterval" nillable="true" type="tns:ArrayOfManualInterval" />
+  <xs:complexType name="ManualInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEditable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMeeting" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPending" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPendingDeleteAlso" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" minOccurs="0" name="ManualWorkItemType" type="q1:ManualWorkItemTypeEnum" />
+      <xs:element minOccurs="0" name="MeetingId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PendingId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceId" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManualInterval" nillable="true" type="tns:ManualInterval" />
+  <xs:complexType name="ArrayOfMobileInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MobileInterval" nillable="true" type="tns:MobileInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMobileInterval" nillable="true" type="tns:ArrayOfMobileInterval" />
+  <xs:complexType name="MobileInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Imei" type="xs:long" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MobileInterval" nillable="true" type="tns:MobileInterval" />
+  <xs:complexType name="WorkTimeModifications">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManualIntervalModifications" nillable="true" type="tns:ArrayOfManualIntervalModification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkTimeModifications" nillable="true" type="tns:WorkTimeModifications" />
+  <xs:complexType name="ArrayOfManualIntervalModification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ManualIntervalModification" nillable="true" type="tns:ManualIntervalModification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfManualIntervalModification" nillable="true" type="tns:ArrayOfManualIntervalModification" />
+  <xs:complexType name="ManualIntervalModification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewItem" nillable="true" type="tns:ManualInterval" />
+      <xs:element minOccurs="0" name="OriginalItem" nillable="true" type="tns:ManualInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManualIntervalModification" nillable="true" type="tns:ManualIntervalModification" />
+  <xs:complexType name="WorkNames">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Names" nillable="true" type="tns:ArrayOfWorkOrProjectName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkNames" nillable="true" type="tns:WorkNames" />
+  <xs:complexType name="ArrayOfWorkOrProjectName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkOrProjectName" nillable="true" type="tns:WorkOrProjectName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkOrProjectName" nillable="true" type="tns:ArrayOfWorkOrProjectName" />
+  <xs:complexType name="WorkOrProjectName">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExtId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkOrProjectName" nillable="true" type="tns:WorkOrProjectName" />
+</xs:schema>

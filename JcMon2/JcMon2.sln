@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JcMon2", "JcMon2\JcMon2.csproj", "{4FBA4338-281A-4ECD-84E9-D9A5667DE97A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JcMonViewer", "JcMonViewer\JcMonViewer.csproj", "{A4902456-97CD-4D3E-ACD7-67A5239C2321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JcExtract", "JcExtract\JcExtract.csproj", "{B1550E09-6199-47A7-93D4-5A8AEEBDB936}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FBA4338-281A-4ECD-84E9-D9A5667DE97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBA4338-281A-4ECD-84E9-D9A5667DE97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBA4338-281A-4ECD-84E9-D9A5667DE97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBA4338-281A-4ECD-84E9-D9A5667DE97A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4902456-97CD-4D3E-ACD7-67A5239C2321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4902456-97CD-4D3E-ACD7-67A5239C2321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4902456-97CD-4D3E-ACD7-67A5239C2321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4902456-97CD-4D3E-ACD7-67A5239C2321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1550E09-6199-47A7-93D4-5A8AEEBDB936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1550E09-6199-47A7-93D4-5A8AEEBDB936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1550E09-6199-47A7-93D4-5A8AEEBDB936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1550E09-6199-47A7-93D4-5A8AEEBDB936}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

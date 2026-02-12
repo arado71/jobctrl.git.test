@@ -1,0 +1,177 @@
+using ObjCRuntime;
+using System.Runtime.InteropServices;
+
+namespace Tct.ActivityRecorderClient.Capturing.Desktop.Mac.Accessibility
+{
+	public class AXObject : CFWrapper //I don't know how SafeHandles are implemented by mono... but they migh be better (todo research)
+	{
+		public AXObject(IntPtr handle, bool owns)
+			: base(handle, owns)
+		{
+		}
+
+		public static bool IsApiEnabled()
+		{
+			if (OperatingSystem.IsMacOSVersionAtLeast(10, 9))
+			{
+				var options = CreatePromptOptionsDictionary();
+				try
+				{
+					return AXIsProcessTrustedWithOptions(options);
+				}
+				finally
+				{
+					CFRelease(options);
+				}
+			}
+
+			return AXAPIEnabled();
+		}
+
+		public static AXObject CreateFromApplication(int pid)
+		{
+			IntPtr axApp = AXUIElementCreateApplication(pid);
+			if (axApp == IntPtr.Zero)
+				throw new Exception("Cannot create accessible object from pid " + pid);
+			return new AXObject(axApp, true);
+		}
+
+		public AXObject GetAttribute(AXAttribute attr, out AXError error)
+		{
+			IntPtr axObjHandle;
+			error = AXUIElementCopyAttributeValue(Handle, attr.Handle, out axObjHandle);
+			return new AXObject(axObjHandle, true);
+		}
+
+		public string GetStringValueForAttribute(AXAttribute attr, out AXError error)
+		{
+			IntPtr axObjHandle;
+			error = AXUIElementCopyAttributeValue(Handle, attr.Handle, out axObjHandle);
+			using (var axObj = new AXObject(axObjHandle, true))
+			{
+				return CFStringHelper.GetString(axObj.Handle);
+			}
+		}
+
+		public string GetUrlStringForAttribute(AXAttribute attr, out AXError error)
+		{
+			IntPtr axObjHandle;
+			error = AXUIElementCopyAttributeValue(Handle, attr.Handle, out axObjHandle);
+			if (error != AXError.Success || axObjHandle == IntPtr.Zero)
+				return null;
+
+			using (var axObj = new AXObject(axObjHandle, true))
+			{
+				IntPtr strPtr = CFURLGetString(axObj.Handle);
+				return CFStringHelper.GetString(strPtr);
+			}
+		}
+
+		public IEnumerable<AXObject> GetChildrenInRole(string role)
+		{
+			AXError error;
+			using (var axChildren = GetAttribute(AXAttribute.Children, out error))
+			{
+				if (error != AXError.Success)
+					yield break; //log error
+				var arrWinChPtrs = NSArray.ArrayFromHandleFunc<IntPtr>(axChildren.Handle, n => n);
+				for (int i = arrWinChPtrs.Length - 1; i >= 0; i--)
+				{
+					using (var axChild = new AXObject(arrWinChPtrs[i], false))
+					{
+						using (var axRole = axChild.GetAttribute(AXAttribute.Role, out error))
+						{
+							if (error != AXError.Success)
+								yield break; //log error
+							if (CFStringHelper.StrEquals(axRole.Handle, role))
+								yield return axChild;
+						}
+					}
+				}
+			}
+		}
+
+		public IEnumerable<AXObject> GetDescendantsInRole(string role)
+		{
+			AXError error;
+			using (var axChildren = GetAttribute(AXAttribute.Children, out error))
+			{
+				if (error != AXError.Success)
+				{
+					yield break;
+				}
+				var arrWinChPtrs = NSArray.ArrayFromHandleFunc<IntPtr>(axChildren.Handle, n => n);
+				for (int i = arrWinChPtrs.Length - 1; i >= 0; i--)
+				{
+					using (var axChild = new AXObject(arrWinChPtrs[i], false))
+					{
+						using (var axRole = axChild.GetAttribute(AXAttribute.Role, out error))
+						{
+							if (error != AXError.Success)
+							{
+								yield break;
+							}
+							if (CFStringHelper.StrEquals(axRole.Handle, role))
+							{
+								yield return axChild;
+
+								foreach (var descendandt in axChild.GetDescendantsInRole(role))
+								{
+									yield return descendandt;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		private static IntPtr CreatePromptOptionsDictionary()
+		{
+			try
+			{
+				IntPtr kAXTrustedCheckOptionPromptPtr = Dlfcn.dlsym(LibraryMac.ApplicationServices.Handle, "kAXTrustedCheckOptionPrompt");
+				IntPtr kAXTrustedCheckOptionPrompt = Marshal.ReadIntPtr(kAXTrustedCheckOptionPromptPtr);
+
+				// Get the pointer to kCFBooleanTrue
+				IntPtr kCFBooleanTruePtr = Dlfcn.dlsym(LibraryMac.CoreFoundation.Handle, "kCFBooleanTrue");
+				IntPtr kCFBooleanTrue = Marshal.ReadIntPtr(kCFBooleanTruePtr);
+
+				// Get standard callback pointers for the dictionary
+				IntPtr kCFCopyStringDictionaryKeyCallBacks = Dlfcn.dlsym(LibraryMac.CoreFoundation.Handle, "kCFCopyStringDictionaryKeyCallBacks");
+				IntPtr kCFTypeDictionaryValueCallBacks = Dlfcn.dlsym(LibraryMac.CoreFoundation.Handle, "kCFTypeDictionaryValueCallBacks");
+
+				IntPtr[] keys = { kAXTrustedCheckOptionPrompt };
+				IntPtr[] values = { kCFBooleanTrue };
+
+				return CFDictionaryCreate(IntPtr.Zero, keys, values, 1, kCFCopyStringDictionaryKeyCallBacks, kCFTypeDictionaryValueCallBacks);
+			}
+			catch
+			{
+				return IntPtr.Zero;
+			}
+		}
+
+		[DllImport(LibraryMac.AppKit.Path)]
+		private static extern IntPtr AXUIElementCreateApplication(int pid);
+
+		[DllImport(LibraryMac.AppKit.Path)]
+		private static extern AXError AXUIElementCopyAttributeValue(IntPtr element, IntPtr attribute, out IntPtr value);
+
+		[DllImport(LibraryMac.ApplicationServices.Path)]
+		private static extern bool AXIsProcessTrustedWithOptions(IntPtr options);
+
+		[DllImport(LibraryMac.AppKit.Path)]
+		private static extern bool AXAPIEnabled();
+
+		[DllImport(LibraryMac.CoreFoundation.Path)]
+		private static extern IntPtr CFURLGetString(IntPtr url);
+
+		[DllImport(LibraryMac.CoreFoundation.Path)]
+		private static extern void CFRelease(IntPtr obj);
+
+		[DllImport(LibraryMac.CoreFoundation.Path)]
+		private static extern IntPtr CFDictionaryCreate(IntPtr allocator, IntPtr[] keys, IntPtr[] values, long numValues, IntPtr keyCallBacks, IntPtr valueCallBacks);
+	}
+}
+

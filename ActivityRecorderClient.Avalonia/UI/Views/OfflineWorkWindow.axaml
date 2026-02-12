@@ -1,0 +1,114 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:viewModels="clr-namespace:Tct.ActivityRecorderClient.Avalonia.UI.ViewModels"
+		x:DataType="viewModels:OfflineWorkViewModel"
+        x:Class="Tct.ActivityRecorderClient.Avalonia.UI.Views.OfflineWorkWindow"
+        Title="Offline Worktime"
+        Width="500" Height="265" MinWidth="500" MinHeight="265" MaxWidth="900" MaxHeight="265"
+        >
+
+  <Window.Resources>
+    <viewModels:DesignTaskSearchViewModelWithSelected x:Key="DesignTaskSearchViewModel"/>
+  </Window.Resources>
+
+<Design.DataContext>
+    <viewModels:OfflineWorkViewModel
+        Duration="0:06:03"
+        StartDate="2025-12-09 15:25:04"
+        EndDate="2025-12-09 15:31:07"
+        Subject="Some subject"
+        Description="This is the description"
+        Participants="xy@tct.hu, zy@tct.hu"
+        TaskSearchViewModel="{StaticResource DesignTaskSearchViewModel}"
+    />
+
+</Design.DataContext>
+<Grid>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="25"/>
+        <RowDefinition Height="40"/>
+        <RowDefinition Height="140"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Background="#00000000" Grid.Row="0">
+        </Border>
+
+        <Grid Grid.Row="1" Margin="20,0,20,0" x:Name="TopRow">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="12*"/>
+          <ColumnDefinition Width="22*"/>
+          <ColumnDefinition Width="66*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" x:Name="TimeLength" Text="00:06" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TimeInterval" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run Text="{Binding StartDate, StringFormat=HH\\:mm}"/>
+            <Run Text="-"/>
+            <Run Text="{Binding EndDate, StringFormat=HH\\:mm}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" x:Name="ChosenTask" Text="{Binding TaskSearchViewModel.SelectedItem.FullName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>      
+
+    <Grid Grid.Row="2" Margin="20,10,20,10" RowSpacing="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Choose Task -->
+            <RowDefinition Height="Auto"/> <!-- Subject -->
+            <RowDefinition Height="Auto"/> <!-- Description -->
+            <RowDefinition Height="Auto"/> <!-- Participants -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Task:" VerticalAlignment="Center"/>
+        <!--<ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" x:Name="Tasks" Cursor="Hand" HorizontalAlignment="Stretch"/>-->
+       	<ComboBox
+            Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" Cursor="Hand" HorizontalAlignment="Stretch"
+	        x:Name="SearchCombo"
+	        IsEditable="True"
+	        PlaceholderText="Search task..."
+	        ItemsSource="{Binding TaskSearchViewModel.FilteredItems}"
+	        SelectedItem="{Binding TaskSearchViewModel.SelectedItem}"
+	        TextSearch.TextBinding="{Binding TaskSearchViewModel.SearchText}"
+	        >
+		    <ComboBox.ItemTemplate>
+			    <DataTemplate x:DataType="viewModels:TaskFlattenedViewModel">
+				    <TextBlock Text="{Binding FullName}" FontFamily="{Binding}" />
+			    </DataTemplate>
+		    </ComboBox.ItemTemplate>
+    	</ComboBox>	
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Subject:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Name="Subject" Text="{Binding Subject}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Description:" VerticalAlignment="Center" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" Name="Description" Text="{Binding Description}" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Participants (e-mails):" VerticalAlignment="Center" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" Name="Participants" Text="{Binding Participants}" />
+    </Grid>
+
+    <Grid Grid.Row="3" Margin="20,0,20,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Time Display -->
+        <TextBlock Grid.Column="0" Text="{Binding Duration, StringFormat=hh\\:mm\\`ss}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="&#x2713; Add" Margin="5,0" Cursor="Hand" Name="AddButton"/>
+            <Button Content="Delete" Margin="5,0" Cursor="Hand" Name="DeleteButton"/>
+        </StackPanel>
+    </Grid>
+
+</Grid>
+</Window>

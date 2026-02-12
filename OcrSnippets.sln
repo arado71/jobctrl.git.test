@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocr", "Ocr\Ocr.csproj", "{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFramework", "winforms-modernui\MetroFramework\MetroFramework.csproj", "{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFramework.Design", "winforms-modernui\MetroFramework.Design\MetroFramework.Design.csproj", "{7316584D-9A16-4280-A8AB-6D45198C6E4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrSnippets", "OcrSnippets\OcrSnippets.csproj", "{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrSnippetsViewer", "OcrSnippetsViewer\OcrSnippetsViewer.csproj", "{A408F825-0E37-459E-AA34-4789716A6E6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|MixedCo = Debug|MixedCo
+		Debug|MixedWix = Debug|MixedWix
+		Release|Any CPU = Release|Any CPU
+		Release|MixedCo = Release|MixedCo
+		Release|MixedWix = Release|MixedWix
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|MixedCo.ActiveCfg = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|MixedCo.Build.0 = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|MixedWix.ActiveCfg = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Debug|MixedWix.Build.0 = Debug|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|MixedCo.ActiveCfg = Release|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|MixedCo.Build.0 = Release|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|MixedWix.ActiveCfg = Release|Any CPU
+		{AE73C941-3FFB-4E60-9A3E-0456ABA691BD}.Release|MixedWix.Build.0 = Release|Any CPU
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|Any CPU.ActiveCfg = Debug|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|Any CPU.Build.0 = Debug|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|MixedCo.ActiveCfg = Debug|MixedCo
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|MixedCo.Build.0 = Debug|MixedCo
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|MixedWix.ActiveCfg = Debug|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|MixedWix.Build.0 = Debug|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|Any CPU.ActiveCfg = Release|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|MixedCo.ActiveCfg = Release|MixedCo
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|MixedCo.Build.0 = Release|MixedCo
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|MixedWix.ActiveCfg = Release|MixedWix
+		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|MixedWix.Build.0 = Release|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|Any CPU.ActiveCfg = Debug|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|Any CPU.Build.0 = Debug|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|MixedCo.ActiveCfg = Debug|MixedCo
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|MixedCo.Build.0 = Debug|MixedCo
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|MixedWix.ActiveCfg = Debug|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|MixedWix.Build.0 = Debug|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|Any CPU.ActiveCfg = Release|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|MixedCo.ActiveCfg = Release|MixedCo
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|MixedCo.Build.0 = Release|MixedCo
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|MixedWix.ActiveCfg = Release|MixedWix
+		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|MixedWix.Build.0 = Release|MixedWix
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|MixedCo.ActiveCfg = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|MixedCo.Build.0 = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|MixedWix.ActiveCfg = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Debug|MixedWix.Build.0 = Debug|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|MixedCo.ActiveCfg = Release|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|MixedCo.Build.0 = Release|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|MixedWix.ActiveCfg = Release|Any CPU
+		{6FC23820-A4C9-43BF-ADC3-0199FA17BC7B}.Release|MixedWix.Build.0 = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|MixedCo.ActiveCfg = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|MixedCo.Build.0 = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|MixedWix.ActiveCfg = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Debug|MixedWix.Build.0 = Debug|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|MixedCo.ActiveCfg = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|MixedCo.Build.0 = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|MixedWix.ActiveCfg = Release|Any CPU
+		{A408F825-0E37-459E-AA34-4789716A6E6E}.Release|MixedWix.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE626575-D558-4920-8461-6C1E516735AC}
+	EndGlobalSection
+EndGlobal

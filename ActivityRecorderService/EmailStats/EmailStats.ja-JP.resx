@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WorksByTime" xml:space="preserve">
+    <value>タスクの時間表</value>
+  </data>
+  <data name="KeyboardActivityInfo" xml:space="preserve">
+    <value>キーボードのアクティビティ: 1分あたりの平均キーストローク回数</value>
+  </data>
+  <data name="SubjectMonthly" xml:space="preserve">
+    <value>毎月 {1} {0}</value>
+  </data>
+  <data name="SubjectStatistics" xml:space="preserve">
+    <value>統計</value>
+  </data>
+  <data name="SubjectWeekly" xml:space="preserve">
+    <value>{1}. 毎週、 {0}</value>
+  </data>
+  <data name="AllWorkShort" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="NoCreditText" xml:space="preserve">
+    <value>クレジット限度額を超えているため、取得できる情報が制限されています。
+担当の管理者にお問い合わせいただき、あなたの残高の決済を完了していただきますと、再び完全な統計情報が取得可能になります。</value>
+  </data>
+  <data name="MouseActivityInfo" xml:space="preserve">
+    <value>マウスのアクティビティ: 1日当たりのイベント (クリック、ロール) の平均発生量</value>
+  </data>
+  <data name="FrequentTitles" xml:space="preserve">
+    <value>登場頻度が高いタイトル バー</value>
+  </data>
+  <data name="TitleOthers" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="FrequentUsage" xml:space="preserve">
+    <value>利用頻度が高いアプリケーション</value>
+  </data>
+  <data name="UsageOthers" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="FrequentBrowsing" xml:space="preserve">
+    <value>参照頻度が高いURL</value>
+  </data>
+  <data name="BrowsingOthers" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="ExceedDeadLine" xml:space="preserve">
+    <value>期限を超過したタスク数</value>
+  </data>
+  <data name="ExceedTargetTime" xml:space="preserve">
+    <value>推定を超過したタスク数</value>
+  </data>
+  <data name="WarnedTasks" xml:space="preserve">
+    <value>警告されたタスク数</value>
+  </data>
+  <data name="WorkTimeAll" xml:space="preserve">
+    <value>作業時間*</value>
+  </data>
+  <data name="WorkTimePhone" xml:space="preserve">
+    <value>作業時間 (電話)</value>
+  </data>
+  <data name="WorkTimeNetto" xml:space="preserve">
+    <value>正味</value>
+  </data>
+  <data name="WorkTimeWOCorrection" xml:space="preserve">
+    <value>未調整</value>
+  </data>
+  <data name="WorkTimeSmartPhone" xml:space="preserve">
+    <value>作業時間 (モバイル)</value>
+  </data>
+  <data name="WorkTimeComputer" xml:space="preserve">
+    <value>作業時間 (デスクトップ)</value>
+  </data>
+  <data name="WorkTimeRemoteDesktop" xml:space="preserve">
+    <value>リモート デスクトップ</value>
+  </data>
+  <data name="WorkTimeVirtualMachine" xml:space="preserve">
+    <value>仮想マシン</value>
+  </data>
+  <data name="WorkTimeManuallyAdded" xml:space="preserve">
+    <value>調整後作業時間</value>
+  </data>
+  <data name="HolidayTime" xml:space="preserve">
+    <value>有給休暇</value>
+  </data>
+  <data name="SickLeaveTime" xml:space="preserve">
+    <value>病欠</value>
+  </data>
+  <data name="WorkStarted" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="WorkEnd" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="TimeStatByTime" xml:space="preserve">
+    <value>作業時間分析</value>
+  </data>
+  <data name="TimeStatHeaderDate" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="TimeStatHeaderAll" xml:space="preserve">
+    <value>作業時間*</value>
+  </data>
+  <data name="TimeStatHeaderPhone" xml:space="preserve">
+    <value>時間 (電話)</value>
+  </data>
+  <data name="TimeStatHeaderSmartPhone" xml:space="preserve">
+    <value>時間 (モバイル)</value>
+  </data>
+  <data name="TimeStatHeaderComputerTime" xml:space="preserve">
+    <value>時間 (デスクトップ)</value>
+  </data>
+  <data name="TimeStatHeaderManuallyAdded" xml:space="preserve">
+    <value>調整後</value>
+  </data>
+  <data name="TimeStatHeaderHoliday" xml:space="preserve">
+    <value>有給休暇</value>
+  </data>
+  <data name="TimeStatHeaderSickLeave" xml:space="preserve">
+    <value>病欠</value>
+  </data>
+  <data name="TimeStatTotal" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="TimeStatByWork" xml:space="preserve">
+    <value>タスク内訳</value>
+  </data>
+  <data name="TimeStatHeaderWorkname" xml:space="preserve">
+    <value>タスク名</value>
+  </data>
+  <data name="TimeStatHeaderTime" xml:space="preserve">
+    <value>タスク時間**</value>
+  </data>
+  <data name="TimeStatHeaderPriority" xml:space="preserve">
+    <value>優先順位</value>
+  </data>
+  <data name="TimeStatHeaderStart" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="TimeStatHeaderEnd" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="TimeStatHeaderElapsed" xml:space="preserve">
+    <value>経過%</value>
+  </data>
+  <data name="TimeStatHeaderTarget" xml:space="preserve">
+    <value>推定</value>
+  </data>
+  <data name="TimeStatHeaderWorked" xml:space="preserve">
+    <value>経過</value>
+  </data>
+  <data name="TimeStatHeaderWorkedPct" xml:space="preserve">
+    <value>経過%</value>
+  </data>
+  <data name="TimeStatHeaderStatus" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="WorkStateOpened" xml:space="preserve">
+    <value>アクティブ</value>
+  </data>
+  <data name="WorkStateContiguous" xml:space="preserve">
+    <value>現行</value>
+  </data>
+  <data name="WorkStateClosed" xml:space="preserve">
+    <value>クローズ済み</value>
+  </data>
+  <data name="WorkStateClosedAgo" xml:space="preserve">
+    <value>クローズ済み</value>
+  </data>
+  <data name="ManualWorkItemAddWork" xml:space="preserve">
+    <value>調整後作業時間</value>
+  </data>
+  <data name="ManualWorkItemDeleteInterval" xml:space="preserve">
+    <value>削除された作業時間</value>
+  </data>
+  <data name="ManualWorkItemDeleteIvrInterval" xml:space="preserve">
+    <value>削除された時間 (電話)</value>
+  </data>
+  <data name="ManualWorkItemDeleteComputerInterval" xml:space="preserve">
+    <value>削除された時間 (デスクトップ)</value>
+  </data>
+  <data name="ManualWorkItemDeleteMobileInverval" xml:space="preserve">
+    <value>削除された時間 (モバイル)</value>
+  </data>
+  <data name="ManualWorkItemAddHoliday" xml:space="preserve">
+    <value>有給休暇</value>
+  </data>
+  <data name="ManualWorkItemAddSickLeave" xml:space="preserve">
+    <value>病欠</value>
+  </data>
+  <data name="ManualWorkItemUnknown" xml:space="preserve">
+    <value>不明な訂正</value>
+  </data>
+  <data name="IvrTimeStatByTime" xml:space="preserve">
+    <value>作業時間分析 (電話)</value>
+  </data>
+  <data name="IvrTimeStatHeaderTime" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="IvrTimeStatHeaderWork" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="IvrTimeStatHeaderDuration" xml:space="preserve">
+    <value>タスク時間**</value>
+  </data>
+  <data name="IvrTimeStatHeaderPhone" xml:space="preserve">
+    <value>電話番号</value>
+  </data>
+  <data name="ComputerActivityByHour" xml:space="preserve">
+    <value>作業時間分析 (デスクトップ)</value>
+  </data>
+  <data name="ComputerActivityHeaderTime" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ComputerActivityHeaderWork" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="ComputerActivityHeaderDuration" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="ComputerActivityHeaderKeyboardAct" xml:space="preserve">
+    <value>キーボードのアクティビティ</value>
+  </data>
+  <data name="ComputerActivityHeaderMouseAct" xml:space="preserve">
+    <value>マウスのアクティビティ</value>
+  </data>
+  <data name="ComputerActivityHeaderComputer" xml:space="preserve">
+    <value>デスクトップ</value>
+  </data>
+  <data name="AggregatedStatisticsSubject" xml:space="preserve">
+    <value>総合統計データ</value>
+  </data>
+  <data name="AnybodysStatistic" xml:space="preserve">
+    <value>{0}の統計データ</value>
+  </data>
+  <data name="LinkBackToTop" xml:space="preserve">
+    <value>トップに戻る</value>
+  </data>
+  <data name="DefaultPlainTextBody" xml:space="preserve">
+    <value>このメールはHTMLメールです。</value>
+  </data>
+  <data name="WorkTimeName" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="WorkTimePhoneAndSmartPhone" xml:space="preserve">
+    <value>時間 (電話) &amp; (モバイル)</value>
+  </data>
+  <data name="ChartHourPerDay" xml:space="preserve">
+    <value>時間/日</value>
+  </data>
+  <data name="ChartFinished" xml:space="preserve">
+    <value>クローズ済み</value>
+  </data>
+  <data name="ChartTargetTime" xml:space="preserve">
+    <value>推定</value>
+  </data>
+  <data name="ChartRemainingTime" xml:space="preserve">
+    <value>残り時間</value>
+  </data>
+  <data name="ChartEffortNeeded" xml:space="preserve">
+    <value>完了に必要とされたリソース</value>
+  </data>
+  <data name="ChartHours" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ChartDays" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="CharKeyboardShort" xml:space="preserve">
+    <value>キーボード</value>
+  </data>
+  <data name="ChartMouse" xml:space="preserve">
+    <value>マウス</value>
+  </data>
+  <data name="CharKeyboardActivityShort" xml:space="preserve">
+    <value>キーボードのアクティビティ</value>
+  </data>
+  <data name="ChartMouseActivityShort" xml:space="preserve">
+    <value>マウスのアクティビティ</value>
+  </data>
+  <data name="ChartAxisComputer" xml:space="preserve">
+    <value>デスクトップ</value>
+  </data>
+  <data name="ChartAxisSmartphone" xml:space="preserve">
+    <value>モバイル</value>
+  </data>
+  <data name="ChartAxisPhone" xml:space="preserve">
+    <value>電話</value>
+  </data>
+  <data name="ChartAxisManual" xml:space="preserve">
+    <value>マニュアル</value>
+  </data>
+  <data name="ChartAxisHoliday" xml:space="preserve">
+    <value>休暇</value>
+  </data>
+  <data name="ChartAxisSickLeave" xml:space="preserve">
+    <value>病欠</value>
+  </data>
+  <data name="ChartOthers" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="UnknownWork" xml:space="preserve">
+    <value>不明なタスク</value>
+  </data>
+  <data name="IVRLogOut" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="IVRLoggedOutWork" xml:space="preserve">
+    <value>このタスクから電話でログアウトしました:</value>
+  </data>
+  <data name="IVRLogOutAuto" xml:space="preserve">
+    <value>自動ログアウト</value>
+  </data>
+  <data name="IVRLoggedOutAutoWork" xml:space="preserve">
+    <value>このタスクの電話セッションの期限が切れました</value>
+  </data>
+  <data name="IVRLogoutDueActivity" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="IVRLoggedOutDueInactivityWork" xml:space="preserve">
+    <value>あなたのデスクトップのアクティビティにより、あなたのタスクの電話セッションが{0}</value>
+  </data>
+  <data name="IVRModified" xml:space="preserve">
+    <value>変更されました</value>
+  </data>
+  <data name="IVRCancelled" xml:space="preserve">
+    <value>中断されました</value>
+  </data>
+  <data name="IVRPreviousLogout" xml:space="preserve">
+    <value>前回ログアウト時間</value>
+  </data>
+  <data name="IVRLogin" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="IVRLogOutIn" xml:space="preserve">
+    <value>ログアウト・ログイン</value>
+  </data>
+  <data name="IVRLoggedInWork" xml:space="preserve">
+    <value>あなたにはタスクにログインしています</value>
+  </data>
+  <data name="IVRLogoutAutoTime" xml:space="preserve">
+    <value>自動ログアウト時間</value>
+  </data>
+  <data name="IVRCancelledSession" xml:space="preserve">
+    <value>このログインにより、このタスクの前回の電話セッションが中断されました</value>
+  </data>
+  <data name="ProjectStatistics" xml:space="preserve">
+    <value>プロジェクトの統計データ</value>
+  </data>
+  <data name="ProjectStatWorkerName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="ProjectStatWorkTime" xml:space="preserve">
+    <value>タスク時間**</value>
+  </data>
+  <data name="ProjectStatCost" xml:space="preserve">
+    <value>費用</value>
+  </data>
+  <data name="ProjectStatWorkers" xml:space="preserve">
+    <value>ユーザー</value>
+  </data>
+  <data name="ProjectStatAnybodysWorks" xml:space="preserve">
+    <value>{0}のタスク</value>
+  </data>
+  <data name="ProjectStatAllWorktime" xml:space="preserve">
+    <value>タスク時間**</value>
+  </data>
+  <data name="ProjectStatAllCost" xml:space="preserve">
+    <value>費用</value>
+  </data>
+  <data name="ProjectStatStartDate" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="ProjectStatEndDate" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="ProjectStatCreated" xml:space="preserve">
+    <value>作成</value>
+  </data>
+  <data name="ProjectStatSummaryProjects" xml:space="preserve">
+    <value>プロジェクトの分析</value>
+  </data>
+  <data name="ProjectStatSummaryWorkers" xml:space="preserve">
+    <value>ユーザーの分析</value>
+  </data>
+  <data name="ProjectStatSummaryProjectName" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="IsInternal" xml:space="preserve">
+    <value>社外秘</value>
+  </data>
+  <data name="NetWorkTimeDescription" xml:space="preserve">
+    <value>*作業時間: 同時進行を差し引いた、ユーザーのアクティブな正味作業時間</value>
+  </data>
+  <data name="WorkTimeDescription" xml:space="preserve">
+    <value>**.タスク時間: JobCTRLの全てのアプリケーションで同時に測定された、ユーザーのアクティブな作業時間の合計</value>
+  </data>
+  <data name="AggregatedMobilLocationStatisticsSubject" xml:space="preserve">
+    <value>モバイルの場所の統計データ</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TitleFormat" xml:space="preserve">
+    <value>{0}  [{1} - {2}、シーン: {3}の数、イベント: {4}の数]</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Scene" xml:space="preserve">
+    <value>シーン: </value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Address" xml:space="preserve">
+    <value>住所</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_SceneCount" xml:space="preserve">
+    <value>{0} 回 (合計)</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TotalTime" xml:space="preserve">
+    <value>合計時間</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TimeSpanFormatHourMinutes" xml:space="preserve">
+    <value>{0} 時間{1}分</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Events" xml:space="preserve">
+    <value>イベント</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_TasksUserWorkedOn" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_Reasons" xml:space="preserve">
+    <value>理由</value>
+  </data>
+  <data name="EmailMobileLocationStatsHelper_EventsInTimeOrder" xml:space="preserve">
+    <value>時間順のイベント</value>
+  </data>
+  <data name="WorkStartEndDifference" xml:space="preserve">
+    <value>最初のアクティビティから最後のアクティビティまでの間の経過時間</value>
+  </data>
+  <data name="ChartAxisMeeting" xml:space="preserve">
+    <value>会議</value>
+  </data>
+</root>

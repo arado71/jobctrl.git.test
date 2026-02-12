@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Tct.ActivityRecorderService.IActivityMobile" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Tct.ActivityRecorderService.IActivityMobile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Tct.ActivityRecorderService.IActivityMobile/Imports">
+      <xsd:import namespace="Tct.ActivityRecorderService.IActivityMobile" />
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://jobctrl.com/Notifications" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService" />
+      <xsd:import namespace="http://jobctrl.com/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.OnlineStats" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.ClientComputerData" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Kicks" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.WorkManagement" />
+      <xsd:import namespace="http://jobctrl.com/WorkManagement" />
+      <xsd:import namespace="http://jobctrl.com/WorkTimeHistory" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tct.ActivityRecorderService.Telemetry" />
+      <xsd:import namespace="http://jobctrl.com/clientApi" />
+      <xsd:import namespace="http://jobctrl.com" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IActivityMobile_GetClientMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMenu" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetClientMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetClientWorkTimeStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWorkTimeStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetClientWorkTimeStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWorkTimeStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetSimpleWorkTimeStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSimpleWorkTimeStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetSimpleWorkTimeStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSimpleWorkTimeStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetPendingKick_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingKick" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetPendingKick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingKickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_ConfirmKick_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmKick" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_ConfirmKick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmKickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_MakeClientActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeClientActive" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_MakeClientActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeClientActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetBriefUserStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBriefUserStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetBriefUserStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBriefUserStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetDetailedUserStats_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailedUserStats" />
+  </wsdl:message>
+  <wsdl:message name="IActivityMobile_GetDetailedUserStats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailedUserStatsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IActivityMobile">
+    <wsdl:operation name="GetClientMenu">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetClientMenu" message="tns:IActivityMobile_GetClientMenu_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetClientMenuResponse" message="tns:IActivityMobile_GetClientMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWorkTimeStats">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetClientWorkTimeStats" message="tns:IActivityMobile_GetClientWorkTimeStats_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetClientWorkTimeStatsResponse" message="tns:IActivityMobile_GetClientWorkTimeStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSimpleWorkTimeStats">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetSimpleWorkTimeStats" message="tns:IActivityMobile_GetSimpleWorkTimeStats_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetSimpleWorkTimeStatsResponse" message="tns:IActivityMobile_GetSimpleWorkTimeStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingKick">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetPendingKick" message="tns:IActivityMobile_GetPendingKick_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetPendingKickResponse" message="tns:IActivityMobile_GetPendingKick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmKick">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/ConfirmKick" message="tns:IActivityMobile_ConfirmKick_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/ConfirmKickResponse" message="tns:IActivityMobile_ConfirmKick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeClientActive">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/MakeClientActive" message="tns:IActivityMobile_MakeClientActive_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/MakeClientActiveResponse" message="tns:IActivityMobile_MakeClientActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBriefUserStats">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetBriefUserStats" message="tns:IActivityMobile_GetBriefUserStats_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetBriefUserStatsResponse" message="tns:IActivityMobile_GetBriefUserStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailedUserStats">
+      <wsdl:input wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetDetailedUserStats" message="tns:IActivityMobile_GetDetailedUserStats_InputMessage" />
+      <wsdl:output wsaw:Action="Tct.ActivityRecorderService.IActivityMobile/IActivityMobile/GetDetailedUserStatsResponse" message="tns:IActivityMobile_GetDetailedUserStats_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

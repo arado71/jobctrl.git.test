@@ -1,0 +1,19 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_IActivityMonitoring">
+                    <security authenticationMode="UserNameOverTransport" includeTimestamp="true" />
+                    <binaryMessageEncoding />
+                    <httpsTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://127.0.0.1:9001/ActivityMonitoringService"
+                binding="customBinding" bindingConfiguration="CustomBinding_IActivityMonitoring"
+                contract="ActivityMonitoringServiceReference.IActivityMonitoring"
+                name="CustomBinding_IActivityMonitoring" />
+        </client>
+    </system.serviceModel>
+</configuration>

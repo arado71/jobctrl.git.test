@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.125" name="AggregateDataClasses">
+  <DataContextMoniker Name="/AggregateDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ac07f3b0-de9f-4dbf-9403-282f2d75babf" absoluteBounds="0.75, 0.75, 2, 1.0016910807291668">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/AggregateLastWorkItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a88a0e45-670a-48ac-9768-6310feef7a37" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="651ac8c6-83c0-4def-a5ee-831414c28d16" absoluteBounds="4.25, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/EmailStat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c71df284-633b-47db-885d-d31456354b97" absoluteBounds="4.265, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b113925b-9e9f-4430-82a2-3222e1f86259" absoluteBounds="4.25, 2.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/AggregateWorkItemInterval" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81aadd52-1d92-4e1b-8ce8-b77fde3b6c1b" absoluteBounds="4.265, 2.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8c46d49-b94f-422f-9b0c-794de173a16b" absoluteBounds="0.75, 6.125, 2, 3.6939111328125005">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/UsageStat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f97e38b-d464-4a01-b217-3544b1a9b9dd" absoluteBounds="0.76500000000000012, 6.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5c563e1-c0a2-4ac9-aeea-1e23b04fbb4b" absoluteBounds="7.125, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/DeadLetterItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90e723c4-0139-4ffd-8f9b-f3fea408d605" absoluteBounds="7.14, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9e3119d-fbaf-4133-b381-e81990132e56" absoluteBounds="7.125, 4.375, 2, 3.1170068359375">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/AggregateDailyWorkTime" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70e13221-db51-4669-9d95-dc2b0504947d" absoluteBounds="7.14, 4.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e2c57aa-60ad-41ba-a200-cd90f4190609" absoluteBounds="4.25, 5.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AggregateDataClassesDataContext/AggregateDailyWorkTimesByWorkId" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc41b999-d176-4d0e-b814-3996cad18c0f" absoluteBounds="4.265, 6.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

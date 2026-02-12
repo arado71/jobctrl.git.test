@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package 
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+	IgnorableNamespaces="uap3">
+	<Identity 
+		Name="com.jobctrl.jobctrl" 
+		Publisher="CN=JobCTRL Informatikai Kft., OU=JobCTRL Development, O=JobCTRL Informatikai Kft., STREET=Retkoz utca 7, L=Budapest, S=non-usa, PostalCode=1118, C=HU" 
+		Version="0.0.1.6" />
+
+	<Properties> 
+		<DisplayName>JobCTRL Extension</DisplayName> 
+		<PublisherDisplayName>JobCTRL</PublisherDisplayName> <!-- UPDATE PLUBLISHER DISPLAY NAME -->
+		<Logo>Assets\StoreLogo.png</Logo> 
+	</Properties> 
+
+	<Dependencies> 
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14800.0" />
+	</Dependencies> 
+
+	<Resources>
+		<Resource Language="en-us" />
+		<Resource uap:Scale="200"/>
+	</Resources> 
+
+	<Applications> 
+		<Application Id="App">
+			<uap:VisualElements
+				AppListEntry="none"
+				DisplayName="JobCTRL Extension"
+				Square150x150Logo="Assets\Square150x150Logo.png"
+        		Square44x44Logo="Assets\Square44x44Logo.png"
+				Description="Extension to support JobCTRL automatic rules to work with Google Chrome."
+				BackgroundColor="transparent">
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExtension">
+					<uap3:AppExtension
+						Name="com.microsoft.edge.extension"
+						Id="EdgeExtension"
+						PublicFolder="Extension"
+						DisplayName="JobCTRL Extension">
+						<uap3:Properties>
+							<Capabilities>
+								<Capability Name="websiteInfo"/>
+							</Capabilities>
+						</uap3:Properties>
+					</uap3:AppExtension>
+				</uap3:Extension>
+			</Extensions>
+		</Application> 
+	</Applications>
+</Package>

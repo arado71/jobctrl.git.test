@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JobControl" Class="SyncDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TSQL2008\JOBCTRL_DEV;Initial Catalog=JobControl;Integrated Security=True" SettingsObjectName="JCSync.Properties.Settings" SettingsPropertyName="JobControlConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.Client_GetJiraEnabledCompanies" Method="Client_GetJiraEnabledCompanies">
+    <ElementType Name="Client_GetJiraEnabledCompaniesResult">
+      <Column Name="CompanyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaseUrl" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SharedSecret" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OauthClientId" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="JobCtrlAuthCode" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="JiraRootTaskId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

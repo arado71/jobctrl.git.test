@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d5b425c6-b58c-4e41-93ba-5ea4e36ca263" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.22.1.81:16000/MobileJobCTRLServer?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MobileJobCTRLServer.wsdl" MetadataType="Wsdl" ID="c02b1f0a-804f-46ac-86d5-61872590fce5" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?wsdl=wsdl0" />
+    <MetadataFile FileName="MobileJobCTRLServer1.wsdl" MetadataType="Wsdl" ID="090f15b4-d05e-4ff8-8b6c-06957e3342cb" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?wsdl" />
+    <MetadataFile FileName="MobileJobCTRLServer.xsd" MetadataType="Schema" ID="99b05dd6-a6fb-4cfa-9a89-1a61aced1eb9" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd0" />
+    <MetadataFile FileName="MobileJobCTRLServer1.xsd" MetadataType="Schema" ID="e65e752b-de28-4930-b145-d04a1ab682e3" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd1" />
+    <MetadataFile FileName="MobileJobCTRLServer24.xsd" MetadataType="Schema" ID="008a96fe-34f7-407b-9144-90f020c6beab" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd2" />
+    <MetadataFile FileName="MobileJobCTRLServer25.xsd" MetadataType="Schema" ID="dc726e8b-2bee-47b1-a275-4709c0757b76" SourceId="1" SourceUrl="http://172.22.1.81:16000/MobileJobCTRLServer?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

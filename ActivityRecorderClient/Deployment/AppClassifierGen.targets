@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<UsingTask TaskName="EncodeTask" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <filePath ParameterType="System.String" Required="true" />
+	</ParameterGroup>
+    <Task>
+	  <Using Namespace="System.IO" />
+	  <Using Namespace="System.Text.RegularExpressions" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+			try
+			{
+				string[] doc = null;
+				try
+				{
+					doc = File.ReadAllLines(filePath);
+				}
+				catch (System.IO.FileNotFoundException e)
+				{
+					Log.LogMessage("No configuration file found.", MessageImportance.High);
+					return false;
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+				for (int n = 0; n < doc.Length; n++)
+				{
+					var line = doc[n];
+					var splitterRegex = new Regex("\\s(?<field>AppClassifier|GoogleClientId|GoogleClientSecret)\\s*({\\s*get;\\s*}\\s*=|=>)\\s*\"(?<value>[^\"]+)\"");
+					var matcher = splitterRegex.Match(line);
+					if (matcher.Success && !line.Contains("//encoded"))
+					{
+						var value = matcher.Groups["value"].Value;
+						Log.LogMessage("Field " + matcher.Groups["field"].Value + "'s value to encode: " + value, MessageImportance.High);
+						string result;
+						try
+						{
+							var bytes = Encoding.Default.GetBytes(value);
+							var mask = (byte)bytes.Length;
+							for (int i = 0; i < bytes.Length; i++)
+							{
+								var b = bytes[i];
+								bytes[i] = (byte)(b ^ mask);
+							}
+							result = Convert.ToBase64String(bytes);
+						}
+						catch
+						{
+							return false;
+						}
+
+						doc[n] = line.Substring(0, matcher.Groups["value"].Index) + result + line.Substring(matcher.Groups["value"].Index + matcher.Groups["value"].Length) + " //encoded";
+					}
+				}
+				File.WriteAllLines(filePath, doc);
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+      ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

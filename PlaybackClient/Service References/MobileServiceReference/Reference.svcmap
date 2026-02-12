@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cb552a4e-97bd-47d2-ad22-65bd733c48f5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://jobctrl.com:15000/MobileJobcontrolService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MobileJobCTRL.wsdl" MetadataType="Wsdl" ID="a17b3581-e02a-46f2-9a37-d17caba2db69" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e279ddb1-e815-494a-9c8b-35bbb8c7d789" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+    <MetadataFile FileName="MobileJobCTRL.xsd" MetadataType="Schema" ID="7d883713-25dd-4b93-9a29-5ee624b1a264" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e9560735-1324-457d-8d78-21045cf5cc53" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+    <MetadataFile FileName="JobcontrolMobileServer.xsd" MetadataType="Schema" ID="1164d55c-9db6-4c14-9d8d-e5ec2fe795d4" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="6f0a38e0-54fb-4bb7-9e7a-5f6f139df994" SourceId="1" SourceUrl="https://jobctrl.com:15000/MobileJobcontrolService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

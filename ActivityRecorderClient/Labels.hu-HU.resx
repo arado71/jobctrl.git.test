@@ -1,0 +1,2080 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NotificationActiveOnlyErrorBody" xml:space="preserve">
+    <value>Önt nem aktiválták. A szolgáltatás nem elérhető.</value>
+  </data>
+  <data name="NotificationActiveOnlyErrorTitle" xml:space="preserve">
+    <value>Önt nem aktiválták</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelBody" xml:space="preserve">
+    <value>Sikertelen beállítás</value>
+  </data>
+  <data name="NotificationCannotChangeLogLevelTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="NotificationCannotOpenLogBody" xml:space="preserve">
+    <value>A naplófájl megnyitása sikertelen.</value>
+  </data>
+  <data name="NotificationCannotOpenLogTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="NotificationClockSkewErrorBody" xml:space="preserve">
+    <value>Az Ön órája {0}-t mutat, a szerveré {1}-t. Állítsa át óráját, hogy adatokat tudjon feltölteni.</value>
+  </data>
+  <data name="NotificationClockSkewErrorTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="NotificationManualWorkCreatedBody" xml:space="preserve">
+    <value>Az Önhöz rendelt feladat {0} és {1} között: {2}</value>
+  </data>
+  <data name="NotificationManualWorkCreatedTitle" xml:space="preserve">
+    <value>{0}, kézzel felvett feladat</value>
+  </data>
+  <data name="NotificationPersistAndSendErrorTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="NotificationPesistAndSendErrorBody" xml:space="preserve">
+    <value>Sikertelen mentés. Kérjük ellenőrizze tárhelykapacitását.</value>
+  </data>
+  <data name="NotificationWorkIdleBody" xml:space="preserve">
+    <value>Önt inaktivitás miatt a munkastátuszból kiléptették.</value>
+  </data>
+  <data name="NotificationWorkIdleTitle" xml:space="preserve">
+    <value>Ön nem munkastátuszban van</value>
+  </data>
+  <data name="Menu_NoWorkToContinue" xml:space="preserve">
+    <value>(üres)</value>
+  </data>
+  <data name="NumberOfItemsToUpload" xml:space="preserve">
+    <value>Feltöltendő adatok: {0} db</value>
+  </data>
+  <data name="Menu_RecentWorks" xml:space="preserve">
+    <value>Legutóbbi feladatok</value>
+  </data>
+  <data name="SumWorkHours" xml:space="preserve">
+    <value>JobCTRL-lal mért összes munkaidő: {0} óra</value>
+  </data>
+  <data name="TodaysLocalWorkTime" xml:space="preserve">
+    <value>Mai munkaidő ezen a gépen</value>
+  </data>
+  <data name="Menu_UploadWorkItemsStop" xml:space="preserve">
+    <value>Adatfeltöltés szüneteltetése</value>
+  </data>
+  <data name="AutoRuleData_TempStopWork" xml:space="preserve">
+    <value>Ideiglenes kijelentkezés</value>
+  </data>
+  <data name="AutoRules_EmptyRuleError" xml:space="preserve">
+    <value>Üres szabály</value>
+  </data>
+  <data name="AutoRules_ExampleExe" xml:space="preserve">
+    <value>valami.exe</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCase" xml:space="preserve">
+    <value>Kis/nagybet. megegyezik</value>
+  </data>
+  <data name="AutoRules_HeaderIgnoreCaseLong" xml:space="preserve">
+    <value>Kis- és nagybetű megegyezik</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabled" xml:space="preserve">
+    <value>Aktív</value>
+  </data>
+  <data name="AutoRules_HeaderIsEnabledLong" xml:space="preserve">
+    <value>Aktív szabály</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegex" xml:space="preserve">
+    <value>Reguláris</value>
+  </data>
+  <data name="AutoRules_HeaderIsRegexLong" xml:space="preserve">
+    <value>Reguláris kifejezés</value>
+  </data>
+  <data name="AutoRules_HeaderName" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="AutoRules_HeaderNameLong" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRule" xml:space="preserve">
+    <value>Processz feltétel</value>
+  </data>
+  <data name="AutoRules_HeaderProcessRuleLong" xml:space="preserve">
+    <value>Processz feltétel</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedId" xml:space="preserve">
+    <value>Feladat azonosító</value>
+  </data>
+  <data name="AutoRules_HeaderRelatedIdLong" xml:space="preserve">
+    <value>Feladat vagy kategória azonosító</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRule" xml:space="preserve">
+    <value>Címsor feltétel</value>
+  </data>
+  <data name="AutoRules_HeaderTitleRuleLong" xml:space="preserve">
+    <value>Címsor feltétel</value>
+  </data>
+  <data name="AutoRules_ModifyRule" xml:space="preserve">
+    <value>Szabály módosítása</value>
+  </data>
+  <data name="AutoRules_NewRule" xml:space="preserve">
+    <value>Új szabály</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorBody" xml:space="preserve">
+    <value>Önnek nincsenek feladatai.</value>
+  </data>
+  <data name="AutoRules_NotificationNoWorkErrorTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="AutoRules_Title" xml:space="preserve">
+    <value>Automatikus szabályok</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="DeletedWork" xml:space="preserve">
+    <value>Lezárt feladat</value>
+  </data>
+  <data name="DeletedWorks" xml:space="preserve">
+    <value>Lezárt feladat</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Le</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Login_NotificationEnterNumberBody" xml:space="preserve">
+    <value>A Felhasználói azonosító/e-mail formátuma nem megfelelő. Kérjük, számot vagy érvényes e-mail címet adjon meg!</value>
+  </data>
+  <data name="Login_NotificationEnterNumberTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedBody" xml:space="preserve">
+    <value>A felhasználói azonosító vagy a jelszó hibás.</value>
+  </data>
+  <data name="Login_NotificationResponseDeniedTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveBody" xml:space="preserve">
+    <value>Önt nem aktiválták.</value>
+  </data>
+  <data name="Login_NotificationResponseNotActiveTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownBody" xml:space="preserve">
+    <value>A jelszó ellenőrzése sikertelen.</value>
+  </data>
+  <data name="Login_NotificationResponseUnknownTitle" xml:space="preserve">
+    <value>Kommunikációs hiba</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Jelszó</value>
+  </data>
+  <data name="Login_RememeberMe" xml:space="preserve">
+    <value>Jegyezzen meg</value>
+  </data>
+  <data name="Menu_AcHolSick" xml:space="preserve">
+    <value>Szabadságok</value>
+  </data>
+  <data name="Menu_AcMain" xml:space="preserve">
+    <value>My JobCTRL</value>
+  </data>
+  <data name="Menu_AcManual" xml:space="preserve">
+    <value>Munkaidő módosítás</value>
+  </data>
+  <data name="Menu_AcWorks" xml:space="preserve">
+    <value>Feladataim</value>
+  </data>
+  <data name="Menu_ChangeUser" xml:space="preserve">
+    <value>Felhasználóváltás</value>
+  </data>
+  <data name="Menu_DeleteRecentWorks" xml:space="preserve">
+    <value>Lista törlése</value>
+  </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Kilépés</value>
+  </data>
+  <data name="Preference_MenuChange" xml:space="preserve">
+    <value>Feladatváltozás</value>
+  </data>
+  <data name="Preference_NotWorking" xml:space="preserve">
+    <value>Nem munkastátusz</value>
+  </data>
+  <data name="Menu_OpenLog" xml:space="preserve">
+    <value>Naplófájl megnyitása</value>
+  </data>
+  <data name="Preference_PopupDurations" xml:space="preserve">
+    <value>Figyelmeztetések hossza</value>
+  </data>
+  <data name="Preference_PopupIntervals" xml:space="preserve">
+    <value>Figyelmeztetések gyakorisága</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Menu_TopEndDateWorks" xml:space="preserve">
+    <value>Kezdő- és végdátum alapján</value>
+  </data>
+  <data name="Menu_TopPriorityWorks" xml:space="preserve">
+    <value>Prioritás alapján</value>
+  </data>
+  <data name="Menu_TopTargetWorkTimeWorks" xml:space="preserve">
+    <value>Tervezett óraszám alapján</value>
+  </data>
+  <data name="Menu_Troubleshooting" xml:space="preserve">
+    <value>Hibaelhárítás</value>
+  </data>
+  <data name="Menu_WorkDetectorRules" xml:space="preserve">
+    <value>Automatikus szabályok</value>
+  </data>
+  <data name="Preference_Working" xml:space="preserve">
+    <value>Aktív feladat</value>
+  </data>
+  <data name="NewWork" xml:space="preserve">
+    <value>Új feladat</value>
+  </data>
+  <data name="NewWorks" xml:space="preserve">
+    <value>Új feladatok</value>
+  </data>
+  <data name="NotificationCannotResumeWorkBody" xml:space="preserve">
+    <value>Válasszon feladatot, a legutóbbi lezárásra került.</value>
+  </data>
+  <data name="NotificationCannotResumeWorkTitle" xml:space="preserve">
+    <value>Válasszon feladatot</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkBody" xml:space="preserve">
+    <value>Az automatikus szabály már lezárt feladatot tartalmaz{0}.</value>
+  </data>
+  <data name="NotificationCannotStartAutomaticWorkTitle" xml:space="preserve">
+    <value>Sikertelen automatikus feladatváltás</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkBody" xml:space="preserve">
+    <value>A kiválasztott feladatot{0} már lezárták.</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkTitle" xml:space="preserve">
+    <value>Sikertelen  feladatváltás</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkBody" xml:space="preserve">
+    <value>A legutóbb kiválasztott {0} - nem automatikus - feladatot már lezárták.</value>
+  </data>
+  <data name="NotificationCannotSwitchBackToLastUserWorkTitle" xml:space="preserve">
+    <value>Váltson feladatot</value>
+  </data>
+  <data name="NotificationChangeWorkAutomaticTitle" xml:space="preserve">
+    <value>Automatikus feladatváltás</value>
+  </data>
+  <data name="NotificationChangeWorkUserTitle" xml:space="preserve">
+    <value>Ön feladatot váltott</value>
+  </data>
+  <data name="NotificationMenuChangedBody" xml:space="preserve">
+    <value>Feladatai megváltoztak</value>
+  </data>
+  <data name="NotificationMenuChangedTitle" xml:space="preserve">
+    <value>Feladatváltozás</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticBody" xml:space="preserve">
+    <value>Az adatok gyűjtése szünetel, amíg Ön másik ablakra nem vált.</value>
+  </data>
+  <data name="NotificationNotWorkingAutomaticTitle" xml:space="preserve">
+    <value>Automatikus kijelentkeztetés</value>
+  </data>
+  <data name="NotificationNotWorkingUserBody" xml:space="preserve">
+    <value>Az adatok gyűjtése szünetel, amíg nem választ ki egy feladatot.</value>
+  </data>
+  <data name="NotificationNotWorkingUserTitle" xml:space="preserve">
+    <value>Ön nem munkastátuszban van</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkBody" xml:space="preserve">
+    <value>A kiválasztott feladatot{0} már lezárták.</value>
+  </data>
+  <data name="NotificationShouldChangeFromInvalidWorkTitle" xml:space="preserve">
+    <value>Kérjük váltson feladatot</value>
+  </data>
+  <data name="NotificationWorkingBody" xml:space="preserve">
+    <value>Jelenlegi feladata: {0}</value>
+  </data>
+  <data name="NotificationWorkingTitle" xml:space="preserve">
+    <value>Ön munkastátuszban van</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningBody" xml:space="preserve">
+    <value>Ezen a gépen már fut egy másik JobCTRL alkalmazás.</value>
+  </data>
+  <data name="Program_NotificationAlreadyRunningTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartBody" xml:space="preserve">
+    <value>A start menüből indítsa az alkalmazást</value>
+  </data>
+  <data name="Program_NotificationNonClickOnceStartTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="TodaysComputerWorkTime" xml:space="preserve">
+    <value>Mai munkaidő (desktop)</value>
+  </data>
+  <data name="TodaysWorkTime" xml:space="preserve">
+    <value>Mai munkaidő</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Fel</value>
+  </data>
+  <data name="WorkData_EndDate" xml:space="preserve">
+    <value>Vége</value>
+  </data>
+  <data name="WorkData_Priority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="WorkData_Project" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="WorkData_StartDate" xml:space="preserve">
+    <value>Kezdődátum</value>
+  </data>
+  <data name="WorkData_TargetHours" xml:space="preserve">
+    <value>Tervezett időtartam</value>
+  </data>
+  <data name="WorkData_WorkedHours" xml:space="preserve">
+    <value>Teljesítve</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorBody" xml:space="preserve">
+    <value>Jelszava nem megfelelő</value>
+  </data>
+  <data name="Login_NotificationPasswordErrorTitle" xml:space="preserve">
+    <value>JobCTRL - Hibás jelszó</value>
+  </data>
+  <data name="Preference_Language" xml:space="preserve">
+    <value>Program nyelve</value>
+  </data>
+  <data name="NotificationLanguageChangeBody" xml:space="preserve">
+    <value>A beállítások érvényesítéséhez indítsa újra az alkalmazást.</value>
+  </data>
+  <data name="NotificationLanguageChangeTitle" xml:space="preserve">
+    <value>Indítsa újra az alkalmazást</value>
+  </data>
+  <data name="Menu_MainPage" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="NewFeaturesBody" xml:space="preserve">
+    <value>A JobCTRL desktop alkalmazás ikonja megváltozott.</value>
+  </data>
+  <data name="NewFeaturesTitle" xml:space="preserve">
+    <value>JobCTRL</value>
+  </data>
+  <data name="AutoRuleData_DoNothing" xml:space="preserve">
+    <value>Kivételkezelő</value>
+  </data>
+  <data name="AutoRuleData_StartWorkType" xml:space="preserve">
+    <value>Feladatváltó</value>
+  </data>
+  <data name="AutoRuleData_StartCategoryType" xml:space="preserve">
+    <value>Kategóriára váltó</value>
+  </data>
+  <data name="UnknownCategory" xml:space="preserve">
+    <value>Ismeretlen kategória</value>
+  </data>
+  <data name="AutoRules_HeaderRuleType" xml:space="preserve">
+    <value>Típus</value>
+  </data>
+  <data name="AutoRules_TempStartWorkTypeShort" xml:space="preserve">
+    <value>Feladatváltó</value>
+  </data>
+  <data name="AutoRules_TempStopWorkTypeShort" xml:space="preserve">
+    <value>Kijelentkeztető</value>
+  </data>
+  <data name="AutoRules_TempStartCategoryTypeShort" xml:space="preserve">
+    <value>Kategóriaváltó</value>
+  </data>
+  <data name="AutoRules_DoNothingTypeShort" xml:space="preserve">
+    <value>Kivételkezelő</value>
+  </data>
+  <data name="AutoRules_AdvancedSettings" xml:space="preserve">
+    <value>Haladó beállítások</value>
+  </data>
+  <data name="AutoRules_HeaderRuleTypeLong" xml:space="preserve">
+    <value>Szabály típusa</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryTitle" xml:space="preserve">
+    <value>A kategória alatt több feladat is szerepel</value>
+  </data>
+  <data name="NotificationMoreWorksInCategoryBody" xml:space="preserve">
+    <value>Több feladat is szerepel az automatikus szabály által kiválasztott kategóriában.</value>
+  </data>
+  <data name="AutoRules_CopyToClipboard" xml:space="preserve">
+    <value>Vágólapra</value>
+  </data>
+  <data name="AutoRules_SelectRuleFirst" xml:space="preserve">
+    <value>Először válasszon ki egy szabályt.</value>
+  </data>
+  <data name="ChangedWork" xml:space="preserve">
+    <value>Megváltozott feladat</value>
+  </data>
+  <data name="ChangedWorks" xml:space="preserve">
+    <value>Megváltozott feladatok</value>
+  </data>
+  <data name="WorkData_Name" xml:space="preserve">
+    <value>Feladat név</value>
+  </data>
+  <data name="WorkData_Category" xml:space="preserve">
+    <value>Kategória</value>
+  </data>
+  <data name="ConfirmExitStillWorkingBody" xml:space="preserve">
+    <value>Ön még munkastátuszban van, biztosan kilép?</value>
+  </data>
+  <data name="ConfirmExitStillWorkingTitle" xml:space="preserve">
+    <value>Biztosan kilép?</value>
+  </data>
+  <data name="Preference_StopResume" xml:space="preserve">
+    <value>Leállítás/folytatás beállításai</value>
+  </data>
+  <data name="IntForm_InvalidNumber" xml:space="preserve">
+    <value>Hibás szám</value>
+  </data>
+  <data name="IntForm_PleaseEnterANumber" xml:space="preserve">
+    <value>Írjon be egy számot.</value>
+  </data>
+  <data name="ThisMonthsWorkTime" xml:space="preserve">
+    <value>Havi munkaidő</value>
+  </data>
+  <data name="ThisWeeksWorkTime" xml:space="preserve">
+    <value>Heti munkaidő</value>
+  </data>
+  <data name="TodaysManuallyAddedWorkTime" xml:space="preserve">
+    <value>Mai offline munkaidő:</value>
+  </data>
+  <data name="TodaysMobileWorkTime" xml:space="preserve">
+    <value>Mai munkaidő (mobil)</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRule" xml:space="preserve">
+    <value>URL feltétel</value>
+  </data>
+  <data name="AutoRules_HeaderUrlRuleLong" xml:space="preserve">
+    <value>URL feltétel</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanent" xml:space="preserve">
+    <value>Végleges</value>
+  </data>
+  <data name="AutoRules_HeaderIsPermanentLong" xml:space="preserve">
+    <value>Végleges feladatváltás</value>
+  </data>
+  <data name="NotificationKickedBody" xml:space="preserve">
+    <value>Önt {1} távolról kiléptette a munkastátuszból a következő megjegyzéssel: {0}</value>
+  </data>
+  <data name="NotificationKickedTitle" xml:space="preserve">
+    <value>Önt távolról kiléptették a munkastátuszból</value>
+  </data>
+  <data name="CountDown_TimeLeft" xml:space="preserve">
+    <value>Hátralevő idő:</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimBody" xml:space="preserve">
+    <value>Biztosan elszámolja munkaidőként a következő feladatra: {0}?</value>
+  </data>
+  <data name="NotificationManualWorkCreateConfimTitle" xml:space="preserve">
+    <value>Munkaidő elszámolás</value>
+  </data>
+  <data name="NotificationManualWorkOverBody" xml:space="preserve">
+    <value>A megadott idő letelt</value>
+  </data>
+  <data name="NotificationManualWorkOverTitle" xml:space="preserve">
+    <value>A beállított elszámolható időszak letelt.</value>
+  </data>
+  <data name="Preference_FlattenFactor" xml:space="preserve">
+    <value>Egy szinttel feljebb emelhető feladatok maximuma</value>
+  </data>
+  <data name="WorkTimeStats_DeltaTime" xml:space="preserve">
+    <value>A nap végéig a tervezett munkaidő (pozitív: elmaradás, negatív: túlteljesítés)</value>
+  </data>
+  <data name="WorkTimeStats_SummaTime" xml:space="preserve">
+    <value>Tervezett munkaidő</value>
+  </data>
+  <data name="Menu_AcOnlineMon" xml:space="preserve">
+    <value>Valós idejű aktivitás</value>
+  </data>
+  <data name="Preference_ShowThisWeeksStats" xml:space="preserve">
+    <value>Heti munkaidő megjelenítése</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopBody" xml:space="preserve">
+    <value>Biztosan lezárja a feladatot?</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopTitle" xml:space="preserve">
+    <value>Megerősítés (időzített feladat)</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewBody" xml:space="preserve">
+    <value>Biztosan befejezi az időzített feladatot?</value>
+  </data>
+  <data name="NotificationManualWorkConfirmStopStartingNewTitle" xml:space="preserve">
+    <value>Megerősítés (időzített feladat)</value>
+  </data>
+  <data name="Program_Req35SP1Body" xml:space="preserve">
+    <value>Az alkalmazás futtatásához .NET framework 3.5 SP1 vagy újabb verzió szükséges.</value>
+  </data>
+  <data name="Program_Req35SP1Title" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Érték</value>
+  </data>
+  <data name="AutoRules_InvalidRuleTitle" xml:space="preserve">
+    <value>Hibás szabály</value>
+  </data>
+  <data name="AutoRules_InvalidWorkTitle" xml:space="preserve">
+    <value>A feladat nem létezik</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndEndTempEffect" xml:space="preserve">
+    <value>Öntanuló</value>
+  </data>
+  <data name="AutoRuleData_CreateNewRuleAndTempStartWork" xml:space="preserve">
+    <value>Öntanuló alapértelmezett feladatváltással</value>
+  </data>
+  <data name="AutoRuleData_EndTempEffect" xml:space="preserve">
+    <value>Eredeti feladatra váltó</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndEndTempEffectTypeShort" xml:space="preserve">
+    <value>Öntanuló</value>
+  </data>
+  <data name="AutoRules_CreateNewRuleAndTempStartWorkTypeShort" xml:space="preserve">
+    <value>Öntanuló feladatváltással</value>
+  </data>
+  <data name="AutoRules_EndTempEffectTypeShort" xml:space="preserve">
+    <value>Eredeti feladatra váltó</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRule" xml:space="preserve">
+    <value>Új szabály</value>
+  </data>
+  <data name="AutoRuleData_SelectRuleTypeFirst" xml:space="preserve">
+    <value>Válasszon szabálytípust</value>
+  </data>
+  <data name="AutoRuleData_SelectWorkFirst" xml:space="preserve">
+    <value>Válasszon feladatot</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategória</value>
+  </data>
+  <data name="AutoRuleData_SelectCategoryFirst" xml:space="preserve">
+    <value>Válasszon kategóriát</value>
+  </data>
+  <data name="AutoRules_InvalidCategoryTitle" xml:space="preserve">
+    <value>A kategória nem létezik</value>
+  </data>
+  <data name="AutoRuleData_CaptureNotMatched" xml:space="preserve">
+    <value>A szabály ezekkel a beállításokkal nem teljesül</value>
+  </data>
+  <data name="AutoRuleData_LearnNewRuleSimple" xml:space="preserve">
+    <value>Kérem válasszon egy feladatot a megtanulandó szabályhoz</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDate" xml:space="preserve">
+    <value>Létrehozva</value>
+  </data>
+  <data name="AutoRules_HeaderCreateDateLong" xml:space="preserve">
+    <value>Létrehozva</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDate" xml:space="preserve">
+    <value>Sikeres mentés</value>
+  </data>
+  <data name="AutoRules_HeaderUpdateDateLong" xml:space="preserve">
+    <value>Sikeres mentés</value>
+  </data>
+  <data name="Preference_MenuTopItemsCount" xml:space="preserve">
+    <value>Listában szereplő feladatok száma</value>
+  </data>
+  <data name="ConfirmChangeUserBody" xml:space="preserve">
+    <value>Új felhasználói azonosítóval való belépéshez indítsa újra az alkalmazást. Újraindítja most?</value>
+  </data>
+  <data name="ConfirmChangeUserTitle" xml:space="preserve">
+    <value>Felhasználói azonosító váltás megerősítése</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeBody" xml:space="preserve">
+    <value>Feladatváltáshoz pontosan állítsa be az órát a számítógépén.</value>
+  </data>
+  <data name="NotificationCannotStartUserSelectedWorkInvalidTimeTitle" xml:space="preserve">
+    <value>Sikertelen feladatváltás</value>
+  </data>
+  <data name="CloseWork" xml:space="preserve">
+    <value>Feladat lezárása</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="Reasons" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="CloseWorkErrorAlreadyClosedBody" xml:space="preserve">
+    <value>A feladatot már lezárták.</value>
+  </data>
+  <data name="CloseWorkErrorBody" xml:space="preserve">
+    <value>Sikertelen feladatlezárás, próbálja meg a weboldalon.</value>
+  </data>
+  <data name="CloseWorkErrorReasonRequiredBody" xml:space="preserve">
+    <value>A feladat lezárásához írjon megjegyzést.</value>
+  </data>
+  <data name="CloseWorkErrorTitle" xml:space="preserve">
+    <value>Hiba történt</value>
+  </data>
+  <data name="WmsWarnTargetDateOverBody" xml:space="preserve">
+    <value>Időkeret túllépés(ek):</value>
+  </data>
+  <data name="WmsWarnTargetTimeOverBody" xml:space="preserve">
+    <value>Tervezett óraszám túllépése:</value>
+  </data>
+  <data name="WmsWarnTitle" xml:space="preserve">
+    <value>Időkeret túllépés(ek)</value>
+  </data>
+  <data name="AddReason" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="AddReasonButton" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="AddReasonErrorBody" xml:space="preserve">
+    <value>Sikertelen mentés, próbálja meg a weboldalon</value>
+  </data>
+  <data name="AddReasonErrorReasonRequired" xml:space="preserve">
+    <value>Adjon hozzá megjegyzést</value>
+  </data>
+  <data name="AddReasonErrorTitle" xml:space="preserve">
+    <value>Hiba történt</value>
+  </data>
+  <data name="CloseWorkButton" xml:space="preserve">
+    <value>Lezár</value>
+  </data>
+  <data name="SearchForWork" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="ThisMonthsComputerWorkTime" xml:space="preserve">
+    <value>Havi munkaidő (desktop)</value>
+  </data>
+  <data name="ThisMonthsManuallyAddedWorkTime" xml:space="preserve">
+    <value>Havi felvett munkaidő</value>
+  </data>
+  <data name="ThisMonthsMobileWorkTime" xml:space="preserve">
+    <value>Havi munkaidő (mobil)</value>
+  </data>
+  <data name="ThisWeeksComputerWorkTime" xml:space="preserve">
+    <value>Heti munkaidő (desktop)</value>
+  </data>
+  <data name="ThisWeeksManuallyAddedWorkTime" xml:space="preserve">
+    <value>Heti felvett munkaidő</value>
+  </data>
+  <data name="ThisWeeksMobileWorkTime" xml:space="preserve">
+    <value>Heti munkaidő (mobil)</value>
+  </data>
+  <data name="Preference_ShowSummaDelta" xml:space="preserve">
+    <value>Szumma és delta megjelenítése</value>
+  </data>
+  <data name="Preference_MenuRecentItemsCount" xml:space="preserve">
+    <value>Legutóbbi feladatok száma</value>
+  </data>
+  <data name="AutoRules_DAAFifteenMinutes" xml:space="preserve">
+    <value>15 percig</value>
+  </data>
+  <data name="AutoRules_DAANever" xml:space="preserve">
+    <value>Soha</value>
+  </data>
+  <data name="AutoRules_DAAOneMinute" xml:space="preserve">
+    <value>1 percig</value>
+  </data>
+  <data name="AutoRules_DAAThirtyMinutes" xml:space="preserve">
+    <value>30 percig</value>
+  </data>
+  <data name="AutoRules_DontAskAgain" xml:space="preserve">
+    <value>Ne kérdezzen rá</value>
+  </data>
+  <data name="AutoRules_HelpAdvanced" xml:space="preserve">
+    <value>Adja meg a szabály jellemzőit.</value>
+  </data>
+  <data name="AutoRules_HelpSimpleLearn" xml:space="preserve">
+    <value>Az öntanuló szabály létrehozásához válasszon egy feladatot az alkalmazás menüjéből vagy a legördülő menüből.</value>
+  </data>
+  <data name="PluginEditFormId" xml:space="preserve">
+    <value>Kiegészítő</value>
+  </data>
+  <data name="PluginEditFormIdEmpty" xml:space="preserve">
+    <value>Adja meg a kiegészítő mezőt.</value>
+  </data>
+  <data name="PluginEditFormKey" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="PluginEditFormKeyEmpty" xml:space="preserve">
+    <value>Adjon meg egy nevet.</value>
+  </data>
+  <data name="PluginEditFormTitle" xml:space="preserve">
+    <value>Kiegészítők kezelése</value>
+  </data>
+  <data name="PluginEditFormValue" xml:space="preserve">
+    <value>Szabály</value>
+  </data>
+  <data name="Menu_AcMeetings" xml:space="preserve">
+    <value>Offline munkavégzések</value>
+  </data>
+  <data name="NotificationMeetingPendingFormatBody" xml:space="preserve">
+    <value>{0} Kezdés: {1} ({2})</value>
+  </data>
+  <data name="NotificationMeetingPendingTitle" xml:space="preserve">
+    <value>A következő offline munkák beavatkozást igényelnek.</value>
+  </data>
+  <data name="AutoRules_MatchedTitle" xml:space="preserve">
+    <value>Címsor</value>
+  </data>
+  <data name="AutoRules_OKVDefault" xml:space="preserve">
+    <value>     - Érvényes visszavonásig (Alapértelmezett)</value>
+  </data>
+  <data name="AutoRules_OKVForOneDay" xml:space="preserve">
+    <value>1n - Érvényes egy napon keresztül</value>
+  </data>
+  <data name="AutoRules_OKVForOneHour" xml:space="preserve">
+    <value>1ó - Érvényes egy órán keresztül</value>
+  </data>
+  <data name="AutoRules_OKVUntilClosed" xml:space="preserve">
+    <value>Z  - Érvényes az ablak bezárásáig</value>
+  </data>
+  <data name="Preference_SearchOwnTasks" xml:space="preserve">
+    <value>Keresés csak hozzám rendelt feladatok között</value>
+  </data>
+  <data name="Preference_SearchInClosed" xml:space="preserve">
+    <value>Keresés a lezárt feladatokban is</value>
+  </data>
+  <data name="Preference_SearchAllReload" xml:space="preserve">
+    <value>Összes feladat frissítése</value>
+  </data>
+  <data name="NotificationAssignMeConfirmBody" xml:space="preserve">
+    <value>Magához rendeli a '{0}' feladatot?</value>
+  </data>
+  <data name="NotificationAssignMeConfirmTitle" xml:space="preserve">
+    <value>Jóváhagyás</value>
+  </data>
+  <data name="NotificationAssignTaskErrorBody" xml:space="preserve">
+    <value>Sikertelen hozzárendelés</value>
+  </data>
+  <data name="NotificationAssignTaskErrorTitle" xml:space="preserve">
+    <value>Hiba történt a feladat hozzárendelése során</value>
+  </data>
+  <data name="Menu_AddReasonToCurrentWorkOnClick" xml:space="preserve">
+    <value>Megjegyzés hozzáadása</value>
+  </data>
+  <data name="Preference_HighlightNonReasoned" xml:space="preserve">
+    <value>Megjegyzés nélküli feladatok kiemelése</value>
+  </data>
+  <data name="ChooseReasonHint" xml:space="preserve">
+    <value>Válasszon megjegyzést a menüből</value>
+  </data>
+  <data name="Reason_Created" xml:space="preserve">
+    <value>Időpont</value>
+  </data>
+  <data name="Reason_SelectedReason" xml:space="preserve">
+    <value>Megjegyzések</value>
+  </data>
+  <data name="Reason_TypedReason" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="TaskInformation" xml:space="preserve">
+    <value>Feladat információk</value>
+  </data>
+  <data name="TaskReasons" xml:space="preserve">
+    <value>Feladathoz adott megjegyzések</value>
+  </data>
+  <data name="AddMeeting_Participiants" xml:space="preserve">
+    <value>Résztvevők (e-mailek)</value>
+  </data>
+  <data name="AddMeeting_SelectedWork" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="AddMeeting_Title" xml:space="preserve">
+    <value>Offline munkavégzés</value>
+  </data>
+  <data name="AddMeeting_DurationInvalid" xml:space="preserve">
+    <value>Az időtartam 1 és az inaktív percek száma közötti érték lehet</value>
+  </data>
+  <data name="AddMeeting_EmailFormatError" xml:space="preserve">
+    <value>Adjon meg érvényes e-mail címe(ke)t</value>
+  </data>
+  <data name="AddMeeting_Subject" xml:space="preserve">
+    <value>Tárgy</value>
+  </data>
+  <data name="AddMeeting_SelectWorkCaption" xml:space="preserve">
+    <value>Válasszon feladatot az offline munkavégzés létrehozásához.</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmation" xml:space="preserve">
+    <value>Az offline munkaidő rögzítése folyamatban van.
+Valóban törli az időszakot a munkaidő elszámolása nélkül?</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationTitle" xml:space="preserve">
+    <value>Offline munkaidő törlésének jóváhagyása</value>
+  </data>
+  <data name="AddMeeting_ExceedLimit" xml:space="preserve">
+    <value>Az időtartam meghaladja az offline munkavégzés maximálisan megengedett időtartamát</value>
+  </data>
+  <data name="SplashMessage" xml:space="preserve">
+    <value>A lezárás folyamatban van, kérem várjon.</value>
+  </data>
+  <data name="AddMeeting_EmailsLengthInvalid" xml:space="preserve">
+    <value>Az email címek együttes hossza túl nagy (maximum 2000 karakter)</value>
+  </data>
+  <data name="AddMeeting_SubjectLengthInvalid" xml:space="preserve">
+    <value>A megbeszélés tárgya üres vagy túl hosszú (maximum 200 karakter)</value>
+  </data>
+  <data name="CreditRunLowBody" xml:space="preserve">
+    <value>Díjhátralék miatt átmenetileg korlátoztuk a szolgáltatást. Az átmeneti korlátozásról további információért forduljon adminisztrátorához.</value>
+  </data>
+  <data name="CreditRunLowTitle" xml:space="preserve">
+    <value>Korlátozott szolgáltatás</value>
+  </data>
+  <data name="CreditRunOutBody" xml:space="preserve">
+    <value>Díjhátralék miatt a szolgáltatás szünetel. Kérjük forduljon adminisztrátorához.</value>
+  </data>
+  <data name="CreditRunOutTitle" xml:space="preserve">
+    <value>Szüneteltetett szolgáltatás</value>
+  </data>
+  <data name="AddMeeting_Description" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="AddMeeting_DescriptionLengthInvalid" xml:space="preserve">
+    <value>A megjegyzés szövege túl hosszú (maximum 1000 karakter)</value>
+  </data>
+  <data name="AutoRuleData_ActiveType" xml:space="preserve">
+    <value>Aktív</value>
+  </data>
+  <data name="AutoRuleData_AnyType" xml:space="preserve">
+    <value>Bármilyen</value>
+  </data>
+  <data name="AutoRuleData_SelectWindowScopeFirst" xml:space="preserve">
+    <value>Válasszon ablak állapotot.</value>
+  </data>
+  <data name="AutoRuleData_VisibleOrActiveType" xml:space="preserve">
+    <value>Látható vagy aktív</value>
+  </data>
+  <data name="AutoRules_HeaderWindowScopeLong" xml:space="preserve">
+    <value>Ablak állapota</value>
+  </data>
+  <data name="AddMeeting_AddressBook" xml:space="preserve">
+    <value>Címjegyzék</value>
+  </data>
+  <data name="Hotkeys_ActionTypeJobCTRLcom" xml:space="preserve">
+    <value>JobCTRL.com</value>
+  </data>
+  <data name="Hotkeys_ActionTypeNewWorkDetectorRule" xml:space="preserve">
+    <value>Új szabály</value>
+  </data>
+  <data name="Hotkeys_ActionTypeResumeOrStopWork" xml:space="preserve">
+    <value>Leállítás/Folytatás</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartManualMeeting" xml:space="preserve">
+    <value>Offline munkavégzés</value>
+  </data>
+  <data name="Hotkeys_ActionTypeStartWork" xml:space="preserve">
+    <value>Feladatválasztás</value>
+  </data>
+  <data name="Hotkeys_EmptyHotkeyError" xml:space="preserve">
+    <value>Adjon meg egy gyorsbillentyűt.</value>
+  </data>
+  <data name="Hotkeys_HasNotBeenRegisteredError" xml:space="preserve">
+    <value>A gyorsbillentyű még nincs felvéve/regisztrálva.</value>
+  </data>
+  <data name="Hotkeys_HeaderAction" xml:space="preserve">
+    <value>Művelet</value>
+  </data>
+  <data name="Hotkeys_HeaderAlt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="Hotkeys_HeaderCtrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="Hotkeys_HeaderKey" xml:space="preserve">
+    <value>Billentyű</value>
+  </data>
+  <data name="Hotkeys_HeaderShift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="Hotkeys_HeaderWin" xml:space="preserve">
+    <value>Win</value>
+  </data>
+  <data name="Hotkeys_HeaderWork" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="Hotkeys_InvalidKeyValue" xml:space="preserve">
+    <value>Érvénytelen billentyű.</value>
+  </data>
+  <data name="Hotkeys_MustBeUniqeError" xml:space="preserve">
+    <value>A gyorsbillentyű már létezik, válasszon másikat.</value>
+  </data>
+  <data name="Hotkeys_OtherThanFKeysMustContainModifiers" xml:space="preserve">
+    <value>Ez a billentyű csak a Ctrl, Alt, vagy Win kombinációban érvényes.</value>
+  </data>
+  <data name="Hotkeys_UnregisterableError" xml:space="preserve">
+    <value>A gyorsbillentyűt nem sikerült regisztrálni.</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdInvalidError" xml:space="preserve">
+    <value>Érvénytelen feladat, válasszon egy aktív feladatot.</value>
+  </data>
+  <data name="Hotkeys_WorkDataIdNeededError" xml:space="preserve">
+    <value>Adjon meg egy aktív feladatot.</value>
+  </data>
+  <data name="Preference_HotKey" xml:space="preserve">
+    <value>Gyorsbillentyűk</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedBody" xml:space="preserve">
+    <value>A '{0}' szabály nem alkalmazható az aktuális feladat projektkörnyezetében.</value>
+  </data>
+  <data name="NotificationAssignWorkNotAllowedTitle" xml:space="preserve">
+    <value>Szabály visszautasítva</value>
+  </data>
+  <data name="Menu_RunAsAdmin" xml:space="preserve">
+    <value>Futtatás rendszergazdaként</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeBody" xml:space="preserve">
+    <value>Jóváhagyja az alkalmazás újraindítását a rendszergazdai futtatás módosításához?</value>
+  </data>
+  <data name="ConfirmRestartDueElevatedModeTitle" xml:space="preserve">
+    <value>Újraindítás megerősítése</value>
+  </data>
+  <data name="Preference_NotificationPosition" xml:space="preserve">
+    <value>Felugró figyelmeztetés helye</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomLeft" xml:space="preserve">
+    <value>Balra lent</value>
+  </data>
+  <data name="Preference_NotificationPositionBottomRight" xml:space="preserve">
+    <value>Jobbra lent</value>
+  </data>
+  <data name="Preference_NotificationPositionCenter" xml:space="preserve">
+    <value>Középen</value>
+  </data>
+  <data name="Preference_NotificationPositionTopLeft" xml:space="preserve">
+    <value>Balra fent</value>
+  </data>
+  <data name="Preference_NotificationPositionTopRight" xml:space="preserve">
+    <value>Jobbra fent</value>
+  </data>
+  <data name="Preference_WorkingWarnDisplayable" xml:space="preserve">
+    <value>Feladatváltás megjelenítése</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientBody" xml:space="preserve">
+    <value>Önt a JobCTRL kiléptette a munkastátuszból, mert egy másik eszközön is bejelentkezett.</value>
+  </data>
+  <data name="NotificationKickedFromAnotherClientTitle" xml:space="preserve">
+    <value>Kiléptetés: bejelentkezés másik eszközön</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkBody" xml:space="preserve">
+    <value>Néhány dinamikus feladatot nem sikerült létrehozni, kérem válasszon ezeknek egy alapértelmezett feladatot.</value>
+  </data>
+  <data name="WorkSelector_DefaultWorkTitle" xml:space="preserve">
+    <value>Válasszon feladatot</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstBody" xml:space="preserve">
+    <value>Válasszon feladatot.</value>
+  </data>
+  <data name="WorkSelector_SelectWorkFirstTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Program_CertInvalidBody" xml:space="preserve">
+    <value>A szerver tanusítványa nem megfelelő. Elfogadja?</value>
+  </data>
+  <data name="Program_CertInvalidTitle" xml:space="preserve">
+    <value>Elfogadja ezt a tanusítványt?</value>
+  </data>
+  <data name="Hotkeys_ActionTypeAddReason" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="AutoRules_MatchedExtensions" xml:space="preserve">
+    <value>Pluginek</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapBody" xml:space="preserve">
+    <value>A bootstrap fájl nem található.</value>
+  </data>
+  <data name="Program_NotificationWixNoBootstrapTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecBody" xml:space="preserve">
+    <value>Az msiexec fájl nem található.</value>
+  </data>
+  <data name="Program_NotificationWixNoMsiexecTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Preference_ShowDynamicWorks" xml:space="preserve">
+    <value>Dinamikus feladatok megjelenítése</value>
+  </data>
+  <data name="Preference_NotificationPositionHidden" xml:space="preserve">
+    <value>Figyelmeztetések kikapcsolva</value>
+  </data>
+  <data name="Menu_Preferences" xml:space="preserve">
+    <value>Testreszabás</value>
+  </data>
+  <data name="Preference_Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="Preference_DoubleClick" xml:space="preserve">
+    <value>Dupla kattintásra</value>
+  </data>
+  <data name="Preference_General" xml:space="preserve">
+    <value>Általános</value>
+  </data>
+  <data name="Preference_Hidden" xml:space="preserve">
+    <value>Elrejtve</value>
+  </data>
+  <data name="HourPlural" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="Preference_Navigation" xml:space="preserve">
+    <value>Navigáció</value>
+  </data>
+  <data name="Preference_New" xml:space="preserve">
+    <value>Új</value>
+  </data>
+  <data name="Preference_Notification" xml:space="preserve">
+    <value>Figyelmeztetések</value>
+  </data>
+  <data name="Preference_Off" xml:space="preserve">
+    <value>Kikapcsolva</value>
+  </data>
+  <data name="Preference_On" xml:space="preserve">
+    <value>Bekapcsolva</value>
+  </data>
+  <data name="Preference_Reset" xml:space="preserve">
+    <value>Módosítások elvetése</value>
+  </data>
+  <data name="Preference_Save" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="Preference_Second" xml:space="preserve">
+    <value>másodperc</value>
+  </data>
+  <data name="Preference_Shown" xml:space="preserve">
+    <value>Megjelenítve</value>
+  </data>
+  <data name="Preference_SingleClick" xml:space="preserve">
+    <value>Egyszeri kattintásra</value>
+  </data>
+  <data name="Preference_Title" xml:space="preserve">
+    <value>{0} testreszabása</value>
+  </data>
+  <data name="Preference_EditText" xml:space="preserve">
+    <value>Beállításai a szerkesztés befejezésével automatikusan mentésre kerülnek.</value>
+  </data>
+  <data name="Preference_NotPositiveInteger" xml:space="preserve">
+    <value>Sikertelen mentés: adjon meg egy pozitív egész számot.</value>
+  </data>
+  <data name="Preference_NotPositiveReal" xml:space="preserve">
+    <value>Sikertelen mentés: adjon meg egy pozitív valós számot.</value>
+  </data>
+  <data name="NotificationMore" xml:space="preserve">
+    <value>Bővebben</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginBody" xml:space="preserve">
+    <value>A meeting szinkronizáció működéséhez jelentkezzen be az IBM (Lotus) Notes programba. Ezt követően legközelebb csak a JobCTRL újraindításakor lesz lehetősége bejelentkezni.</value>
+  </data>
+  <data name="LoginToLotusNotes_NotificationAboutCancellingLoginTitle" xml:space="preserve">
+    <value>IBM (Lotus) Notes bejelentkezés kihagyása</value>
+  </data>
+  <data name="PluginEditFormName" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="PluginEditFormParameters" xml:space="preserve">
+    <value>Paraméterek</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="NavigationAll" xml:space="preserve">
+    <value>Összes feladat</value>
+  </data>
+  <data name="NavigationDeadline" xml:space="preserve">
+    <value>Határidő</value>
+  </data>
+  <data name="NavigationFavorite" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="NavigationPriority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="NavigationProgress" xml:space="preserve">
+    <value>Felhasznált idő</value>
+  </data>
+  <data name="NavigationRoot" xml:space="preserve">
+    <value>Főmenü</value>
+  </data>
+  <data name="NavigationSuggestion" xml:space="preserve">
+    <value>Ajánlott feladatok</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserBody" xml:space="preserve">
+    <value>Ha nem engedélyezi a {0} folyamat futtatását, akkor az email alapú szabályok nem fognak működni. Szeretné, hogy mégis működjenek ezek a szabályok?</value>
+  </data>
+  <data name="NotificationExternalCaptureServiceElevationCancelledByUserTitle" xml:space="preserve">
+    <value>JobCTRL email alapú szabályok engedélyezése</value>
+  </data>
+  <data name="MenuCompleted" xml:space="preserve">
+    <value>Felhasznált idő</value>
+  </data>
+  <data name="MenuPriority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="MenuBack" xml:space="preserve">
+    <value>Vissza</value>
+  </data>
+  <data name="MenuFavorite" xml:space="preserve">
+    <value>Kedvenc</value>
+  </data>
+  <data name="MenuMenu" xml:space="preserve">
+    <value>Navigáció</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>Jelenlegi nézet</value>
+  </data>
+  <data name="NavigationRecent" xml:space="preserve">
+    <value>Legutóbbi feladatok</value>
+  </data>
+  <data name="Hotkeys_ActionTypeToggleMenu" xml:space="preserve">
+    <value>Menü megjelenítése</value>
+  </data>
+  <data name="NavigationRecentProject" xml:space="preserve">
+    <value>Legutóbbi projektek</value>
+  </data>
+  <data name="Preference_OldMenu" xml:space="preserve">
+    <value>Régi verzió használata</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>{0} még</value>
+  </data>
+  <data name="OverduePlural" xml:space="preserve">
+    <value>{0} napja lejárt</value>
+  </data>
+  <data name="OverdueSingular" xml:space="preserve">
+    <value>{0} napja lejárt</value>
+  </data>
+  <data name="HourSingular" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="Preference_Menu" xml:space="preserve">
+    <value>Menü</value>
+  </data>
+  <data name="Menu_Etc" xml:space="preserve">
+    <value>További lehetőségek</value>
+  </data>
+  <data name="ErrorReporting_ErrorDescription" xml:space="preserve">
+    <value>Leírás:</value>
+  </data>
+  <data name="ErrorReporting_Send" xml:space="preserve">
+    <value>Küldés</value>
+  </data>
+  <data name="ErrorReporting_Title" xml:space="preserve">
+    <value>Naplófájlok küldése</value>
+  </data>
+  <data name="ErrorReporting_AttachLogs" xml:space="preserve">
+    <value>Log fájlok csatolása</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmBody" xml:space="preserve">
+    <value>A naplófájlok küldése folyamatban van. Biztosan megszakítja a műveletet?</value>
+  </data>
+  <data name="ErrorReporting_UploadCancelConfirmTitle" xml:space="preserve">
+    <value>Naplófájlok küldésének megszakítása</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Preparing" xml:space="preserve">
+    <value>Előkészítés</value>
+  </data>
+  <data name="ErrorReporting_ProgressBody_Uploading" xml:space="preserve">
+    <value>Feltöltés</value>
+  </data>
+  <data name="ErrorReporting_ProgressTitle" xml:space="preserve">
+    <value>Naplófájlok küldése</value>
+  </data>
+  <data name="Menu_ErrorReporting" xml:space="preserve">
+    <value>Naplófájlok küldése</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorBody" xml:space="preserve">
+    <value>Váratlan hiba történt a a naplófájlok küldése során.</value>
+  </data>
+  <data name="ErrorReporting_UnexpectedErrorTitle" xml:space="preserve">
+    <value>Váratlan hiba</value>
+  </data>
+  <data name="ExceptionDialog_ReportError" xml:space="preserve">
+    <value>Hibabejelentés küldése</value>
+  </data>
+  <data name="ExceptionDialog_Continue" xml:space="preserve">
+    <value>Folytatás</value>
+  </data>
+  <data name="ExceptionDialog_Details" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="ExceptionDialog_DetailsTitle" xml:space="preserve">
+    <value>Váratlan hiba részletei</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescription" xml:space="preserve">
+    <value>Váratlan hiba lépett fel a JobCTRL alkalmazásban. Ha a Folytatás gombra kattint, az alkalmazás figyelmen kívül hagyja a hibát, és megpróbálja folytatni a futást. A Kilépés gombra kattintva azonnal bezárhatja az alkalmazást. Ha a 'Hibajelentés küldése' opciót bejelölve hagyja, segíti a hiba gyors diagnosztizálását és javítását.</value>
+  </data>
+  <data name="ExceptionDialog_ErrorDescriptionPromptText" xml:space="preserve">
+    <value>Hiba leírása (opcionális)</value>
+  </data>
+  <data name="ExceptionDialog_Quit" xml:space="preserve">
+    <value>Kilépés</value>
+  </data>
+  <data name="ExceptionDialog_SendStatus" xml:space="preserve">
+    <value>A hibajelentés a kilépés vagy folytatás előtt kerül elküldésre.</value>
+  </data>
+  <data name="ExceptionDialog_Title" xml:space="preserve">
+    <value>Váratlan hiba</value>
+  </data>
+  <data name="AutoRules_CancelConfirmBody" xml:space="preserve">
+    <value>Biztosan elveti az automatikus szabályok módosításait?</value>
+  </data>
+  <data name="AutoRules_CancelConfirmTitle" xml:space="preserve">
+    <value>Módosítások Elvetése</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmBody" xml:space="preserve">
+    <value>Biztosan elveti a naplófájlok küldését?</value>
+  </data>
+  <data name="ErrorReporting_EditCancelConfirmTitle" xml:space="preserve">
+    <value>Naplófájlok küldésének elvetése</value>
+  </data>
+  <data name="UserIdMappingChangedBody" xml:space="preserve">
+    <value>A jelenlegi Windows felhasználó másik JobCTRL felhasználóhoz lett rendelve, ezért az alkalmazást újra kell indítani.</value>
+  </data>
+  <data name="UserIdMappingChangedTitle" xml:space="preserve">
+    <value>Alkalmazás újraindítása</value>
+  </data>
+  <data name="Menu_AcDashboard" xml:space="preserve">
+    <value>Irányítópult</value>
+  </data>
+  <data name="WorkData_Description" xml:space="preserve">
+    <value>Leírás</value>
+  </data>
+  <data name="NewWork_CantCreate" xml:space="preserve">
+    <value>Feladat létrehozása sikertelen</value>
+  </data>
+  <data name="NewWork_CantUpdate" xml:space="preserve">
+    <value>Feladat frissítése nem sikerült</value>
+  </data>
+  <data name="NewWork_Mandatory" xml:space="preserve">
+    <value>Kötelező</value>
+  </data>
+  <data name="NewWork_Creating" xml:space="preserve">
+    <value>Létrehozás...</value>
+  </data>
+  <data name="NewWork_SelectProject" xml:space="preserve">
+    <value>Projekt megadása kötelező</value>
+  </data>
+  <data name="NewWork_State" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="NewWork_Updating" xml:space="preserve">
+    <value>Módosítás...</value>
+  </data>
+  <data name="NewWork_Create" xml:space="preserve">
+    <value>Létrehozás</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>Érvénytelen érték</value>
+  </data>
+  <data name="NewWork_Interval" xml:space="preserve">
+    <value>Érvénytelen intervallum</value>
+  </data>
+  <data name="NewWork_NoConnection" xml:space="preserve">
+    <value>Offline módban nem tud feladatot létrehozni vagy módosítani. Ellenőrizze internet kapcsolatát, majd próbálkozzon újra.</value>
+  </data>
+  <data name="NewWork_UnknownInterval" xml:space="preserve">
+    <value>Nem tud létrehozni vagy módosítani feladatot a kliensben, kérem használja a weboldalt</value>
+  </data>
+  <data name="Worktime_Computer" xml:space="preserve">
+    <value>Számítógép {0}</value>
+  </data>
+  <data name="HourMinuteFormat" xml:space="preserve">
+    <value>óra:perc</value>
+  </data>
+  <data name="WorkData_Interval" xml:space="preserve">
+    <value>Időszak</value>
+  </data>
+  <data name="Worktime_Ivr" xml:space="preserve">
+    <value>Ivr</value>
+  </data>
+  <data name="WorkData_ProjectTooltip" xml:space="preserve">
+    <value>Projekt vagy ügyfél, amelyhez a feladat kapcsolódik.</value>
+  </data>
+  <data name="NewWork_NoPermCreate" xml:space="preserve">
+    <value>Nincs jogosultsága feladatot létrehozni ebben a projektben.</value>
+  </data>
+  <data name="Worktime_Manual" xml:space="preserve">
+    <value>Kézi</value>
+  </data>
+  <data name="NewWork_NoPermUpdate" xml:space="preserve">
+    <value>Nincs jogosultsága feladatot módosítani ebben a projektben.</value>
+  </data>
+  <data name="Worktime_Mobile" xml:space="preserve">
+    <value>Mobil {0}</value>
+  </data>
+  <data name="Worktime_NoResponse" xml:space="preserve">
+    <value>A kívánt művelet elvégzéséhez szerver kapcsolat szükséges. Ellenőrizze internetkapcsolatát, majd próbálja újra.</value>
+  </data>
+  <data name="Worktime_Title" xml:space="preserve">
+    <value>Munkaidő áttekintés</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelBody" xml:space="preserve">
+    <value>Valóban megszakítja a futó műveletet?</value>
+  </data>
+  <data name="Form_ConfirmOperationCancelTitle" xml:space="preserve">
+    <value>Művelet megszakítása?</value>
+  </data>
+  <data name="Worktime_ComputerTotal" xml:space="preserve">
+    <value>Számítógép</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>max</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="Worktime_Meeting" xml:space="preserve">
+    <value>Offline munka</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Body" xml:space="preserve">
+    <value>Egy megkezdett offline munkavégzés félbeszakadt. 
+A megjelenő "Offline munkavégzés felvétele" ablakban jóváhagyhatja illetve törölheti az offline munkát. 
+A munkavégézés időpontja illetve időtartama az utolsó ismert adatok alapján vannak kitöltve, amennyiben nem megfelelőek törölje a munkavégzést és a webes felületen vegye fel a megfelelő időtartammal.</value>
+  </data>
+  <data name="AddMeeting_WarningOfUnfinishedOnGoingMeeting_Title" xml:space="preserve">
+    <value>Félbeszakadt offline munkavégzés</value>
+  </data>
+  <data name="Menu_LogLevelChangeDebug" xml:space="preserve">
+    <value>Részletes naplózás</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningBody" xml:space="preserve">
+    <value>Az offline munkavégzés le van tiltva</value>
+  </data>
+  <data name="AddMeeting_DisabledManualMeetingWarningTitle" xml:space="preserve">
+    <value>Az offline munkavégzés le van tiltva</value>
+  </data>
+  <data name="Worktime_MobileTotal" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="Worktime_Total" xml:space="preserve">
+    <value>Összesen</value>
+  </data>
+  <data name="Worktime_Duration" xml:space="preserve">
+    <value>Kezdete/Vége különbség</value>
+  </data>
+  <data name="Worktime_End" xml:space="preserve">
+    <value>Vége</value>
+  </data>
+  <data name="Worktime_Start" xml:space="preserve">
+    <value>Kezdete</value>
+  </data>
+  <data name="Worktime_ManualComment" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="ModifyWork_Comment" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="ModifyWork_InvalidInterval" xml:space="preserve">
+    <value>Érvénytelen intervallum</value>
+  </data>
+  <data name="ModifyWork_NoValidInterval" xml:space="preserve">
+    <value>Az adott intervallum egészére már létezik munkaidő.</value>
+  </data>
+  <data name="ModifyWork_Overlap" xml:space="preserve">
+    <value>Nem hozható létre munka a teljes intervallumra, mivel már létezik munkaidő az adott intervallum egy részére. A létrehozható munka {0} helyett {1} hosszúságú és {2} intervallumból áll.</value>
+  </data>
+  <data name="ModifyWork_IntervalTitle" xml:space="preserve">
+    <value>Intervallum módosítása</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="Worktime_Tooltip" xml:space="preserve">
+    <value>Munkaidő áttekintés és felvétel</value>
+  </data>
+  <data name="ModifyWork_ModifyTitle" xml:space="preserve">
+    <value>Munkaidő módosítás</value>
+  </data>
+  <data name="ModifyWork_SureDelete" xml:space="preserve">
+    <value>Biztosan törli a kiválasztott munkaidőt?</value>
+  </data>
+  <data name="ModifyWork_Create" xml:space="preserve">
+    <value>Felvétel</value>
+  </data>
+  <data name="ModifyWork_Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="ModifyWork_Modify" xml:space="preserve">
+    <value>Módosítás</value>
+  </data>
+  <data name="ModifyWork_NoChange" xml:space="preserve">
+    <value>Nincs változás</value>
+  </data>
+  <data name="ModifyWork_ConnectionError" xml:space="preserve">
+    <value>Hiba a szerverhez kapcsolódás során. Kérem ellenőrizze internetkapcsolatát vagy próbálkozzon később.</value>
+  </data>
+  <data name="ModifyWork_FailDelete" xml:space="preserve">
+    <value>Hiba történt a munkaidő törlése közben.</value>
+  </data>
+  <data name="ModifyWork_FailModify" xml:space="preserve">
+    <value>Hiba történt a munkaidő módosítása közben.</value>
+  </data>
+  <data name="ModifyWork_AddIntervalDescription" xml:space="preserve">
+    <value>Kézi munkaidő felvétele a kiválasztott intervallum munkaidővel nem rendelkező részeire.</value>
+  </data>
+  <data name="ModifyWork_DeleteIntervalDescription" xml:space="preserve">
+    <value>Az adott intervallumra eső munkaidők törlése.</value>
+  </data>
+  <data name="ModifyWork_DeleteWorkDescription" xml:space="preserve">
+    <value>A kiválasztott munka intervallumának törlése az adott eszköztípuson.</value>
+  </data>
+  <data name="ModifyWork_ModifyIntervalDescription" xml:space="preserve">
+    <value>Az adott intervallumra eső munkaidők feladatának módosítása.</value>
+  </data>
+  <data name="ModifyWork_ModifyWorkDescription" xml:space="preserve">
+    <value>A kiválasztott munka idejének vagy feladatának módosítása kézi munkaidő hozzáadásával vagy törlésével.</value>
+  </data>
+  <data name="Worktime_ManualModificationWarn" xml:space="preserve">
+    <value>A végrehajtandó műveletek kézi munkaidő módosítást tartalmaznak, amely nem visszavonható művelet</value>
+  </data>
+  <data name="Worktime_ValidationExplain" xml:space="preserve">
+    <value>A módosítások elvégzéséhez beavatkozás szükséges a következők miatt:</value>
+  </data>
+  <data name="Worktime_ValidationSure" xml:space="preserve">
+    <value>Biztosan végrehajtja a módosításokat?</value>
+  </data>
+  <data name="Worktime_ApprovalWarn" xml:space="preserve">
+    <value>A kívánt művelet kézi munkaidő felvételt vagy módosítást tartalmaz, amelyek felettesi jóváhagyást fognak igényelni</value>
+  </data>
+  <data name="Worktime_Deleted" xml:space="preserve">
+    <value>Törölve</value>
+  </data>
+  <data name="Worktime_ShowDeleted" xml:space="preserve">
+    <value>Törlések megjelenítése</value>
+  </data>
+  <data name="Worktime_UndeleteText" xml:space="preserve">
+    <value>Biztosan visszavonja a munkaidő törlését?</value>
+  </data>
+  <data name="Worktime_UndeleteTitle" xml:space="preserve">
+    <value>Törlés visszavonása</value>
+  </data>
+  <data name="Worktime_WaitApprove" xml:space="preserve">
+    <value>Jóváhagyásra vár</value>
+  </data>
+  <data name="Worktime_CantEdit" xml:space="preserve">
+    <value>Nem módosítható</value>
+  </data>
+  <data name="Worktime_CantEditError" xml:space="preserve">
+    <value>A kért művelet nem végrehajtható, mivel nem módosítható munkaidő változásával járna.</value>
+  </data>
+  <data name="Worktime_TooMuchAddError" xml:space="preserve">
+    <value>A kívánt művelet elvégzése túl sok munkaidő felvételt tartalmaz, kérem csökkentse a változtatások méretét.</value>
+  </data>
+  <data name="AutoRuleData_DeleteCurrentRule" xml:space="preserve">
+    <value>Automatikus szabály törlése</value>
+  </data>
+  <data name="AutoRules_HelpConfirmDelete" xml:space="preserve">
+    <value>Valóban törli az alábbi szabályt?</value>
+  </data>
+  <data name="Hotkeys_ActionTypeDeleteCurrentWorkDetectorRule" xml:space="preserve">
+    <value>Aktuális szabály törlése</value>
+  </data>
+  <data name="NavigationRecentClosed" xml:space="preserve">
+    <value>Legutóbb lezárt</value>
+  </data>
+  <data name="Menu_AcDefault" xml:space="preserve">
+    <value>Utoljára kiválasztott</value>
+  </data>
+  <data name="NewWork_StartWork" xml:space="preserve">
+    <value>Létrehozott feladatra váltás</value>
+  </data>
+  <data name="Hotkeys_HeaderSite" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedBody" xml:space="preserve">
+    <value>Nincs jogosultsága újranyitni a hozzárendelést.</value>
+  </data>
+  <data name="NotificationAssignTaskAccessDeniedTitle" xml:space="preserve">
+    <value>Sikertelen hozzárendelés</value>
+  </data>
+  <data name="Worktime_Grouping" xml:space="preserve">
+    <value>Színezés</value>
+  </data>
+  <data name="Worktime_Work" xml:space="preserve">
+    <value>Feladat</value>
+  </data>
+  <data name="Worktime_NoCategory" xml:space="preserve">
+    <value>Nincs kategória</value>
+  </data>
+  <data name="Worktime_TooLong" xml:space="preserve">
+    <value>Egyszerre nem módosítható 24 óránál nagyobb intervallum!</value>
+  </data>
+  <data name="Worktime_NoFuture" xml:space="preserve">
+    <value>Az elmúlt 5 percből és a jövőből intervallum nem módosítható!</value>
+  </data>
+  <data name="AutoRules_WindowRulesTitle" xml:space="preserve">
+    <value>Ablak-szabályok módosítása</value>
+  </data>
+  <data name="Worktime_ManualModificationError" xml:space="preserve">
+    <value>A kért művelet nem hajtható végre a következők miatt:</value>
+  </data>
+  <data name="Worktime_TooOldError" xml:space="preserve">
+    <value>{0} óránál régebbi munkaidő nem módosítható!</value>
+  </data>
+  <data name="AutoRules_RemoveInvalid" xml:space="preserve">
+    <value>Érvénytelenek törlése</value>
+  </data>
+  <data name="NotificationInvalidRuleAction" xml:space="preserve">
+    <value>Szabályok szerkesztése</value>
+  </data>
+  <data name="NotificationInvalidRuleBody" xml:space="preserve">
+    <value>Egy vagy több felhasználói szabály érvénytelen feladattal rendelkezik.</value>
+  </data>
+  <data name="NotificationInvalidRuleTitle" xml:space="preserve">
+    <value>Érvénytelen szabály(ok)</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeBody" xml:space="preserve">
+    <value>A beállítások érvényesítéséhez indítsa újra a Microsoft Outlook alkalmazást.</value>
+  </data>
+  <data name="NotificationOutlookPluginSettingChangeTitle" xml:space="preserve">
+    <value>Indítsa újra az Outlookot</value>
+  </data>
+  <data name="NotificationUpdateFailedBody" xml:space="preserve">
+    <value>A JobCTRL alkalmazás frissítése sikertelen! Kérem, vegye fel a kapcsolatot a rendszergazdákkal!</value>
+  </data>
+  <data name="NotificationDcFreezeBody" xml:space="preserve">
+    <value>A JobCTRL egy másik alkalmazás miatt újraindult.</value>
+  </data>
+  <data name="NotificationUpdateFailedTitle" xml:space="preserve">
+    <value>Alkalmazásfrissítés</value>
+  </data>
+  <data name="NotificationDcFreezeTitle" xml:space="preserve">
+    <value>Újraindulás</value>
+  </data>
+  <data name="Program_FailedRestartTitle" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="WelcomeDontShow" xml:space="preserve">
+    <value>Ne mutassa újra!</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>Üdvözöljük a {0}-ban!</value>
+  </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>Vissza</value>
+  </data>
+  <data name="WelcomeCommonText" xml:space="preserve">
+    <value>A következő {0} pontban bemutatjuk Önnek az alkalmazás alapvető használatát.</value>
+  </data>
+  <data name="WelcomeDone" xml:space="preserve">
+    <value>Bezár</value>
+  </data>
+  <data name="WelcomeInstructionText1" xml:space="preserve">
+    <value>A JobCTRL ikont a tálca értesítési területén találja:</value>
+  </data>
+  <data name="WelcomeInstructionText2" xml:space="preserve">
+    <value>Az alkalmazást elindítani vagy leállítani az ikonra kettőt kattintva tudja.</value>
+  </data>
+  <data name="WelcomeInstructionText3" xml:space="preserve">
+    <value>Az alkalmazás menüjét az ikonra jobb egérgombbal kattintva érheti el.</value>
+  </data>
+  <data name="WelcomeInstructionText4" xml:space="preserve">
+    <value>Munkaidejének pontos dokumentálása érdekében, különböző rendezési elv szerint csoportosított feladatai közül tudja kiválasztani azt, amelyen dolgozni szeretne.</value>
+  </data>
+  <data name="WelcomeInstructionText5a" xml:space="preserve">
+    <value>A további beállításokat a testreszabás ablakban találja.</value>
+  </data>
+  <data name="WelcomeInstructionText5b" xml:space="preserve">
+    <value>Az alkalmazásban lehetősége van saját feladatok felvételére.</value>
+  </data>
+  <data name="WelcomeNext" xml:space="preserve">
+    <value>Tovább</value>
+  </data>
+  <data name="WelcomeInstructionText1a" xml:space="preserve">
+    <value>az alkalmazás nincs munkastátuszban, nem dokumentálja a munkavégzést,</value>
+  </data>
+  <data name="WelcomeInstructionText1b" xml:space="preserve">
+    <value>az alkalmazás munkastátuszban van, dokumentálja a munkavégzést,</value>
+  </data>
+  <data name="WelcomeInstructionText1c" xml:space="preserve">
+    <value>az alkalmazás szerverkapcsolat nélküli munkastátuszban van.</value>
+  </data>
+  <data name="Login_ForgottenPassword" xml:space="preserve">
+    <value>Elfelejtette a jelszavát?</value>
+  </data>
+  <data name="Login_Language" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="Login_LoginButton" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="Login_StartInGreen" xml:space="preserve">
+    <value>Automatikus indítás munkastátuszban</value>
+  </data>
+  <data name="Login_UserId" xml:space="preserve">
+    <value>Felhasználói azonosító / E-mail</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>Segítség</value>
+  </data>
+  <data name="Menu_Diagnostics" xml:space="preserve">
+    <value>Diagnosztika</value>
+  </data>
+  <data name="WelcomeInstructionText6a" xml:space="preserve">
+    <value>A További lehetőségek alatt létrehozhat Automatikus szabályokat.</value>
+  </data>
+  <data name="WelcomeInstructionText6b" xml:space="preserve">
+    <value>Ezeket egy felugró ablakban szerkesztheti.</value>
+  </data>
+  <data name="MenuDetails" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="IssueMgr_Company" xml:space="preserve">
+    <value>Cég</value>
+  </data>
+  <data name="IssueMgr_Name" xml:space="preserve">
+    <value>Tárgy</value>
+  </data>
+  <data name="IssueMgr_State" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="Login_ConnectionSettings" xml:space="preserve">
+    <value>Kapcsolat beállításai</value>
+  </data>
+  <data name="LoginSettings_Address" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="LoginSettings_Automatic" xml:space="preserve">
+    <value>Automatikus</value>
+  </data>
+  <data name="LoginSettings_Custom" xml:space="preserve">
+    <value>Egyéni</value>
+  </data>
+  <data name="LoginSettings_InvalidAddress" xml:space="preserve">
+    <value>Érvénytelen cím formátum.</value>
+  </data>
+  <data name="LoginSettings_Password" xml:space="preserve">
+    <value>Jelszó</value>
+  </data>
+  <data name="LoginSettings_Save" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="LoginSettings_Title" xml:space="preserve">
+    <value>Proxy beállítások</value>
+  </data>
+  <data name="LoginSettings_Username" xml:space="preserve">
+    <value>Felhasználónév</value>
+  </data>
+  <data name="IssueMgr_Issues" xml:space="preserve">
+    <value>Ügyek</value>
+  </data>
+  <data name="IssueMgr_All" xml:space="preserve">
+    <value>Mind</value>
+  </data>
+  <data name="IssueMgr_CreatedByMe" xml:space="preserve">
+    <value>Én hoztam létre</value>
+  </data>
+  <data name="IssueMgr_Modified" xml:space="preserve">
+    <value>Módosítva</value>
+  </data>
+  <data name="IssueMgr_ModifiedByMe" xml:space="preserve">
+    <value>Én módosítottam</value>
+  </data>
+  <data name="IssueMgr_Owner" xml:space="preserve">
+    <value>Felhasználó</value>
+  </data>
+  <data name="IssueMgr_SearchText" xml:space="preserve">
+    <value>Keresendő szöveg</value>
+  </data>
+  <data name="CountDown_TimeElapsed" xml:space="preserve">
+    <value>Eltelt idő:</value>
+  </data>
+  <data name="AddReasonDelayedBody" xml:space="preserve">
+    <value>Jelenleg offline módban van. Az üzenetek automatikusan küldésre kerülnek ha elérhető lesz a szerver.</value>
+  </data>
+  <data name="AddReasonDelayedTitle" xml:space="preserve">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="AddMeeting_AbortConfirmationInactivity" xml:space="preserve">
+    <value>Inaktivitás miatt offline munkaidő rögzítése van folyamatban.
+Valóban törli a teljes inaktivitásra vonatkozó időszakot a munkaidő elszámolása nélkül?</value>
+  </data>
+  <data name="AddMeeting_AbortButton" xml:space="preserve">
+    <value>Töröl</value>
+  </data>
+  <data name="AddMeeting_ConfirmButton" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="AddMeeting_Subtitle" xml:space="preserve">
+    <value>Inaktivitás alapján indítva</value>
+  </data>
+  <data name="AddMeeting_SubtitleHK" xml:space="preserve">
+    <value>Manuálisan indítva</value>
+  </data>
+  <data name="IssueMgr_CreatedBy" xml:space="preserve">
+    <value>Létrehozta</value>
+  </data>
+  <data name="IssueMgr_ModifiedBy" xml:space="preserve">
+    <value>Módosította</value>
+  </data>
+  <data name="Menu_AcReports" xml:space="preserve">
+    <value>Riportok</value>
+  </data>
+  <data name="IssueMgr_Category" xml:space="preserve">
+    <value>Kategória</value>
+  </data>
+  <data name="AutoUpdate_Prompt" xml:space="preserve">
+    <value>Az új verzió telepítésre készen áll. Kattintson a telepítéshez!</value>
+  </data>
+  <data name="AutoUpdate_UpdateAvailable" xml:space="preserve">
+    <value>Új verzió elérhető</value>
+  </data>
+  <data name="OfflineDataNotUploaded" xml:space="preserve">
+    <value>Elküldetlen adatok vannak</value>
+  </data>
+  <data name="OfflineReason_EndpointNotFound" xml:space="preserve">
+    <value>Sikertelen kommunikáció a szerverrel (Cím nem található)</value>
+  </data>
+  <data name="OfflineReason_Timeout" xml:space="preserve">
+    <value>Sikertelen kommunikáció a szerverrel (Időtúllépés)</value>
+  </data>
+  <data name="AddMeeting_ConfirmButtonTooltip" xml:space="preserve">
+    <value>Mért idő elszámolása munkaidőnek</value>
+  </data>
+  <data name="Install_MessageText" xml:space="preserve">
+    <value>Kérem várja meg a telepítés befejeződését!</value>
+  </data>
+  <data name="Install_MessageTitle" xml:space="preserve">
+    <value>Frissítés folyamatban...</value>
+  </data>
+  <data name="NotificationNewMessageTitle" xml:space="preserve">
+    <value>Új üzenet</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Üzenetek</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Tartalom</value>
+  </data>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="WelcomeAgree" xml:space="preserve">
+    <value>Rendben, tovább</value>
+  </data>
+  <data name="ConfirmExitBeforeDppAccept" xml:space="preserve">
+    <value>Biztosan kilép a programból?</value>
+  </data>
+  <data name="IssueMgr_StateClosed" xml:space="preserve">
+    <value>Lezárt</value>
+  </data>
+  <data name="IssueMgr_StateOpened" xml:space="preserve">
+    <value>Nyitott</value>
+  </data>
+  <data name="IssueMgr_StateWaitingForCustomer" xml:space="preserve">
+    <value>Ügyfélre vár</value>
+  </data>
+  <data name="TODOs" xml:space="preserve">
+    <value>Teendők</value>
+  </data>
+  <data name="TODOs_Add" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="TODOs_Save" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="TODOs_PromptSaveChanges" xml:space="preserve">
+    <value>Elmenti a változásokat?</value>
+  </data>
+  <data name="TODOs_StateCanceled" xml:space="preserve">
+    <value>Visszavont</value>
+  </data>
+  <data name="TODOs_StateFinished" xml:space="preserve">
+    <value>Befejezett</value>
+  </data>
+  <data name="TODOs_StateOpened" xml:space="preserve">
+    <value>Nyitott</value>
+  </data>
+  <data name="TODOs_StatePostponed" xml:space="preserve">
+    <value>Elhalasztott</value>
+  </data>
+  <data name="TODOs_TypeHere" xml:space="preserve">
+    <value>Ide írjon...</value>
+  </data>
+  <data name="TODOs_EditedBy" xml:space="preserve">
+    <value>{0} szerkeszti.</value>
+  </data>
+  <data name="TODOs_Modifiable" xml:space="preserve">
+    <value>Módosíthatja a listát.</value>
+  </data>
+  <data name="AddMeeting_ChooseTask" xml:space="preserve">
+    <value>Válasszon feladatot!</value>
+  </data>
+  <data name="AddMeeting_DeletedInfo" xml:space="preserve">
+    <value>Törölve</value>
+  </data>
+  <data name="AddMeeting_Merge" xml:space="preserve">
+    <value>Összevon</value>
+  </data>
+  <data name="AddMeeting_Split" xml:space="preserve">
+    <value>Szétbont</value>
+  </data>
+  <data name="AddMeeting_UndoDeleted" xml:space="preserve">
+    <value>visszavon</value>
+  </data>
+  <data name="AddMeeting_NotAccText" xml:space="preserve">
+    <value>Letiltott weboldalak, alkalmazások, privát tartalom, stb.</value>
+  </data>
+  <data name="AddMeeting_NotAccTitle" xml:space="preserve">
+    <value>Nem elszámolható</value>
+  </data>
+  <data name="TODOs_EmptyListItemError" xml:space="preserve">
+    <value>A lista nem tartalmazhat üres elemet!</value>
+  </data>
+  <data name="Program_FailedRestartBody" xml:space="preserve">
+    <value>Sikertelen újraindítás. Kérem, lépjen ki a programból és indítsa újra a JobCTRL-t kézzel!</value>
+  </data>
+  <data name="Notification_SoftphonePluginMessageBody" xml:space="preserve">
+    <value>Az integráció befejezéséhez indítsa újra a SoftphonePro alkalmazást.</value>
+  </data>
+  <data name="Notification_SoftphonePluginMessageTitle" xml:space="preserve">
+    <value>Indítsa újra a SoftphoneProt.</value>
+  </data>
+  <data name="AcquireLogs_NotificationMessage" xml:space="preserve">
+    <value>Kattintson ide a log file-ok küldéséhez!</value>
+  </data>
+  <data name="AcquireLogs_NotificationTitle" xml:space="preserve">
+    <value>A JobCTRL csapatnak szüksége van az Ön segítségére</value>
+  </data>
+  <data name="AcquireLogs_MessageBoxTitle" xml:space="preserve">
+    <value>Küld be logot?</value>
+  </data>
+  <data name="AcquireLogs_Remember" xml:space="preserve">
+    <value>Emlékezzen a döntésre</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredBody" xml:space="preserve">
+    <value>Az alkalmazás frissítéséhez kérem indítsa újra a számítógépét!</value>
+  </data>
+  <data name="NotificationWindowsRestartRequiredTitle" xml:space="preserve">
+    <value>Újraindítás szükséges</value>
+  </data>
+  <data name="NotificationRulesChangedText" xml:space="preserve">
+    <value>Az automatikus működést biztosító szabályok megváltoztak</value>
+  </data>
+  <data name="NotificationRulesChangedTitle" xml:space="preserve">
+    <value>Szabályok</value>
+  </data>
+  <data name="AutoMode_NotificationText" xml:space="preserve">
+    <value>A céges beállítások miatt a feladatválasztás nem engedélyezett. Kérem, vegye fel a kapcsolatot a rendszer adminisztrátorával!</value>
+  </data>
+  <data name="AutoMode_QueryDisplaySettings" xml:space="preserve">
+    <value>A céges beállítások miatt a feladatválasztás nem engedélyezett. Szeretné módosítani a beállításokat? (Az “Igen”-re kattintás után átirányítjuk az Alapbeállítások menüpontba.)</value>
+  </data>
+  <data name="AutoMode_QuerySwitchOff" xml:space="preserve">
+    <value>A céges beállítások miatt a feladatválasztás nem engedélyezett. Szeretné kikapcsolni az automatikus működést? (Az “Igen”-re való kattintás után az automatikus működés kikapcsol.)</value>
+  </data>
+  <data name="AutoMode_Title" xml:space="preserve">
+    <value>Automatikus működés</value>
+  </data>
+  <data name="WorkData_ProjectInstructions" xml:space="preserve">
+    <value>Válasszon projektet vagy feladat csoportot! Új elemet a [weben] tud létrehozni.</value>
+  </data>
+  <data name="NotificationTimeZoneBody" xml:space="preserve">
+    <value>Az Ön számítógépén eltérő időzóna beállítás van, mint a webes profilban. Kérem, vegye fel a kapcsolatot a rendszer adminisztrátorával!</value>
+  </data>
+  <data name="NotificationTimeZoneTitle" xml:space="preserve">
+    <value>Időzóna beállítás</value>
+  </data>
+  <data name="TODOs_Age_Days" xml:space="preserve">
+    <value>{0}n</value>
+  </data>
+  <data name="TODOs_Age_Weeks" xml:space="preserve">
+    <value>{0}h</value>
+  </data>
+  <data name="TODOs_Age_Weeks_Days" xml:space="preserve">
+    <value>{0}h {1}n</value>
+  </data>
+  <data name="ContextMenu_FavoriteReports" xml:space="preserve">
+    <value>Kedvenc reportok</value>
+  </data>
+  <data name="ContextMenu_Overview" xml:space="preserve">
+    <value>Áttekintés</value>
+  </data>
+  <data name="ContextMenu_Refresh" xml:space="preserve">
+    <value>Frissít</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Feladatok</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportFailedText" xml:space="preserve">
+    <value>A hozzáférési jogok elérése a Google szolgáltatásaihoz sikertelen!</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportSuccessText" xml:space="preserve">
+    <value>Sikeresen megszereztük a hozzáférést a Google szolgáltatásokhoz.</value>
+  </data>
+  <data name="GoogleCredetialManager_ReportTitle" xml:space="preserve">
+    <value>Google fiók</value>
+  </data>
+  <data name="Login_NotificationAuthenticationFailed" xml:space="preserve">
+    <value>A felhasználó beléptetése sikertelen! Kívánja újra próbálni?</value>
+  </data>
+  <data name="TODOs_ListAlreadySaved" xml:space="preserve">
+    <value>A lista nem menthető, mert már mentésre került egy másik eszközön. Az OK gomb törli a módosításokat és bezárja az ablakot. A Mégsem gombbal visszatérhet a szerkesztéshez és manuálisan mentheti a listaelemeit.</value>
+  </data>
+  <data name="GoogleAuthenticationForm_FirstRow" xml:space="preserve">
+    <value>A naptár szinkronizáció működéséhez a Google fiók hozzákapcsolása szükséges.</value>
+  </data>
+  <data name="GoogleAuthenticationForm_PrivacyPolicy" xml:space="preserve">
+    <value>Adatvédelmi nyilatkozat</value>
+  </data>
+  <data name="GoogleAuthenticationForm_SecondRow" xml:space="preserve">
+    <value>Kattintson az engedélyezési folyamat elkezdéséhez!</value>
+  </data>
+  <data name="Preference_ShowThisMonthStats" xml:space="preserve">
+    <value>Havi munkaidő megjelenítése</value>
+  </data>
+  <data name="Preference_ShowThisQuarterStats" xml:space="preserve">
+    <value>Negyedéves munkaidő megjelenítése</value>
+  </data>
+  <data name="Preference_ShowThisYearStats" xml:space="preserve">
+    <value>Éves munkaidő megjelenítése</value>
+  </data>
+  <data name="ThisQuarterWorkTime" xml:space="preserve">
+    <value>Negyedéves munkaidő</value>
+  </data>
+  <data name="ThisYearWorkTime" xml:space="preserve">
+    <value>Éves munkaidő</value>
+  </data>
+  <data name="Login_PasswordExpiredClick" xml:space="preserve">
+    <value>Lejárt a jelszava. Kattintson ide a megújításhoz!</value>
+  </data>
+  <data name="Login_PasswordExpiredTitle" xml:space="preserve">
+    <value>Lejárt jelszó</value>
+  </data>
+  <data name="Hotkeys_ActionTypeClearAutoRuleTimer" xml:space="preserve">
+    <value>Öntanuló szabály időzítők törlése</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>{0} - Bejelentkezés</value>
+  </data>
+</root>

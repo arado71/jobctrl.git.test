@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ActivityRecorderClientAV.DebugWindowAV"
+        Width="600" Height="400" Title="Debug Window"
+        WindowStartupLocation="Manual"
+        Position="0,0" 
+        ExtendClientAreaToDecorationsHint="True"
+        TransparencyLevelHint="AcrylicBlur, Transparent">
+
+    <LayoutTransformControl x:Name="DebugWindowLayoutTransformControl">        
+        <Grid>
+
+            <Border PointerPressed="OnHeaderPointerPressed" Background="#00000000">
+            <TextBlock Text="Debug" 
+                IsHitTestVisible="True"
+                FontSize="18" 
+                FontWeight="Medium" 
+                HorizontalAlignment="Center" 
+                Margin="0,7,0,0" />
+            </Border>
+
+            <TextBox x:Name="DebugOutput"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    IsReadOnly="True"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap" 
+                    Margin="10,35,10,10" />
+        </Grid>
+    </LayoutTransformControl>
+</Window>

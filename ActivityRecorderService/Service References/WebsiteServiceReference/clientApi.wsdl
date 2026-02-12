@@ -1,0 +1,2737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tns="http://jobctrl.com/clientApi" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://jobctrl.com/clientApi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jobctrl.com/clientApi">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AssignUserToTaskByGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignUserToTaskByGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AssignUserToTaskByGuidResult" type="tns:AssignUserToTaskRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AssignUserToTaskRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AccessDenied" />
+          <s:enumeration value="UnknownError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateTaskDynamicallyForExternalKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoRuleId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjectId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalKeyWithSuffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTaskDynamicallyForExternalKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTaskDynamicallyForExternalKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTaskDynamicallyUnderPath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoRuleId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalKeyWithSuffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectPathKeysWithSuffix" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateTaskDynamicallyUnderPathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTaskDynamicallyUnderPathResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseTaskForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReasonItemId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseTaskForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseTaskForUserResult" type="tns:CloseTaskForUserRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="CloseTaskForUserRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AlreadyClosed" />
+          <s:enumeration value="Other" />
+          <s:enumeration value="ReasonRequired" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ManageMeetings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ManageMeetingsRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ManageMeetingsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LoginTicket" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComputerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastQueryIntervalEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetingsToUpload" type="tns:ArrayOfCalendarMeeting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCalendarMeeting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CalendarMeeting" nillable="true" type="tns:CalendarMeeting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CalendarMeeting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:CalendarMeetingStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModificationTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OldStartTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attendees" type="tns:ArrayOfMeetingAttendee" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalendarEmailAccount" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInFuture" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CalendarMeetingStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Created" />
+          <s:enumeration value="Updated" />
+          <s:enumeration value="Deleted" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfMeetingAttendee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MeetingAttendee" nillable="true" type="tns:MeetingAttendee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MeetingAttendee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MeetingAttendeeType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseStatus" type="tns:MeetingAttendeeResponseStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MeetingAttendeeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Organizer" />
+          <s:enumeration value="Required" />
+          <s:enumeration value="Optional" />
+          <s:enumeration value="Resource" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MeetingAttendeeResponseStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="ResponseNone" />
+          <s:enumeration value="ResponseOrganized" />
+          <s:enumeration value="ResponseTentative" />
+          <s:enumeration value="ResponseAccepted" />
+          <s:enumeration value="ResponseDeclined" />
+          <s:enumeration value="ResponseNotResponded" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ManageMeetingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManageMeetingsResult" type="tns:ManageMeetingsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ManageMeetingsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ManageMeetingsRet" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalendarEmailAccounts" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastSuccessfulSyncDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetingstoApprove" type="tns:ArrayOfPendingMeeting" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpcomingMeetings" type="tns:ArrayOfPendingMeeting" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ManageMeetingsRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="AuthCodeNotValid" />
+          <s:enumeration value="AddMeetingError" />
+          <s:enumeration value="GetSyncParametersError" />
+          <s:enumeration value="InvalidComputerId" />
+          <s:enumeration value="InvalidUserId" />
+          <s:enumeration value="InvalidCompanyId" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPendingMeeting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PendingMeeting" nillable="true" type="tns:PendingMeeting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PendingMeeting">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganizerId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizerEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizerFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizerLastName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddManualMeetings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="manualMeetings" type="tns:ArrayOfManualMeeting" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfManualMeeting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ManualMeeting" nillable="true" type="tns:ManualMeeting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ManualMeeting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttendeeEmails" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddManualMeetingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddManualMeetingsResult" type="tns:AddManualMeetingsRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AddManualMeetingsRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="AuthCodeNotValid" />
+          <s:enumeration value="AddManualMeetingError" />
+          <s:enumeration value="InvalidTimeValues" />
+          <s:enumeration value="InvalidTaskId" />
+          <s:enumeration value="InvalidAttendeeEmail" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetUsersReasons">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="userIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUsersReasonsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUsersReasonsResult" type="tns:GetUsersReasonsRet" />
+            <s:element minOccurs="0" maxOccurs="1" name="userReasons" type="tns:ArrayOfUsersReasons" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="GetUsersReasonsRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AuthCodeNotValid" />
+          <s:enumeration value="AccessDenied" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfUsersReasons">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsersReasons" nillable="true" type="tns:UsersReasons" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsersReasons">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReasonsItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="reasonIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReasonsItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReasonsItemsResult" type="tns:GetReasonsItemsRet" />
+            <s:element minOccurs="0" maxOccurs="1" name="reasonItems" type="tns:ArrayOfReasonItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="reasonItemsTexts" type="tns:ArrayOfReasonItemTextKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="GetReasonsItemsRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AuthCodeNotValid" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfReasonItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReasonItem" nillable="true" type="tns:ReasonItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReasonItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReasonItemTextKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReasonItemTextKey" nillable="true" type="tns:ReasonItemTextKey" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReasonItemTextKey">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="KeyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddUsersCommentsToWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="tns:ArrayOfUsersComment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsersComment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsersComment" nillable="true" type="tns:UsersComment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsersComment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonItemId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordedAtUTC" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UTCDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddUsersCommentsToWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUsersCommentsToWorkResult" type="tns:AddUsersCommentsToWorkRet" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="tns:ArrayOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AddUsersCommentsToWorkRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AuthCodeNotValid" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMobileStayingLocationsReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="localStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="localEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMobileStayingLocationsReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMobileStayingLocationsReportResult" type="tns:ArrayOfStayingLocationsReportItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStayingLocationsReportItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StayingLocationsReportItem" nillable="true" type="tns:StayingLocationsReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StayingLocationsReportItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocalStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocalEndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SummaryOfUser" type="tns:ArrayOfLongStayingMarkerTitleSummaryReportItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationsOfUser" type="tns:ArrayOfMarkedLocationReportItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherFileUploads" type="tns:ArrayOfMobileFileUploadReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLongStayingMarkerTitleSummaryReportItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LongStayingMarkerTitleSummaryReportItem" nillable="true" type="tns:LongStayingMarkerTitleSummaryReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LongStayingMarkerTitleSummaryReportItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MarkerTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTimeInMins" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfItems" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfMarkedLocationReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMarkedLocationReportItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MarkedLocationReportItem" nillable="true" type="tns:MarkedLocationReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarkedLocationReportItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileUploads" type="tns:ArrayOfMobileFileUploadReportItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reasons" type="tns:ArrayOfReasonItemResponseWithFullName" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorksWithFullName" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarkerTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMobileFileUploadReportItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MobileFileUploadReportItem" nillable="true" type="tns:MobileFileUploadReportItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobileFileUploadReportItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkWithFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SizeInBytes" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResourceUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReasonItemResponseWithFullName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReasonItemResponseWithFullName" nillable="true" type="tns:ReasonItemResponseWithFullName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReasonItemResponseWithFullName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WorkWithFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonItemWithFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateWorkAndAssignment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskStartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskEndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskTargetCost" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskPlannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskPriority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskMeetingDurationInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskCategoryId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskIsForMobile" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskCloseAfterInactiveHours" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentStartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentEndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentPlannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentPriority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentCloseReasonRequiredTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentCloseReasonRequiredDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentCloseReasonRequiredTimeRepeatIntervalInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentCloseReasonRequiredTimeRepeatCount" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkAndAssignmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateWorkAndAssignmentResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkAndAssignment_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskStartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskEndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskTargetCost" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskPlannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskPriority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskMeetingDurationInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskCategoryId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskIsForMobile" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskCloseAfterInactiveHours" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentStartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentEndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignmentPlannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="requiredClosedReasons" type="tns:RequiredCloseReasons" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequiredCloseReasons">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AfterDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfterTimeInMins" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatIntervalInMins" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatingTimes" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateWorkAndAssignment_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateWorkAndAssignment_v2Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignUserToWorks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="workIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearValuesWhenEmpty" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="priority" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeRepeatIntervalInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeRepeatCount" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignUserToWorksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssignUserToWorksResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignUserToWorks_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="workIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearValuesWhenEmpty" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignUserToWorks_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssignUserToWorks_v2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="workId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearValuesWhenEmpty" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="targetCost" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="meetingDurationInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoryId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isForMobile" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeAfterInactiveHours" nillable="true" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWorkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWork_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="workId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearValuesWhenEmpty" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="targetCost" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="meetingDurationInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoryId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isForMobile" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeAfterInactiveHours" nillable="true" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="requiredClosedReasons" type="tns:RequiredCloseReasons" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWork_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWork_v2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssignment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="workId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="priority" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeRepeatIntervalInMinutes" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="closeReasonRequiredTimeRepeatCount" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssignmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssignmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssignment_v2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="workId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="plannedWorkTimeInMinutes" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssignment_v2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssignment_v2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreateWorkLimits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreateWorkLimitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCreateWorkLimitsResult" type="tns:TaskLimits" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TaskLimits">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MaxTargetCost" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinTargetPlannedTimeInMinutes" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxTargetPlannedTimeInMinutes" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDateMin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDateMax" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDateMin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDateMax" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUpdateWorkLimits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="workId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpdateWorkLimitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpdateWorkLimitsResult" type="tns:TaskLimits" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandatoryFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandatoryFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMandatoryFieldsResult" type="tns:MandatoryFields" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MandatoryFields">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Task" type="tns:TaskMandatoryFields" />
+          <s:element minOccurs="1" maxOccurs="1" name="Assignment" type="tns:AssignmentMandatoryFields" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TaskMandatoryFields">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="Priority" />
+              <s:enumeration value="StartEndDate" />
+              <s:enumeration value="PlannedWorkTime" />
+              <s:enumeration value="PlannedCost" />
+              <s:enumeration value="Description" />
+              <s:enumeration value="Category" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:simpleType name="AssignmentMandatoryFields">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="Priority" />
+              <s:enumeration value="StartEndDate" />
+              <s:enumeration value="PlannedWorkTime" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetProjectAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectAccessResult" type="tns:ArrayOfProjectAccess" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProjectAccess">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProjectAccess" nillable="true" type="tns:ProjectAccess" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectAccess">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasAccess" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddManualWorkItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="manualWorkItemType" type="tns:ManualWorkItemType" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="computerId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="source" nillable="true" type="tns:ManualWorkItemSource" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ManualWorkItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ReplaceInterval" />
+          <s:enumeration value="AddWork" />
+          <s:enumeration value="DeleteInterval" />
+          <s:enumeration value="DeleteIvrInterval" />
+          <s:enumeration value="DeleteComputerInterval" />
+          <s:enumeration value="AddHoliday" />
+          <s:enumeration value="AddSickLeave" />
+          <s:enumeration value="DeleteMobileInterval" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ManualWorkItemSource">
+        <s:restriction base="s:string">
+          <s:enumeration value="ServerAddWorkItem" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AddManualWorkItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddManualWorkItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteManualWorkItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="manualWorkItemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteManualWorkItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteManualWorkItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRequestedManualWorkItemStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="manualWorkItemId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:RequestedManualWorkItemStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="RequestedManualWorkItemStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Requested" />
+          <s:enumeration value="Approved" />
+          <s:enumeration value="Rejected" />
+          <s:enumeration value="Revoked" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SetRequestedManualWorkItemStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRequestedManualWorkItemStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="meetingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMeetingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteMeetingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="meetingId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeetingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMeetingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="tns:Message" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetUserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Target" type="tns:MessageTarget" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PCLastSentAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MobileLastSentAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PCLastReadAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MobileLastReadAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeletedAt" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpiryInHours" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MessageTarget">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="PC" />
+              <s:enumeration value="Mobile" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="AddMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddMessageResult" type="tns:AddMessageRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AddMessageRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="AccessDenied" />
+          <s:enumeration value="EmptyTarget" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMessageChanges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="systemComponentTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUserInfos" type="tns:ArrayOfMessageTargetUserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageTargetUserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageTargetUserInfo" nillable="true" type="tns:MessageTargetUserInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageTargetUserInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastChangeDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageChangesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageChangesResult" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MarkMessagesAsSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="systemComponentTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sentMessages" type="tns:ArrayOfSentMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSentMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SentMessage" nillable="true" type="tns:SentMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SentMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SentAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComputerId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MarkMessagesAsSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MarkMessagesAsSentResult" type="tns:MarkMessagesAsSentRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MarkMessagesAsSentRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="MessageNotExists" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="MarkMessageAsRead">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="readAt" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="computerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkMessageAsReadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MarkMessageAsReadResult" type="tns:MarkMessageAsReadRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MarkMessageAsReadRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="AccessDenied" />
+          <s:enumeration value="MessageNotExists" />
+          <s:enumeration value="MessageNotSent" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetWorktimeStatsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="localToday" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="requiredIntervals" type="tns:WorktimeStatIntervals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="WorktimeStatIntervals">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="Today" />
+              <s:enumeration value="Week" />
+              <s:enumeration value="Month" />
+              <s:enumeration value="Quarter" />
+              <s:enumeration value="Year" />
+              <s:enumeration value="Default" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetWorktimeStatsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorktimeStatsForUserResult" type="tns:WorkTimeStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WorkTimeStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TodaysWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisWeeksWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisMonthsWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TodaysTargetNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisWeeksTargetNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisMonthsTargetNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisWeeksTargetUntilTodayNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisMonthsTargetUntilTodayNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastComputerWorkitemEndTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndOfTodayInUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisQuarterWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisYearWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisQuarterTargetNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisYearTargetNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisQuarterTargetUntilTodayNetWorkTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThisYearTargetUntilTodayNetWorkTimeInMs" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDisplayedReportsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultureId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="localToday" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDisplayedReportsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDisplayedReportsForUserResult" type="tns:DisplayedReports" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DisplayedReports">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LayoutXml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportImages" type="tns:ArrayOfDisplayedReportImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDisplayedReportImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DisplayedReportImage" nillable="true" type="tns:DisplayedReportImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DisplayedReportImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportImage" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisableCompanyDictionaryAutoRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableCompanyDictionaryAutoRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DisableCompanyDictionaryAutoRulesResult" type="tns:DisableCompanyDictionaryAutoRulesRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="DisableCompanyDictionaryAutoRulesRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+          <s:enumeration value="AccessDenied" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="UpdateRuleParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ruleId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pluginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameterName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRuleParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateRuleParametersResult" type="tns:UpdateRuleParametersRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="UpdateRuleParametersRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="AuthCodeNotValid" />
+          <s:enumeration value="InvalidRuleId" />
+          <s:enumeration value="PluginIdDoesNotExist" />
+          <s:enumeration value="ParameterNameDoesNotExist" />
+          <s:enumeration value="ContentCannotBeEmpty" />
+          <s:enumeration value="InvalidPluginRegex" />
+          <s:enumeration value="UnknownError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetFavoriteReportsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultureId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoriteReportsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFavoriteReportsForUserResult" type="tns:ArrayOfFavoriteReport" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFavoriteReport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FavoriteReport" nillable="true" type="tns:FavoriteReport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FavoriteReport">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SignedInFromClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="computerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isNewDevice" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="osType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignedInFromClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SignedInFromClientResult" type="tns:SignedInFromClientRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SignedInFromClientRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SignedOutFromClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="computerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="osType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignedOutFromClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SignedOutFromClientResult" type="tns:SignedOutFromClientRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SignedOutFromClientRet">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="UnknownError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCarpetDiagramForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ticket" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="targetUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="localDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarpetDiagramForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarpetDiagramForUserResult" type="tns:CarpetDiagram" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CarpetDiagram">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetPcWorkItems" type="tns:ArrayOfCarpetPcWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetMobileWorkItems" type="tns:ArrayOfCarpetMobileWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetMobileBeaconWorkItems" type="tns:ArrayOfCarpetMobileWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetManualWorkItems" type="tns:ArrayOfCarpetManualWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetRequestedManualWorkItems" type="tns:ArrayOfCarpetRequestedManualWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetMeetingWorkItems" type="tns:ArrayOfCarpetMeetingWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetRequestedMeetingWorkItems" type="tns:ArrayOfCarpetRequestedMeetingWorkItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarpetPermissions" type="tns:CarpetPermissions" />
+          <s:element minOccurs="0" maxOccurs="1" name="DailyWorkingTimeStats" type="tns:DailyWorkingTimeStats" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaidLeaveTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SickLeaveTimeInMs" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskNameLookup" type="tns:ArrayOfTaskIdNamePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetPcWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetPcWorkItem" nillable="true" type="tns:CarpetPcWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetPcWorkItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorkId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComputerId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetMobileWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetMobileWorkItem" nillable="true" type="tns:CarpetMobileWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetMobileWorkItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Imei" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetManualWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetManualWorkItem" nillable="true" type="tns:CarpetManualWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetManualWorkItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorkId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetRequestedManualWorkItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CarpetManualWorkItem">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetRequestedManualWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetRequestedManualWorkItem" nillable="true" type="tns:CarpetRequestedManualWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetMeetingWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetMeetingWorkItem" nillable="true" type="tns:CarpetMeetingWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetMeetingWorkItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizerEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttendeeEmails" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetRequestedMeetingWorkItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CarpetMeetingWorkItem">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCarpetRequestedMeetingWorkItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetRequestedMeetingWorkItem" nillable="true" type="tns:CarpetRequestedMeetingWorkItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetPermissions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsModificationApprovalNeeded" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModificationAgeLimitInHours" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DailyWorkingTimeStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTimeInMs" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTimeInMs" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTimeInMs" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartEndDiffInMs" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastComputerWorkitemEndTime" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTaskIdNamePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaskIdNamePair" nillable="true" type="tns:TaskIdNamePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaskIdNamePair">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskNameWithCompletePath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomTabsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultureId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomTabsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomTabsForUserResult" type="tns:ArrayOfClientTab" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClientTab">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientTab" nillable="true" type="tns:ClientTab" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientTab">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TabId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalizedTitle" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContentForUserTab">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginTicket" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="tabId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cultureId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="localToday" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentForUserTabResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentForUserTabResult" type="tns:DisplayedReports" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AssignUserToTaskByGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignUserToTaskByGuid" />
+  </wsdl:message>
+  <wsdl:message name="AssignUserToTaskByGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignUserToTaskByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskDynamicallyForExternalKeySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTaskDynamicallyForExternalKey" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskDynamicallyForExternalKeySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTaskDynamicallyForExternalKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskDynamicallyUnderPathSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTaskDynamicallyUnderPath" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskDynamicallyUnderPathSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTaskDynamicallyUnderPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseTaskForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseTaskForUser" />
+  </wsdl:message>
+  <wsdl:message name="CloseTaskForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseTaskForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManageMeetingsSoapIn">
+    <wsdl:part name="parameters" element="tns:ManageMeetings" />
+  </wsdl:message>
+  <wsdl:message name="ManageMeetingsSoapOut">
+    <wsdl:part name="parameters" element="tns:ManageMeetingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddManualMeetingsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddManualMeetings" />
+  </wsdl:message>
+  <wsdl:message name="AddManualMeetingsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddManualMeetingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersReasonsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersReasons" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersReasonsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReasonsItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReasonsItems" />
+  </wsdl:message>
+  <wsdl:message name="GetReasonsItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReasonsItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUsersCommentsToWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUsersCommentsToWork" />
+  </wsdl:message>
+  <wsdl:message name="AddUsersCommentsToWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUsersCommentsToWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileStayingLocationsReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMobileStayingLocationsReport" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileStayingLocationsReportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMobileStayingLocationsReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkAndAssignmentSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWorkAndAssignment" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkAndAssignmentSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWorkAndAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkAndAssignment_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWorkAndAssignment_v2" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkAndAssignment_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWorkAndAssignment_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="AssignUserToWorksSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignUserToWorks" />
+  </wsdl:message>
+  <wsdl:message name="AssignUserToWorksSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignUserToWorksResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignUserToWorks_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:AssignUserToWorks_v2" />
+  </wsdl:message>
+  <wsdl:message name="AssignUserToWorks_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:AssignUserToWorks_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWork" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWork_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWork_v2" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWork_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWork_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssignmentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAssignment" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssignmentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssignment_v2SoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAssignment_v2" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssignment_v2SoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssignment_v2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetCreateWorkLimitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCreateWorkLimits" />
+  </wsdl:message>
+  <wsdl:message name="GetCreateWorkLimitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCreateWorkLimitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateWorkLimitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpdateWorkLimits" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateWorkLimitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpdateWorkLimitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMandatoryFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMandatoryFields" />
+  </wsdl:message>
+  <wsdl:message name="GetMandatoryFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMandatoryFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectAccess" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddManualWorkItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddManualWorkItem" />
+  </wsdl:message>
+  <wsdl:message name="AddManualWorkItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AddManualWorkItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteManualWorkItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteManualWorkItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteManualWorkItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteManualWorkItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRequestedManualWorkItemStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRequestedManualWorkItemStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetRequestedManualWorkItemStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRequestedManualWorkItemStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMeeting" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMeeting" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMessage" />
+  </wsdl:message>
+  <wsdl:message name="AddMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageChangesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageChanges" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageChangesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarkMessagesAsSentSoapIn">
+    <wsdl:part name="parameters" element="tns:MarkMessagesAsSent" />
+  </wsdl:message>
+  <wsdl:message name="MarkMessagesAsSentSoapOut">
+    <wsdl:part name="parameters" element="tns:MarkMessagesAsSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarkMessageAsReadSoapIn">
+    <wsdl:part name="parameters" element="tns:MarkMessageAsRead" />
+  </wsdl:message>
+  <wsdl:message name="MarkMessageAsReadSoapOut">
+    <wsdl:part name="parameters" element="tns:MarkMessageAsReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorktimeStatsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorktimeStatsForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetWorktimeStatsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorktimeStatsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDisplayedReportsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReportsForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetDisplayedReportsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDisplayedReportsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableCompanyDictionaryAutoRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableCompanyDictionaryAutoRules" />
+  </wsdl:message>
+  <wsdl:message name="DisableCompanyDictionaryAutoRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableCompanyDictionaryAutoRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRuleParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRuleParameters" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRuleParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRuleParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteReportsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFavoriteReportsForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteReportsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFavoriteReportsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignedInFromClientSoapIn">
+    <wsdl:part name="parameters" element="tns:SignedInFromClient" />
+  </wsdl:message>
+  <wsdl:message name="SignedInFromClientSoapOut">
+    <wsdl:part name="parameters" element="tns:SignedInFromClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignedOutFromClientSoapIn">
+    <wsdl:part name="parameters" element="tns:SignedOutFromClient" />
+  </wsdl:message>
+  <wsdl:message name="SignedOutFromClientSoapOut">
+    <wsdl:part name="parameters" element="tns:SignedOutFromClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarpetDiagramForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarpetDiagramForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetCarpetDiagramForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarpetDiagramForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomTabsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomTabsForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomTabsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomTabsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentForUserTabSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentForUserTab" />
+  </wsdl:message>
+  <wsdl:message name="GetContentForUserTabSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentForUserTabResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClientAPISoap">
+    <wsdl:operation name="AssignUserToTaskByGuid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Assigns task for a specific user</wsdl:documentation>
+      <wsdl:input message="tns:AssignUserToTaskByGuidSoapIn" />
+      <wsdl:output message="tns:AssignUserToTaskByGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyForExternalKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates task for external key when it doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:CreateTaskDynamicallyForExternalKeySoapIn" />
+      <wsdl:output message="tns:CreateTaskDynamicallyForExternalKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyUnderPath">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates task for a path-based external key when it doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:CreateTaskDynamicallyUnderPathSoapIn" />
+      <wsdl:output message="tns:CreateTaskDynamicallyUnderPathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseTaskForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Closes task for the user with reason when needed</wsdl:documentation>
+      <wsdl:input message="tns:CloseTaskForUserSoapIn" />
+      <wsdl:output message="tns:CloseTaskForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Manages the two-way communication between the clients and server regarding the corresponding meetings</wsdl:documentation>
+      <wsdl:input message="tns:ManageMeetingsSoapIn" />
+      <wsdl:output message="tns:ManageMeetingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeetings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds manual meetings</wsdl:documentation>
+      <wsdl:input message="tns:AddManualMeetingsSoapIn" />
+      <wsdl:output message="tns:AddManualMeetingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersReasons">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the reason trees assigned to the users</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersReasonsSoapIn" />
+      <wsdl:output message="tns:GetUsersReasonsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonsItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the reason tree items and their relationship</wsdl:documentation>
+      <wsdl:input message="tns:GetReasonsItemsSoapIn" />
+      <wsdl:output message="tns:GetReasonsItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersCommentsToWork">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add user comment to a work</wsdl:documentation>
+      <wsdl:input message="tns:AddUsersCommentsToWorkSoapIn" />
+      <wsdl:output message="tns:AddUsersCommentsToWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileStayingLocationsReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets mobile staying locations report for users</wsdl:documentation>
+      <wsdl:input message="tns:GetMobileStayingLocationsReportSoapIn" />
+      <wsdl:output message="tns:GetMobileStayingLocationsReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets information about user</wsdl:documentation>
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create work and assignment from client</wsdl:documentation>
+      <wsdl:input message="tns:CreateWorkAndAssignmentSoapIn" />
+      <wsdl:output message="tns:CreateWorkAndAssignmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment_v2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create work and assignment from client</wsdl:documentation>
+      <wsdl:input message="tns:CreateWorkAndAssignment_v2SoapIn" />
+      <wsdl:output message="tns:CreateWorkAndAssignment_v2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Assign user to works from client</wsdl:documentation>
+      <wsdl:input message="tns:AssignUserToWorksSoapIn" />
+      <wsdl:output message="tns:AssignUserToWorksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks_v2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Assign user to works from client</wsdl:documentation>
+      <wsdl:input message="tns:AssignUserToWorks_v2SoapIn" />
+      <wsdl:output message="tns:AssignUserToWorks_v2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update work from client</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWorkSoapIn" />
+      <wsdl:output message="tns:UpdateWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork_v2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update work from client</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWork_v2SoapIn" />
+      <wsdl:output message="tns:UpdateWork_v2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update assignment from client</wsdl:documentation>
+      <wsdl:input message="tns:UpdateAssignmentSoapIn" />
+      <wsdl:output message="tns:UpdateAssignmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment_v2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update assignment from client</wsdl:documentation>
+      <wsdl:input message="tns:UpdateAssignment_v2SoapIn" />
+      <wsdl:output message="tns:UpdateAssignment_v2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreateWorkLimits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get planning limits for newly created work</wsdl:documentation>
+      <wsdl:input message="tns:GetCreateWorkLimitsSoapIn" />
+      <wsdl:output message="tns:GetCreateWorkLimitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateWorkLimits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get planning limits for an existing work</wsdl:documentation>
+      <wsdl:input message="tns:GetUpdateWorkLimitsSoapIn" />
+      <wsdl:output message="tns:GetUpdateWorkLimitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryFields">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get mandatory fields for the current user</wsdl:documentation>
+      <wsdl:input message="tns:GetMandatoryFieldsSoapIn" />
+      <wsdl:output message="tns:GetMandatoryFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get project access for selected projectIds</wsdl:documentation>
+      <wsdl:input message="tns:GetProjectAccessSoapIn" />
+      <wsdl:output message="tns:GetProjectAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds manual workitems with various types</wsdl:documentation>
+      <wsdl:input message="tns:AddManualWorkItemSoapIn" />
+      <wsdl:output message="tns:AddManualWorkItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManualWorkItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a manualworkitem by id</wsdl:documentation>
+      <wsdl:input message="tns:DeleteManualWorkItemSoapIn" />
+      <wsdl:output message="tns:DeleteManualWorkItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRequestedManualWorkItemStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifies the state of a requested manualworkitem</wsdl:documentation>
+      <wsdl:input message="tns:SetRequestedManualWorkItemStatusSoapIn" />
+      <wsdl:output message="tns:SetRequestedManualWorkItemStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMeeting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a meeting by id</wsdl:documentation>
+      <wsdl:input message="tns:DeleteMeetingSoapIn" />
+      <wsdl:output message="tns:DeleteMeetingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates an approved meeting by id</wsdl:documentation>
+      <wsdl:input message="tns:UpdateMeetingSoapIn" />
+      <wsdl:output message="tns:UpdateMeetingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new message</wsdl:documentation>
+      <wsdl:input message="tns:AddMessageSoapIn" />
+      <wsdl:output message="tns:AddMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageChanges">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get changes of messages for user happed after the last change of messages</wsdl:documentation>
+      <wsdl:input message="tns:GetMessageChangesSoapIn" />
+      <wsdl:output message="tns:GetMessageChangesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessagesAsSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Marks messages as sent</wsdl:documentation>
+      <wsdl:input message="tns:MarkMessagesAsSentSoapIn" />
+      <wsdl:output message="tns:MarkMessagesAsSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Marks messages as read</wsdl:documentation>
+      <wsdl:input message="tns:MarkMessageAsReadSoapIn" />
+      <wsdl:output message="tns:MarkMessageAsReadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorktimeStatsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get some working time related info needed by the clients</wsdl:documentation>
+      <wsdl:input message="tns:GetWorktimeStatsForUserSoapIn" />
+      <wsdl:output message="tns:GetWorktimeStatsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get reports to be displayed in clients.</wsdl:documentation>
+      <wsdl:input message="tns:GetDisplayedReportsForUserSoapIn" />
+      <wsdl:output message="tns:GetDisplayedReportsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableCompanyDictionaryAutoRules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Disables all dictionaryautorules (keyword based rules) of a company</wsdl:documentation>
+      <wsdl:input message="tns:DisableCompanyDictionaryAutoRulesSoapIn" />
+      <wsdl:output message="tns:DisableCompanyDictionaryAutoRulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRuleParameters">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update client automatic rule parameters for a specific plugin</wsdl:documentation>
+      <wsdl:input message="tns:UpdateRuleParametersSoapIn" />
+      <wsdl:output message="tns:UpdateRuleParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReportsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update client automatic rule parameters for a specific plugin</wsdl:documentation>
+      <wsdl:input message="tns:GetFavoriteReportsForUserSoapIn" />
+      <wsdl:output message="tns:GetFavoriteReportsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignedInFromClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Notify certain users when a user is logged in from a client device</wsdl:documentation>
+      <wsdl:input message="tns:SignedInFromClientSoapIn" />
+      <wsdl:output message="tns:SignedInFromClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignedOutFromClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Notify the website when a user is logged out from a client device</wsdl:documentation>
+      <wsdl:input message="tns:SignedOutFromClientSoapIn" />
+      <wsdl:output message="tns:SignedOutFromClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarpetDiagramForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the data for the carpet diagram shown in the clients.</wsdl:documentation>
+      <wsdl:input message="tns:GetCarpetDiagramForUserSoapIn" />
+      <wsdl:output message="tns:GetCarpetDiagramForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the list of custom tabs shown in the user's client.</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomTabsForUserSoapIn" />
+      <wsdl:output message="tns:GetCustomTabsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentForUserTab">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the content to be displayed in the client of a user's given tab.</wsdl:documentation>
+      <wsdl:input message="tns:GetContentForUserTabSoapIn" />
+      <wsdl:output message="tns:GetContentForUserTabSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientAPISoap" type="tns:ClientAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AssignUserToTaskByGuid">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AssignUserToTaskByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyForExternalKey">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/CreateTaskDynamicallyForExternalKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyUnderPath">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/CreateTaskDynamicallyUnderPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTaskForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/CloseTaskForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/ManageMeetings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeetings">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AddManualMeetings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersReasons">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetUsersReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonsItems">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetReasonsItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersCommentsToWork">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AddUsersCommentsToWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileStayingLocationsReport">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetMobileStayingLocationsReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/CreateWorkAndAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment_v2">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/CreateWorkAndAssignment_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AssignUserToWorks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks_v2">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AssignUserToWorks_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork_v2">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateWork_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment_v2">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateAssignment_v2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreateWorkLimits">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetCreateWorkLimits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateWorkLimits">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetUpdateWorkLimits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryFields">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetMandatoryFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectAccess">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetProjectAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AddManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManualWorkItem">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/DeleteManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRequestedManualWorkItemStatus">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/SetRequestedManualWorkItemStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMeeting">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/DeleteMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/AddMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageChanges">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetMessageChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessagesAsSent">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/MarkMessagesAsSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/MarkMessageAsRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorktimeStatsForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetWorktimeStatsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportsForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetDisplayedReportsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableCompanyDictionaryAutoRules">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/DisableCompanyDictionaryAutoRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRuleParameters">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/UpdateRuleParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReportsForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetFavoriteReportsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignedInFromClient">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/SignedInFromClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignedOutFromClient">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/SignedOutFromClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarpetDiagramForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetCarpetDiagramForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabsForUser">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetCustomTabsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentForUserTab">
+      <soap:operation soapAction="http://jobctrl.com/clientApi/GetContentForUserTab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientAPISoap12" type="tns:ClientAPISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AssignUserToTaskByGuid">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AssignUserToTaskByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyForExternalKey">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/CreateTaskDynamicallyForExternalKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaskDynamicallyUnderPath">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/CreateTaskDynamicallyUnderPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTaskForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/CloseTaskForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageMeetings">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/ManageMeetings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualMeetings">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AddManualMeetings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersReasons">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetUsersReasons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonsItems">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetReasonsItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersCommentsToWork">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AddUsersCommentsToWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileStayingLocationsReport">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetMobileStayingLocationsReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/CreateWorkAndAssignment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkAndAssignment_v2">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/CreateWorkAndAssignment_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AssignUserToWorks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignUserToWorks_v2">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AssignUserToWorks_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWork_v2">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateWork_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateAssignment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment_v2">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateAssignment_v2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreateWorkLimits">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetCreateWorkLimits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateWorkLimits">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetUpdateWorkLimits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryFields">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetMandatoryFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectAccess">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetProjectAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManualWorkItem">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AddManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManualWorkItem">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/DeleteManualWorkItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRequestedManualWorkItemStatus">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/SetRequestedManualWorkItemStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMeeting">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/DeleteMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/AddMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageChanges">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetMessageChanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessagesAsSent">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/MarkMessagesAsSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageAsRead">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/MarkMessageAsRead" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorktimeStatsForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetWorktimeStatsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayedReportsForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetDisplayedReportsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableCompanyDictionaryAutoRules">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/DisableCompanyDictionaryAutoRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRuleParameters">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/UpdateRuleParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteReportsForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetFavoriteReportsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignedInFromClient">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/SignedInFromClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignedOutFromClient">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/SignedOutFromClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarpetDiagramForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetCarpetDiagramForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomTabsForUser">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetCustomTabsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentForUserTab">
+      <soap12:operation soapAction="http://jobctrl.com/clientApi/GetContentForUserTab" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientAPI">
+    <wsdl:port name="ClientAPISoap" binding="tns:ClientAPISoap">
+      <soap:address location="http://dev.jobctrl.net/API/clientApi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientAPISoap12" binding="tns:ClientAPISoap12">
+      <soap12:address location="http://dev.jobctrl.net/API/clientApi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
