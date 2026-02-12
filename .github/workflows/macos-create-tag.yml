@@ -15,27 +15,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Compute tag from csproj Version (a.b.c.d) -> a.b.c + run_number
+      - name: Compute tag
         id: ver
         shell: bash
         run: |
           set -euo pipefail
-
           CSPROJ="ActivityRecorderClient.Avalonia.Mac/ActivityRecorderClient.Avalonia.Mac.csproj"
 
-          csprojVersion="$(python3 -c 'import sys, xml.etree.ElementTree as ET
-p=sys.argv[1]
-ns={"msb":"http://schemas.microsoft.com/developer/msbuild/2003"}
-t=ET.parse(p); r=t.getroot()
-def find_text(tag):
-  el=r.find(".//"+tag)
-  if el is not None and el.text: return el.text.strip()
-  el=r.find(".//msb:"+tag, ns)
-  if el is not None and el.text: return el.text.strip()
-  return None
-v=find_text("Version")
-print(v if v else "")' "$CSPROJ")"
-
+          csprojVersion="$(python3 -c 'import sys,xml.etree.ElementTree as ET;t=ET.parse(sys.argv[1]);r=t.getroot();v=r.findtext(".//Version");print((v or "").strip())' "$CSPROJ")"
           if [[ -z "$csprojVersion" ]]; then
             echo "ERROR: <Version> not found in csproj"
             exit 1
