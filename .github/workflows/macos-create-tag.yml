@@ -23,28 +23,23 @@ jobs:
 
           CSPROJ="ActivityRecorderClient.Avalonia.Mac/ActivityRecorderClient.Avalonia.Mac.csproj"
 
-          csprojVersion="$(python3 - << 'PY'
-import xml.etree.ElementTree as ET
-p = "ActivityRecorderClient.Avalonia.Mac/ActivityRecorderClient.Avalonia.Mac.csproj"
-ns = {"msb": "http://schemas.microsoft.com/developer/msbuild/2003"}
-tree = ET.parse(p)
-root = tree.getroot()
-
+          csprojVersion="$(python3 -c 'import sys, xml.etree.ElementTree as ET
+p=sys.argv[1]
+ns={"msb":"http://schemas.microsoft.com/developer/msbuild/2003"}
+t=ET.parse(p); r=t.getroot()
 def find_text(tag):
-    el = root.find(f".//{tag}")
-    if el is not None and el.text:
-        return el.text.strip()
-    el = root.find(f".//msb:{tag}", ns)
-    if el is not None and el.text:
-        return el.text.strip()
-    return None
+  el=r.find(".//"+tag)
+  if el is not None and el.text: return el.text.strip()
+  el=r.find(".//msb:"+tag, ns)
+  if el is not None and el.text: return el.text.strip()
+  return None
+v=find_text("Version")
+print(v if v else "")' "$CSPROJ")"
 
-v = find_text("Version")
-if not v:
-    raise SystemExit("ERROR: <Version> not found in csproj")
-print(v)
-PY
-          )"
+          if [[ -z "$csprojVersion" ]]; then
+            echo "ERROR: <Version> not found in csproj"
+            exit 1
+          fi
 
           if [[ ! "$csprojVersion" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "ERROR: csproj <Version> must be a.b.c.d, got: $csprojVersion"
@@ -55,6 +50,7 @@ PY
           buildVersion="${baseVersion}.${GITHUB_RUN_NUMBER}"
           tag="macos-v${buildVersion}"
 
+          echo "Computed tag: $tag"
           echo "buildVersion=$buildVersion" >> "$GITHUB_OUTPUT"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
