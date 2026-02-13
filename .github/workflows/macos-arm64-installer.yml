@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-sign-notarize:
-    runs-on: macos-14
+    runs-on: macos-15
 
     env:
       PROJECT_DIR: ActivityRecorderClient.Avalonia.Mac
