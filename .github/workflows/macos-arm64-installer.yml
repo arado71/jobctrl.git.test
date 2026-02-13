@@ -54,7 +54,7 @@ jobs:
         run: |
           set -euo pipefail
           dotnet --version
-          dotnet workload install macos wasm-tools-net8
+          dotnet workload install macos wasm-tools
           
       - name: Import signing certificates into keychain (App + Installer)
         shell: bash
