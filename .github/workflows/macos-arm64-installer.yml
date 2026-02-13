@@ -49,17 +49,12 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
-      - name: Restore .NET workloads required for build
+      - name: Restore required .NET workloads (with .NET 8)
         shell: bash
         run: |
           set -euo pipefail
-          dotnet --info
-
-          # 1) try restore from repo config (recommended)
+          dotnet --version
           dotnet workload restore
-
-          # 2) safety net (some repos don't fully describe workloads)
-          dotnet workload install macos wasm-tools-net8
           
       - name: Import signing certificates into keychain (App + Installer)
         shell: bash
