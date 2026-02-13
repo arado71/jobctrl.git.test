@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false  # fontos: ne a GITHUB_TOKEN maradjon beállítva
 
       - name: Compute tag
         id: ver
@@ -38,17 +39,27 @@ jobs:
           tag="macos-v${buildVersion}"
 
           echo "Computed tag: $tag"
-          echo "buildVersion=$buildVersion" >> "$GITHUB_OUTPUT"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
-      - name: Create and push tag
+      - name: Create and push tag (PAT)
         shell: bash
+        env:
+          TAG_PUSH_PAT: ${{ secrets.TAG_PUSH_PAT }}
         run: |
           set -euo pipefail
+
+          if [[ -z "${TAG_PUSH_PAT:-}" ]]; then
+            echo "ERROR: TAG_PUSH_PAT secret is not set"
+            exit 1
+          fi
+
+          TAG="${{ steps.ver.outputs.tag }}"
+
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          TAG="${{ steps.ver.outputs.tag }}"
+          # Re-add origin with PAT auth
+          git remote set-url origin "https://x-access-token:${TAG_PUSH_PAT}@github.com/${GITHUB_REPOSITORY}.git"
 
           if git ls-remote --exit-code --tags origin "$TAG" >/dev/null 2>&1; then
             echo "ERROR: Tag already exists: $TAG"
