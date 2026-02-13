@@ -1,4 +1,4 @@
-name: macOS arm64 pkg (pack.sh)
+name: macOS pkg (pack.sh matrix)
 
 on:
   push:
@@ -13,10 +13,6 @@ jobs:
     runs-on: macos-15
 
     env:
-      PROJECT_DIR: ActivityRecorderClient.Avalonia.Mac
-      PACK_SCRIPT: ActivityRecorderClient.Avalonia.Mac/pack.sh
-
-      # pack.sh ezt a profilt használja:
       NOTARY_PROFILE: JC360_NOTARY
 
       # Apple notarization
@@ -67,13 +63,10 @@ jobs:
           set -euo pipefail
 
           KEYCHAIN="$RUNNER_TEMP/jc360-build.keychain"
-          echo "KEYCHAIN=$KEYCHAIN" >> "$GITHUB_ENV"
-
           security create-keychain -p "" "$KEYCHAIN"
           security unlock-keychain -p "" "$KEYCHAIN"
           security set-keychain-settings -t 3600 -u "$KEYCHAIN"
 
-          # Make it the ONLY searched keychain (prevents picking up wrong one)
           security list-keychains -d user -s "$KEYCHAIN"
           security default-keychain -d user -s "$KEYCHAIN"
 
@@ -87,14 +80,6 @@ jobs:
 
           security set-key-partition-list -S apple-tool:,apple: -s -k "" "$KEYCHAIN"
 
-          echo "Default keychain:"
-          security default-keychain -d user
-          echo "Keychains search list:"
-          security list-keychains -d user
-          echo "Identities in build keychain:"
-          security find-identity -v -p codesigning "$KEYCHAIN" || true
-          security find-identity -v -p basic "$KEYCHAIN" || true          
-
       - name: Create notarytool keychain profile (JC360_NOTARY)
         shell: bash
         run: |
@@ -104,51 +89,70 @@ jobs:
             --password "${APPLE_APP_PASSWORD}" \
             --team-id "${APPLE_TEAM_ID}"
 
-      - name: Make pack.sh executable
-        shell: bash
-        run: |
-          set -euo pipefail
-          chmod +x "${PACK_SCRIPT}"
-
-      - name: Verify Installer identity is visible to pkgbuild
-        shell: bash
-        run: |
-          set -euo pipefail
-          security find-identity -v -p basic
-          security find-certificate -c "Developer ID Installer" -a || true
-          
-      - name: Build + sign + pkg + notarize (arm64)
+      - name: Build all packages (arm64/x64 × Default/Brasil)
         shell: bash
         working-directory: ActivityRecorderClient.Avalonia.Mac
         run: |
           set -euo pipefail
-          export APP_VERSION_OVERRIDE="${{ steps.ver.outputs.buildVersion }}"
-          ./pack.sh arm64
-          
-      - name: Upload artifact (signed pkg)
-        uses: actions/upload-artifact@v4
-        with:
-          name: JC360-osx-arm64-signed-${{ steps.ver.outputs.buildVersion }}
-          path: ActivityRecorderClient.Avalonia.Mac/bin/Release/net8.0-macos/osx-arm64/publish/JC360-osx-arm64-signed.pkg
+          chmod +x ./pack.sh
 
-      - name: Publish GitHub Release asset (no zip)
+          export APP_VERSION_OVERRIDE="${{ steps.ver.outputs.buildVersion }}"
+
+          ./pack.sh arm64 Default
+          ./pack.sh arm64 Brasil
+          ./pack.sh x64 Default
+          ./pack.sh x64 Brasil
+
+      - name: Collect generated pkgs
+        id: collect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          OUTDIR="$RUNNER_TEMP/pkgs"
+          mkdir -p "$OUTDIR"
+
+          for arch in arm64 x64; do
+            for cfg in Default Brasil; do
+              pub="ActivityRecorderClient.Avalonia.Mac/bin/Release/net8.0-macos/osx-${arch}/publish"
+              file="JC360-osx-${arch}-${cfg}.pkg"
+
+              if [[ ! -f "${pub}/${file}" ]]; then
+                echo "ERROR: Missing ${pub}/${file}"
+                echo "Contents of ${pub}:"
+                ls -la "${pub}" || true
+                exit 1
+              fi
+
+              cp -f "${pub}/${file}" "$OUTDIR/"
+            done
+          done
+
+          ls -la "$OUTDIR"
+          echo "outdir=$OUTDIR" >> "$GITHUB_OUTPUT"
+
+      - name: Ensure GitHub Release exists
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ github.ref_name }}
-          FILE: ActivityRecorderClient.Avalonia.Mac/bin/Release/net8.0-macos/osx-arm64/publish/JC360-osx-arm64-signed.pkg
         run: |
           set -euo pipefail
-
-          if [[ ! -f "$FILE" ]]; then
-            echo "ERROR: File not found: $FILE"
-            exit 1
-          fi
-
-          echo "Ensuring release exists for tag: $TAG"
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" --title "$TAG" --notes "Automated build for $TAG"
           fi
 
-          echo "Uploading asset (overwrite if exists): $FILE"
-          gh release upload "$TAG" "$FILE" --clobber
+      - name: Upload all pkgs to Release assets (no zip)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          OUTDIR="${{ steps.collect.outputs.outdir }}"
+          gh release upload "$TAG" \
+            "$OUTDIR/JC360-osx-arm64-Default.pkg" \
+            "$OUTDIR/JC360-osx-arm64-Brasil.pkg" \
+            "$OUTDIR/JC360-osx-x64-Default.pkg" \
+            "$OUTDIR/JC360-osx-x64-Brasil.pkg" \
+            --clobber

@@ -4,6 +4,7 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ARG="${1:-}"
+CONFIG="${2:-Default}"
 
 if [[ -z "$ARG" ]]; then
   HOST_ARCH="$(uname -m)"
@@ -69,7 +70,7 @@ APP_VERSION="${APP_VERSION_OVERRIDE:-$(get_csproj_version "$PROJECT_ROOT/Activit
 echo "Using package version: $APP_VERSION"
 
 dotnet publish "$PROJECT_ROOT/ActivityRecorderClient.Avalonia.Mac.csproj" \
-  -c Release -r "$PLATFORM" --self-contained true /p:DefineConstants=WINDOWS%3BAppConfigDefault
+  -c Release -r "$PLATFORM" --self-contained true /p:DefineConstants=WINDOWS%3BAppConfig$CONFIG
 
 # Staging payload felépítése a PKG-hez:
 rm -rf "$PKGROOT" "$SCRIPTS_DIR"
@@ -151,7 +152,7 @@ pkgbuild \
   --sign "$DEVID_INSTALLER" \
   "$PUBLISH_DIR/JC360-$PLATFORM.pkg"
 
-productsign --sign "$DEVID_INSTALLER" "$PUBLISH_DIR/JC360-$PLATFORM.pkg" "$PUBLISH_DIR/JC360-$PLATFORM-signed.pkg"
+productsign --sign "$DEVID_INSTALLER" "$PUBLISH_DIR/JC360-$PLATFORM.pkg" "$PUBLISH_DIR/JC360-$PLATFORM-$CONFIG.pkg"
 
-xcrun notarytool submit "$PUBLISH_DIR/JC360-$PLATFORM-signed.pkg" --keychain-profile "JC360_NOTARY" --wait
-xcrun stapler staple "$PUBLISH_DIR/JC360-$PLATFORM-signed.pkg"
+xcrun notarytool submit "$PUBLISH_DIR/JC360-$PLATFORM-$CONFIG.pkg" --keychain-profile "JC360_NOTARY" --wait
+xcrun stapler staple "$PUBLISH_DIR/JC360-$PLATFORM-$CONFIG.pkg"
