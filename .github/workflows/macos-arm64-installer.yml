@@ -111,3 +111,25 @@ jobs:
         with:
           name: JC360-osx-arm64-signed-${{ steps.ver.outputs.buildVersion }}
           path: ActivityRecorderClient.Avalonia.Mac/bin/Release/net8.0-macos/osx-arm64/publish/JC360-osx-arm64-signed.pkg
+
+      - name: Publish GitHub Release asset (no zip)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+          FILE: ActivityRecorderClient.Avalonia.Mac/bin/Release/net8.0-macos/osx-arm64/publish/JC360-osx-arm64-signed.pkg
+        run: |
+          set -euo pipefail
+
+          if [[ ! -f "$FILE" ]]; then
+            echo "ERROR: File not found: $FILE"
+            exit 1
+          fi
+
+          echo "Ensuring release exists for tag: $TAG"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "$TAG" --notes "Automated build for $TAG"
+          fi
+
+          echo "Uploading asset (overwrite if exists): $FILE"
+          gh release upload "$TAG" "$FILE" --clobber
