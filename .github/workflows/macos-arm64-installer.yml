@@ -54,7 +54,7 @@ jobs:
         run: |
           set -euo pipefail
           dotnet --version
-          dotnet workload restore
+          dotnet workload install macos wasm-tools-net8
           
       - name: Import signing certificates into keychain (App + Installer)
         shell: bash
@@ -100,12 +100,12 @@ jobs:
 
       - name: Build + sign + pkg + notarize (arm64)
         shell: bash
+        working-directory: ActivityRecorderClient.Avalonia.Mac
         run: |
           set -euo pipefail
-          # pack.sh-hoz: add át a kívánt verziót (ehhez kell az APP_VERSION_OVERRIDE patch)
           export APP_VERSION_OVERRIDE="${{ steps.ver.outputs.buildVersion }}"
-          "${PACK_SCRIPT}" arm64
-
+          ./pack.sh arm64
+          
       - name: Upload artifact (signed pkg)
         uses: actions/upload-artifact@v4
         with:
